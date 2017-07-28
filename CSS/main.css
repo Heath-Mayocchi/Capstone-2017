@@ -1,0 +1,47 @@
+h1 {
+	text-align: center;
+}
+h2 {
+	text-align: center;
+}
+div { 
+	width:250px;
+	height:250px;
+	background: #19D74F; 
+	border: 3px solid black;
+	text-align: center;
+	border-radius: 25px;
+	line-height: 170px;
+	font-size: 40px;
+}
+#div1 {
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left:-260px;
+	margin-top:-260px;
+}
+
+#div2 {
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left:10px;
+	margin-top:-260px;
+}
+
+#div3 {
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left:-260px;
+	margin-top:10px;
+}
+
+#div4 {
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left:10px;
+	margin-top:10px;
+}
