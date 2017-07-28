@@ -1,47 +1,54 @@
-h1 {
+/*
+QUT Capstone Project 2017
+Project Owner: Nursery Road State Special School
+
+SNAP - Social Networking Action Platform
+
+Author: Robert Piper
+Author: Heath Mayocchi
+Author: Levinard Hugo
+Author: David MacKenzie
+*/
+
+/* 
+USER HOME PAGE
+*/
+.user_home {
+	background-color:#083045;
 	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
 }
-h2 {
-	text-align: center;
-}
-div { 
+.home_button { 
 	width:250px;
 	height:250px;
-	background: #19D74F; 
+	background: #19d74f; 
+	background-color:#19d74f;
 	border: 3px solid black;
-	text-align: center;
 	border-radius: 25px;
-	line-height: 170px;
 	font-size: 40px;
+	color: #000;
+	display: inline-block;
+	margin: 10px;
 }
-#div1 {
-	position: absolute;
-	left:50%;
-	top:50%;
-	margin-left:-260px;
-	margin-top:-260px;
+.home_button:hover {
+	background-color: #d6ef2f;
 }
-
-#div2 {
-	position: absolute;
-	left:50%;
-	top:50%;
-	margin-left:10px;
-	margin-top:-260px;
+#view_feed_text {
+   position: absolute;
+   transform: translate(70%, 35%);
 }
-
-#div3 {
-	position: absolute;
-	left:50%;
-	top:50%;
-	margin-left:-260px;
-	margin-top:10px;
+#make_post_text {
+   position: absolute;
+   transform: translate(35%, 35%);
 }
-
-#div4 {
-	position: absolute;
-	left:50%;
-	top:50%;
-	margin-left:10px;
-	margin-top:10px;
+#messages_text {
+   position: absolute;
+   transform: translate(12%, 120%);
+}
+#friends_text {
+   position: absolute;
+   transform: translate(25%, 120%);
 }
