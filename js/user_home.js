@@ -36,7 +36,7 @@ Author: David MacKenzie
 			}
 		}
 	}
-} */	
+} */
 
 function postBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
@@ -49,19 +49,22 @@ function msgBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;
 	if (keyPress == 39){ // if key pressed is the right arrow
-	document.getElementById("messages_btn").focus();}
+	document.getElementById("messages_btn").focus();
+	}
 }
 function friendBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;
 	if (keyPress == 39){ // if key pressed is the right arrow
-	document.getElementById("friends_btn").focus();}
+	document.getElementById("friends_btn").focus();
+	}
 }
 function feedBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;
 	if (keyPress == 39){ // if key pressed is the right arrow
-	document.getElementById("view_feed_btn").focus();}
+	document.getElementById("view_feed_btn").focus();
+	}
 }
 function logoutBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.

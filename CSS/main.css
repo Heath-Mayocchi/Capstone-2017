@@ -21,6 +21,7 @@ USER HOME PAGE
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1100px;
+	min-width: 800px;
 }
 .button { 
 	background: #19d74f; 
@@ -50,6 +51,18 @@ USER HOME PAGE
 }
 .button:focus {
 	background-color: #d6ef2f;	
+}
+#user_profile {
+	float: right;
+	margin-right: 10px;
+	margin-left: -100px;
+}
+#user_profile p {
+	margin-top: -3px;
+}
+#user_profile img {
+	width: 80px;
+	height: 80px;
 }
 #view_feed_text {
    position: absolute;
