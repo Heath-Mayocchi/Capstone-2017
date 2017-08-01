@@ -29,14 +29,14 @@ USER HOME PAGE
 	border: 3px solid black;
 	color: #000;
 	display: inline-block;
-	margin: 10px;
     cursor: pointer;
 }
 .btnsquare {
-	width:250px;
-	height:250px;
+	width:200px;
+	height:200px;
 	border-radius: 25px;
-	font-size: 40px;	
+	font-size: 30px;
+	margin: 32px;	
 }
 .btncircle{
 	width: 100px;
@@ -44,6 +44,7 @@ USER HOME PAGE
 	border-radius: 50px;
 	font-size: 20px;
 	float: left;
+	margin: 10px;
 	margin-right: -100px;
 }
 .button:hover {
