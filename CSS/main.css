@@ -14,7 +14,7 @@ Author: David MacKenzie
 USER HOME PAGE
 */
 .user_home_wrapper {
-	background-color:#083045;
+	background-color:#000;
 	text-align: center;
 	font-size: 20px;
 	color: #fff;
@@ -24,19 +24,18 @@ USER HOME PAGE
 	min-width: 800px;
 }
 .button { 
-	background: #19d74f; 
-	background-color:#19d74f;
+	background: #00ff00; 
 	border: 3px solid black;
 	color: #000;
 	display: inline-block;
     cursor: pointer;
 }
 .btnsquare {
-	width:200px;
-	height:200px;
+	width:200px; /* 250 */
+	height:200px; /* 250 */
 	border-radius: 25px;
-	font-size: 30px;
-	margin: 32px;	
+	font-size: 30px; /* 40 */
+	margin: 32px; /* 10 */
 }
 .btncircle{
 	width: 100px;
@@ -48,10 +47,12 @@ USER HOME PAGE
 	margin-right: -100px;
 }
 .button:hover {
-	background-color: #d6ef2f;
+	/* background-color: #d6ef2f; */
 }
 .button:focus {
-	background-color: #d6ef2f;	
+	background-color: #000;
+	border: 6px solid #00ff00;
+	color: #fff;
 }
 #user_profile {
 	float: right;
