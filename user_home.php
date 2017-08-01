@@ -15,7 +15,7 @@ Author: David MacKenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<script src="js/user_home.js"></script>
 	<title>SNAP HOME</title>
 </head>
