@@ -31,11 +31,11 @@ USER HOME PAGE
     cursor: pointer;
 }
 .btnsquare {
-	width:200px; /* 250 */
-	height:200px; /* 250 */
+	width:200px;
+	height:200px;
 	border-radius: 25px;
-	font-size: 30px; /* 40 */
-	margin: 32px; /* 10 */
+	font-size: 30px;
+	margin: 32px;
 }
 .btncircle{
 	width: 100px;
@@ -45,9 +45,6 @@ USER HOME PAGE
 	float: left;
 	margin: 10px;
 	margin-right: -100px;
-}
-.button:hover {
-	/* background-color: #d6ef2f; */
 }
 .button:focus {
 	background-color: #000;
