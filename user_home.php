@@ -36,9 +36,9 @@ Author: David MacKenzie
 	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';"><div id ="friends_text">FRIENDS</div></button>
 	</section>
 	<footer>
-	<button class="previous_btn"><img src="img/previous.png" alt="Previous"></img></button>
-	<button class="next_btn" autofocus onfocus="nextfocus()"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
-	<button class="button select_btn">Select</button>
+	<button class="previous_btn" onkeypress="userHomeBtnFocusBack(event)"><img src="img/previous.png" alt="Previous"></img></button>
+	<button class="next_btn" autofocus onfocus="nextfocus()" onkeypress="userHomeBtnFocusFwd(event)"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
+	<button class="button select_btn" onkeypress="userHomeBtnActivate(event)">Select</button>
 	</footer>
 	</body>
 </html>

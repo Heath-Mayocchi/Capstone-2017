@@ -12,31 +12,33 @@ Author: David MacKenzie
 
 /* User homepage focus functions */
 
-// This would be better code, but it needs fixing...
-/* function homeBtnFocus(event){
+
+function userHomeBtnFocusFwd(event) {	
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;
-	if (keyPress == 39){ // if key pressed is the right arrow
-		var homeElements = document.getElementsByClassName("button");
-		for (var i = 0; i < homeElements.length; i++){
-			var thisElement = homeElements[i];
-			switch (thisElement.id){
-				case "view_feed_btn":				
-					document.getElementById("create_post_btn").focus();
-					break;
-				case "create_post_btn":				
-					document.getElementById("messages_btn").focus();
-					break;
-				case "messages_btn":				
-					document.getElementById("friends_btn").focus();
-					break;
-				case "friends_btn":				
-					document.getElementById("view_feed_btn").focus();
-					break;
-			}
-		}
+	// if key pressed is the right arrow, change focus to next button
+	if (keyPress == 39){ 
+		
 	}
-} */
+}
+
+function userHomeBtnActivate(event) {
+	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
+	var keyPress = event.which || event.keyCode;
+	// if key pressed is the up arrow, activate focused button
+	if (keyPress == 38){ 
+		
+	}	
+}
+
+function userHomeBtnFocusBack(event) {
+	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.	
+	var keyPress = event.which || event.keyCode;
+	// if key pressed is the right arrow, change focus to previous button
+	if (keyPress == 39){ 
+		
+	}
+}
 
 function nextfocus() {
 	var nextfocused = document.getElementsByClassName{"next_btn_img"};									
@@ -45,7 +47,7 @@ function nextfocus() {
 	// nextfocused.innerHTML = "<img src="img/next_selected.png" alt="Next"></img>";
 }
 
-function postBtnFocus(event){
+/* function postBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;
 	if (keyPress == 39){ // if key pressed is the right arrow
@@ -78,4 +80,4 @@ function logoutBtnFocus(event){
 	var keyPress = event.which || event.keyCode;
 	if (keyPress == 39){ // if key pressed is the right arrow
 	document.getElementById("logout_btn").focus();}
-}
+} */
