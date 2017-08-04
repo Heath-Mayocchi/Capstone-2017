@@ -38,6 +38,13 @@ Author: David MacKenzie
 	}
 } */
 
+function nextfocus() {
+	var nextfocused = document.getElementsByClassName{"next_btn_img"};									
+	nextfocused.src = "img/next_selected.png";
+	// var nextfocused = document.getElementsByClassName{"next_btn"};
+	// nextfocused.innerHTML = "<img src="img/next_selected.png" alt="Next"></img>";
+}
+
 function postBtnFocus(event){
 	//cross-browser solution, keyCode property does not work with onkeypress event in Firefox.
 	var keyPress = event.which || event.keyCode;

@@ -24,10 +24,9 @@ USER HOME PAGE
 	min-width: 800px;
 }
 .button { 
-	background: #00ff00; 
+	background: #00ff00;
 	border: 3px solid black;
 	color: #000;
-	display: inline-block;
     cursor: pointer;
 }
 .btnsquare {
@@ -50,6 +49,28 @@ USER HOME PAGE
 	background-color: #000;
 	border: 6px solid #00ff00;
 	color: #fff;
+}
+.previous_btn {
+	background-color: transparent;
+	border: none;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.next_btn {
+	background-color: transparent;
+	border: none;
+	float: center;
+	margin-top: 10px;
+}
+.select_btn {
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 25px;
 }
 #user_profile {
 	float: right;
