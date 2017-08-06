@@ -17,32 +17,7 @@ Author: David MacKenzie
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<script src="js/user_home.js"></script>
-	<script src="js/shortcut.js" type="text/javascript"></script>
 	<title>SNAP HOME</title>
-	<script type="text/javascript">
-	function init() 
-	{
-		var homeElements = document.getElementsByClassName("button");
-		var currentElement = 6;
-
-		shortcut.add("right", function() 
-		{
-			if(currentElement==homeElements.length-1)
-			{
-				currentElement = 0;
-			}else
-			{
-				currentElement++;
-			}
-			homeElements[currentElement].focus();
-
-		});
-		shortcut.add("enter", function() {
-			alert(document.activeElement.id);
-		});
-	}
-	window.onload=init;
-	</script>	
 </head>
 <body class="user_home_wrapper">
 	<header>
@@ -61,9 +36,9 @@ Author: David MacKenzie
 	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';"><div id ="friends_text">FRIENDS</div></button>
 	</section>
 	<footer >
-	<button class="button previous_btn" id="previous_btn"><img src="img/previous.png" alt="Previous"></img></button>
-	<button class="button next_btn" id="next_btn" autofocus onfocus="nextfocus()"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
-	<button class="button select_btn" id="select_btn">Select</button>
+	<button class="button previous_btn" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img src="img/previous.png" alt="Previous"></img></button>
+	<button class="button next_btn" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
+	<button class="button select_btn" id="select_btn" onkeydown="userHomeBtnActivate(event)">Select</button>
 	</footer>
 	</body>
 </html>
