@@ -150,7 +150,7 @@ function userHomeBtnPrevious(event) {
 function feedFocused(){
 	// focus feed
 	document.getElementById("view_feed_btn").style.backgroundColor = "#000";
-	document.getElementById("view_feed_btn").style.border = "6px solid #00ff00";
+	document.getElementById("view_feed_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("view_feed_btn").style.color = "#fff";	
 }
 function feedUnFocused(){
@@ -163,7 +163,7 @@ function feedUnFocused(){
 function postFocused(){	
 	// focus post
 	document.getElementById("create_post_btn").style.backgroundColor = "#000";
-	document.getElementById("create_post_btn").style.border = "6px solid #00ff00";
+	document.getElementById("create_post_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("create_post_btn").style.color = "#fff";
 }
 function postUnFocus(){
@@ -176,7 +176,7 @@ function postUnFocus(){
 function messageFocused(){	
 	// focus message
 	document.getElementById("messages_btn").style.backgroundColor = "#000";
-	document.getElementById("messages_btn").style.border = "6px solid #00ff00";
+	document.getElementById("messages_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("messages_btn").style.color = "#fff";
 }
 function messageUnFocused(){
@@ -189,7 +189,7 @@ function messageUnFocused(){
 function friendsFocused(){	
 	// focus friends
 	document.getElementById("friends_btn").style.backgroundColor = "#000";
-	document.getElementById("friends_btn").style.border = "6px solid #00ff00";
+	document.getElementById("friends_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("friends_btn").style.color = "#fff";
 }
 function friendsUnFocused(){
@@ -202,7 +202,7 @@ function friendsUnFocused(){
 function logoutFocused(){	
 	// focus logout
 	document.getElementById("logout_btn").style.backgroundColor = "#000";
-	document.getElementById("logout_btn").style.border = "6px solid #00ff00";
+	document.getElementById("logout_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("logout_btn").style.color = "#fff";
 }
 function logoutUnFocused(){
