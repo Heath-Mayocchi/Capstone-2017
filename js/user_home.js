@@ -14,16 +14,40 @@ Author: David MacKenzie
 
 function init() 
 {
+	// load page with feed button focused
 	feedFocused();
 }
 window.onload=init;
-
+/* 
+global variable to keep track of main button focus 
+0 = feed
+1 = post
+2 = message
+3 = friends
+4 = logout
+*/
 var buttonCount = 0;
 
+
+function nextButtonFocused(){
+	document.getElementById("next_img").src = "img/next_selected.png";
+}
+function nextButtonNotFocused(){
+	document.getElementById("next_img").src = "img/next.png";	
+}
+function previousButtonFocused(){
+	document.getElementById("prev_img").src = "img/previous_selected.png";
+}
+function previousButtonNotFocused(){
+	document.getElementById("prev_img").src = "img/previous.png";	
+}
+
+// function for next button key presses
 function userHomeBtnNext(event) {	
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
 	if (key == 39){
+		nextButtonNotFocused();
 		document.getElementById("select_btn").focus();
 	}
 	// if key pressed is the up arrow, change focus to next main button
@@ -56,10 +80,12 @@ function userHomeBtnNext(event) {
 	}
 }
 
+// function for select button key presses
 function userHomeBtnActivate(event) {
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
 	if (key == 39){ 
+		previousButtonFocused();
 		document.getElementById("previous_btn").focus();		
 	}
 	// if key pressed is the up arrow, activate focused main button
@@ -82,10 +108,13 @@ function userHomeBtnActivate(event) {
 	}	
 }
 
+// function for previous button key presses
 function userHomeBtnPrevious(event) {
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
-	if (key == 39){ 		
+	if (key == 39){ 	
+		previousButtonNotFocused();
+		nextButtonFocused();
 		document.getElementById("next_btn").focus();
 	}
 	// if key pressed is the up arrow, change focus to previous main button
