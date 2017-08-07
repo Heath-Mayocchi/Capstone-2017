@@ -15,11 +15,12 @@ Author: David MacKenzie
 function init() 
 {
 	// load page with feed button focused
-	feedFocused();
+	feedButtonFocused();
 }
 window.onload=init;
+
 /* 
-global variable to keep track of main button focus 
+global variable to keep track of main button focus
 0 = feed
 1 = post
 2 = message
@@ -27,20 +28,6 @@ global variable to keep track of main button focus
 4 = logout
 */
 var buttonCount = 0;
-
-
-function nextButtonFocused(){
-	document.getElementById("next_img").src = "img/next_selected.png";
-}
-function nextButtonNotFocused(){
-	document.getElementById("next_img").src = "img/next.png";	
-}
-function previousButtonFocused(){
-	document.getElementById("prev_img").src = "img/previous_selected.png";
-}
-function previousButtonNotFocused(){
-	document.getElementById("prev_img").src = "img/previous.png";	
-}
 
 // function for next button key presses
 function userHomeBtnNext(event) {	
@@ -52,29 +39,29 @@ function userHomeBtnNext(event) {
 	}
 	// if key pressed is the up arrow, change focus to next main button
 	if (key == 38){
-		if (buttonCount == 0){
-			postFocused();
-			feedUnFocused();
+		if (buttonCount == 0){// feed button
+			postButtonFocused();
+			feedButtonUnFocused();
 			buttonCount++;
 		}
-		else if (buttonCount == 1){
-			messageFocused();
-			postUnFocus();
+		else if (buttonCount == 1){// post button
+			messageButtonFocused();
+			postButtonUnFocus();
 			buttonCount++;
 		}
-		else if (buttonCount == 2){
-			friendsFocused();
-			messageUnFocused();
+		else if (buttonCount == 2){// message button
+			friendsButtonFocused();
+			messageButtonUnFocused();
 			buttonCount++;
 		}
-		else if (buttonCount == 3){
-			logoutFocused();
-			friendsUnFocused();
+		else if (buttonCount == 3){// friends button
+			logoutButtonFocused();
+			friendsButtonUnFocused();
 			buttonCount++;
 		}
-		else if (buttonCount == 4){
-			feedFocused();
-			logoutUnFocused();
+		else if (buttonCount == 4){// logout button
+			feedButtonFocused();
+			logoutButtonUnFocused();
 			buttonCount = 0;
 		}
 	}
@@ -90,19 +77,19 @@ function userHomeBtnActivate(event) {
 	}
 	// if key pressed is the up arrow, activate focused main button
 	if (key == 38){ 
-		if (buttonCount == 0){
+		if (buttonCount == 0){// feed button
 			window.location.assign("view_feed.php")			
 		}
-		else if (buttonCount == 1){
+		else if (buttonCount == 1){// post button
 			window.location.assign("post.php")
 		}
-		else if (buttonCount == 2){
+		else if (buttonCount == 2){// message button
 			window.location.assign("message.php")
 		}
-		else if (buttonCount == 3){
+		else if (buttonCount == 3){// friends button
 			window.location.assign("friends.php")
 		}
-		else if (buttonCount == 4){
+		else if (buttonCount == 4){// logout button
 			window.location.assign("#")
 		}		
 	}	
@@ -119,94 +106,99 @@ function userHomeBtnPrevious(event) {
 	}
 	// if key pressed is the up arrow, change focus to previous main button
 	if (key == 38){
-		if (buttonCount == 0){
-			logoutFocused();
-			feedUnFocused();
+		if (buttonCount == 0){// feed button
+			logoutButtonFocused();
+			feedButtonUnFocused();
 			buttonCount = 4;
 		}
-		else if (buttonCount == 1){
-			postUnFocus();
-			feedFocused();
+		else if (buttonCount == 1){// post button
+			postButtonUnFocus();
+			feedButtonFocused();
 			buttonCount--;
 		}
-		else if (buttonCount == 2){
-			messageUnFocused();
-			postFocused();
+		else if (buttonCount == 2){// message button
+			messageButtonUnFocused();
+			postButtonFocused();
 			buttonCount--;
 		}
-		else if (buttonCount == 3){
-			friendsUnFocused();
-			messageFocused();
+		else if (buttonCount == 3){// friends button
+			friendsButtonUnFocused();
+			messageButtonFocused();
 			buttonCount--;
 		}
-		else if (buttonCount == 4){
-			logoutUnFocused();
-			friendsFocused();
+		else if (buttonCount == 4){// logout button
+			logoutButtonUnFocused();
+			friendsButtonFocused();
 			buttonCount--;
 		}		
 	}
 }
 
-function feedFocused(){
-	// focus feed
+// functions to change footer button focus images
+function nextButtonFocused(){
+	document.getElementById("next_img").src = "img/next_selected.png";
+}
+function nextButtonNotFocused(){
+	document.getElementById("next_img").src = "img/next.png";	
+}
+function previousButtonFocused(){
+	document.getElementById("prev_img").src = "img/previous_selected.png";
+}
+function previousButtonNotFocused(){
+	document.getElementById("prev_img").src = "img/previous.png";	
+}
+
+// functions to change main button focus elements
+function feedButtonFocused(){
 	document.getElementById("view_feed_btn").style.backgroundColor = "#000";
 	document.getElementById("view_feed_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("view_feed_btn").style.color = "#fff";	
 }
-function feedUnFocused(){
-	// unfocus feed
+function feedButtonUnFocused(){
 	document.getElementById("view_feed_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("view_feed_btn").style.border = "3px solid #000";
 	document.getElementById("view_feed_btn").style.color = "#000";	
 }
 
-function postFocused(){	
-	// focus post
+function postButtonFocused(){
 	document.getElementById("create_post_btn").style.backgroundColor = "#000";
 	document.getElementById("create_post_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("create_post_btn").style.color = "#fff";
 }
-function postUnFocus(){
-	// unfocus post
+function postButtonUnFocus(){
 	document.getElementById("create_post_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("create_post_btn").style.border = "3px solid #000";
 	document.getElementById("create_post_btn").style.color = "#000";	
 }
 
-function messageFocused(){	
-	// focus message
+function messageButtonFocused(){
 	document.getElementById("messages_btn").style.backgroundColor = "#000";
 	document.getElementById("messages_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("messages_btn").style.color = "#fff";
 }
-function messageUnFocused(){
-	// unfocus message
+function messageButtonUnFocused(){
 	document.getElementById("messages_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("messages_btn").style.border = "3px solid #000";
 	document.getElementById("messages_btn").style.color = "#000";
 }
 
-function friendsFocused(){	
-	// focus friends
+function friendsButtonFocused(){	
 	document.getElementById("friends_btn").style.backgroundColor = "#000";
 	document.getElementById("friends_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("friends_btn").style.color = "#fff";
 }
-function friendsUnFocused(){
-	// unfocus friends
+function friendsButtonUnFocused(){
 	document.getElementById("friends_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("friends_btn").style.border = "3px solid #000";
 	document.getElementById("friends_btn").style.color = "#000";	
 }
 
-function logoutFocused(){	
-	// focus logout
+function logoutButtonFocused(){	
 	document.getElementById("logout_btn").style.backgroundColor = "#000";
 	document.getElementById("logout_btn").style.border = "6px dashed #00ff00";
 	document.getElementById("logout_btn").style.color = "#fff";
 }
-function logoutUnFocused(){
-	// unfocus logout
+function logoutButtonUnFocused(){
 	document.getElementById("logout_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("logout_btn").style.border = "3px solid #000";
 	document.getElementById("logout_btn").style.color = "#000";	

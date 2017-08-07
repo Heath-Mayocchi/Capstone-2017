@@ -50,20 +50,20 @@ USER HOME PAGE
 	border: 6px solid #00ff00;
 	color: #fff;
 }
-.previous_btn {
+#previous_btn {
 	background-color: transparent;
 	border: none;
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
 }
-.next_btn {
+#next_btn {
 	background-color: transparent;
 	border: none;
 	float: center;
 	margin-top: 10px;
 }
-.select_btn {
+#select_btn {
 	height: 45px;
 	width: 125px;
 	font-size: 20px;
