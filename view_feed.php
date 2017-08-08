@@ -15,22 +15,21 @@ Author: David MacKenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/user_home.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
-	<script src="js/user_home.js"></script>
-	<script src="js/shortcut.js" type="text/javascript"></script>
 	<script src="js/view_feed.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 	<title>VIEW FEED</title>
 </head>
-<body class="user_home_wrapper">
+<body class="wrapper">
 	<header>
-	<button class="button btncircle" id="logout_btn" onkeypress="feedBtnFocus(event)">LOGOUT</button>
+	<button class="imageButton" id="back_btn" onclick="backBtn()"><img id="backBtn_img" src="img/back.png" alt="Back"></img></button>
 	<div id="user_profile">
 	<img src="img/profile-placeholder.png" alt="User profile image"></img>
 	<p>User Name</p>
 	</div>
 	<h1>SNAP</h1>
-	<h2>Social Networking Action Platform</h2>
+	<h2>FEED</h2>
 	</header>
 	<section>
 	<div id="post_view">
@@ -56,11 +55,11 @@ Author: David MacKenzie
 
 	</div>
 	
-</section>
+	</section>
 	<footer >
-	<button class="button previous_btn" id="previous_btn" onclick="plusDivs(-1)"><img src="img/previous.png" alt="Previous"></img></button>
-	<button class="button next_btn" id="next_btn" autofocus onfocus="nextfocus()" onclick="plusDivs(1)"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
-	<button class="button select_btn" id="select_btn">Select</button>
+	<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="plusDivs(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
+	<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="plusDivs(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+	<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">React</button>
 	</footer>
 	</body>
 </html>

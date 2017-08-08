@@ -66,3 +66,13 @@ section
 	text-align: left;	
 }
 
+#react_btn {
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 25px;
+}
+

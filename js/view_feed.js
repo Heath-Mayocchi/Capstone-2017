@@ -16,3 +16,46 @@ function showDivs(n) {
     x[slideIndex-1].style.display = "block";
 
 }
+
+// function for next button key presses
+function feedBtnNext(event) {	
+    var key = event.keyCode;
+	// if key pressed is the right arrow, change focus to 'react' footer button
+	if (key == 39){
+		document.getElementById("next_img").src = "img/next.png";
+		document.getElementById("react_btn").focus();
+	}
+	// if key pressed is the up arrow, view next post
+	if (key == 38){
+		plusDivs(-1);
+	}
+}
+
+// function for react button key presses
+function feedBtnReact(event) {
+    var key = event.keyCode;
+	// if key pressed is the right arrow, change focus to 'previous' footer button
+	if (key == 39){ 
+		document.getElementById("prev_img").src = "img/previous_selected.png";
+		document.getElementById("previous_btn").focus();		
+	}
+	// if key pressed is the up arrow, display react buttons
+	if (key == 38){ 
+		// TODO
+	}	
+}
+
+// function for previous button key presses
+function feedBtnPrevious(event) {
+    var key = event.keyCode;
+	// if key pressed is the right arrow, change focus to 'next' footer button
+	if (key == 39){ 	
+		document.getElementById("prev_img").src = "img/previous.png";
+		document.getElementById("next_img").src = "img/next_selected.png";
+		document.getElementById("next_btn").focus();
+	}
+	// if key pressed is the up arrow, view previous post
+	if (key == 38){
+		plusDivs(1);	
+	}
+}

@@ -25,16 +25,16 @@ global variable to keep track of main button focus
 1 = post
 2 = message
 3 = friends
-4 = logout
 */
 var buttonCount = 0;
+
 
 // function for next button key presses
 function userHomeBtnNext(event) {	
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
 	if (key == 39){
-		nextButtonNotFocused();
+		document.getElementById("next_img").src = "img/next.png";
 		document.getElementById("select_btn").focus();
 	}
 	// if key pressed is the up arrow, change focus to next main button
@@ -55,24 +55,19 @@ function userHomeBtnNext(event) {
 			buttonCount++;
 		}
 		else if (buttonCount == 3){// friends button
-			logoutButtonFocused();
-			friendsButtonUnFocused();
-			buttonCount++;
-		}
-		else if (buttonCount == 4){// logout button
 			feedButtonFocused();
-			logoutButtonUnFocused();
+			friendsButtonUnFocused();
 			buttonCount = 0;
 		}
 	}
 }
 
 // function for select button key presses
-function userHomeBtnActivate(event) {
+function userHomeBtnSelect(event) {
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
 	if (key == 39){ 
-		previousButtonFocused();
+		document.getElementById("prev_img").src = "img/previous_selected.png";
 		document.getElementById("previous_btn").focus();		
 	}
 	// if key pressed is the up arrow, activate focused main button
@@ -88,9 +83,6 @@ function userHomeBtnActivate(event) {
 		}
 		else if (buttonCount == 3){// friends button
 			window.location.assign("friends.php")
-		}
-		else if (buttonCount == 4){// logout button
-			window.location.assign("#")
 		}		
 	}	
 }
@@ -100,16 +92,16 @@ function userHomeBtnPrevious(event) {
     var key = event.keyCode;
 	// if key pressed is the right arrow, change focus to next footer button
 	if (key == 39){ 	
-		previousButtonNotFocused();
-		nextButtonFocused();
+		document.getElementById("prev_img").src = "img/previous.png";
+		document.getElementById("next_img").src = "img/next_selected.png";
 		document.getElementById("next_btn").focus();
 	}
 	// if key pressed is the up arrow, change focus to previous main button
 	if (key == 38){
 		if (buttonCount == 0){// feed button
-			logoutButtonFocused();
+			friendsButtonFocused();
 			feedButtonUnFocused();
-			buttonCount = 4;
+			buttonCount = 3;
 		}
 		else if (buttonCount == 1){// post button
 			postButtonUnFocus();
@@ -125,27 +117,8 @@ function userHomeBtnPrevious(event) {
 			friendsButtonUnFocused();
 			messageButtonFocused();
 			buttonCount--;
-		}
-		else if (buttonCount == 4){// logout button
-			logoutButtonUnFocused();
-			friendsButtonFocused();
-			buttonCount--;
 		}		
 	}
-}
-
-// functions to change footer button focus images
-function nextButtonFocused(){
-	document.getElementById("next_img").src = "img/next_selected.png";
-}
-function nextButtonNotFocused(){
-	document.getElementById("next_img").src = "img/next.png";	
-}
-function previousButtonFocused(){
-	document.getElementById("prev_img").src = "img/previous_selected.png";
-}
-function previousButtonNotFocused(){
-	document.getElementById("prev_img").src = "img/previous.png";	
 }
 
 // functions to change main button focus elements
@@ -191,15 +164,4 @@ function friendsButtonUnFocused(){
 	document.getElementById("friends_btn").style.backgroundColor = "#00ff00";
 	document.getElementById("friends_btn").style.border = "3px solid #000";
 	document.getElementById("friends_btn").style.color = "#000";	
-}
-
-function logoutButtonFocused(){	
-	document.getElementById("logout_btn").style.backgroundColor = "#000";
-	document.getElementById("logout_btn").style.border = "6px dashed #00ff00";
-	document.getElementById("logout_btn").style.color = "#fff";
-}
-function logoutButtonUnFocused(){
-	document.getElementById("logout_btn").style.backgroundColor = "#00ff00";
-	document.getElementById("logout_btn").style.border = "3px solid #000";
-	document.getElementById("logout_btn").style.color = "#000";	
 }
