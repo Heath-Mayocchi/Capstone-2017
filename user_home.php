@@ -30,15 +30,15 @@ Author: David MacKenzie
 	<h2>Social Networking Action Platform</h2>
 	</header>
 	<section>
-	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='#';"><div id="view_feed_text">VIEW<br>FEED</div></button>
+	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';"><div id="view_feed_text">VIEW<br>FEED</div></button>
 	<button class="button btnsquare" id="create_post_btn" onclick="location.href='#';"><div id ="make_post_text">CREATE<br>POST</div></button>
 	<button class="button btnsquare" id="messages_btn" onclick="location.href='#';"><div id ="messages_text">MESSAGES</div></button>
 	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';"><div id ="friends_text">FRIENDS</div></button>
 	</section>
-	<footer>
-	<button class="previous_btn" onkeypress="userHomeBtnFocusBack(event)"><img src="img/previous.png" alt="Previous"></img></button>
-	<button class="next_btn" autofocus onfocus="nextfocus()" onkeypress="userHomeBtnFocusFwd(event)"><img class="next_btn_img" src="img/next.png" alt="Next"></img></button>
-	<button class="button select_btn" onkeypress="userHomeBtnActivate(event)">Select</button>
+	<footer >
+	<button id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
+	<button id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+	<button class="button" id="select_btn" onkeydown="userHomeBtnActivate(event)">Select</button>
 	</footer>
 	</body>
 </html>
