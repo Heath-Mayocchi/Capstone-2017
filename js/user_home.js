@@ -7,7 +7,7 @@ SNAP - Social Networking Action Platform
 Author: Robert Piper
 Author: Heath Mayocchi
 Author: Levinard Hugo
-Author: David MacKenzie
+Author: David Mackenzie
 */
 
 /* User homepage focus functions */
