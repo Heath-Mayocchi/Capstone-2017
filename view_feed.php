@@ -56,6 +56,13 @@ Author: David MacKenzie
 	</div>
 	
 	</section>
+	<article>
+	<button class="button emoji" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+	<button class="button emoji" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+	<button class="button emoji" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+	<button class="button emoji" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+	<button class="button emoji" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+	</article>
 	<footer >
 	<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="plusDivs(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
 	<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="plusDivs(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
