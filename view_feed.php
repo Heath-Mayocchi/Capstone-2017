@@ -46,12 +46,35 @@ Author: David MacKenzie
 			</div>
 		</div>
 		
-		<div id="comment_view">
-			<h2>Comments</h2>
-			<p>Uh Oh.</p>
-			<p>These aren't part of the parent post.</p>
-			<p>Time for a re-jig.</p>
+	<div id="comment_view">
+		<div class="comment">
+			<span class="comment_body">Uh Oh.</p>
+			<span class="bottom_right">James Posted at 11:45 am</p>
 		</div>
+		<div class="comment">
+			<span class="comment_body">These aren't part of the parent postThese aren't part of the parent post.</p>
+			<span class="bottom_right">John Posted at 11:15 am</p>
+		</div>
+		<div class="comment">
+			<span class="comment_body">Time for a re-jig.</p>
+			<span class="bottom_right">Andrew Posted at 11:00 am</p>
+		</div>
+				<div class="comment">
+			<span class="comment_body">Time for a re-jig.</p>
+			<span class="bottom_right">James Posted at 11:45 am</p>
+		</div>
+				<div class="comment">
+			<span class="comment_body">Time for a re-jig.</p>
+			<span class="bottom_right">James Posted at 11:45 am</p>
+		</div>		<div class="comment">
+			<span class="comment_body">Time for a re-jig.</p>
+			<span class="bottom_right">James Posted at 11:45 am</p>
+		</div>
+				<div class="comment">
+			<span class="comment_body">Time for a re-jig.</p>
+			<span class="bottom_right">James Posted at 11:45 am</p>
+		</div>
+	</div>
 	</section>
 
 	<article>
