@@ -59,3 +59,46 @@ function feedBtnPrevious(event) {
 		plusDivs(1);	
 	}
 }
+
+
+
+
+/*	Latest comment js below 
+
+	-Levi	
+*/
+
+var forward = document.querySelector("#next_btn");
+var backward = document.querySelector("#previous_btn");
+var items = document.getElementsByClassName("latestCommentBar");
+var length = items.length;
+var commentSlider = 1;
+
+
+showComment(commentSlider);
+
+forward.addEventListener("click", function() {
+	plusComment(1);
+});
+
+backward.addEventListener("click", function() {
+	plusComment(-1);
+});
+
+
+function plusComment(n) {
+	showComment(commentSlider += n);
+}
+
+function showComment(n) {
+	if (n > length) {
+		commentSlider = 1;
+	} else if (n < 1) {
+		commentSlider = length;
+	}
+
+	for (var i = 0; i < length; i++) {
+	items[i].style.display = "none";
+	}
+	items[commentSlider - 1].style.display = "block";
+}
