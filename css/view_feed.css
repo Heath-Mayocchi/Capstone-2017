@@ -13,6 +13,49 @@ Author: David Mackenzie
 /* 
 USER HOME PAGE
 */
+figure {
+  display: table;
+}
+figcaption {
+  display: table-caption;
+  caption-side: top;
+  margin-left: -15px;
+}
+table {
+	margin-left: 40px;
+	margin-top: -20px;
+}
+th {
+	padding: 0px;
+}
+footer {
+	margin-top: 150px;
+}
+.emoji {
+	width: 80px;
+	height: 80px;
+	background-color: transparent;
+	border: 6px solid #00ff00;
+	margin-left: -30px;
+	margin-right: -30px;
+	padding-right: 5px;
+}
+.emoji_img {
+	width: 50px;
+	height: 50px;
+}
+#emojis {
+	float: left;
+	margin-top: 10px;
+}
+#cancel_btn {	
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
 
 section
 {
