@@ -123,36 +123,36 @@ Author: David MacKenzie
 	</div>
 
 	<article>
-	<div id="emojis">
+	<div id="emoji_selection">
 	<table>
 	<tr>
 	<th>
 	<figure>
-	<button class="button emoji" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+	<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
 	<figcaption>Like</figcaption>
 	</figure>
 	</th>
 	<th>
 	<figure>
-	<button class="button emoji" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+	<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
 	<figcaption>Love</figcaption>
 	</figure>
 	</th>
 	<th>
 	<figure>
-	<button class="button emoji" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+	<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
 	<figcaption>Laugh</figcaption>
 	</figure>
 	</th>
 	<th>
 	<figure>
-	<button class="button emoji" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+	<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
 	<figcaption>Wow</figcaption>
 	</figure>
 	</th>
 	<th>
 	<figure>
-	<button class="button emoji" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+	<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
 	<figcaption>Sad</figcaption>
 	</figure>
 	</th>
