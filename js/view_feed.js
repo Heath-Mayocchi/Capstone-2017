@@ -28,6 +28,7 @@ function feedBtnNext(event) {
 	// if key pressed is the up arrow, view next post
 	if (key == 38){
 		plusDivs(-1);
+		plusComment(-1);
 	}
 }
 
@@ -56,7 +57,8 @@ function feedBtnPrevious(event) {
 	}
 	// if key pressed is the up arrow, view previous post
 	if (key == 38){
-		plusDivs(1);	
+		plusDivs(1);
+		plusComment(1);	
 	}
 }
 
