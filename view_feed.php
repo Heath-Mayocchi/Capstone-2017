@@ -34,15 +34,39 @@ Author: David MacKenzie
 		<div id="post_view">
 			<div class="post">
 				<img src="img/tank.jpg">
-				<p>I love me some tanks, yo!</p>
+				<div class="userPost">
+					<img src="img/profile1.jpg" class="userPic">
+					<div class="userComment">
+						I love me some tanks, yo!
+					</div>
+					<div class="userPostDate">
+						Abdul Muhammad&nbsp;1:52 am&nbsp;
+					</div>
+				</div>
 			</div>
 			<div class="post">
 				<img src="img/cheesecake.jpg">
-				<p>Lunch needs more of this. :)</p>
+				<div class="userPost">
+					<img src="img/profile2.jpg" class="userPic">
+					<div class="userComment">
+						Lunch needs more of this. :)
+					</div>
+					<div class="userPostDate">
+						Victoria Justice&nbsp;11:03 am&nbsp;
+					</div>
+				</div>
 			</div>
 			<div class="post">
 				<img src="img/kitten.jpg">
-				<p>Mr Boots Nom Nom Nom!</p>
+				<div class="userPost">
+					<img src="img/profile3.jpg" class="userPic">
+					<div class="userComment">
+						Mr Boots Nom Nom Nom!
+					</div>
+					<div class="userPostDate">
+						Corey Parkinson&nbsp;11:00 am&nbsp;
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -84,11 +108,11 @@ Author: David MacKenzie
 			</div>
 
 			<div class="latestCommentContent">
-				That's a sexy tank!
+				That's a nice looking tank you got there! 
 			</div>
 
 			<div class="latestCommentDate"> 
-				GirlGamer09&nbsp;02:52 am
+				GirlGamer09&nbsp;02:52 am&nbsp;
 			</div>
 		</div>
 
@@ -103,7 +127,7 @@ Author: David MacKenzie
 			</div>
 
 			<div class="latestCommentDate"> 
-				Anonymous&nbsp;12:59 pm
+				Anonymous&nbsp;12:59 pm&nbsp;
 			</div>
 		</div>
 
@@ -113,11 +137,11 @@ Author: David MacKenzie
 			</div>
 
 			<div class="latestCommentContent">
-				That's a nice pussy!
+				Nawwww isn't she cute
 			</div>
 
 			<div class="latestCommentDate"> 
-				John Doe&nbsp;6:03 pm
+				John Doe&nbsp;6:03 pm&nbsp;
 			</div>
 		</div>
 	</div>
