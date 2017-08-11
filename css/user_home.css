@@ -13,6 +13,9 @@ Author: David Mackenzie
 /* 
 USER HOME PAGE
 */
+footer {
+	margin-top: 150px;
+}
 #view_feed_text {
    position: absolute;
    transform: translate(70%, -50%);

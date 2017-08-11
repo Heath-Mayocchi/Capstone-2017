@@ -42,5 +42,12 @@ Author: David Mackenzie
 	<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
 	<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
 	</footer>
+	<!--
+	Preload images for previous and next footer navigation buttons
+	-->
+	<div id="preloaded-images">
+	   <img src="img/previous_selected.png" width="1" height="1" alt="Previous" />
+	   <img src="img/next.png" width="1" height="1" alt="Next" />
+	</div>
 	</body>
 </html>

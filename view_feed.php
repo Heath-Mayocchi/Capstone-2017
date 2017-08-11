@@ -18,6 +18,8 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
+	<script src="js/view_feed.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 	<title>VIEW FEED</title>
 </head>
 <body class="wrapper">
@@ -193,8 +195,12 @@ Author: David MacKenzie
 		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="plusDivs(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
 		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">React</button>
 	</footer>
-
-	<script src="js/view_feed.js" type="text/javascript"></script>
-	<script src="js/main.js" type="text/javascript"></script>
+	<!--
+	Preload images for previous and next footer navigation buttons
+	-->
+	<div id="preloaded-images">
+	   <img src="img/previous_selected.png" width="1" height="1" alt="Previous" />
+	   <img src="img/next.png" width="1" height="1" alt="Next" />
+	</div>
 	</body>
 </html>
