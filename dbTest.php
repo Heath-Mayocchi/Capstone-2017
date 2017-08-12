@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-$servername = "http://54.206.42.4/localhost:3306";
+$servername = "54.206.42.4/phpmyadmin/:3306";
 $username = "root";
 $password = "machowhizfish";
 try {
