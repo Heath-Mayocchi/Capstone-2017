@@ -18,8 +18,6 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
-	<script src="js/view_feed.js" type="text/javascript"></script>
-	<script src="js/main.js" type="text/javascript"></script>
 	<title>VIEW FEED</title>
 </head>
 <body class="wrapper">
@@ -203,4 +201,6 @@ Author: David MacKenzie
 	   <img src="img/next.png" width="1" height="1" alt="Next" />
 	</div>
 	</body>
+	<script src="js/view_feed.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 </html>
