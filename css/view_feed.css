@@ -73,6 +73,8 @@ section
 
 #post_view 
 {
+	position: relative;
+	left: 20%;
 	float: left;
 	width: 60%;
 	margin: 0px;
@@ -172,11 +174,12 @@ section
 {
 	background-color: white;
 	border-style: solid;
+	border-color: white;
 	border-width: 3px;
-	width: 85%;
+	width: 95%;
 	margin: 0 auto;
-	margin-top: 35px;
-	margin-bottom: 35px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	border-radius: 10px;
 }
 
@@ -191,6 +194,17 @@ section
     position: relative;
     bottom: 20px;
     right: 16px;
-    font-size: 18px;
+    font-size: 16px;
     float: right;
+	height: 10px;
+}
+
+.hidden
+{
+    display:none;
+}
+
+.visible
+{
+    display:block;
 }

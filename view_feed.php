@@ -70,7 +70,7 @@ Author: David MacKenzie
 			</div>
 		</div>
 		
-	<div id="comment_view">
+	<div id="comment_view" class="hidden">
 		<div class="comment">
 			<span class="comment_body">Uh Oh.</p>
 			<span class="bottom_right">James Posted at 11:45 am</p>

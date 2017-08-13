@@ -1,12 +1,5 @@
-
-function init() 
-{
-	showDivs(slideIndex);
-	showComment(commentSlider);
-}
-window.onload=init;
-
 var slideIndex = 1;
+showDivs(slideIndex);
 
 function plusDivs(n) {
     showDivs(slideIndex += n);
@@ -35,7 +28,6 @@ function feedBtnNext(event) {
 	// if key pressed is the up arrow, view next post
 	if (key == 38){
 		plusDivs(-1);
-		plusComment(-1);	// this is for the latest comment
 	}
 }
 
@@ -47,9 +39,20 @@ function feedBtnReact(event) {
 		document.getElementById("prev_img").src = "img/previous_selected.png";
 		document.getElementById("previous_btn").focus();		
 	}
-	// if key pressed is the up arrow, display react buttons
-	if (key == 38){ 
-		// TODO
+	// if key pressed is the up arrow, display react buttons and comments
+	if (key == 38){
+		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
+		if (document.getElementById("comment_view").classList.contains('visible'))
+		{
+			document.getElementById("comment_view").classList.add('hidden');
+			document.getElementById("comment_view").classList.remove('visible');
+			document.getElementById("post_view").style.left = "20%";
+		} else 
+		{
+			document.getElementById("comment_view").classList.add('visible');
+			document.getElementById("comment_view").classList.remove('hidden');
+			document.getElementById("post_view").style.left = "0%";
+		}
 	}	
 }
 
@@ -64,11 +67,27 @@ function feedBtnPrevious(event) {
 	}
 	// if key pressed is the up arrow, view previous post
 	if (key == 38){
-		plusDivs(1);
-		plusComment(1);		// this is for the latest comment
+		plusDivs(1);	
 	}
 }
 
+
+// function for react button clicks
+var react = document.querySelector("#react_btn");
+react.addEventListener("click", function() {
+		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
+		if (document.getElementById("comment_view").classList.contains('visible'))
+		{
+			document.getElementById("comment_view").classList.add('hidden');
+			document.getElementById("comment_view").classList.remove('visible');
+			document.getElementById("post_view").style.left = "20%";
+		} else 
+		{
+			document.getElementById("comment_view").classList.add('visible');
+			document.getElementById("comment_view").classList.remove('hidden');
+			document.getElementById("post_view").style.left = "0%";
+		}	
+});
 
 
 
@@ -79,7 +98,12 @@ function feedBtnPrevious(event) {
 
 var forward = document.querySelector("#next_btn");
 var backward = document.querySelector("#previous_btn");
+var items = document.getElementsByClassName("latestCommentBar");
+var length = items.length;
 var commentSlider = 1;
+
+
+showComment(commentSlider);
 
 forward.addEventListener("click", function() {
 	plusComment(1);
@@ -89,13 +113,12 @@ backward.addEventListener("click", function() {
 	plusComment(-1);
 });
 
+
 function plusComment(n) {
 	showComment(commentSlider += n);
 }
 
 function showComment(n) {
-	var items = document.getElementsByClassName("latestCommentBar");
-	var length = items.length;
 	if (n > length) {
 		commentSlider = 1;
 	} else if (n < 1) {
