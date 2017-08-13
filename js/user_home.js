@@ -76,13 +76,13 @@ function userHomeBtnSelect(event) {
 			window.location.assign("view_feed.php")			
 		}
 		else if (buttonCount == 1){// post button
-			window.location.assign("post.php")
+			window.location.assign("create_post.php")
 		}
 		else if (buttonCount == 2){// message button
-			window.location.assign("message.php")
+			window.location.assign("#")
 		}
 		else if (buttonCount == 3){// friends button
-			window.location.assign("friends.php")
+			window.location.assign("#")
 		}		
 	}	
 }

@@ -23,7 +23,7 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
-	<button class="button btncircle" id="logout_btn" onclick="location.href='php/logout.php'">LOGOUT</button>
+	<button class="button btncircle" id="logout_btn" onclick="location.href='#'">LOGOUT</button>
 	<div id="user_profile">
 	<img src="img/profile-placeholder.png" alt="User profile image"></img>
 	<p>User Name</p>
@@ -33,7 +33,7 @@ Author: David Mackenzie
 	</header>
 	<section>
 	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';"><div id="view_feed_text">VIEW<br>FEED</div></button>
-	<button class="button btnsquare" id="create_post_btn" onclick="location.href='#';"><div id ="make_post_text">CREATE<br>POST</div></button>
+	<button class="button btnsquare" id="create_post_btn" onclick="location.href='create_post.php';"><div id ="make_post_text">CREATE<br>POST</div></button>
 	<button class="button btnsquare" id="messages_btn" onclick="location.href='#';"><div id ="messages_text">MESSAGES</div></button>
 	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';"><div id ="friends_text">FRIENDS</div></button>
 	</section>
