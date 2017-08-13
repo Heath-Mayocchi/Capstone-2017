@@ -1,6 +1,8 @@
 #latestCommentSection {
 	margin-left: 5.5%;
 	color: black;
+	position: relative;
+	left: 18%;
 }
 
 .latestCommentBar {

@@ -208,3 +208,30 @@ section
 {
     display:block;
 }
+
+#comment_form
+{
+	resize: none;
+	position: absolute;
+	right: 530px;
+	height: 50px;
+}
+
+#submit_button
+{
+	position: absolute;
+	right: 400px;
+	top: 15px;
+}
+
+#cancel_button
+{
+	position: absolute;
+	right: 270px;
+	top: 15px;
+}
+
+#comment_box
+{
+	position: relative;
+}

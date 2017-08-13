@@ -53,12 +53,18 @@ function feedBtnReact(event) {
 		{
 			document.getElementById("comment_view").classList.add('hidden');
 			document.getElementById("comment_view").classList.remove('visible');
+			document.getElementById("comment_box").classList.add('hidden');
+			document.getElementById("comment_box").classList.remove('visible');
 			document.getElementById("post_view").style.left = "20%";
+			document.getElementById("latestCommentSection").style.left = "18%";
 		} else 
 		{
 			document.getElementById("comment_view").classList.add('visible');
 			document.getElementById("comment_view").classList.remove('hidden');
+			document.getElementById("comment_box").classList.add('visible');
+			document.getElementById("comment_box").classList.remove('hidden');
 			document.getElementById("post_view").style.left = "0%";
+			document.getElementById("latestCommentSection").style.left = "0%";
 		}
 	}	
 }
@@ -88,12 +94,18 @@ react.addEventListener("click", function() {
 		{
 			document.getElementById("comment_view").classList.add('hidden');
 			document.getElementById("comment_view").classList.remove('visible');
+			document.getElementById("comment_box").classList.add('hidden');
+			document.getElementById("comment_box").classList.remove('visible');
 			document.getElementById("post_view").style.left = "20%";
+			document.getElementById("latestCommentSection").style.left = "18%";
 		} else 
 		{
 			document.getElementById("comment_view").classList.add('visible');
 			document.getElementById("comment_view").classList.remove('hidden');
+			document.getElementById("comment_box").classList.add('visible');
+			document.getElementById("comment_box").classList.remove('hidden');
 			document.getElementById("post_view").style.left = "0%";
+			document.getElementById("latestCommentSection").style.left = "0%";
 		}	
 });
 

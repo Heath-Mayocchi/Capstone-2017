@@ -145,8 +145,8 @@ Author: David MacKenzie
 			</div>
 		</div>
 	</div>
-
 	<article>
+
 	<div id="emoji_selection">
 	<table>
 	<tr>
@@ -187,6 +187,12 @@ Author: David MacKenzie
 	</table>
 	</div>
 	</article>
+	<span id="comment_box" class="hidden">
+		<textarea rows="4" cols="50" id="comment_form" form="usrform">Enter comment... (max 32 characters)
+		</textarea>
+		<img src="img/submit.png" id="submit_button">
+		<img src="img/cancel.png" id="cancel_button">
+	</span>
 
 	<footer >
 		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="plusDivs(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
