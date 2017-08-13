@@ -1,5 +1,11 @@
+function init() 
+{
+	showDivs(slideIndex);
+	showComment(commentSlider);
+}
+window.onload=init;
+
 var slideIndex = 1;
-showDivs(slideIndex);
 
 function plusDivs(n) {
     showDivs(slideIndex += n);
@@ -28,6 +34,7 @@ function feedBtnNext(event) {
 	// if key pressed is the up arrow, view next post
 	if (key == 38){
 		plusDivs(-1);
+		plusComment(-1);
 	}
 }
 
@@ -68,6 +75,7 @@ function feedBtnPrevious(event) {
 	// if key pressed is the up arrow, view previous post
 	if (key == 38){
 		plusDivs(1);	
+		plusComment(1); //this is for the latest comment
 	}
 }
 
@@ -98,12 +106,7 @@ react.addEventListener("click", function() {
 
 var forward = document.querySelector("#next_btn");
 var backward = document.querySelector("#previous_btn");
-var items = document.getElementsByClassName("latestCommentBar");
-var length = items.length;
 var commentSlider = 1;
-
-
-showComment(commentSlider);
 
 forward.addEventListener("click", function() {
 	plusComment(1);
@@ -113,12 +116,13 @@ backward.addEventListener("click", function() {
 	plusComment(-1);
 });
 
-
 function plusComment(n) {
 	showComment(commentSlider += n);
 }
 
 function showComment(n) {
+	var items = document.getElementsByClassName("latestCommentBar");
+	var length = items.length;
 	if (n > length) {
 		commentSlider = 1;
 	} else if (n < 1) {
