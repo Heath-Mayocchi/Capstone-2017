@@ -43,7 +43,7 @@
 	margin-top: 20px;
 }
 
-/*	This is the css for when the text area is big	*/
+/*	This is the css for default size of the textarea	*/
 .textBig {
 	display: block;
 	outline: none;
@@ -84,6 +84,7 @@
 	color: grey;
 }
 
+/*	This is the border that contains the user post details, it's hidden by default	*/
 .boxUserPost {
 	position: absolute;
 	border: 0.5px none black;
@@ -104,7 +105,7 @@
 #boxDate {
 	position: absolute;
 	bottom: 7px;
-    right: 0;
+    right:0;
     z-index: 1;
 }
 
@@ -128,6 +129,7 @@
 	color: white;
 	position: absolute;
 	margin-left: 2px;
+	transition: 0.25s;
 }
 
 .modal {
@@ -150,12 +152,6 @@
 	opacity: 0;
 }
 
-.showModal {
-	display: block;
-	/*visibility: visible;*/
-	transition: all 0.3s;
-	opacity: 1;
-}
 .modal img {
 	float: left;
 	margin-top: 2px;
@@ -166,25 +162,15 @@
 }
 
 .modal img:hover {
-	border-style: solid;
-	border-size: 0.1px;
-	border: 8px dashed #00ff00;
-	transition: 0.3s;
-}
-.modal img:focus {
-	border-style: solid;
-	border-size: 0.1px;
 	border: 8px dashed #00ff00;
 	transition: 0.3s;
 }
 
-#corkus {
-	border: 8px solid #60C385;
-	transition: 0.5s;
-}
-
-.pickMe {
-	border: 1px solid black;
+/*		This is the style that will be applied when the user clicks on a picture.
+		Think of it as a focus		*/
+#imageSelected {
+	border: 8px dashed #00ff00;
+	transition: 0.3s;
 }
 
 .selectPicButton {
@@ -200,4 +186,5 @@
 
 .selectPicButton:hover {
 	background-color: white;
+	transition: 0.3s;
 }
