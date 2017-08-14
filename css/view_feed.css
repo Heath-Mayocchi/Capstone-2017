@@ -215,13 +215,14 @@ section
 	position: absolute;
 	right: 530px;
 	height: 50px;
+	top: 48px;
 }
 
 #submit_button
 {
 	position: absolute;
-	right: 380px;
-	top: 15px;
+	right: 370px;
+	top: 54px;
 	height: 45px;
 	width: 125px;
 	font-size: 20px;
@@ -231,8 +232,8 @@ section
 #cancel_button
 {
 	position: absolute;
-	right: 250px;
-	top: 15px;
+	right: 220px;
+	top: 54px;
 	height: 45px;
 	width: 125px;
 	font-size: 20px;
