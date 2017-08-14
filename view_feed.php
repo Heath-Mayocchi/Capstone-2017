@@ -190,8 +190,8 @@ Author: David MacKenzie
 	<span id="comment_box" class="hidden">
 		<textarea rows="4" cols="50" id="comment_form" form="usrform">Enter comment... (max 32 characters)
 		</textarea>
-		<img src="img/submit.png" id="submit_button">
-		<img src="img/cancel.png" id="cancel_button">
+		<button type="submit" id="submit_button">Submit</button>
+		<button type="submit" id="cancel_button">Cancel</button>
 	</span>
 
 	<footer >

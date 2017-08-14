@@ -220,15 +220,29 @@ section
 #submit_button
 {
 	position: absolute;
-	right: 400px;
+	right: 380px;
 	top: 15px;
+	background: #19D74F;
+	border-width: 4px;
+	border-color: black;
+	border-radius: 10px;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
 }
 
 #cancel_button
 {
 	position: absolute;
-	right: 270px;
+	right: 250px;
 	top: 15px;
+	background: #19D74F;
+	border-width: 4px;
+	border-color: black;
+	border-radius: 10px;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
 }
 
 #comment_box
