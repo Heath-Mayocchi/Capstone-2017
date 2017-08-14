@@ -9,7 +9,7 @@ var theSource;
 var compareSource;
 var compareSource2;
 var isTrue = false;
-var isSelected = false;
+
 
 pictureButton.addEventListener("click", function() {
 	if (isTrue == false) {
@@ -19,13 +19,6 @@ pictureButton.addEventListener("click", function() {
 	modal.classList.toggle("hideModal");
 });
 
-
-for (var i = 0; i < images.length; i++) {
-	images[i].addEventListener("click", function () {
-		theSource = this.src;
-	});
-}
-
 selectButton.addEventListener("click", function() {
 	displayPic.src = theSource;
 	modal.classList.add("hideModal");
@@ -33,8 +26,10 @@ selectButton.addEventListener("click", function() {
 	isTrue = true;
 });
 
-/*	
-	this.id 
-	this.removeAttribute
+for (var i = 0; i < images.length; i++) {
+	images[i].addEventListener("click", function () {
+		theSource = this.src;
+	});
+}
 
-*/
+
