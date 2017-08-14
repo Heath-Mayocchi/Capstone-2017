@@ -20,7 +20,7 @@
 	border: 5px solid #00ff00;
 	border-radius: 5px;
 	height: 450px;
-	background-color: 	#00ff00;	/#C0C7CB
+	background-color: #00ff00;
 	position: relative;
 	display: block;
 }
@@ -68,11 +68,12 @@
 	color: black;
 	resize: none;
 	position: absolute;
-	text-align: center;
+	text-align: left;
+	text-indent: 5px;
 	border-radius: 10px;
 	margin-top: 350px;
-	margin-left: 38%;
-	width: 58%;
+	margin-left: 26%;
+	width: 70%;
 	height: 90px;
 	z-index: 1;
 	font-size: 1.5em;
@@ -96,14 +97,14 @@
 #boxUserImage{
 	width: 100px;
 	height: 80px;
-	margin-left: 100px;
+	margin-left: 10px;
 	margin-top: 20px;
 }
 
 #boxDate {
 	position: absolute;
-	bottom:0;
-    right:0;
+	bottom: 7px;
+    right: 0;
     z-index: 1;
 }
 
@@ -167,7 +168,13 @@
 .modal img:hover {
 	border-style: solid;
 	border-size: 0.1px;
-	border: 8px solid #66C194;
+	border: 8px dashed #00ff00;
+	transition: 0.3s;
+}
+.modal img:focus {
+	border-style: solid;
+	border-size: 0.1px;
+	border: 8px dashed #00ff00;
 	transition: 0.3s;
 }
 
