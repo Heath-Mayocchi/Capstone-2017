@@ -1,5 +1,5 @@
 .wrapper {
-	background-color: #72C2E7;
+	background-color: #000;
 	margin: 0;
 	padding: 0;
 	user-select: none;
@@ -17,10 +17,10 @@
 	width: 44%;
 	min-width: 500px;
 	margin: 10px auto 0 auto;
-	border: 5px solid black;
+	border: 5px solid #00ff00;
 	border-radius: 5px;
 	height: 450px;
-	background-color: 	#C0C7CB;
+	background-color: 	#00ff00;	/#C0C7CB
 	position: relative;
 	display: block;
 }
@@ -109,8 +109,8 @@
 
 .pictureButton {
 	position: relative;
-	border: 1px solid black;
-	background-color: #447EA3;
+	border: 1px none #00ff00;
+	background-color: black;
 	margin-top: 20px;
 	margin-left: 73%;
 	width: 90px;
@@ -118,6 +118,12 @@
 }
 
 #faImage {
+	color: #00ff00;
+	position: absolute;
+	margin-left: 2px;
+}
+
+#faImage:hover {
 	color: white;
 	position: absolute;
 	margin-left: 2px;
