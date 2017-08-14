@@ -222,13 +222,10 @@ section
 	position: absolute;
 	right: 380px;
 	top: 15px;
-	background: #19D74F;
-	border-width: 4px;
-	border-color: black;
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
 	border-radius: 10px;
-	width: 100px;
-	height: 40px;
-	font-size: 18px;
 }
 
 #cancel_button
@@ -236,13 +233,10 @@ section
 	position: absolute;
 	right: 250px;
 	top: 15px;
-	background: #19D74F;
-	border-width: 4px;
-	border-color: black;
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
 	border-radius: 10px;
-	width: 100px;
-	height: 40px;
-	font-size: 18px;
 }
 
 #comment_box
