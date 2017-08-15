@@ -73,30 +73,43 @@ Author: David MacKenzie
 	<div id="comment_view" class="hidden">
 		<div class="comment">
 			<span class="comment_body">Uh Oh.</p>
-			<span class="bottom_right">James Posted at 11:45 am</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
 		</div>
 		<div class="comment">
-			<span class="comment_body">These aren't part of the parent postThese aren't part of the parent post.</p>
-			<span class="bottom_right">John Posted at 11:15 am</p>
+			<span class="comment_body">These aren't part of the parent post. These aren't part of the parent post.</p>
+			<span class="comment_date">John Posted at 11:15 am</p>
 		</div>
 		<div class="comment">
 			<span class="comment_body">Time for a re-jig.</p>
-			<span class="bottom_right">Andrew Posted at 11:00 am</p>
+			<span class="comment_date">Andrew Posted at 11:00 am</p>
 		</div>
-				<div class="comment">
+		<div class="comment">
 			<span class="comment_body">Time for a re-jig.</p>
-			<span class="bottom_right">James Posted at 11:45 am</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
 		</div>
-				<div class="comment">
+		<div class="comment">
 			<span class="comment_body">Time for a re-jig.</p>
-			<span class="bottom_right">James Posted at 11:45 am</p>
-		</div>		<div class="comment">
+			<span class="comment_date">James Posted at 11:45 am</p>
+		</div>		
+		<div class="comment">
 			<span class="comment_body">Time for a re-jig.</p>
-			<span class="bottom_right">James Posted at 11:45 am</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
 		</div>
-				<div class="comment">
+		<div class="comment">
 			<span class="comment_body">Time for a re-jig.</p>
-			<span class="bottom_right">James Posted at 11:45 am</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
+		</div>
+		<div class="comment">
+			<span class="comment_body">Next comment is 32 characters wide</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
+		</div>
+		<div class="comment">
+			<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
+		</div>
+		<div class="comment">
+			<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+			<span class="comment_date">James Posted at 11:45 am</p>
 		</div>
 	</div>
 	</section>
@@ -148,51 +161,60 @@ Author: David MacKenzie
 	<article>
 
 	<div id="emoji_selection">
-	<table>
-	<tr>
-	<th>
-	<figure>
-	<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
-	<figcaption>Like</figcaption>
-	</figure>
-	</th>
-	<th>
-	<figure>
-	<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
-	<figcaption>Love</figcaption>
-	</figure>
-	</th>
-	<th>
-	<figure>
-	<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
-	<figcaption>Laugh</figcaption>
-	</figure>
-	</th>
-	<th>
-	<figure>
-	<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
-	<figcaption>Wow</figcaption>
-	</figure>
-	</th>
-	<th>
-	<figure>
-	<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
-	<figcaption>Sad</figcaption>
-	</figure>
-	</th>
-	<th>
-	<button class="button" id="cancel_btn" onkeydown="feedBtnCancel(event)">Cancel</button>
-	</th>
-	</tr>
-	</table>
+		<table>
+			<tr>
+				<th>
+					<figure>
+						<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+						<figcaption>Like</figcaption>
+					</figure>
+				</th>
+				<th>
+					<figure>
+						<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+						<figcaption>Love</figcaption>
+					</figure>
+				</th>
+				<th>
+					<figure>
+						<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+						<figcaption>Laugh</figcaption>
+					</figure>
+				</th>
+				<th>
+					<figure>
+						<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+						<figcaption>Wow</figcaption>
+					</figure>
+				</th>
+				<th>
+					<figure>
+						<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+						<figcaption>Sad</figcaption>
+					</figure>
+				</th>
+				<th>
+					<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnCancel(event)">Cancel</button>
+				</th>
+			</tr>
+		</table>
+	</div>
+	<div id="comment_form" class="hidden">
+		<table>
+			<tr>
+				<th>
+					<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 32 characters)"></textarea>
+				</th>
+				<th>
+					<button class="button" id="comment_submit_button" type="submit">Submit</button>
+				</th>
+				<th>
+					<button class="button" id="comment_cancel_button">Cancel</button>
+				</th>
+			</tr>
+		</table>
 	</div>
 	</article>
-	<span id="comment_box" class="hidden">
-		<textarea rows="4" cols="50" id="comment_form" form="usrform">Enter comment... (max 32 characters)
-		</textarea>
-		<button class="button" type="submit" id="submit_button">Submit</button>
-		<button class="button" type="submit" id="cancel_button">Cancel</button>
-	</span>
 
 	<footer >
 		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="plusDivs(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
