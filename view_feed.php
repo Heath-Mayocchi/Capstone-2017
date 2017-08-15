@@ -18,6 +18,7 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
+	<script src="js/view_feed_heath.js" type="text/javascript"></script>
 	<title>VIEW FEED</title>
 </head>
 <body class="wrapper">
@@ -167,41 +168,41 @@ Author: David MacKenzie
 				<tr>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+							<button class="button emojiBtn" id="emoji_like" type="submit"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
 							<figcaption>Like</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+							<button class="button emojiBtn" id="emoji_love" type="submit"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
 							<figcaption>Love</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+							<button class="button emojiBtn" id="emoji_laugh" type="submit"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
 							<figcaption>Laugh</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+							<button class="button emojiBtn" id="emoji_wow" type="submit"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
 							<figcaption>Wow</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+							<button class="button emojiBtn" id="emoji_sad" type="submit"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
 							<figcaption>Sad</figcaption>
 						</figure>
 					</th>
 					<th>
-						<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnCancel(event)">Cancel</button>
+						<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnEmojiCancel()">Cancel</button>
 						<!-- hide emoji selection, prev and next from emoji selection focus to changing post display  -->
 					</th>
 				</tr>
@@ -218,7 +219,7 @@ Author: David MacKenzie
 						<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
 					</th>
 					<th>
-						<button class="button" id="comment_cancel_button">Cancel</button>
+						<button class="button" id="comment_cancel_button" onkeydown="feedBtnCommentCancel()">Cancel</button>
 						<!-- hide comment form, prev and next from comment form focus to changing post display  -->
 					</th>
 				</tr>
@@ -247,7 +248,7 @@ Author: David MacKenzie
 	<footer>
 		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="displayPost(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
 		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="displayPost(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
-		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">React</button><!-- display react btns, display comments, prev and next btns change from post display to react btn focus -->
+		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">Select</button><!-- display react btns, display comments, prev and next btns change from post display to react btn focus -->
 	</footer>
 	
 	<!--

@@ -46,7 +46,8 @@ function feedBtnReact(event) {
 	}
 	// if key pressed is the up arrow, display react buttons and comments
 	if (key == 38){
-		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable 
+		displayReactButtons();
+		/* // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable 
 		if (document.getElementById("comment_view").classList.contains('visible')) 
 		{ 
 		  document.getElementById("comment_view").classList.add('hidden'); 
@@ -59,7 +60,7 @@ function feedBtnReact(event) {
 		  document.getElementById("comment_view").classList.remove('hidden'); 
 		  document.getElementById("post_view").style.left = "0%"; 
 		  document.getElementById("latestCommentSection").style.left = "0%"; 
-		}
+		} */
 	}	
 }
 
@@ -80,7 +81,7 @@ function feedBtnPrevious(event) {
 }
 
 
-// function for react button clicks
+/* // function for react button clicks
 var react = document.querySelector("#react_btn");
 react.addEventListener("click", function() {
 		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
@@ -97,7 +98,7 @@ react.addEventListener("click", function() {
 			document.getElementById("post_view").style.left = "0%";
 			document.getElementById("latestCommentSection").style.left = "0%";
 		}	
-});
+}); */
 
 
 
