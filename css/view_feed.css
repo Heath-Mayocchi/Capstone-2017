@@ -189,7 +189,7 @@ section
 
 .hidden
 {
-    /* display: none; */
+    display: none;
 }
 
 .visible
@@ -200,7 +200,7 @@ section
 #emoji_selection {
 	float: left;
 	margin-top: 10px;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 #emoji_cancel_btn {	
