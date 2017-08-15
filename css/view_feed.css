@@ -58,6 +58,21 @@ section
 	height: 500px;
 }
 
+#emoji_selection {
+	float: left;
+	margin-top: 10px;
+    visibility: hidden;
+}
+
+#emoji_cancel_btn {	
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
 #post_view 
 {
 	position: relative;
@@ -73,6 +88,15 @@ section
 	color: black;
 	text-align: left;
 	align-items: center;
+}
+#react_btn {
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 25px;
 }
 
 .post
@@ -147,15 +171,6 @@ section
 	border-radius: 10px;
 }
 
-#react_btn {
-	height: 45px;
-	width: 125px;
-	font-size: 20px;
-	border-radius: 10px;
-	float: right;
-	margin-right: 10px;
-	margin-top: 25px;
-}
 
 .comment 
 {
@@ -195,21 +210,6 @@ section
 .visible
 {
     display: block;
-}
-
-#emoji_selection {
-	float: left;
-	margin-top: 10px;
-    visibility: hidden;
-}
-
-#emoji_cancel_btn {	
-	height: 45px;
-	width: 125px;
-	font-size: 20px;
-	border-radius: 10px;
-	margin-top: 20px;
-	margin-left: 10px;
 }
 
 #comment_form {	

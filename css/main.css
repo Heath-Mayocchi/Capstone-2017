@@ -26,6 +26,11 @@ Author: David Mackenzie
 	color: #000;
     cursor: pointer;
 }
+.button:focus {
+	background-color: #000;
+	border: 6px solid #00ff00;
+	color: #fff;	
+}
 .btnsquare {
 	width:200px;
 	height:200px;
@@ -41,12 +46,6 @@ Author: David Mackenzie
 	float: left;
 	margin: 10px;
 	margin-right: -100px;
-}
-.button:focus {
-	background-color: #000;
-	border: 6px solid #00ff00;
-	color: #fff;
-	
 }
 .imageButton{
 	background-color: transparent;
