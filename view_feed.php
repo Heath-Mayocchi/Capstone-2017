@@ -21,15 +21,17 @@ Author: David MacKenzie
 	<title>VIEW FEED</title>
 </head>
 <body class="wrapper">
+
 	<header>
-	<button class="imageButton" id="back_btn" onclick="backBtn()"><img id="backBtn_img" src="img/back.png" alt="Back"></img></button>
-	<div id="user_profile">
-	<img src="img/profile-placeholder.png" alt="User profile image"></img>
-	<p>User Name</p>
-	</div>
-	<h1>SNAP</h1>
-	<h2>FEED</h2>
+		<button class="imageButton" id="back_btn" onclick="backBtn()"><img id="backBtn_img" src="img/back.png" alt="Back"></img></button>
+		<div id="user_profile">
+			<img src="img/profile-placeholder.png" alt="User profile image"></img>
+			<p>User Name</p>
+		</div>
+		<h1>SNAP</h1>
+		<h2>FEED</h2>
 	</header>
+	
 	<section>
 		<div id="post_view">
 			<div class="post">
@@ -69,49 +71,49 @@ Author: David MacKenzie
 				</div>
 			</div>
 		</div>
-		
-	<div id="comment_view" class="hidden">
-		<div class="comment">
-			<span class="comment_body">Uh Oh.</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
+			
+		<div id="comment_view" class="hidden">
+			<div class="comment">
+				<span class="comment_body">Uh Oh.</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">These aren't part of the parent post. These aren't part of the parent post.</p>
+				<span class="comment_date">John Posted at 11:15 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_date">Andrew Posted at 11:00 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>		
+			<div class="comment">
+				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">Next comment is 32 characters wide</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
+			<div class="comment">
+				<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+				<span class="comment_date">James Posted at 11:45 am</p>
+			</div>
 		</div>
-		<div class="comment">
-			<span class="comment_body">These aren't part of the parent post. These aren't part of the parent post.</p>
-			<span class="comment_date">John Posted at 11:15 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">Time for a re-jig.</p>
-			<span class="comment_date">Andrew Posted at 11:00 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">Time for a re-jig.</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">Time for a re-jig.</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>		
-		<div class="comment">
-			<span class="comment_body">Time for a re-jig.</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">Time for a re-jig.</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">Next comment is 32 characters wide</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-		<div class="comment">
-			<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
-			<span class="comment_date">James Posted at 11:45 am</p>
-		</div>
-	</div>
 	</section>
 
 	<div id="latestCommentSection">
@@ -158,69 +160,96 @@ Author: David MacKenzie
 			</div>
 		</div>
 	</div>
+	
 	<article>
-
-	<div id="emoji_selection">
-		<table>
-			<tr>
-				<th>
-					<figure>
-						<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
-						<figcaption>Like</figcaption>
-					</figure>
-				</th>
-				<th>
-					<figure>
-						<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
-						<figcaption>Love</figcaption>
-					</figure>
-				</th>
-				<th>
-					<figure>
-						<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
-						<figcaption>Laugh</figcaption>
-					</figure>
-				</th>
-				<th>
-					<figure>
-						<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
-						<figcaption>Wow</figcaption>
-					</figure>
-				</th>
-				<th>
-					<figure>
-						<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
-						<figcaption>Sad</figcaption>
-					</figure>
-				</th>
-				<th>
-					<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnCancel(event)">Cancel</button>
-				</th>
-			</tr>
-		</table>
-	</div>
-	<div id="comment_form" class="hidden">
-		<table>
-			<tr>
-				<th>
-					<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 32 characters)"></textarea>
-				</th>
-				<th>
-					<button class="button" id="comment_submit_button" type="submit">Submit</button>
-				</th>
-				<th>
-					<button class="button" id="comment_cancel_button">Cancel</button>
-				</th>
-			</tr>
-		</table>
-	</div>
+		<div id="emoji_selection">
+			<table>
+				<tr>
+					<th>
+						<figure>
+							<button class="button emojiBtn" id="emoji_like"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
+							<figcaption>Like</figcaption>
+						</figure>
+					</th>
+					<th>
+						<figure>
+							<button class="button emojiBtn" id="emoji_love"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
+							<figcaption>Love</figcaption>
+						</figure>
+					</th>
+					<th>
+						<figure>
+							<button class="button emojiBtn" id="emoji_laugh"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
+							<figcaption>Laugh</figcaption>
+						</figure>
+					</th>
+					<th>
+						<figure>
+							<button class="button emojiBtn" id="emoji_wow"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
+							<figcaption>Wow</figcaption>
+						</figure>
+					</th>
+					<th>
+						<figure>
+							<button class="button emojiBtn" id="emoji_sad"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
+							<figcaption>Sad</figcaption>
+						</figure>
+					</th>
+					<th>
+						<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnCancel(event)">Cancel</button>
+						<!-- hide emoji selection, prev and next from emoji selection focus to changing post display  -->
+					</th>
+				</tr>
+			</table>
+		</div>
+		<div id="comment_form" class="hidden">
+			<table>
+				<tr>
+					<th>
+						<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 32 characters)"></textarea>
+					</th>
+					<th>
+						<button class="button" id="comment_submit_button" type="submit">Submit</button>
+						<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
+					</th>
+					<th>
+						<button class="button" id="comment_cancel_button">Cancel</button>
+						<!-- hide comment form, prev and next from comment form focus to changing post display  -->
+					</th>
+				</tr>
+			</table>
+		</div>
+		<div id="react_buttons">
+			<table>
+				<tr>
+					<th>
+						<button class="button" id="emoji_button" onkeydown="feedBtnEmoji()">Emoji</button>
+						<!-- display emoji selection, prev and next change from react tbn focus to emoji select focus -->
+					</th>
+					<th>
+						<button class="button" id="comment_button" onkeydown="feedBtnComment()">Comment</button>
+						<!-- Display comment form, prev and next change from react btn focus to comment form focus -->
+					</th>
+					<th>
+						<button class="button" id="react_cancel_button" onkeydown="feedBtnReactCancel()">Cancel</button>
+						<!-- Hide react btns, hide comments, prev and next from react btn focus to changeing post display -->
+					</th>
+				</tr>
+			</table>
+		</div>
 	</article>
 
-	<footer >
-		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="plusDivs(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="plusDivs(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
-		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">React</button>
+	<footer>
+		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="displayPost(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
+		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="displayPost(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">React</button><!-- display react btns, display comments, prev and next btns change from post display to react btn focus -->
 	</footer>
+	
 	<!--
 	Preload images for previous and next footer navigation buttons
 	-->

@@ -1,26 +1,24 @@
 function init() 
 {
-	showDivs(slideIndex);
+	showPost(slideIndex);
 	showComment(commentSlider);
 }
 window.onload=init;
 
 var slideIndex = 1;
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
+displayPost
+function displayPost(n) {
+    showPost(slideIndex += n);
 }
 
-function showDivs(n) {
-    var i;
+function showPost(n) {
     var x = document.getElementsByClassName("post");
     if (n > x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length} ;
-    for (i = 0; i < x.length; i++) {
+    for (var i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
     x[slideIndex-1].style.display = "block";
-
 }
 
 // function for next button key presses
@@ -33,7 +31,7 @@ function feedBtnNext(event) {
 	}
 	// if key pressed is the up arrow, view next post
 	if (key == 38){
-		plusDivs(-1);
+		displayPost(-1);
 		plusComment(-1);
 	}
 }
@@ -48,19 +46,19 @@ function feedBtnReact(event) {
 	}
 	// if key pressed is the up arrow, display react buttons and comments
 	if (key == 38){
-		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
-		if (document.getElementById("comment_view").classList.contains('visible'))
-		{
-			document.getElementById("comment_view").classList.add('hidden');
-			document.getElementById("comment_view").classList.remove('visible');
-			document.getElementById("post_view").style.left = "20%";
-			document.getElementById("latestCommentSection").style.left = "18%";
-		} else 
-		{
-			document.getElementById("comment_view").classList.add('visible');
-			document.getElementById("comment_view").classList.remove('hidden');
-			document.getElementById("post_view").style.left = "0%";
-			document.getElementById("latestCommentSection").style.left = "0%";
+		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable 
+		if (document.getElementById("comment_view").classList.contains('visible')) 
+		{ 
+		  document.getElementById("comment_view").classList.add('hidden'); 
+		  document.getElementById("comment_view").classList.remove('visible'); 
+		  document.getElementById("post_view").style.left = "20%"; 
+		  document.getElementById("latestCommentSection").style.left = "18%"; 
+		} else  
+		{ 
+		  document.getElementById("comment_view").classList.add('visible'); 
+		  document.getElementById("comment_view").classList.remove('hidden'); 
+		  document.getElementById("post_view").style.left = "0%"; 
+		  document.getElementById("latestCommentSection").style.left = "0%"; 
 		}
 	}	
 }
@@ -76,7 +74,7 @@ function feedBtnPrevious(event) {
 	}
 	// if key pressed is the up arrow, view previous post
 	if (key == 38){
-		plusDivs(1);	
+		displayPost(1);	
 		plusComment(1); //this is for the latest comment
 	}
 }

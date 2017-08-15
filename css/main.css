@@ -25,6 +25,10 @@ Author: David Mackenzie
 	border: 3px solid black;
 	color: #000;
     cursor: pointer;
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
 }
 .button:focus {
 	background-color: #000;
