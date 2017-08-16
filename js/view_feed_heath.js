@@ -163,8 +163,10 @@ function feedBtnCancel(event){
 	// hide react buttons
 	document.getElementById("react_buttons").style.visibility = "hidden";
 	// change functions for previous and next buttons
-	document.getElementById("next_btn").setAttribute('onkeydown', 'reactNextFocus(event)');
-	document.getElementById("previous_btn").setAttribute('onkeydown', 'reactPreviousFocus(event)');	
+	document.getElementById("next_btn").setAttribute('onkeydown', 'feedBtnNext(event)');
+	reactNextFocus(event);
+	document.getElementById("previous_btn").setAttribute('onkeydown', 'feedBtnPrevious(event)');	
+	reactPreviousFocus(event);
 	// change function for select button
 	document.getElementById("react_btn").setAttribute('onkeydown', 'feedBtnReact(event)');
 	// focus next button
