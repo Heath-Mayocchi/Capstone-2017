@@ -56,6 +56,8 @@ function feedBtnReact(event) {
 		document.getElementById("comment_view").classList.remove('hidden'); 
 		document.getElementById("post_view").style.left = "0%"; 
 		document.getElementById("latestCommentSection").style.left = "0%";
+		document.getElementById("reacted_emojis").style.marginLeft = "60px";
+		document.getElementById("latestCommentLabel").style.marginLeft = "-390px";
 		// auto focus emoji button
 		reactEmojiBtnFocused();
 		// focus next navigation button

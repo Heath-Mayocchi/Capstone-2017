@@ -31,6 +31,14 @@ th {
 footer {
 	margin-top: 150px;
 }
+section
+{
+	clear: both;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 500px;
+}
 .emojiBtn {
 	width: 80px;
 	height: 80px;
@@ -48,16 +56,20 @@ footer {
 	width: 50px;
 	height: 50px;
 }
-
-section
-{
-	clear: both;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	height: 500px;
+#reacted_emojis {
+	margin-top: -55px;
+	margin-left: 260px;
+	z-index: 1;
+	padding-top: -15px;
 }
-
+#reacted_emojis th {
+	padding-right: 20px;
+}
+#latestCommentLabel {
+	margin-top: -5px;
+	margin-bottom: -2px;
+	margin-left: -430px;	
+}
 #react_buttons {
 	float: left;
 	margin-top: 10px;	
@@ -66,7 +78,6 @@ section
 	margin-top: -70px;
     visibility: hidden;
 }
-
 #react_buttons th {
 	padding-left: 100px;
 }
@@ -168,7 +179,7 @@ section
 	margin: 0px;
 	padding: 0px;
 	border: 1px solid black;
-	height: 580px;
+	height: 610px;
 	background-color: white;
 	color: black;
 	text-align: left;	

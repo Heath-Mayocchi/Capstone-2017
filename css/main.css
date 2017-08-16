@@ -35,22 +35,6 @@ Author: David Mackenzie
 	border: 6px solid #00ff00;
 	color: #fff;	
 }
-.btnsquare {
-	width:200px;
-	height:200px;
-	border-radius: 25px;
-	font-size: 30px;
-	margin: 32px;
-}
-.btncircle{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	font-size: 20px;
-	float: left;
-	margin: 10px;
-	margin-right: -100px;
-}
 .imageButton{
 	background-color: transparent;
 	border: none;	

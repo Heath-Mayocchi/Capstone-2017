@@ -136,6 +136,8 @@ function feedBtnCancel(event){
 	document.getElementById("comment_view").classList.remove('visible'); 
 	document.getElementById("post_view").style.left = "20%"; 
 	document.getElementById("latestCommentSection").style.left = "18%";
+	document.getElementById("reacted_emojis").style.marginLeft = "260px";
+		document.getElementById("latestCommentLabel").style.marginLeft = "-430px";
 	// hide react buttons
 	document.getElementById("react_buttons").style.visibility = "hidden";
 	// change functions for previous and next buttons

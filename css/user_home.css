@@ -14,21 +14,39 @@ Author: David Mackenzie
 USER HOME PAGE
 */
 footer {
-	margin-top: 150px;
+	margin-top: 800px;
 }
-#view_feed_text {
-   position: absolute;
-   transform: translate(70%, -50%);
+.btnsquare {
+	width:250px;
+	height:250px;
+	border-radius: 25px;
+	font-size: 30px;
+	margin: 32px;
 }
-#make_post_text {
-   position: absolute;
-   transform: translate(35%, -50%);
+.btncircle{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	font-size: 20px;
+	float: left;
+	margin: 10px;
+	margin-right: -100px;
 }
-#messages_text {
-   position: absolute;
-   transform: translate(12%, -50%);
+#view_feed_btn {
+	position: absolute;
+	margin-left: -350px;
 }
-#friends_text {
-   position: absolute;
-   transform: translate(25%, -50%);
+#create_post_btn {
+	position: absolute;	
+	margin-left: 100px;
+}
+#friends_btn {
+	position: absolute;
+	margin-left: -350px;
+	margin-top: 420px;	
+}
+#messages_btn {
+	position: absolute;
+	margin-left: 100px;	
+	margin-top: 420px;
 }

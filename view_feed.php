@@ -71,7 +71,6 @@ Author: David MacKenzie
 				</div>
 			</div>
 		</div>
-			
 		<div id="comment_view" class="hidden">
 			<div class="comment">
 				<span class="comment_body">Uh Oh.</p>
@@ -115,7 +114,34 @@ Author: David MacKenzie
 			</div>
 		</div>
 	</section>
+	
+	
 
+		<table id="reacted_emojis">
+			<tr>
+				<th>
+					<img class="emoji_img" id="emoji_like_reacted" src="img/emoji-like.png" alt="Like"></img>
+				</th>
+				<th>
+					<img class="emoji_img" id="emoji_love_reacted" src="img/emoji-love.png" alt="Love"></img>
+				</th>
+				<th>
+					<img class="emoji_img" id="emoji_laugh_reacted" src="img/emoji-laugh.png" alt="Laugh"></img>
+				</th>
+				<th>
+					<img class="emoji_img" id="emoji_wow_reacted" src="img/emoji-wow.png" alt="Wow"></img>
+				</th>
+				<th>
+					<img class="emoji_img" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>
+				</th>
+				<th>
+					<p id="reacted_emoji_txt">You and 12 others</p>
+				</th>
+			</tr>
+		</table>
+		
+	
+	<p id="latestCommentLabel">Latest Comment</p>	
 	<div id="latestCommentSection">
 		<div class="latestCommentBar">
 			<div class="latestCommentPicture">
