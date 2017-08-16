@@ -221,6 +221,7 @@ section
 	float: left;
 	margin-left: 20px;
 	margin-top: -81px;
+	visibility: hidden;
 }
 
 #comment_text_box {

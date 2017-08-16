@@ -38,15 +38,31 @@ function feedBtnNext(event) {
 
 // function for react button key presses
 function feedBtnReact(event) {
-    var key = event.keyCode;
-	// if key pressed is the right arrow, change focus to 'previous' footer button
-	if (key == 39){ 
-		document.getElementById("prev_img").src = "img/previous_selected.png";
-		document.getElementById("previous_btn").focus();		
-	}
-	// if key pressed is the up arrow, display react buttons and comments
-	if (key == 38){
-		displayReactButtons();
+		var key = event.keyCode;
+		// if key pressed is the right arrow, change focus to 'previous' footer button
+		if (key == 39){ 
+			document.getElementById("prev_img").src = "img/previous_selected.png";
+			document.getElementById("previous_btn").focus();		
+		}
+		// if key pressed is the up arrow, display react buttons and comments
+		if (key == 38){
+		// change functions for previous and next buttons
+		document.getElementById("next_btn").setAttribute('onkeydown', 'reactNextFocus(event)');
+		document.getElementById("previous_btn").setAttribute('onkeydown', 'reactPreviousFocus(event)');
+		// diplay react buttons
+		document.getElementById("react_buttons").style.visibility = "visible";
+		// display comments
+		document.getElementById("comment_view").classList.add('visible'); 
+		document.getElementById("comment_view").classList.remove('hidden'); 
+		document.getElementById("post_view").style.left = "0%"; 
+		document.getElementById("latestCommentSection").style.left = "0%";
+		// auto focus emoji button
+		reactEmojiBtnFocused();
+		// change function for select button
+		document.getElementById("react_btn").setAttribute('onkeydown', 'reactButtonSelect(event)');
+		
+		
+		
 		/* // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable 
 		if (document.getElementById("comment_view").classList.contains('visible')) 
 		{ 

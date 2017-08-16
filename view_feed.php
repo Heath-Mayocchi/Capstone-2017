@@ -18,7 +18,6 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
-	<script src="js/view_feed_heath.js" type="text/javascript"></script>
 	<title>VIEW FEED</title>
 </head>
 <body class="wrapper">
@@ -208,7 +207,7 @@ Author: David MacKenzie
 				</tr>
 			</table>
 		</div>
-		<div id="comment_form" class="hidden">
+		<div id="comment_form">
 			<table>
 				<tr>
 					<th>
@@ -261,4 +260,5 @@ Author: David MacKenzie
 	</body>
 	<script src="js/view_feed.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/view_feed_heath.js" type="text/javascript"></script>
 </html>
