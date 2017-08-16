@@ -15,13 +15,13 @@ function reactButtonSelect(event){
 	}
 	if (key == 38){
 		if (reactFocus == 0){// emoji btn
-			document.getElementById("react_btn").setAttribute('onkeydown', 'feedBtnEmoji(event)');
+			feedBtnEmoji(event);
 		}
 		if (reactFocus == 1){// comment btn
-			document.getElementById("react_btn").setAttribute('onkeydown', 'feedBtnComment(event)');
+			feedBtnComment(event);
 		}
 		if (reactFocus == 2){// cancel btn
-			document.getElementById("react_btn").setAttribute('onkeydown', 'feedBtnCancel(event)');
+			feedBtnCancel(event);
 		}
 	}
 	
