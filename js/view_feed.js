@@ -58,6 +58,9 @@ function feedBtnReact(event) {
 		document.getElementById("latestCommentSection").style.left = "0%";
 		// auto focus emoji button
 		reactEmojiBtnFocused();
+		// focus next navigation button
+		document.getElementById("next_img").src = "img/next_selected.png";
+		document.getElementById("next_btn").focus();		
 		// change function for select button
 		document.getElementById("react_btn").setAttribute('onkeydown', 'reactButtonSelect(event)');
 		

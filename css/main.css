@@ -89,6 +89,7 @@ Author: David Mackenzie
 	float: right;
 	margin-right: 10px;
 	margin-top: 25px;
+	border: 6px solid #00ff00;
 }
 /*
 preload images for previous and next footer navigation buttons
