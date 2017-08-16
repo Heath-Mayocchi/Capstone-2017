@@ -18,7 +18,7 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
-	<title>VIEW FEED</title>
+	<title>SNAP FEED</title>
 </head>
 <body class="wrapper">
 
