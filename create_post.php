@@ -113,11 +113,11 @@ Author: David MacKenzie
 	</div>
 
 	<footer>
-	<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-	<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
-	<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
+		<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
+		<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+		<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
 	</footer>
-	
+		
 	<script type="text/javascript" src="js/postPreview.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ var modal = document.querySelector(".modal");
 var images = document.querySelectorAll(".modal img");
 var displayPic = document.querySelector("#selectedPicture");
 var selectButton = document.querySelector(".selectPicButton");
+
 var emojiCancelButton = document.querySelector("#emoji_cancel_btn");
 var emojiSelection = document.querySelector("#emoji_selection");
 var emojiButton = document.querySelector("#reactEmojiButton");
@@ -16,23 +17,28 @@ var emojiWow = document.querySelector("#emoji_wow");
 var emojiSad = document.querySelector("#emoji_sad");
 
 emojiLike.addEventListener("click", function() {
-	textArea.value += "(Y)";
+	var temp = String.fromCodePoint(0x1f44d);	// unicode for thumbs up
+	textArea.value += temp;
 });
 
 emojiLove.addEventListener("click", function() {
-	textArea.value += "<3";
+	var temp = String.fromCodePoint(0x2764);	// unicode for heart
+	textArea.value += temp;
 });
 
 emojiLaugh.addEventListener("click", function() {
-	textArea.value += ":D";
+	var temp = String.fromCodePoint(0x1F600);	// unicode for grinning 
+	textArea.value += temp;
 });
 
 emojiWow.addEventListener("click", function() {
-	textArea.value += ":O";
+	var temp = String.fromCodePoint(0x1F62E);	// unicode fro wow
+	textArea.value += temp;
 });
 
 emojiSad.addEventListener("click", function() {
-	textArea.value += "T_T";
+	var temp = String.fromCodePoint(0x1F622);	// unicode for sad
+	textArea.value += temp;
 });
 
 //	 Used for conditions	
