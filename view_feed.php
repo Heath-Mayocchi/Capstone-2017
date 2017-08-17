@@ -34,42 +34,7 @@ Author: David MacKenzie
 	
 	<section>
 		<div id="post_view">
-			<div class="post">
-				<img src="img/tank.jpg">
-				<div class="userPost">
-					<img src="img/profile1.jpg" class="userPic">
-					<div class="userComment">
-						I love me some tanks, yo!
-					</div>
-					<div class="userPostDate">
-						Abdul Muhammad&nbsp;1:52 am&nbsp;
-					</div>
-				</div>
-			</div>
-			<div class="post">
-				<img src="img/cheesecake.jpg">
-				<div class="userPost">
-					<img src="img/profile2.jpg" class="userPic">
-					<div class="userComment">
-						Lunch needs more of this. :)
-					</div>
-					<div class="userPostDate">
-						Victoria Justice&nbsp;11:03 am&nbsp;
-					</div>
-				</div>
-			</div>
-			<div class="post">
-				<img src="img/kitten.jpg">
-				<div class="userPost">
-					<img src="img/profile3.jpg" class="userPic">
-					<div class="userComment">
-						Mr Boots Nom Nom Nom!
-					</div>
-					<div class="userPostDate">
-						Corey Parkinson&nbsp;11:00 am&nbsp;
-					</div>
-				</div>
-			</div>
+			<?php include 'php/populatePost.php';?>
 		</div>
 		<div id="comment_view" class="hidden">
 			<div class="comment">
