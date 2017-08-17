@@ -41,7 +41,7 @@ Author: David MacKenzie
 				<img src="img/sloth.jpg">
 				<button class="selectPicButton">SELECT</button>
 			</div>
-			<form action="#">
+			<form action="#" id="postSubmit">
 				<textarea name="userPostContent" placeholder="Enter post comment..." class="textBig"></textarea>
 			</form>
 			<div class="boxUserPost">
@@ -98,10 +98,26 @@ Author: David MacKenzie
 				</tr>
 			</table>
 		</div>
-		<div class="pictureButton">
+	</article>
+	<!--	This div includes the emoji, post and picture buttons	-->
+	<div id="reactButtons">
+		<div id="reactEmojiButton">
+			<i class="fa fa-smile-o fa-5x" aria-hidden="true" id="faImage2"></i>
+		</div>
+
+		<button id="reactButtonPost" type="submit" form="postSubmit">Post</button>
+
+		<div id="pictureButton">
 			<i class="fa fa-picture-o fa-5x" aria-hidden="true" id="faImage"></i>
 		</div>
-	</article>
+	</div>
+
+	<footer>
+	<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
+	<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+	<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
+	</footer>
+	
 	<script type="text/javascript" src="js/postPreview.js"></script>
 </body>
 </html>

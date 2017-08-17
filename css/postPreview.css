@@ -1,3 +1,12 @@
+.wrapper {
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+article {
+	margin-top: 120px;
+}
 
 figure {
   display: table;
@@ -14,10 +23,12 @@ table {
 th {
 	padding: 0px;
 }
+
 #emoji_selection {
 	float: left;
 	margin-top: 10px;
-    /* visibility: hidden; */
+    visibility: hidden;
+    transition: 0.25s;
 }
 #emoji_cancel_btn {	
 	margin-top: 20px;
@@ -155,28 +166,6 @@ th {
 	margin-top: -100px;
     visibility: ;
 }
-.pictureButton {
-	position: relative;
-	border: 1px none #00ff00;
-	background-color: black;
-	margin-top: 170px;
-	margin-left: 73%;
-	width: 90px;
-	height: 80px;
-}
-
-#faImage {
-	color: #00ff00;
-	position: absolute;
-	margin-left: 2px;
-}
-
-#faImage:hover {
-	color: white;
-	position: absolute;
-	margin-left: 2px;
-	transition: 0.25s;
-}
 
 .modal {
 	position: absolute;
@@ -234,4 +223,61 @@ th {
 .selectPicButton:hover {
 	background-color: white;
 	transition: 0.3s;
+}
+
+#reactButtons {
+	position: relative;
+	width: 590px;
+	margin: 10px auto 0 auto;
+	border: 1px none white;
+	height: 150px;
+}
+
+.wrapper #reactButtons #reactEmojiButton {
+	position: absolute;
+	color: yellow;
+	margin-top: 30px;
+	left: -90px;
+}
+
+.wrapper #reactButtons #reactEmojiButton:hover {
+	color: white;
+	transition: 0.25s;
+}
+.wrapper #reactButtons #reactButtonPost {
+	position: absolute;
+	margin-top: 60px;
+	left: 210px;
+	background-color: #00ff00;
+	border-style: none;
+	width: 180px;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+}
+
+.wrapper #reactButtons #reactButtonPost:hover {
+	color: white;
+	background-color: #008400;
+	transition: 0.25s;
+}
+
+.wrapper #reactButtons #pictureButton {
+	position: absolute;
+	margin-top: 30px;
+	right: -95px;
+	border: 1px none #00ff00;
+	background-color: black;
+	width: 90px;
+	height: 80px;
+}
+
+#faImage {
+	color: #00ff00;
+}
+
+#faImage:hover {
+	color: white;
+	transition: 0.25s;
 }
