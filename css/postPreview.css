@@ -249,10 +249,9 @@ th {
 }
 
 .wrapper #reactButtons #reactEmojiButton:hover {
-	color: white;
-	background-color: black;
-	border-style: dashed;
-	border-color: #00ff00;
+	background-color: #000;
+	border: 6px solid #00ff00;
+	color: #fff;
 	transition: 0.25s;
 }
 .wrapper #reactButtons #reactButtonPost {
@@ -269,10 +268,9 @@ th {
 }
 
 .wrapper #reactButtons #reactButtonPost:hover {
-	color: white;
-	background-color: black;
-	border-style: dashed;
-	border-color: #00ff00;
+	background-color: #000;
+	border: 6px solid #00ff00;
+	color: #fff;
 	transition: 0.25s;
 }
 
@@ -290,9 +288,8 @@ th {
 }
 
 .wrapper #reactButtons #pictureBtn:hover {
-	color: white;
-	background-color: black;
-	border-style: dashed;
-	border-color: #00ff00;
+	background-color: #000;
+	border: 6px solid #00ff00;
+	color: #fff;
 	transition: 0.25s;
 }
