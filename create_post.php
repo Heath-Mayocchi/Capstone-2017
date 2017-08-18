@@ -101,13 +101,13 @@ Author: David MacKenzie
 	</article>
 	<!--	This div includes the emoji, post and picture buttons	-->
 	<div id="reactButtons">
-
 		<button id="reactEmojiButton">Emoji</button>
 		<button id="reactButtonPost" type="submit" form="postSubmit">Post</button>
 		<button id="pictureBtn">Picture</button>
 	</div>
 
 	<footer>
+	<br><br><br>
 		<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
 		<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
 		<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>

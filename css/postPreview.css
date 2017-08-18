@@ -33,7 +33,16 @@ th {
 #emoji_cancel_btn {	
 	margin-top: 20px;
 	margin-left: 10px;
+	outline: none;
+	transition: 0.1s;
 }
+
+#emoji_cancel_btn:hover, #emoji_cancel_btn:focus {
+	background-color: #000;
+	border: 6px dashed #00ff00;
+	color: #fff;	
+}
+
 .emojiBtn {
 	width: 80px;
 	height: 80px;
@@ -222,7 +231,7 @@ th {
 
 .selectPicButton:hover {
 	background-color: #000;
-	border: 3px solid #00ff00;
+	border: 6px dashed #00ff00;
 	color: #fff;
 	transition: 0.3s;
 }
@@ -240,58 +249,91 @@ th {
 	color: yellow;
 	margin-top: 60px;
 	background-color: #00ff00;
+	border: 3px solid black;
 	border-style: none;
-	width: 180px;
-	height: 40px;
+	height: 45px;
+	width: 125px;
 	left: -90px;
 	font-size: 20px;
 	color: black;
 	border-radius: 10px;
+	cursor: pointer;
 	outline: none;
 }
 
 .wrapper #reactButtons #reactEmojiButton:hover {
 	background-color: #000;
-	border: 6px solid #00ff00;
-	color: #fff;
-	transition: 0.25s;
+	border: 6px dashed #00ff00;
+	color: #fff;	
+	transition: 0.1s;
 }
+
+.wrapper #reactButtons #reactEmojiButton:focus {
+	background-color: #000;
+	border: 6px dashed #00ff00;
+	color: #fff;	
+	transition: 0.1s;
+}
+
+
 .wrapper #reactButtons #reactButtonPost {
 	position: absolute;
-	margin-top: 60px;
-	left: 210px;
-	background-color: #00ff00;
-	border-style: none;
-	width: 180px;
-	height: 40px;
+	background: #00ff00;
+	border: 3px solid black;
+	color: #000;
+    cursor: pointer;
+	height: 45px;
+	width: 125px;
 	font-size: 20px;
 	border-radius: 10px;
 	outline: none;
+	left: 240px;
+	margin-top: 60px;
 }
 
 .wrapper #reactButtons #reactButtonPost:hover {
 	background-color: #000;
-	border: 6px solid #00ff00;
+	border: 6px dashed #00ff00;
 	color: #fff;
-	transition: 0.25s;
+	transition: 0.1s;
+}
+
+.wrapper #reactButtons #reactButtonPost:focus {
+	background-color: #000;
+	border: 6px dashed #00ff00;
+	color: #fff;
+	transition: 0.1s;
 }
 
 .wrapper #reactButtons #pictureBtn {
 	position: absolute;
-	height: 40px;
-	width: 180px;
+	background: #00ff00;
+	border: 3px solid black;
+	color: #000;
+    cursor: pointer;
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
 	right: -100px;
 	margin-top: 60px;
-	background-color: #00ff00;
-	border-style: none;
-	font-size: 20px;
-	outline: none;
-	border-radius: 10px;
 }
 
 .wrapper #reactButtons #pictureBtn:hover {
 	background-color: #000;
-	border: 6px solid #00ff00;
+	border: 6px dashed #00ff00;
 	color: #fff;
-	transition: 0.25s;
+	transition: 0.1s;
+}
+
+.wrapper #reactButtons #pictureBtn:focus {
+	background-color: #000;
+	border: 6px dashed #00ff00;
+	color: #fff;
+	transition: 0.1s;
+}
+
+footer {
+	margin-top: -5px;
 }
