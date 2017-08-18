@@ -221,7 +221,9 @@ th {
 }
 
 .selectPicButton:hover {
-	background-color: white;
+	background-color: #000;
+	border: 3px solid #00ff00;
+	color: #fff;
 	transition: 0.3s;
 }
 
