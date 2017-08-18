@@ -236,12 +236,23 @@ th {
 .wrapper #reactButtons #reactEmojiButton {
 	position: absolute;
 	color: yellow;
-	margin-top: 30px;
+	margin-top: 60px;
+	background-color: #00ff00;
+	border-style: none;
+	width: 180px;
+	height: 40px;
 	left: -90px;
+	font-size: 20px;
+	color: black;
+	border-radius: 10px;
+	outline: none;
 }
 
 .wrapper #reactButtons #reactEmojiButton:hover {
 	color: white;
+	background-color: black;
+	border-style: dashed;
+	border-color: #00ff00;
 	transition: 0.25s;
 }
 .wrapper #reactButtons #reactButtonPost {
@@ -259,25 +270,29 @@ th {
 
 .wrapper #reactButtons #reactButtonPost:hover {
 	color: white;
-	background-color: #008400;
+	background-color: black;
+	border-style: dashed;
+	border-color: #00ff00;
 	transition: 0.25s;
 }
 
-.wrapper #reactButtons #pictureButton {
+.wrapper #reactButtons #pictureBtn {
 	position: absolute;
-	margin-top: 30px;
-	right: -95px;
-	border: 1px none #00ff00;
-	background-color: black;
-	width: 90px;
-	height: 80px;
+	height: 40px;
+	width: 180px;
+	right: -100px;
+	margin-top: 60px;
+	background-color: #00ff00;
+	border-style: none;
+	font-size: 20px;
+	outline: none;
+	border-radius: 10px;
 }
 
-#faImage {
-	color: #00ff00;
-}
-
-#faImage:hover {
+.wrapper #reactButtons #pictureBtn:hover {
 	color: white;
+	background-color: black;
+	border-style: dashed;
+	border-color: #00ff00;
 	transition: 0.25s;
 }

@@ -101,15 +101,10 @@ Author: David MacKenzie
 	</article>
 	<!--	This div includes the emoji, post and picture buttons	-->
 	<div id="reactButtons">
-		<div id="reactEmojiButton">
-			<i class="fa fa-smile-o fa-5x" aria-hidden="true" id="faImage2"></i>
-		</div>
 
+		<button id="reactEmojiButton">Emoji</button>
 		<button id="reactButtonPost" type="submit" form="postSubmit">Post</button>
-
-		<div id="pictureButton">
-			<i class="fa fa-picture-o fa-5x" aria-hidden="true" id="faImage"></i>
-		</div>
+		<button id="pictureBtn">Picture</button>
 	</div>
 
 	<footer>

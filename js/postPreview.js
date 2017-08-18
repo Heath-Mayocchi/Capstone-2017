@@ -1,5 +1,5 @@
 /*	Element selectors	*/
-var pictureButton = document.querySelector("#pictureButton");
+var pictureButton = document.querySelector("#pictureBtn");
 var textArea = document.querySelector("textarea");
 var modal = document.querySelector(".modal");
 var images = document.querySelectorAll(".modal img");
