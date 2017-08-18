@@ -272,7 +272,7 @@ Author: David MacKenzie
 
 	<footer>
 		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="displayPost(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="displayPost(1)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
+		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="displayPost(1)"><img id="next_img" src="img/next_red.png" alt="Next"></img></button>
 		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">Select</button><!-- display react btns, display comments, prev and next btns change from post display to react btn focus -->
 	</footer>
 	

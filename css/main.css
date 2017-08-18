@@ -18,10 +18,10 @@ Author: David Mackenzie
 	margin-left: auto;
 	margin-right: auto;
 	width: 1100px;
+	height: 900px;
 }
 .button { 
-	background: #00ff00;
-	border: 3px solid black;
+	background: #ffff00;
 	color: #000;
     cursor: pointer;
 	height: 45px;
@@ -30,9 +30,9 @@ Author: David Mackenzie
 	border-radius: 10px;
 }
 .button:focus {
-	background-color: #000;
-	border: 6px solid #00ff00;
-	color: #fff;	
+	background-color: #ff6b6b;
+	font-weight: bold;
+	outline: none;	
 }
 .imageButton{
 	background-color: transparent;
