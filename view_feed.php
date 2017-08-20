@@ -174,45 +174,45 @@ Author: David MacKenzie
 	
 	<article>
 		<div id="emoji_selection">
-			<table>
+			<table id="emoji_selection_table">
 				<tr>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_like" type="submit"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
+							<button class="button emojiBtn" id="emoji_like" onkeyup="feedBtnLike(event)"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
-							<figcaption>Like</figcaption>
+							<figcaption id="like">Like</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_love" type="submit"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
+							<button class="button emojiBtn" id="emoji_love" onkeyup="feedBtnLove(event)"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
-							<figcaption>Love</figcaption>
+							<figcaption id="love">Love</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_laugh" type="submit"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
+							<button class="button emojiBtn" id="emoji_laugh" onkeyup="feedBtnLaugh(event)"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
-							<figcaption>Laugh</figcaption>
+							<figcaption id="laugh">Laugh</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_wow" type="submit"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
+							<button class="button emojiBtn" id="emoji_wow" onkeyup="feedBtnWow(event)"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
-							<figcaption>Wow</figcaption>
+							<figcaption id="wow">Wow</figcaption>
 						</figure>
 					</th>
 					<th>
 						<figure>
-							<button class="button emojiBtn" id="emoji_sad" type="submit"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
+							<button class="button emojiBtn" id="emoji_sad" onkeyup="feedBtnSad(event)"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>
 							<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->
-							<figcaption>Sad</figcaption>
+							<figcaption id="sad">Sad</figcaption>
 						</figure>
 					</th>
 					<th>
-						<button class="button" id="emoji_cancel_btn" onkeydown="feedBtnEmojiCancel()">Cancel</button>
+						<button class="button" id="emoji_cancel_btn" onkeyup="feedBtnEmojiCancel(event)">Cancel</button>
 						<!-- hide emoji selection, prev and next from emoji selection focus to changing post display  -->
 					</th>
 				</tr>
@@ -235,27 +235,14 @@ Author: David MacKenzie
 				</tr>
 			</table>
 		</div>
-		<div id="react_buttons">
-			<table>
-				<tr>
-					<th>
-						<button class="button" id="emoji_button" onkeydown="feedBtnEmoji()">Emoji</button>
-						<!-- display emoji selection, prev and next change from react tbn focus to emoji select focus -->
-					</th>
-					<th>
-						<button class="button" id="comment_button" onkeydown="feedBtnComment()">Comment</button>
-						<!-- Display comment form, prev and next change from react btn focus to comment form focus -->
-					</th>
-					<th>
-						<button class="button" id="react_cancel_button" onkeydown="feedBtnReactCancel()">Cancel</button>
-						<!-- Hide react btns, hide comments, prev and next from react btn focus to changeing post display -->
-					</th>
-				</tr>
-			</table>
-		</div>
 	</article>
 
 	<footer>
+		<div id="choose_buttons">
+			<button class="button" id="emoji_button" onkeyup="feedBtnEmoji()">Emoji</button>
+			<button class="button" id="comment_button" onkeyup="feedBtnComment()">Comment</button>
+			<button class="button" id="choose_cancel_button" onkeyup="feedBtnChooseCancel()">Cancel</button>
+		</div>
 		<div id="postNavigationButtons">
 			<button class="button" id="previous_btn" onkeyup="feedBtnPrevious(event)" onclick="displayPost(-1)">Previous</button>
 			<button class="button" id="next_btn" autofocus onkeyup="feedBtnNext(event)" onclick="displayPost(1)">Next</button>
@@ -265,12 +252,13 @@ Author: David MacKenzie
 	
 	<!--
 	Preload images for previous and next footer navigation buttons
-	-->
+	
 	<div id="preloaded-images">
 	   <img src="img/previous_selected.png" width="1" height="1" alt="Previous" />
 	   <img src="img/next.png" width="1" height="1" alt="Next" />
 	</div>
+	-->
 	</body>
 	<script src="js/view_feed.js" type="text/javascript"></script>
-	<script src="js/view_feed_heath.js" type="text/javascript"></script>
+	<script src="js/view_feed_heath_new.js" type="text/javascript"></script>
 </html>

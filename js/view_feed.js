@@ -55,34 +55,19 @@ function showComment(n) {
 	items[commentSlider - 1].style.display = "block";
 }
 
-// function for back key presses
-function feedBtnBack(event){
-    var key = event.which;
-	// if key pressed is the right arrow, change focus to 'react' footer button
-	if (key == 32){
-		document.getElementById("back_btn").blur();
-		document.getElementById("previous_btn").focus();
-	}
-	// if key pressed is the up arrow, view next post
-	if (key == 13){
-		event.preventDefault();
-        event.stopPropagation();
-		window.history.back();
-	}	
-}
 
 // function for next button key presses
 function feedBtnNext(event) {	
     var key = event.which;
-	// if key pressed is the right arrow, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to 'react' footer button
 	if (key == 32){
 		document.getElementById("next_btn").blur();
 		document.getElementById("choose_btn").focus();
 	}
-	// if key pressed is the up arrow, view next post
-	if (key == 13){        
+	// if key pressed is the enter key, view next post
+	if (key == 13){  
 		key.preventDefault();
-        key.stopPropagation();
+		key.stopPropagation();
 		displayPost(-1);
 		plusComment(-1);
 	}
@@ -107,30 +92,36 @@ function feedBtnClickChoose(){
 		document.getElementById("reacted_emojis").style.marginLeft = "60px";
 	} */
 }		
-		
+
+// variables to keep track of footer buttons
+var postNavButtons = true;
+var chooseButtons = false;	
+var emojiSelectButtons = false;
 
 // function for choose button key presses
 function feedBtnChoose(event) {
-		var key = event.which;
-		// if key pressed is the spacebar, change focus to the back button
-		if (key == 32){ 
+	var key = event.which;
+	// if key pressed is the spacebar, change focus to the back button
+	if (key == 32){ 
 			document.getElementById("choose_btn").blur();
 			document.getElementById("back_btn").focus();		
-		}
-		// if key pressed is the enter key, display react buttons and comments
-		if (key == 13){
+	}
+	// if key pressed is the enter key, display react buttons and comments
+	if (key == 13){
 		// hide nav buttons
-		// TODO
+		document.getElementById("postNavigationButtons").style.display = "none";
 		// diplay emoji/ comment buttons
-		// TODO
+		document.getElementById("choose_buttons").style.display = "block";
 		// display comments
 		document.getElementById("comment_view").classList.add('visible'); 
 		document.getElementById("comment_view").classList.remove('hidden'); 
 		document.getElementById("post_view").style.left = "0%"; 
 		document.getElementById("latestCommentSection").style.left = "0%"; 
 		document.getElementById("reacted_emojis").style.marginLeft = "60px";
-		// auto focus emoji button		
-		// TODO
+		// auto focus emoji button
+		document.getElementById("emoji_button").focus();
+		postNavButtons = false;
+		chooseButtons = true;
 	}	
 }
 
@@ -145,7 +136,7 @@ function feedBtnPrevious(event) {
 	// if key pressed is the enter key, view previous post
 	if (key == 13){
 		key.preventDefault();
-        key.stopPropagation();
+		key.stopPropagation();
 		displayPost(1);	
 		plusComment(1); //this is for the latest comment
 	}

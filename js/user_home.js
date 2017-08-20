@@ -20,7 +20,9 @@ function view_feed(event){
 			
 	}
 	// if key pressed is the enter key, goto href view feed
-	else if (key == 13){
+	if (key == 13){
+		key.preventDefault();
+		key.stopPropagation();
 		window.location.href = 'view_feed.php';
 	}	
 }
@@ -33,6 +35,8 @@ function create_post(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
+		key.preventDefault();
+		key.stopPropagation();
 		window.location.href = 'create_post.php';
 	}	
 }
@@ -45,6 +49,8 @@ function friends(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
+		key.preventDefault();
+		key.stopPropagation();
 		window.location.href = '#';
 	}	
 }
@@ -57,6 +63,8 @@ function messages(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
+		key.preventDefault();
+		key.stopPropagation();
 		window.location.href = '#';
 	}	
 }
@@ -69,6 +77,8 @@ function logout(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
+		key.preventDefault();
+		key.stopPropagation();
 		window.location.href = '#';
 	}	
 }

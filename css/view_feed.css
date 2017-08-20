@@ -69,17 +69,31 @@ Author: David Mackenzie
 	right: 0;
 }
 
+/* emoji selection captions */
 figure {
   display: table;
 }
 figcaption {
   display: table-caption;
   caption-side: top;
-  margin-left: -15px;
+  margin-left: -20px;
 }
+#love {
+	margin-left: -23px;
+}
+#laugh {
+	margin-left: -28px;
+}
+#wow {
+	margin-left: -23px;
+}
+#sad {
+	margin-left: -18px;
+}
+
 table {
-	margin-left: 40px;
-	margin-top: -20px;
+	margin-left: 260px;
+	margin-top: -10px;
 }
 th {
 	padding: 0px;
@@ -96,16 +110,19 @@ section
 	height: 500px;
 }
 .emojiBtn {
-	width: 80px;
-	height: 80px;
+	width: 50px;
+	height: 50px;
 	background-color: transparent;
 	margin-left: -30px;
 	margin-right: -30px;
 	padding-right: 5px;
+	border: none;
 }
 .emojiBtn:focus {
+	width: 60px;
+	height: 60px;
 	background-color: transparent;
-	border: 6px dashed #00ff00;
+	border: 6px solid #ff6b6b;
 	color: #fff;	
 }
 .emoji_img {
@@ -126,27 +143,11 @@ section
 	margin-left: 5px;
 	color: #fff;
 }
-#react_buttons {
-	float: left;
-	margin-top: 10px;	
-	margin-left: 120px;
-	margin-right: 120px;
-	margin-top: -70px;
-    display: none;
-}
-#react_buttons th {
-	padding-left: 100px;
-}
 
-#emoji_selection {
-	float: left;
-	margin-top: 10px;
-    display: none;
-}
-
-#emoji_cancel_btn {	
-	margin-top: 20px;
-	margin-left: 10px;
+/* post nav buttons */
+#postNavigationButtons {
+	margin-top: -110px;
+    display: block;
 }
 #choose_btn {
 	float: right;
@@ -169,6 +170,63 @@ section
 	margin-top: -10px;
 }
 
+/* emoji and comment buttons */
+#choose_buttons {
+	margin-top: -110px;
+    display: none;
+}
+#emoji_button {
+	float: left;
+	margin-left: 200px;	
+}
+#comment_button {
+	float: center;	
+}
+#choose_cancel_button {
+	float: right;
+	margin-right: 200px;	
+}
+#choose_cancel_button:focus {
+	margin-top: -10px;
+}
+#emoji_button:focus {
+	margin-top: -10px;
+}
+#comment_button:focus {
+	margin-top: -10px;
+}
+
+/* emoji selection */
+#emoji_selection_table {
+	margin-left: 200px;	
+	margin-top: -10px; 
+}
+#emoji_selection {
+	float: center;
+	margin-top: 0px;
+    display: none;
+}
+#emoji_cancel_btn {	
+	margin-top: 20px;
+	margin-left: 10px;
+}
+#emoji_like {
+	
+}
+#emoji_love {
+	
+}
+#emoji_laugh {
+	
+}
+#emoji_wow {
+	
+}
+#emoji_sad {
+	
+}
+
+
 #post_view {
 	position: relative;
 	left: 20%;
@@ -180,10 +238,6 @@ section
 	color: black;
 	text-align: left;
 	margin-top: -10px;
-}
-#postNavigationButtons {
-	margin-top: -110px;
-    display: block;
 }
 .post
 {
