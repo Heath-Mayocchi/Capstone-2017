@@ -5,12 +5,12 @@ function init()
 }
 window.onload=init;
 
+// display post
+
 var slideIndex = 1;
-displayPost
 function displayPost(n) {
     showPost(slideIndex += n);
 }
-
 function showPost(n) {
     var x = document.getElementsByClassName("post");
     if (n > x.length) {slideIndex = 1}
@@ -21,112 +21,8 @@ function showPost(n) {
     x[slideIndex-1].style.display = "block";
 }
 
-// function for next button key presses
-function feedBtnNext(event) {	
-    var key = event.keyCode;
-	// if key pressed is the right arrow, change focus to 'react' footer button
-	if (key == 39){
-		document.getElementById("next_img").src = "img/next.png";
-		document.getElementById("react_btn").focus();
-	}
-	// if key pressed is the up arrow, view next post
-	if (key == 38){
-		displayPost(-1);
-		plusComment(-1);
-	}
-}
 
-// function for react button key presses
-function feedBtnReact(event) {
-		var key = event.keyCode;
-		// if key pressed is the right arrow, change focus to 'previous' footer button
-		if (key == 39){ 
-			document.getElementById("prev_img").src = "img/previous_selected.png";
-			document.getElementById("previous_btn").focus();		
-		}
-		// if key pressed is the up arrow, display react buttons and comments
-		if (key == 38){
-		// change functions for previous and next buttons
-		document.getElementById("next_btn").setAttribute('onkeydown', 'reactNextFocus(event)');
-		document.getElementById("previous_btn").setAttribute('onkeydown', 'reactPreviousFocus(event)');
-		// diplay react buttons
-		document.getElementById("react_buttons").style.visibility = "visible";
-		// display comments
-		document.getElementById("comment_view").classList.add('visible'); 
-		document.getElementById("comment_view").classList.remove('hidden'); 
-		document.getElementById("post_view").style.left = "0%"; 
-		document.getElementById("latestCommentSection").style.left = "0%";
-		document.getElementById("reacted_emojis").style.marginLeft = "60px";
-		document.getElementById("latestCommentLabel").style.marginLeft = "-390px";
-		// auto focus emoji button
-		reactEmojiBtnFocused();
-		// focus next navigation button
-		document.getElementById("next_img").src = "img/next_selected.png";
-		document.getElementById("next_btn").focus();		
-		// change function for select button
-		document.getElementById("react_btn").setAttribute('onkeydown', 'reactButtonSelect(event)');
-		
-		
-		
-		/* // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable 
-		if (document.getElementById("comment_view").classList.contains('visible')) 
-		{ 
-		  document.getElementById("comment_view").classList.add('hidden'); 
-		  document.getElementById("comment_view").classList.remove('visible'); 
-		  document.getElementById("post_view").style.left = "20%"; 
-		  document.getElementById("latestCommentSection").style.left = "18%"; 
-		} else  
-		{ 
-		  document.getElementById("comment_view").classList.add('visible'); 
-		  document.getElementById("comment_view").classList.remove('hidden'); 
-		  document.getElementById("post_view").style.left = "0%"; 
-		  document.getElementById("latestCommentSection").style.left = "0%"; 
-		} */
-	}	
-}
-
-// function for previous button key presses
-function feedBtnPrevious(event) {
-    var key = event.keyCode;
-	// if key pressed is the right arrow, change focus to 'next' footer button
-	if (key == 39){ 	
-		document.getElementById("prev_img").src = "img/previous.png";
-		document.getElementById("next_img").src = "img/next_selected.png";
-		document.getElementById("next_btn").focus();
-	}
-	// if key pressed is the up arrow, view previous post
-	if (key == 38){
-		displayPost(1);	
-		plusComment(1); //this is for the latest comment
-	}
-}
-
-
-/* // function for react button clicks
-var react = document.querySelector("#react_btn");
-react.addEventListener("click", function() {
-		// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
-		if (document.getElementById("comment_view").classList.contains('visible'))
-		{
-			document.getElementById("comment_view").classList.add('hidden');
-			document.getElementById("comment_view").classList.remove('visible');
-			document.getElementById("post_view").style.left = "20%";
-			document.getElementById("latestCommentSection").style.left = "18%";
-		} else 
-		{
-			document.getElementById("comment_view").classList.add('visible');
-			document.getElementById("comment_view").classList.remove('hidden');
-			document.getElementById("post_view").style.left = "0%";
-			document.getElementById("latestCommentSection").style.left = "0%";
-		}	
-}); */
-
-
-
-/*	Latest comment js below 
-
-	-Levi	
-*/
+// latest comment
 
 var forward = document.querySelector("#next_btn");
 var backward = document.querySelector("#previous_btn");
@@ -147,7 +43,7 @@ function plusComment(n) {
 function showComment(n) {
 	var items = document.getElementsByClassName("latestCommentBar");
 	var length = items.length;
-	if (n > length) {
+	if (n > length) { 
 		commentSlider = 1;
 	} else if (n < 1) {
 		commentSlider = length;
@@ -158,3 +54,101 @@ function showComment(n) {
 	}
 	items[commentSlider - 1].style.display = "block";
 }
+
+// function for back key presses
+function feedBtnBack(event){
+    var key = event.which;
+	// if key pressed is the right arrow, change focus to 'react' footer button
+	if (key == 32){
+		document.getElementById("back_btn").blur();
+		document.getElementById("previous_btn").focus();
+	}
+	// if key pressed is the up arrow, view next post
+	if (key == 13){
+		event.preventDefault();
+        event.stopPropagation();
+		window.history.back();
+	}	
+}
+
+// function for next button key presses
+function feedBtnNext(event) {	
+    var key = event.which;
+	// if key pressed is the right arrow, change focus to 'react' footer button
+	if (key == 32){
+		document.getElementById("next_btn").blur();
+		document.getElementById("choose_btn").focus();
+	}
+	// if key pressed is the up arrow, view next post
+	if (key == 13){        
+		key.preventDefault();
+        key.stopPropagation();
+		displayPost(-1);
+		plusComment(-1);
+	}
+}
+
+
+// toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
+function feedBtnClickChoose(){  
+	/* if (document.getElementById("comment_view").classList.contains('visible')) 
+	{ 
+		document.getElementById("comment_view").classList.add('hidden'); 
+		document.getElementById("comment_view").classList.remove('visible'); 
+		document.getElementById("post_view").style.left = "20%"; 
+		document.getElementById("latestCommentSection").style.left = "18%";
+		document.getElementById("reacted_emojis").style.marginLeft = "260px";
+	} else  
+	{ 
+		document.getElementById("comment_view").classList.add('visible'); 
+		document.getElementById("comment_view").classList.remove('hidden'); 
+		document.getElementById("post_view").style.left = "0%"; 
+		document.getElementById("latestCommentSection").style.left = "0%"; 
+		document.getElementById("reacted_emojis").style.marginLeft = "60px";
+	} */
+}		
+		
+
+// function for choose button key presses
+function feedBtnChoose(event) {
+		var key = event.which;
+		// if key pressed is the spacebar, change focus to the back button
+		if (key == 32){ 
+			document.getElementById("choose_btn").blur();
+			document.getElementById("back_btn").focus();		
+		}
+		// if key pressed is the enter key, display react buttons and comments
+		if (key == 13){
+		// hide nav buttons
+		// TODO
+		// diplay emoji/ comment buttons
+		// TODO
+		// display comments
+		document.getElementById("comment_view").classList.add('visible'); 
+		document.getElementById("comment_view").classList.remove('hidden'); 
+		document.getElementById("post_view").style.left = "0%"; 
+		document.getElementById("latestCommentSection").style.left = "0%"; 
+		document.getElementById("reacted_emojis").style.marginLeft = "60px";
+		// auto focus emoji button		
+		// TODO
+	}	
+}
+
+// function for previous button key presses
+function feedBtnPrevious(event) {
+    var key = event.which;
+	// if key pressed is the spacebar, change focus to 'next' footer button
+	if (key == 32){ 	
+		document.getElementById("previous_btn").blur();
+		document.getElementById("next_btn").focus();
+	}
+	// if key pressed is the enter key, view previous post
+	if (key == 13){
+		key.preventDefault();
+        key.stopPropagation();
+		displayPost(1);	
+		plusComment(1); //this is for the latest comment
+	}
+}
+
+

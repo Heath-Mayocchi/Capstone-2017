@@ -11,14 +11,6 @@ Author: David Mackenzie
 */
 
 /* User homepage focus functions */
-
-function init() 
-{
-	// load page with feed button focused
-	document.getElementById("view_feed_btn").focus();
-}
-window.onload=init;
-
 function view_feed(event){	
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to create post button
@@ -59,18 +51,6 @@ function friends(event){
 function messages(event){
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to create post button
-	if (key == 32){
-		document.getElementById("messages_btn").blur();
-		document.getElementById("logout_btn").focus();
-	}
-	// if key pressed is the enter key, goto href view feed
-	if (key == 13){
-		window.location.href = '#';
-	}	
-}
-function messages(event){
-    var key = event.keyCode;
-	// if key pressed is the spacebar, change focus to logout button
 	if (key == 32){
 		document.getElementById("messages_btn").blur();
 		document.getElementById("logout_btn").focus();

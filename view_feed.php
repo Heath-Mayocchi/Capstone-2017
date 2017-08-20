@@ -17,19 +17,17 @@ Author: David MacKenzie
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
-	<link rel="stylesheet" type="text/css" href="css/view_feed_latest_comment.css">
+	<script src="js/main.js" type="text/javascript"></script>
 	<title>SNAP FEED</title>
 </head>
 <body class="wrapper">
-
 	<header>
-		<button class="imageButton" id="back_btn" onclick="backBtn()"><img id="backBtn_img" src="img/back.png" alt="Back"></img></button>
+		<button class="button" id="back_btn" onclick="backBtn()" onkeyup="feedBtnBack(event)">Back</button>
 		<div id="user_profile">
 			<img src="img/profile-placeholder.png" alt="User profile image"></img>
-			<p>User Name</p>
+			<p>Super Long User Name</p>
 		</div>
-		<h1>SNAP</h1>
-		<h2>FEED</h2>
+		<h2>SNAP FEED</h2>
 	</header>
 	
 	<section>
@@ -39,8 +37,7 @@ Author: David MacKenzie
 				<div class="userPost">
 					<img src="img/profile1.jpg" class="userPic">
 					<div class="userComment">
-						I love me some tanks, yo!
-					</div>
+						Testing 64 characters in the textbox for the feed page MMMM MMMM					</div>
 					<div class="userPostDate">
 						Abdul Muhammad&nbsp;1:52 am&nbsp;
 					</div>
@@ -73,43 +70,31 @@ Author: David MacKenzie
 		</div>
 		<div id="comment_view" class="hidden">
 			<div class="comment">
-				<span class="comment_body">Uh Oh.</p>
-				<span class="comment_date">James Posted at 11:45 am</p>
-			</div>
-			<div class="comment">
-				<span class="comment_body">These aren't part of the parent post. These aren't part of the parent post.</p>
-				<span class="comment_date">John Posted at 11:15 am</p>
-			</div>
-			<div class="comment">
-				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_body">Testing 64 characters in the textbox for the feed page MMMM MMMM</p>
 				<span class="comment_date">Andrew Posted at 11:00 am</p>
 			</div>
 			<div class="comment">
-				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_body">64 characters should beEnough for LongWords asWellMaybe maybenot</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>
 			<div class="comment">
-				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_body">64 characters will let us reduce the size of the post, so it fits better with normal picture sizes. This is more than 64...</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>		
 			<div class="comment">
-				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_body">I would like a poo emoji, but this app doesn’t have one :(</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>
 			<div class="comment">
-				<span class="comment_body">Time for a re-jig.</p>
+				<span class="comment_body">This app is so cool I can share my photos and have friends react</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>
 			<div class="comment">
-				<span class="comment_body">Next comment is 32 characters wide</p>
+				<span class="comment_body">Using standard sentences, we should be able to fit more than 64 characters, 80??</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>
 			<div class="comment">
-				<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
-				<span class="comment_date">James Posted at 11:45 am</p>
-			</div>
-			<div class="comment">
-				<span class="comment_body">MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+				<span class="comment_body">Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size</p>
 				<span class="comment_date">James Posted at 11:45 am</p>
 			</div>
 		</div>
@@ -140,16 +125,16 @@ Author: David MacKenzie
 			</tr>
 		</table>
 		
-	
-	<p id="latestCommentLabel">Latest Comment</p>	
+		
 	<div id="latestCommentSection">
+		<p id="latestCommentLabel">Latest Comment</p>
 		<div class="latestCommentBar">
-			<div class="latestCommentPicture">
-				<img src="img/img1.png">
+			<div class="latestCommentProfileImage">
+				<img src="img/profile3.jpg"></img>
 			</div>
 
 			<div class="latestCommentContent">
-				That's a nice looking tank you got there! 
+				Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size 
 			</div>
 
 			<div class="latestCommentDate"> 
@@ -159,8 +144,8 @@ Author: David MacKenzie
 
 
 		<div class="latestCommentBar">
-			<div class="latestCommentPicture">
-				<img src="img/img2.png">
+			<div class="latestCommentProfileImage">
+				<img src="img/profile1.jpg"></img>
 			</div>
 
 			<div class="latestCommentContent">
@@ -173,8 +158,8 @@ Author: David MacKenzie
 		</div>
 
 		<div class="latestCommentBar">
-			<div class="latestCommentPicture">
-				<img src="img/img3.png">
+			<div class="latestCommentProfileImage">
+				<img src="img/profile2.jpg"></img>
 			</div>
 
 			<div class="latestCommentContent">
@@ -271,9 +256,11 @@ Author: David MacKenzie
 	</article>
 
 	<footer>
-		<button class="imageButton" id="previous_btn" onkeydown="feedBtnPrevious(event)" onclick="displayPost(-1)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-		<button class="imageButton" id="next_btn" autofocus onkeydown="feedBtnNext(event)" onclick="displayPost(1)"><img id="next_img" src="img/next_red.png" alt="Next"></img></button>
-		<button class="button" id="react_btn" onkeydown="feedBtnReact(event)">Select</button><!-- display react btns, display comments, prev and next btns change from post display to react btn focus -->
+		<div id="postNavigationButtons">
+			<button class="button" id="previous_btn" onkeyup="feedBtnPrevious(event)" onclick="displayPost(-1)">Previous</button>
+			<button class="button" id="next_btn" autofocus onkeyup="feedBtnNext(event)" onclick="displayPost(1)">Next</button>
+			<button class="button" id="choose_btn" onkeyup="feedBtnChoose(event)" onclick="feedBtnClickChoose()">Choose</button>
+		</div>
 	</footer>
 	
 	<!--
@@ -285,6 +272,5 @@ Author: David MacKenzie
 	</div>
 	</body>
 	<script src="js/view_feed.js" type="text/javascript"></script>
-	<script src="js/main.js" type="text/javascript"></script>
 	<script src="js/view_feed_heath.js" type="text/javascript"></script>
 </html>

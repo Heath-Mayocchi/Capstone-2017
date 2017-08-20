@@ -23,13 +23,12 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
-	<button class="button btncircle" id="logout_btn" onclick="location.href='#'" onkeyup="logout(event)">LOGOUT</button>
+	<button class="button" id="logout_btn" onkeyup="logout(event)">LOGOUT</button>
 	<div id="user_profile">
-	<img src="img/profile-placeholder.png" alt="User profile image"></img>
-	<p>User Name</p>
+		<img src="img/profile-placeholder.png" alt="User profile image"></img>
+		<p>Super Long User Name</p>
 	</div>
-	<h1>SNAP</h1>
-	<h2>HOME</h2>
+	<h2>SNAP HOME</h2>
 	</header>
 	<section>
 	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';" onkeyup="view_feed(event)">VIEW<br>FEED</button>
