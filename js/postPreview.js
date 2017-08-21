@@ -4,7 +4,7 @@ var textArea = document.querySelector("textarea");
 var modal = document.querySelector(".modal");
 var images = document.querySelectorAll(".modal img");
 var displayPic = document.querySelector("#selectedPicture");
-var selectButton = document.querySelector(".selectPicButton");
+var selectButton = document.querySelector("#selectPicButton");
 
 var emojiCancelButton = document.querySelector("#emoji_cancel_btn");
 var emojiSelection = document.querySelector("#emoji_selection");
@@ -48,6 +48,8 @@ function selectButtonFunc() {
 	modal.classList.add("hideModal");
 	displayPic.style.display = "block";
 	isTrue = true;
+	pictureFocus = false;
+	document.getElementById("pictureBtn").focus();
 }
 
 function emojiButtonFunc() {

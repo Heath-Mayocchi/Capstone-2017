@@ -87,7 +87,9 @@ th {
 	margin: 0 auto;
 	position: relative;
 }
-
+#cancelPicBtn: focus {
+	
+}
 #selectedPicture {
 	position: absolute;
 	display: none;
@@ -130,7 +132,7 @@ th {
 	margin-top: 328px;
 	margin-left: 0px;
 	width: 480px;
-	height: 70px;
+	height: 71px;
 	z-index: 0;
 	font-size: 20px;
 	font-weight: bold;
@@ -223,21 +225,7 @@ th {
 	transition: 0.3s;
 }
 
-.selectPicButton {
-	background-color: #ffff00;
-	height: 36px;
-	width: 125px;
-	border-radius: 10px;
-	font-size: 20px;
-	margin-left: 180px;
-	
-}
-.selectPicButton:hover {
-	background-color: #ff6b6b;
-	font-weight: bold;
-	transition: 0.3s;
-}
-.cancelPicButton {
+#selectPicButton {
 	float: right;
 	margin-right: 15px;
 	background-color: #ffff00;
@@ -245,19 +233,34 @@ th {
 	width: 125px;
 	border-radius: 10px;
 	font-size: 20px;
+	
 }
-.cancelPicButton:hover {
+#selectPicButton:hover {
+	background-color: #ff6b6b;
+	font-weight: bold;
+	transition: 0.3s;
+}
+#selectPicButton:focus {
 	background-color: #ff6b6b;
 	font-weight: bold;
 	transition: 0.3s;
 }
 
+#post_back_btn {
+	float: left;
+	margin-right: -122px;
+}
+#post_back_btn:focus {
+	float: left;
+	margin-right: -142px;
+	margin-bottom: -20px;
+}
 
 #postButtons {
 	margin-top: 175px;
     display: block;
 }
-#reactEmojiButton {
+#postCommentButton {
 	float: left;
 	margin-left: 200px;
 }
@@ -268,7 +271,7 @@ th {
 	float: right;
 	margin-right: 200px;
 }
-#reactEmojiButton:focus {
+#postCommentButton:focus {
 	margin-top: -10px;
 }
 #pictureBtn:focus {

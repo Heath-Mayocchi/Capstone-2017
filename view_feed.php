@@ -240,9 +240,9 @@ Author: David MacKenzie
 
 	<footer>
 		<div id="choose_buttons">
-			<button class="button" id="emoji_button" onkeyup="feedBtnEmoji()">Emoji</button>
-			<button class="button" id="comment_button" onkeyup="feedBtnComment()">Comment</button>
-			<button class="button" id="choose_cancel_button" onkeyup="feedBtnChooseCancel()">Cancel</button>
+			<button class="button" id="emoji_button" onkeyup="feedBtnEmoji(event)">Emoji</button>
+			<button class="button" id="comment_button" onkeyup="feedBtnComment(event)">Comment</button>
+			<button class="button" id="choose_cancel_button" onkeyup="feedBtnChooseCancel(event)">Cancel</button>
 		</div>
 		<div id="postNavigationButtons">
 			<button class="button" id="previous_btn" onkeyup="feedBtnPrevious(event)" onclick="displayPost(-1)">Previous</button>

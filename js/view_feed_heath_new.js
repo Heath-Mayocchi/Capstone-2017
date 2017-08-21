@@ -3,7 +3,7 @@
 /* 
 functions for choose buttons
 */
-function feedBtnEmoji(){
+function feedBtnEmoji(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
 	if (key == 32){ 	
@@ -23,7 +23,7 @@ function feedBtnEmoji(){
 		document.getElementById("emoji_like").focus();
 	}	
 }
-function feedBtnComment(){
+function feedBtnComment(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
 	if (key == 32){ 	
@@ -39,7 +39,7 @@ function feedBtnComment(){
 		// TODO - focus comment textbox
 	}	
 }
-function feedBtnChooseCancel(){
+function feedBtnChooseCancel(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
 	if (key == 32){ 	

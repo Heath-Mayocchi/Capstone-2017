@@ -19,7 +19,7 @@ Author: David MacKenzie
 </head>
 <body class="wrapper">
 	<header>
-		<button class="button" id="back_btn" onclick="backBtn()" onkeyup="feedBtnBack(event)">Back</button>
+		<button class="button" id="post_back_btn" onclick="backBtn()" onkeyup="postBtnBack(event)">Back</button>
 		<div id="user_profile">
 			<img src="img/profile-placeholder.png" alt="User profile image"></img>
 			<p>Super Long User Name</p>
@@ -37,11 +37,10 @@ Author: David MacKenzie
 				<img src="img/frogHat.jpg">
 				<img src="img/pussy.jpg">
 				<img src="img/sloth.jpg">
-				<button class="selectPicButton">Select</button>
-				<button class="cancelPicButton">Cancel</button>
+				<button id="selectPicButton">Select</button>
 			</div>
 			<form action="#" id="postSubmit">
-				<textarea name="userPostContent" placeholder="Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size" class="textBig"></textarea>
+				<textarea id="postComment" name="userPostContent" placeholder="Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size" class="textBig"></textarea>
 			</form>
 			<div class="boxUserPost">
 				<img src="img/profile1.jpg" id="boxUserImage">
@@ -101,12 +100,14 @@ Author: David MacKenzie
 
 	<footer>
 		<div id="postButtons">
-			<button class="button" id="reactEmojiButton">Emoji</button>
-			<button class="button" id="pictureBtn">Picture</button>
-			<button class="button" id="reactButtonPost" type="submit" form="postSubmit">Submit</button>
+			<button class="button" id="postCommentButton" onkeyup="postCommentButton(event)">Comment</button>
+			<button class="button" id="pictureBtn" onkeyup="postpictureButton(event)" autofocus>Picture</button>
+			<button class="button" id="reactButtonPost" type="submit" form="postSubmit" onkeyup="postSubmitButton(event)">Submit</button>
 		</div>
 	</footer>
 		
 	<script type="text/javascript" src="js/postPreview.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/post_heath.js"></script>
 </body>
 </html>
