@@ -13,20 +13,18 @@ Author: David MacKenzie
 	<meta charset="utf-8"/>
 	<title>SNAP POST</title>
 	<!--	CSS	-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/postPreview.css">
 </head>
 <body class="wrapper">
-
 	<header>
-		<button class="imageButton" id="back_btn" onclick="backBtn()"><img id="backBtn_img" src="img/back.png" alt="Back"></img></button>
+		<button class="button" id="back_btn" onclick="backBtn()" onkeyup="feedBtnBack(event)">Back</button>
 		<div id="user_profile">
 			<img src="img/profile-placeholder.png" alt="User profile image"></img>
-			<p>User Name</p>
+			<p>Super Long User Name</p>
 		</div>
-		<h1>SNAP</h1>
-		<h2>CREATE A POST</h2>
+		<h2>SNAP FEED</h2>
 	</header>
 
 	<div class="mainBox">
@@ -39,13 +37,14 @@ Author: David MacKenzie
 				<img src="img/frogHat.jpg">
 				<img src="img/pussy.jpg">
 				<img src="img/sloth.jpg">
-				<button class="selectPicButton">SELECT</button>
+				<button class="selectPicButton">Select</button>
+				<button class="cancelPicButton">Cancel</button>
 			</div>
 			<form action="#" id="postSubmit">
-				<textarea name="userPostContent" placeholder="Enter post comment..." class="textBig"></textarea>
+				<textarea name="userPostContent" placeholder="Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size" class="textBig"></textarea>
 			</form>
 			<div class="boxUserPost">
-				<img src="img/img3.png" id="boxUserImage">
+				<img src="img/profile1.jpg" id="boxUserImage">
 				<div id="boxDate">
 					John Doe 8:45 am&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
@@ -99,18 +98,13 @@ Author: David MacKenzie
 			</table>
 		</div>
 	</article>
-	<!--	This div includes the emoji, post and picture buttons	-->
-	<div id="reactButtons">
-		<button id="reactEmojiButton">Emoji</button>
-		<button id="reactButtonPost" type="submit" form="postSubmit">Post</button>
-		<button id="pictureBtn">Picture</button>
-	</div>
 
 	<footer>
-	<br><br><br>
-		<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-		<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
-		<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
+		<div id="postButtons">
+			<button class="button" id="reactEmojiButton">Emoji</button>
+			<button class="button" id="pictureBtn">Picture</button>
+			<button class="button" id="reactButtonPost" type="submit" form="postSubmit">Submit</button>
+		</div>
 	</footer>
 		
 	<script type="text/javascript" src="js/postPreview.js"></script>

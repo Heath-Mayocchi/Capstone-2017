@@ -27,7 +27,7 @@ th {
 #emoji_selection {
 	float: left;
 	margin-top: 10px;
-    visibility: hidden;
+    display: none;
     transition: 0.25s;
 }
 #emoji_cancel_btn {	
@@ -63,18 +63,17 @@ th {
 .top {
 	text-align: center;
 	font-weight: bold;
-	font-size: 2.3em;
-	font-family: "Arial";
+	font-size: 20px;
 	margin-top: 10px;
 	color: white;
 }
 
 .mainBox {
 	width: 590px;
-	margin: 10px auto 0 auto;
+	margin: 35px auto 0 auto;
 	border: 0px solid #b8b8b5;
-	border-radius: 5px;
-	height: 442px;
+	border-radius: 10px;
+	height: 412px;
 	background-color: #b8b8b5;
 	position: relative;
 	display: block;
@@ -114,6 +113,9 @@ th {
 	background-color: transparent;
 	border-style: none;
 	transition: 0.3s;
+	overflow: auto;
+	padding-left: 8px;
+	font-family: "Times New Roman", Times, serif;
 }
 
 /*	This is the css that will be toggled for the text area when the user decides to select a picture	*/
@@ -121,20 +123,21 @@ th {
 	display: block;
 	outline: none;
 	color: black;
-	resize: none;
 	position: absolute;
 	text-align: left;
-	text-indent: 5px;
+	padding-left: 90px;
 	border-radius: 10px;
-	margin-top: 355px;
-	margin-left: 93px;
-	width: 478px;
-	height: 75px;
-	z-index: 1;
+	margin-top: 328px;
+	margin-left: 0px;
+	width: 480px;
+	height: 70px;
+	z-index: 0;
 	font-size: 20px;
 	font-weight: bold;
 	transition: 0.3s;
 	padding-top: 3px;
+	overflow: auto;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .boxBackground textarea::placeholder {
@@ -153,11 +156,13 @@ th {
 }
 
 #boxUserImage{
-	width: 80px;
-	height: 70px;
+	width: 65px;
+	height: 65px;
 	float: left;
+	border-radius: 5px;
 	margin-left: 0px;
-	margin-top: 35px;
+	margin-top: 37px;
+    z-index: 1;
 }
 
 #boxDate {
@@ -173,7 +178,7 @@ th {
 #emoji_selection {
 	float: left;
 	margin-top: -100px;
-    visibility: ;
+    display: none;
 }
 
 .modal {
@@ -207,44 +212,84 @@ th {
 }
 
 .modal img:hover {
-	border: 8px dashed #00ff00;
+	border: 8px dashed #ff6b6b;
 	transition: 0.3s;
 }
 
 /*		This is the style that will be applied when the user clicks on a picture.
 		Think of it as a focus		*/
 #imageSelected {
-	border: 8px dashed #00ff00;
+	border: 8px solid #ff6b6b;
 	transition: 0.3s;
 }
 
 .selectPicButton {
-	margin-top: 9px;
-	margin-left: 73.5%;
-	background-color: #00ff00;
-	border: 1px solid black;
+	background-color: #ffff00;
 	height: 36px;
-	width: 22%;
-	border-radius: 5px;
-	font-size: 1.1em;
+	width: 125px;
+	border-radius: 10px;
+	font-size: 20px;
+	margin-left: 180px;
+	
 }
-
 .selectPicButton:hover {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;
+	background-color: #ff6b6b;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.cancelPicButton {
+	float: right;
+	margin-right: 15px;
+	background-color: #ffff00;
+	height: 36px;
+	width: 125px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+.cancelPicButton:hover {
+	background-color: #ff6b6b;
+	font-weight: bold;
 	transition: 0.3s;
 }
 
-#reactButtons {
+
+#postButtons {
+	margin-top: 175px;
+    display: block;
+}
+#reactEmojiButton {
+	float: left;
+	margin-left: 200px;
+}
+#pictureBtn {
+	float: center;
+}
+#reactButtonPost {
+	float: right;
+	margin-right: 200px;
+}
+#reactEmojiButton:focus {
+	margin-top: -10px;
+}
+#pictureBtn:focus {
+	margin-top: -10px;
+}
+#reactButtonPost:focus {
+	margin-top: -10px;
+}
+
+footer {
+}
+
+/* #reactButtons {
 	position: relative;
 	width: 590px;
 	margin: 10px auto 0 auto;
 	border: 1px none white;
 	height: 150px;
-}
+} */
 
-.wrapper #reactButtons #reactEmojiButton {
+/* .wrapper #reactButtons #reactEmojiButton {
 	position: absolute;
 	color: yellow;
 	margin-top: 60px;
@@ -273,10 +318,10 @@ th {
 	border: 6px dashed #00ff00;
 	color: #fff;	
 	transition: 0.1s;
-}
+} */
 
 
-.wrapper #reactButtons #reactButtonPost {
+/* .wrapper #reactButtons #reactButtonPost {
 	position: absolute;
 	background: #00ff00;
 	border: 3px solid black;
@@ -332,8 +377,5 @@ th {
 	border: 6px dashed #00ff00;
 	color: #fff;
 	transition: 0.1s;
-}
+} */
 
-footer {
-	margin-top: -5px;
-}

@@ -1,5 +1,8 @@
 // keycodes: space 32, right arrow 39, enter 13, up arrow 38
 
+/* 
+functions for choose buttons
+*/
 function feedBtnEmoji(){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
@@ -9,18 +12,17 @@ function feedBtnEmoji(){
 	}
 	// if key pressed is the enter key, view previous post
 	if (key == 13){
-		// TODO - hide choose buttons
+		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
-		// TODO - set emojiSelectButtons to true & chooseButtons to false
+		// set emojiSelectButtons to true & chooseButtons to false
 		emojiSelectButtons = true;
 		chooseButtons = false;
-		// TODO - show emoji selection
+		// show emoji selection
 		document.getElementById("emoji_selection").style.display = "inline";
-		// TODO - focus on like emoji
+		// focus on like emoji
 		document.getElementById("emoji_like").focus();
 	}	
 }
-
 function feedBtnComment(){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
@@ -37,7 +39,6 @@ function feedBtnComment(){
 		// TODO - focus comment textbox
 	}	
 }
-
 function feedBtnChooseCancel(){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'next' footer button
@@ -47,26 +48,27 @@ function feedBtnChooseCancel(){
 	}
 	// if key pressed is the enter key, view previous post
 	if (key == 13){
-		// TODO - hide choose buttons
+		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
-		// TODO - hide comments
+		// hide comments
 		document.getElementById("comment_view").classList.add('hidden'); 
 		document.getElementById("comment_view").classList.remove('visible'); 
 		document.getElementById("post_view").style.left = "20%"; 
 		document.getElementById("latestCommentSection").style.left = "18%";
 		document.getElementById("reacted_emojis").style.marginLeft = "260px";
-		// TODO - show nav buttons
+		// show nav buttons
 		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - set postNavButtons to true & chooseButtons to false
+		// set postNavButtons to true & chooseButtons to false
 		postNavButtons = true;
 		chooseButtons = false;
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("next_btn").focus();
 	}	
 }
 
-// function for back key presses
-// TODO - change focus according to what footer set is active
+/* 
+function for back key presses
+*/
 function feedBtnBack(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'react' footer button
@@ -92,7 +94,9 @@ function feedBtnBack(event){
 	}	
 }
 
-// functions for emoji selection
+/* 
+functions for emoji selection
+*/
 function feedBtnLike(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to 'react' footer button
@@ -104,11 +108,11 @@ function feedBtnLike(event){
 	if (key == 13){
 		// TODO - submit emoji 1 to db
 		alert("send emoji 1 to db");
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }
@@ -123,11 +127,11 @@ function feedBtnLove(event){
 	if (key == 13){
 		// TODO - submit emoji 2 to db
 		alert("send emoji 2 to db");
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }
@@ -142,11 +146,11 @@ function feedBtnLaugh(event){
 	if (key == 13){
 		// TODO - submit emoji 3 to db
 		alert("send emoji 3 to db");
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }
@@ -161,11 +165,11 @@ function feedBtnWow(event){
 	if (key == 13){
 		// TODO - submit emoji 4 to db
 		alert("send emoji 4 to db");
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }
@@ -180,11 +184,11 @@ function feedBtnSad(event){
 	if (key == 13){
 		// TODO - submit emoji 5 to db
 		alert("send emoji 5 to db");
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }
@@ -199,12 +203,12 @@ function feedBtnEmojiCancel(event){
 	if (key == 13){
 		// TODO - hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// TODO - set emojiSelectButtons to false & chooseButtons to true
+		// set emojiSelectButtons to false & chooseButtons to true
 		emojiSelectButtons = false;
 		chooseButtons = true;
-		// TODO - display choose buttons
+		// display choose buttons
 		document.getElementById("choose_buttons").style.display = "block";
-		// TODO - focus next button
+		// focus next button
 		document.getElementById("emoji_button").focus();
 	}	
 }

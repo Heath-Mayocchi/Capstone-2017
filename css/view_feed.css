@@ -210,22 +210,6 @@ section
 	margin-top: 20px;
 	margin-left: 10px;
 }
-#emoji_like {
-	
-}
-#emoji_love {
-	
-}
-#emoji_laugh {
-	
-}
-#emoji_wow {
-	
-}
-#emoji_sad {
-	
-}
-
 
 #post_view {
 	position: relative;
@@ -299,8 +283,6 @@ section
 	border-radius: 10px;
 	margin-top: -10px;
 }
-
-
 .comment 
 {
 	background-color: white;

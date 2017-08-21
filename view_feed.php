@@ -37,7 +37,8 @@ Author: David MacKenzie
 				<div class="userPost">
 					<img src="img/profile1.jpg" class="userPic">
 					<div class="userComment">
-						Testing 64 characters in the textbox for the feed page MMMM MMMM					</div>
+						Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size
+					</div>
 					<div class="userPostDate">
 						Abdul Muhammad&nbsp;1:52 am&nbsp;
 					</div>

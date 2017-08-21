@@ -23,7 +23,6 @@ mainFunc();	// Calls main function
 
 
 /* functions below	
-
 	- Levi
 */
 
