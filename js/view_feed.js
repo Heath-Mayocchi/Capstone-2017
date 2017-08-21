@@ -97,6 +97,7 @@ function feedBtnClickChoose(){
 var postNavButtons = true;
 var chooseButtons = false;	
 var emojiSelectButtons = false;
+var commentButtons = false;
 
 // function for choose button key presses
 function feedBtnChoose(event) {

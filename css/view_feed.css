@@ -324,18 +324,21 @@ section
 }
 
 #comment_form {	
-	float: left;
-	margin-left: 20px;
-	margin-top: -81px;
+	float: center;
+	margin-left: -110px;
+	margin-top: 48px;
 	display: none;
 }
 
 #comment_text_box {
 	resize: none;
 	font-size: 20px;
-	height: 60px;
-	width: 500px;
+	height: 70px;
+	width: 485px;
 	border-radius: 10px;
+	overflow: hidden;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
 }
 
 #comment_submit_button {

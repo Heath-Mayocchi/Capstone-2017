@@ -226,11 +226,11 @@ Author: David MacKenzie
 						<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 32 characters)"></textarea>
 					</th>
 					<th>
-						<button class="button" id="comment_submit_button" type="submit">Submit</button>
+						<button class="button" id="comment_submit_button" onkeydown="feedBtnCommentsubmit(event)">Submit</button>
 						<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
 					</th>
 					<th>
-						<button class="button" id="comment_cancel_button" onkeydown="feedBtnCommentCancel()">Cancel</button>
+						<button class="button" id="comment_cancel_button" onkeydown="feedBtnCommentCancel(event)">Cancel</button>
 						<!-- hide comment form, prev and next from comment form focus to changing post display  -->
 					</th>
 				</tr>

@@ -32,11 +32,15 @@ function feedBtnComment(event){
 	}
 	// if key pressed is the enter key, view previous post
 	if (key == 13){
-		key.preventDefault();
-		key.stopPropagation();
-		// TODO - hide choose buttons
-		// TODO - show comment form
-		// TODO - focus comment textbox
+		// hide choose buttons
+		document.getElementById("choose_buttons").style.display = "none";
+		// show comment form
+		document.getElementById("comment_form").style.display = "block";
+		// focus comment cancel button
+		document.getElementById("comment_cancel_button").focus();
+		// set commentButtons top true and chooseButtons to false
+		commentButtons = true;
+		chooseButtons = false;
 	}	
 }
 function feedBtnChooseCancel(event){
@@ -85,6 +89,11 @@ function feedBtnBack(event){
 			document.getElementById("back_btn").blur();
 			document.getElementById("emoji_like").focus();
 		}
+		else if (commentButtons){	
+			// TODO - this should focus a border for the comment text box then focus submit
+			document.getElementById("back_btn").blur();
+			document.getElementById("comment_submit_button").focus();
+		}
 	}
 	// if key pressed is the enter key, view next post
 	if (key == 13){
@@ -110,10 +119,14 @@ function feedBtnLike(event){
 		alert("send emoji 1 to db");
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// display choose buttons
-		document.getElementById("choose_buttons").style.display = "block";
+		// set emojiSelectButtons to false & postNavButtons to true
+		emojiSelectButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update reacted emojis and highlight like emoji
 		// focus next button
-		document.getElementById("emoji_button").focus();
+		document.getElementById("next_btn").focus();
 	}	
 }
 function feedBtnLove(event){
@@ -129,10 +142,14 @@ function feedBtnLove(event){
 		alert("send emoji 2 to db");
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// display choose buttons
-		document.getElementById("choose_buttons").style.display = "block";
+		// set emojiSelectButtons to false & postNavButtons to true
+		emojiSelectButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update reacted emojis and highlight love emoji
 		// focus next button
-		document.getElementById("emoji_button").focus();
+		document.getElementById("next_btn").focus();
 	}	
 }
 function feedBtnLaugh(event){
@@ -148,10 +165,14 @@ function feedBtnLaugh(event){
 		alert("send emoji 3 to db");
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// display choose buttons
-		document.getElementById("choose_buttons").style.display = "block";
+		// set emojiSelectButtons to false & postNavButtons to true
+		emojiSelectButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update reacted emojis and highlight laugh emoji
 		// focus next button
-		document.getElementById("emoji_button").focus();
+		document.getElementById("next_btn").focus();
 	}	
 }
 function feedBtnWow(event){
@@ -167,10 +188,14 @@ function feedBtnWow(event){
 		alert("send emoji 4 to db");
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// display choose buttons
-		document.getElementById("choose_buttons").style.display = "block";
+		// set emojiSelectButtons to false & postNavButtons to true
+		emojiSelectButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update reacted emojis and highlight wow emoji
 		// focus next button
-		document.getElementById("emoji_button").focus();
+		document.getElementById("next_btn").focus();
 	}	
 }
 function feedBtnSad(event){
@@ -186,10 +211,14 @@ function feedBtnSad(event){
 		alert("send emoji 5 to db");
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
-		// display choose buttons
-		document.getElementById("choose_buttons").style.display = "block";
+		// set emojiSelectButtons to false & postNavButtons to true
+		emojiSelectButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update reacted emojis and highlight sad emoji
 		// focus next button
-		document.getElementById("emoji_button").focus();
+		document.getElementById("next_btn").focus();
 	}	
 }
 function feedBtnEmojiCancel(event){
@@ -201,7 +230,7 @@ function feedBtnEmojiCancel(event){
 	}
 	// if key pressed is the enter key, view next post
 	if (key == 13){
-		// TODO - hide emoji selection
+		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
 		// set emojiSelectButtons to false & chooseButtons to true
 		emojiSelectButtons = false;
@@ -210,5 +239,51 @@ function feedBtnEmojiCancel(event){
 		document.getElementById("choose_buttons").style.display = "block";
 		// focus next button
 		document.getElementById("emoji_button").focus();
+	}	
+}
+
+function feedBtnCommentCancel(event){
+    var key = event.which;
+	// if key pressed is the spacebar, change focus to back button
+	if (key == 32){
+		// TODO - this double key presses and ends up on submit, not back
+		document.getElementById("comment_cancel_button").blur();
+		document.getElementById("back_btn").focus();
+	}
+	// if key pressed is the enter key, view next post
+	if (key == 13){
+		// TODO - this double key presses and ends up on emoji select, not choose buttons
+		// hide comment form
+		document.getElementById("comment_form").style.display = "none";
+		// set commentButtons to false & chooseButtons to true
+		commentButtons = false;
+		chooseButtons = true;
+		// display choose buttons
+		document.getElementById("choose_buttons").style.display = "block";		
+		// focus emoji button
+		document.getElementById("emoji_button").focus();
+	}		
+}
+
+function feedBtnCommentsubmit(event){
+    var key = event.which;
+	// if key pressed is the spacebar, change focus to comment cancel button
+	if (key == 32){
+		document.getElementById("comment_submit_button").blur();
+		document.getElementById("comment_cancel_button").focus();
+	}
+	// if key pressed is the enter key
+	if (key == 13){
+		// TODO - submit comment to database
+		// hide comment form
+		document.getElementById("comment_form").style.display = "none";
+		// set commentButtons to false & postNavButtons to true
+		commentButtons = false;
+		postNavButtons = true;
+		// display post navigation buttons
+		document.getElementById("postNavigationButtons").style.display = "block";
+		// TODO - update latest comment and comments view
+		// focus next button
+		document.getElementById("next_btn").focus();
 	}	
 }
