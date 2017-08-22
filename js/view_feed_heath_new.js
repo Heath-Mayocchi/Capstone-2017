@@ -242,6 +242,9 @@ function feedBtnEmojiCancel(event){
 	}	
 }
 
+/* 
+functions for comment buttons
+*/
 function feedBtnCommentCancel(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to back button
@@ -264,7 +267,6 @@ function feedBtnCommentCancel(event){
 		document.getElementById("emoji_button").focus();
 	}		
 }
-
 function feedBtnCommentsubmit(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to comment cancel button
