@@ -223,7 +223,7 @@ Author: David MacKenzie
 			<table>
 				<tr>
 					<th>
-						<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 32 characters)"></textarea>
+						<textarea rows="2" id="comment_text_box" form="comment_on_post" placeholder="Enter comment... (max 90 characters)"></textarea>
 					</th>
 					<th>
 						<button class="button" id="comment_submit_button" onkeydown="feedBtnCommentsubmit(event)">Submit</button>

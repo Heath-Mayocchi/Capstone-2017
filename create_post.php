@@ -40,7 +40,7 @@ Author: David MacKenzie
 				<button id="selectPicButton">Select</button>
 			</div>
 			<form action="#" id="postSubmit">
-				<textarea id="postComment" name="userPostContent" placeholder="Is 64 characters enough to say what I want, this could hold 100 but might cause some issues with size" class="textBig"></textarea>
+				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 			</form>
 			<div class="boxUserPost">
 				<img src="img/profile1.jpg" id="boxUserImage">
