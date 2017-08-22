@@ -1,39 +1,50 @@
+// variables to keep track of focus
 var footerButtons = true;
 var commentFocus = false;
 var pictureFocus = false;
 
-// functions for post buttons
+// variables for key presses
+var nextElement = 32; // spacebar
+var selectElement = 13; // enter key
+
+/* 
+functions for post buttons
+*/
 function postBtnBack(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
-	if (key == 32){ 	
+	// if key pressed is the spacebar, change focus to comment button
+	if (key == nextElement){ 	
 		document.getElementById("post_back_btn").blur();
 		document.getElementById("postCommentButton").focus();
 	}
-	// if key pressed is the enter key, 
-	if (key == 13){
+	// if key pressed is the enter key
+	if (key == selectElement){
 		backBtn();
 	}	
 }
 function postCommentButton(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
-	if (key == 32){ 	
+	// if key pressed is the spacebar, change focus to picture button
+	if (key == nextElement){ 	
 		document.getElementById("postCommentButton").blur();
 		document.getElementById("pictureBtn").focus();
+		// if comment was focused, remove border
 		if (commentFocus == true){			
 			document.getElementById("postComment").style.borderTop = "none";
 			document.getElementById("postComment").style.borderBottom = "none";
 			commentFocus = false;
 		}
 	}
-	// if key pressed is the enter key, 
-	if (key == 13){	
+	// if key pressed is the enter key
+	if (key == selectElement){	
+		// if comment isn't focused, display border
 		if (commentFocus == false){
 			document.getElementById("postComment").style.borderTop = "8px dashed #ff6b6b";
 			document.getElementById("postComment").style.borderBottom = "8px dashed #ff6b6b";
 			commentFocus = true;
 		}
+		
+		// if comment is focused, remove border
 		else if (commentFocus == true){			
 			document.getElementById("postComment").style.borderTop = "none";
 			document.getElementById("postComment").style.borderBottom = "none";
@@ -43,13 +54,13 @@ function postCommentButton(event){
 }
 function postpictureButton(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
-	if (key == 32){ 	
+	// if key pressed is the spacebar, change focus to submit button
+	if (key == nextElement){ 	
 		document.getElementById("pictureBtn").blur();
 		document.getElementById("reactButtonPost").focus();
 	}
-	// if key pressed is the enter key, 
-	if (key == 13){ 
+	// if key pressed is the enter key, toggle picture selection
+	if (key == selectElement){ 
 		key.preventDefault();
 		key.stopPropagation();
 		pictureButtonFunc(); 
@@ -57,13 +68,14 @@ function postpictureButton(event){
 }
 function postSubmitButton(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
-	if (key == 32){ 	
+	// if key pressed is the spacebar, change focus to back button
+	if (key == nextElement){ 	
 		document.getElementById("reactButtonPost").blur();
 		document.getElementById("post_back_btn").focus();
 	}
-	// if key pressed is the enter key, 
-	if (key == 13){
-		
+	// if key pressed is the enter key, submit post to database
+	if (key == selectElement){
+		// TODO - client side validation for comment
+		// TODO - submit post to database
 	}	
 }

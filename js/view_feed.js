@@ -55,25 +55,6 @@ function showComment(n) {
 	items[commentSlider - 1].style.display = "block";
 }
 
-
-// function for next button key presses
-function feedBtnNext(event) {	
-    var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
-	if (key == 32){
-		document.getElementById("next_btn").blur();
-		document.getElementById("choose_btn").focus();
-	}
-	// if key pressed is the enter key, view next post
-	if (key == 13){  
-		key.preventDefault();
-		key.stopPropagation();
-		displayPost(-1);
-		plusComment(-1);
-	}
-}
-
-
 // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
 function feedBtnClickChoose(){  
 	/* if (document.getElementById("comment_view").classList.contains('visible')) 
@@ -99,16 +80,52 @@ var chooseButtons = false;
 var emojiSelectButtons = false;
 var commentButtons = false;
 
-// function for choose button key presses
+// variables for key presses
+var nextElement = 32; // spacebar
+var selectElement = 13; // enter key
+
+/*
+functions for post navigation
+*/
+function feedBtnNext(event) {	
+    var key = event.which;
+	// if key pressed is the spacebar, change focus to 'react' footer button
+	if (key == nextElement){
+		document.getElementById("next_btn").blur();
+		document.getElementById("choose_btn").focus();
+	}
+	// if key pressed is the enter key, view next post
+	if (key == selectElement){  
+		key.preventDefault();
+		key.stopPropagation();
+		displayPost(-1);
+		plusComment(-1);
+	}
+}
+function feedBtnPrevious(event) {
+    var key = event.which;
+	// if key pressed is the spacebar, change focus to 'next' footer button
+	if (key == nextElement){ 	
+		document.getElementById("previous_btn").blur();
+		document.getElementById("next_btn").focus();
+	}
+	// if key pressed is the enter key, view previous post
+	if (key == selectElement){
+		key.preventDefault();
+		key.stopPropagation();
+		displayPost(1);	
+		plusComment(1); //this is for the latest comment
+	}
+}
 function feedBtnChoose(event) {
 	var key = event.which;
 	// if key pressed is the spacebar, change focus to the back button
-	if (key == 32){ 
+	if (key == nextElement){ 
 			document.getElementById("choose_btn").blur();
 			document.getElementById("back_btn").focus();		
 	}
 	// if key pressed is the enter key, display react buttons and comments
-	if (key == 13){
+	if (key == selectElement){
 		// hide nav buttons
 		document.getElementById("postNavigationButtons").style.display = "none";
 		// diplay emoji/ comment buttons
@@ -126,21 +143,5 @@ function feedBtnChoose(event) {
 	}	
 }
 
-// function for previous button key presses
-function feedBtnPrevious(event) {
-    var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
-	if (key == 32){ 	
-		document.getElementById("previous_btn").blur();
-		document.getElementById("next_btn").focus();
-	}
-	// if key pressed is the enter key, view previous post
-	if (key == 13){
-		key.preventDefault();
-		key.stopPropagation();
-		displayPost(1);	
-		plusComment(1); //this is for the latest comment
-	}
-}
 
 
