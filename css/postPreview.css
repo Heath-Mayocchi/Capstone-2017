@@ -4,25 +4,6 @@
    -ms-user-select: none;
    user-select: none;
 }
-article {
-	margin-top: 120px;
-}
-
-figure {
-  display: table;
-}
-figcaption {
-  display: table-caption;
-  caption-side: top;
-  margin-left: -15px;
-}
-table {
-	margin-left: 210px;
-	margin-top: -20px;
-}
-th {
-	padding: 0px;
-}
 
 #emoji_selection {
 	float: left;
@@ -187,7 +168,7 @@ th {
 	position: absolute;
 	border: 1px hidden black;
 	width: 100%;
-	height: 76%;
+	height: 76.5%;
 	background-color: #000;
 	transition: all 1s;
 	margin-top: 5px;
@@ -238,12 +219,12 @@ th {
 #selectPicButton:hover {
 	background-color: #ff6b6b;
 	font-weight: bold;
-	transition: 0.3s;
+	transition: 0.1s;
 }
 #selectPicButton:focus {
 	background-color: #ff6b6b;
 	font-weight: bold;
-	transition: 0.3s;
+	transition: 0.1s;
 }
 
 #post_back_btn {
@@ -257,7 +238,7 @@ th {
 }
 
 #postButtons {
-	margin-top: 175px;
+	margin-top: 30px;
     display: block;
 }
 #postCommentButton {
@@ -281,104 +262,30 @@ th {
 	margin-top: -10px;
 }
 
-footer {
-}
-
-/* #reactButtons {
+.upload {
 	position: relative;
+	height: 140px;
 	width: 590px;
-	margin: 10px auto 0 auto;
-	border: 1px none white;
-	height: 150px;
-} */
+	margin: 5px auto 0 auto;
+	border: 1px hidden white;
+}
 
-/* .wrapper #reactButtons #reactEmojiButton {
-	position: absolute;
-	color: yellow;
-	margin-top: 60px;
-	background-color: #00ff00;
-	border: 3px solid black;
-	border-style: none;
-	height: 45px;
-	width: 125px;
-	left: -90px;
+.uploadVisibility {
+	visibility: hidden;
+}
+
+.uploadURL {
+	width: 400px;
+	height: 20px;
 	font-size: 20px;
-	color: black;
-	border-radius: 10px;
-	cursor: pointer;
+	font-weight: bold;
 	outline: none;
 }
 
-.wrapper #reactButtons #reactEmojiButton:hover {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;	
-	transition: 0.1s;
-}
-
-.wrapper #reactButtons #reactEmojiButton:focus {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;	
-	transition: 0.1s;
-} */
-
-
-/* .wrapper #reactButtons #reactButtonPost {
-	position: absolute;
-	background: #00ff00;
-	border: 3px solid black;
-	color: #000;
-    cursor: pointer;
-	height: 45px;
-	width: 125px;
+.uploadLocal {
+	width: 404px;
+	height: 24px;
 	font-size: 20px;
-	border-radius: 10px;
 	outline: none;
-	left: 240px;
-	margin-top: 60px;
+	background-color: white;
 }
-
-.wrapper #reactButtons #reactButtonPost:hover {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;
-	transition: 0.1s;
-}
-
-.wrapper #reactButtons #reactButtonPost:focus {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;
-	transition: 0.1s;
-}
-
-.wrapper #reactButtons #pictureBtn {
-	position: absolute;
-	background: #00ff00;
-	border: 3px solid black;
-	color: #000;
-    cursor: pointer;
-	height: 45px;
-	width: 125px;
-	font-size: 20px;
-	border-radius: 10px;
-	outline: none;
-	right: -100px;
-	margin-top: 60px;
-}
-
-.wrapper #reactButtons #pictureBtn:hover {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;
-	transition: 0.1s;
-}
-
-.wrapper #reactButtons #pictureBtn:focus {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;
-	transition: 0.1s;
-} */
-
