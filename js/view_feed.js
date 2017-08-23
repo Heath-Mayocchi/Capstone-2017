@@ -89,7 +89,7 @@ functions for post navigation
 */
 function feedBtnNext(event) {	
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to choose button
 	if (key == nextElement){
 		document.getElementById("next_btn").blur();
 		document.getElementById("choose_btn").focus();
@@ -104,7 +104,7 @@ function feedBtnNext(event) {
 }
 function feedBtnPrevious(event) {
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
+	// if key pressed is the spacebar, change focus to next button
 	if (key == nextElement){ 	
 		document.getElementById("previous_btn").blur();
 		document.getElementById("next_btn").focus();
@@ -124,7 +124,7 @@ function feedBtnChoose(event) {
 			document.getElementById("choose_btn").blur();
 			document.getElementById("back_btn").focus();		
 	}
-	// if key pressed is the enter key, display react buttons and comments
+	// if key pressed is the enter key, display choose buttons and comments
 	if (key == selectElement){
 		// hide nav buttons
 		document.getElementById("postNavigationButtons").style.display = "none";

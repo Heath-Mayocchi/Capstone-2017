@@ -3,12 +3,12 @@ functions for choose buttons
 */
 function feedBtnEmoji(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
+	// if key pressed is the spacebar, change focus to comment button
 	if (key == nextElement){ 	
 		document.getElementById("emoji_button").blur();
 		document.getElementById("comment_button").focus();
 	}
-	// if key pressed is the enter key, view previous post
+	// if key pressed is the enter key, display emoji selection
 	if (key == selectElement){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
@@ -23,12 +23,12 @@ function feedBtnEmoji(event){
 }
 function feedBtnComment(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
+	// if key pressed is the spacebar, change focus to cancel button
 	if (key == nextElement){ 	
 		document.getElementById("comment_button").blur();
 		document.getElementById("choose_cancel_button").focus();
 	}
-	// if key pressed is the enter key, view previous post
+	// if key pressed is the enter key, display comments form
 	if (key == selectElement){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
@@ -43,12 +43,12 @@ function feedBtnComment(event){
 }
 function feedBtnChooseCancel(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'next' footer button
+	// if key pressed is the spacebar, change focus to back button button
 	if (key == nextElement){ 	
 		document.getElementById("choose_cancel_button").blur();
 		document.getElementById("back_btn").focus();
 	}
-	// if key pressed is the enter key, view previous post
+	// if key pressed is the enter key, display post navigation buttons
 	if (key == selectElement){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
@@ -73,7 +73,7 @@ function for back key presses
 */
 function feedBtnBack(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to relevant button based on what is displayed in the footer section
 	if (key == nextElement){
 		if (postNavButtons){
 			document.getElementById("back_btn").blur();
@@ -93,7 +93,7 @@ function feedBtnBack(event){
 			document.getElementById("comment_submit_button").focus();
 		}
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key, go to the previous page
 	if (key == selectElement){
 		key.preventDefault();
 		key.stopPropagation();
@@ -106,12 +106,12 @@ functions for emoji selection
 */
 function feedBtnLike(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to love emoji button
 	if (key == nextElement){
 		document.getElementById("emoji_like").blur();
 		document.getElementById("emoji_love").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit emoji 1 to db
 		alert("send emoji 1 to db");
@@ -129,12 +129,12 @@ function feedBtnLike(event){
 }
 function feedBtnLove(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to laugh emoji button
 	if (key == nextElement){
 		document.getElementById("emoji_love").blur();
 		document.getElementById("emoji_laugh").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit emoji 2 to db
 		alert("send emoji 2 to db");
@@ -152,12 +152,12 @@ function feedBtnLove(event){
 }
 function feedBtnLaugh(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to wow emoji button
 	if (key == nextElement){
 		document.getElementById("emoji_laugh").blur();
 		document.getElementById("emoji_wow").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit emoji 3 to db
 		alert("send emoji 3 to db");
@@ -175,12 +175,12 @@ function feedBtnLaugh(event){
 }
 function feedBtnWow(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to sad emoji button
 	if (key == nextElement){
 		document.getElementById("emoji_wow").blur();
 		document.getElementById("emoji_sad").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit emoji 4 to db
 		alert("send emoji 4 to db");
@@ -198,12 +198,12 @@ function feedBtnWow(event){
 }
 function feedBtnSad(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to emoji cancel button
 	if (key == nextElement){
 		document.getElementById("emoji_sad").blur();
 		document.getElementById("emoji_cancel_btn").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit emoji 5 to db
 		alert("send emoji 5 to db");
@@ -221,12 +221,12 @@ function feedBtnSad(event){
 }
 function feedBtnEmojiCancel(event){
     var key = event.which;
-	// if key pressed is the spacebar, change focus to 'react' footer button
+	// if key pressed is the spacebar, change focus to back button
 	if (key == nextElement){
 		document.getElementById("emoji_cancel_btn").blur();
 		document.getElementById("back_btn").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
@@ -247,13 +247,11 @@ function feedBtnCommentCancel(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to back button
 	if (key == nextElement){
-		// TODO - this double key presses and ends up on submit, not back
 		document.getElementById("comment_cancel_button").blur();
 		document.getElementById("back_btn").focus();
 	}
-	// if key pressed is the enter key, view next post
+	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - this double key presses and ends up on emoji select, not choose buttons
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
 		// set commentButtons to false & chooseButtons to true
