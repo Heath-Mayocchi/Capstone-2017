@@ -11,6 +11,7 @@ var selectElement = 13; // enter key
 functions for post buttons
 */
 function postBtnBack(event){
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to comment button
 	if (key == nextElement){ 	
@@ -23,6 +24,7 @@ function postBtnBack(event){
 	}	
 }
 function postCommentButton(event){
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to picture button
 	if (key == nextElement){ 	
@@ -53,6 +55,7 @@ function postCommentButton(event){
 	}	
 }
 function postpictureButton(event){
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to submit button
 	if (key == nextElement){ 	
@@ -67,6 +70,7 @@ function postpictureButton(event){
 	}	
 }
 function postSubmitButton(event){
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to back button
 	if (key == nextElement){ 	

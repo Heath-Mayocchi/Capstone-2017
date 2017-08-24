@@ -88,6 +88,7 @@ var selectElement = 13; // enter key
 functions for post navigation
 */
 function feedBtnNext(event) {	
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to choose button
 	if (key == nextElement){
@@ -95,14 +96,14 @@ function feedBtnNext(event) {
 		document.getElementById("choose_btn").focus();
 	}
 	// if key pressed is the enter key, view next post
-	if (key == selectElement){  
-		key.preventDefault();
+	if (key == selectElement){ 
 		key.stopPropagation();
 		displayPost(-1);
 		plusComment(-1);
 	}
 }
 function feedBtnPrevious(event) {
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to next button
 	if (key == nextElement){ 	
@@ -111,13 +112,13 @@ function feedBtnPrevious(event) {
 	}
 	// if key pressed is the enter key, view previous post
 	if (key == selectElement){
-		key.preventDefault();
 		key.stopPropagation();
 		displayPost(1);	
 		plusComment(1); //this is for the latest comment
 	}
 }
 function feedBtnChoose(event) {
+	event.preventDefault();
 	var key = event.which;
 	// if key pressed is the spacebar, change focus to the back button
 	if (key == nextElement){ 

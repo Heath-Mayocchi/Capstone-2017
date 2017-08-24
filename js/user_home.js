@@ -11,7 +11,8 @@ Author: David Mackenzie
 */
 
 /* User homepage focus functions */
-function view_feed(event){	
+function view_feed(event){
+	event.preventDefault();
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to create post button
 	if (key == 32){
@@ -27,6 +28,7 @@ function view_feed(event){
 	}	
 }
 function create_post(event){
+	event.preventDefault();
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to friends button
 	if (key == 32){
@@ -41,6 +43,7 @@ function create_post(event){
 	}	
 }
 function friends(event){
+	event.preventDefault();
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to messages button
 	if (key == 32){
@@ -55,6 +58,7 @@ function friends(event){
 	}	
 }
 function messages(event){
+	event.preventDefault();
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to create post button
 	if (key == 32){
@@ -69,6 +73,7 @@ function messages(event){
 	}	
 }
 function logout(event){
+	event.preventDefault();
     var key = event.keyCode;
 	// if key pressed is the spacebar, change focus to view feed button
 	if (key == 32){

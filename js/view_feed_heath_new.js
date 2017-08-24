@@ -72,6 +72,7 @@ function feedBtnChooseCancel(event){
 function for back key presses
 */
 function feedBtnBack(event){
+	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to relevant button based on what is displayed in the footer section
 	if (key == nextElement){
