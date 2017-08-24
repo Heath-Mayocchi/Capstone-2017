@@ -5,9 +5,10 @@ var modal = document.querySelector(".modal");
 var images = document.querySelectorAll(".modal img");
 var displayPic = document.querySelector("#selectedPicture");
 var selectButton = document.querySelector("#selectPicButton");
-var picM = document.querySelector("#picM");
+var picM = document.querySelector("#picM");	// This is the one used to send the selected picture
 var upload = document.querySelector(".upload");
 var uploadURL = document.querySelector("#uploadURL");
+var localURL = document.querySelector("#uploadLocal");
 
 var theSource;
 var isTrue = false;
@@ -34,6 +35,7 @@ function pictureButtonFunc() {
 	}
 	modal.classList.toggle("hideModal");
 	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
 	checker();
 }
 
@@ -47,13 +49,14 @@ function selectButtonFunc() {
 	document.getElementById("pictureBtn").focus();
 	picM.value = displayPic.src;
 	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
 	checker();
 }
 
 /* This is the main function, which runs everything on the page.
    I decided to put everything inside one function to make it cleaner, and easier to read.. */
 function mainFunc() {
-	//	For getting the clicked image src	
+	//	For getting the clicked image src
 	for (var i = 0; i < images.length; i++) {
 		images[i].addEventListener("click", function () {
 			theSource = this.src;
@@ -79,14 +82,18 @@ function checker() {
 	var thisSrc = displayPic.src;
 
 	if (thisSrc.indexOf("#") >= 0) {
-		// lalang
 		uploadURL.disabled = false;
+		localURL.disabled = false;
 	} else {
 		upload.style.color = "Grey";
-
 		uploadURL.disabled = true;
 		uploadURL.value = "";
 		uploadURL.placeholder = "";
+
+		localURL.disabled = true;
+		localURL.style.color = "Grey";
+		localURL.value = "";
+		localURL.placeholder = "";
 	}
 }
 

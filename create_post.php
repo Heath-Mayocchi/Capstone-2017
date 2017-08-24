@@ -46,11 +46,19 @@ Author: David MacKenzie
 				<img src="img/sloth.jpg">
 				<button id="selectPicButton">Select</button>
 			</div>
-			<form action="create_post.php" id="postSubmit" method="POST">
+			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 
-				<input id="picM" type="hidden" name="pic">	<!--This one is for sending pre-uploaded pictures-->
+				<!--This one is for sending pre-uploaded pictures *DON'T TOUCH*	-->
+				<input id="picM" type="hidden" name="pic">
+
+				<!-- This one is for sending the uploadURL *DON'T TOUCH*	-->
 				<input type="text" name="uploadURL" id="hiddenUploadURL">
+
+				<!-- This is the upload button at the bottom, it's inside the form instead of outside because it's too complicated to program in IE11	-->
+				<input type="file" name="uploadLocal" id="uploadLocal" class="uploadVisibility">
+
+				<!--	Submit which is hidden, it will be triggered when the submit button is clicked 	-->
 				<input type="submit" name="post" id="hiddenSubmit">
 			</form>
 
@@ -65,10 +73,9 @@ Author: David MacKenzie
 	</div>
 
 	<div class="upload uploadVisibility">
-		Insert URL for Pictures or Videos<br>
-		<input type="text" class="uploadURL" placeholder="http://" id="uploadURL"> <br>
-		<!--	Not sure if this is part of the #117
-		<input type="file" name="uploadLocal" form="postSubmit" class="uploadLocal"> -->
+		Insert URL to Upload Pictures or Videos<br>
+		<input type="text" class="uploadURL" placeholder="http://" id="uploadURL"><br>
+		<div id="uploadLocalTitle">Upload Pictures or Videos Locally</div>
 	</div>
 
 	<footer>
