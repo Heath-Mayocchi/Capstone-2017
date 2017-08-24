@@ -7,7 +7,7 @@ var displayPic = document.querySelector("#selectedPicture");
 var selectButton = document.querySelector("#selectPicButton");
 var picM = document.querySelector("#picM");
 var upload = document.querySelector(".upload");
-var friend = document.querySelector("#myFriend");
+
 
 var theSource;
 var isTrue = false;
@@ -70,6 +70,7 @@ function mainFunc() {
 	// Event listeners
 	pictureButton.addEventListener("click", pictureButtonFunc);			//	Button for the picture to show the 6 pictures	
 	selectButton.addEventListener("click", selectButtonFunc);			//	Select button for the pictures 
+	reactButtonPoster();
 }
 
 function checker() {
@@ -81,4 +82,21 @@ function checker() {
 	} else {
 		friend.disabled = true;
 	}
+}
+
+
+// This function is necessary for IE11, because inputs and buttons are not allowed 
+// outside of the form, therefore, I implemented hidden inputs and buttons inside the form
+// which will be activated and sent when the inputs and buttons that are outside are used.
+function reactButtonPoster() {
+	var reactButtonPost = document.querySelector("#reactButtonPost");
+	var hiddenSubmit = document.querySelector("#hiddenSubmit");
+
+	var uploadURL = document.querySelector("#uploadURL");
+	var hiddenURL = document.querySelector("#hiddenUploadURL");
+
+	reactButtonPost.addEventListener("click", function () {
+		hiddenURL.value = uploadURL.value;
+		hiddenSubmit.click();
+	});
 }

@@ -12,33 +12,7 @@ Author: David MacKenzie
 	session_start();
 	
 	require 'php/pdoconnectOnline.inc';
-
-	if (isset($_POST['post'])) {
-
-		$postContent = $_POST['userPostContent'];
-
-		if(isset($_SESSION['userID'])) {
-			$postedBy = $_SESSION['userID'];
-		} else {
-			$postedBy = 1;
-		}
-		$myDate = date('Y-m-d h:i:s');
-
-		if ("" == trim($_POST['pic'])) {
-			$pic = $_POST['uploadURL'];
-		} else if ("" == trim($_POST['uploadURL'])) {
-			$pic = $_POST['pic'];
-		}
-
-		$query = "INSERT INTO posts VALUES ('', :postContent, :postedBy, :myDate, :pic, '', '', '', '', '', '')";
-
-		$pdoRes = $conn->prepare($query);
-
-		$pdoExec = $pdoRes->execute(array(":postContent"=>$postContent, ":postedBy"=>$postedBy, ":myDate"=>$myDate, ":pic"=>$pic));
-
-		header("Location: user_home.php");
-		exit;
-	}
+	include 'php/savePost.php';
 
  ?>
 <!DOCTYPE html>
@@ -75,7 +49,9 @@ Author: David MacKenzie
 			</div>
 			<form action="create_post.php" id="postSubmit" method="POST">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
-				<input id="picM" type="hidden" name="pic">
+				<input id="picM" type="hidden" name="pic">	<!--	This is for sending pre-uploaded pictures	-->
+				<input type="text" name="uploadURL" id="hiddenUploadURL">
+				<input type="submit" name="post" id="hiddenSubmit">
 			</form>
 			<div class="boxUserPost">
 				<img src="img/profile1.jpg" id="boxUserImage">
@@ -88,7 +64,7 @@ Author: David MacKenzie
 
 	<div class="upload uploadVisibility">
 		Insert URL for Pictures or Videos<br>
-		<input type="text" name="uploadURL" form="postSubmit" class="uploadURL" placeholder="http://" id="myFriend"> <br>
+		<input type="text" class="uploadURL" placeholder="http://" id="uploadURL"> <br>
 		<!--	Not sure if this is part of the #117
 		<input type="file" name="uploadLocal" form="postSubmit" class="uploadLocal"> -->
 	</div>
@@ -97,7 +73,7 @@ Author: David MacKenzie
 		<div id="postButtons">
 			<button class="button" id="postCommentButton" onkeyup="postCommentButton(event)">Comment</button>
 			<button class="button" id="pictureBtn" onkeyup="postpictureButton(event)" autofocus>Picture</button>
-			<button class="button" id="reactButtonPost" type="submit" form="postSubmit" onkeyup="postSubmitButton(event)" name="post">Submit</button>
+			<button class="button" id="reactButtonPost" type="submit" onkeyup="postSubmitButton(event)">Submit</button>
 		</div>
 	</footer>
 	<script type="text/javascript" src="js/postPreview.js"></script>

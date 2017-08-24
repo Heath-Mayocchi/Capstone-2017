@@ -5,42 +5,8 @@
    user-select: none;
 }
 
-#emoji_selection {
-	float: left;
-	margin-top: 10px;
-    display: none;
-    transition: 0.25s;
-}
-#emoji_cancel_btn {	
-	margin-top: 20px;
-	margin-left: 10px;
-	outline: none;
-	transition: 0.1s;
-}
 
-#emoji_cancel_btn:hover, #emoji_cancel_btn:focus {
-	background-color: #000;
-	border: 6px dashed #00ff00;
-	color: #fff;	
-}
 
-.emojiBtn {
-	width: 80px;
-	height: 80px;
-	background-color: transparent;
-	margin-left: -30px;
-	margin-right: -30px;
-	padding-right: 5px;
-}
-.emojiBtn:focus {
-	background-color: transparent;
-	border: 6px dashed #00ff00;
-	color: #fff;	
-}
-.emoji_img {
-	width: 50px;
-	height: 50px;
-}
 .top {
 	text-align: center;
 	font-weight: bold;
@@ -288,4 +254,12 @@
 	font-size: 20px;
 	outline: none;
 	background-color: white;
+}
+
+.mainBox .boxBackground #postSubmit #hiddenSubmit {
+	visibility: hidden;
+}
+
+.mainBox .boxBackground #postSubmit #hiddenUploadURL {
+	visibility: hidden;
 }
