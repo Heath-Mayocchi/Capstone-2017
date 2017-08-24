@@ -223,6 +223,12 @@
 
 .uploadVisibility {
 	visibility: hidden;
+	transition: all 0.5s;
+	opacity: 0;
+}
+
+#uploadLocalTitle {
+	margin-top: 12px;
 }
 
 .uploadURL {
@@ -233,12 +239,16 @@
 	outline: none;
 }
 
-.uploadLocal {
-	width: 404px;
-	height: 24px;
+.mainBox .boxBackground #postSubmit #uploadLocal {
+	position: absolute;
+	bottom: -120px;
+	left: 64px;
+	width: 444px;
+	height: 26px;
 	font-size: 20px;
 	outline: none;
 	background-color: white;
+	z-index: 1;
 }
 
 .mainBox .boxBackground #postSubmit #hiddenSubmit {
@@ -250,4 +260,4 @@
 }
 
 
-/*	Footer */
+
