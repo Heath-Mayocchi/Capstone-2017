@@ -95,8 +95,6 @@ function feedBtnBack(event){
 	}
 	// if key pressed is the enter key, go to the previous page
 	if (key == selectElement){
-		key.preventDefault();
-		key.stopPropagation();
 		window.history.back();
 	}	
 }

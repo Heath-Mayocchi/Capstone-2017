@@ -29,43 +29,56 @@ USER HOME PAGE
 	float: left;
 	margin-right: -122px;
 }
-#logout_btn:focus {
+#logout_btn:focus {  
 	float: left;
 	margin-right: -142px;
 	margin-bottom: -20px;
 }
+
 #view_feed_btn {
-	position: absolute;
-	margin-left: 230px;
+	position: relative;
+	left: 225px;
+	top: -20px;
 }
 #view_feed_btn:focus {
-	position: absolute;
-	margin-left: 210px;
-	margin-top: 80px;
+	left: 205px;
+	top: -10px;
+	margin-right: -40px;
+	margin-top: -30px;
 }
+
 #create_post_btn {
-	position: absolute;	
-	margin-left: 650px;
+	position: relative;	
+	left: 440px;
+	top: -20px;
 }
 #create_post_btn:focus {
-	margin-left: 630px;	
-	margin-top: 80px;
+	left: 460px;
+	top: -10px;
+	margin-left: -40px;
+	margin-top: -20px;
 }
-#messages_btn {
-	position: absolute;
-	margin-left: 230px;
-	margin-top: 420px;
-}
-#messages_btn:focus {
-	margin-left: 210px; 
-	margin-top: 400px;	
-}
+
 #friends_btn {
-	position: absolute;
-	margin-left: 650px;
-	margin-top: 420px;
+	position: relative;
+	left: 235px;
+	top: 325px;
 }
 #friends_btn:focus {
-	margin-left: 630px;
-	margin-top: 400px; 	
+	left: 215px;
+	top: 325px;
+	margin-right: -40px;
+	margin-top: -30px;	
+}
+
+#messages_btn {
+	position: relative;
+	left: -390px;
+	top: 325px;
+}
+#messages_btn:focus {
+	left: -410px;
+	top: 325px;
+	margin-right: -40px;
+	margin-top: -30px;	
 }
