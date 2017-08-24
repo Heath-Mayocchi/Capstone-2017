@@ -9,9 +9,8 @@ Author: David MacKenzie
 -->
 
 <?php 
-	session_start();
-	
 	require 'php/pdoconnectOnline.inc';
+	// session_start();
 	include 'php/savePost.php';
 
  ?>
@@ -49,16 +48,19 @@ Author: David MacKenzie
 			</div>
 			<form action="create_post.php" id="postSubmit" method="POST">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
-				<input id="picM" type="hidden" name="pic">	<!--	This is for sending pre-uploaded pictures	-->
+
+				<input id="picM" type="hidden" name="pic">	<!--This one is for sending pre-uploaded pictures-->
 				<input type="text" name="uploadURL" id="hiddenUploadURL">
 				<input type="submit" name="post" id="hiddenSubmit">
 			</form>
+
 			<div class="boxUserPost">
 				<img src="img/profile1.jpg" id="boxUserImage">
 				<div id="boxDate">
-					John Doe 8:45 am&nbsp;&nbsp;&nbsp;&nbsp;
+					John Doe 8:45 am
 				</div>
 			</div>
+
 		</div>
 	</div>
 
