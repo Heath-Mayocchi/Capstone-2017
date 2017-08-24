@@ -5,8 +5,6 @@
    user-select: none;
 }
 
-
-
 .top {
 	text-align: center;
 	font-weight: bold;
@@ -87,31 +85,23 @@
 	padding-top: 3px;
 	overflow: auto;
 	font-family: "Times New Roman", Times, serif;
+	resize: none;
 }
 
 .boxBackground textarea::placeholder {
 	color: grey;
 }
 
-/*	This is the border that contains the user post details, it's hidden by default	*/
-.boxUserPost {
-	position: absolute;
-	border: 0.5px none black;
-	background-color: transparent;
-	width: 98%;
-	height: 114px;
-	bottom: 0;
-	left: 1%;
-}
 
 #boxUserImage{
+	position: absolute;
 	width: 65px;
 	height: 65px;
 	float: left;
 	border-radius: 5px;
-	margin-left: 0px;
-	margin-top: 37px;
-    z-index: 1;
+	z-index: 1;
+    bottom: 11px;
+    left: 10px;
 }
 
 #boxDate {
@@ -119,16 +109,11 @@
 	font-size: 20px;
 	font-weight: normal;
 	bottom: 7px;
-    right: -15px;
+    right: 10px;
     z-index: 1;
 	color: black;
 }
 
-#emoji_selection {
-	float: left;
-	margin-top: -100px;
-    display: none;
-}
 
 .modal {
 	position: absolute;
@@ -241,8 +226,8 @@
 }
 
 .uploadURL {
-	width: 400px;
-	height: 20px;
+	width: 440px;
+	height: 24px;
 	font-size: 20px;
 	font-weight: bold;
 	outline: none;
@@ -263,3 +248,6 @@
 .mainBox .boxBackground #postSubmit #hiddenUploadURL {
 	visibility: hidden;
 }
+
+
+/*	Footer */

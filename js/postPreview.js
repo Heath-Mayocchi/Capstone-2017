@@ -7,7 +7,7 @@ var displayPic = document.querySelector("#selectedPicture");
 var selectButton = document.querySelector("#selectPicButton");
 var picM = document.querySelector("#picM");
 var upload = document.querySelector(".upload");
-
+var uploadURL = document.querySelector("#uploadURL");
 
 var theSource;
 var isTrue = false;
@@ -73,17 +73,22 @@ function mainFunc() {
 	reactButtonPoster();
 }
 
+// If a user decides to select a pre-uploaded picture,
+// then the form for inserting a URL will be disabled.
 function checker() {
 	var thisSrc = displayPic.src;
 
 	if (thisSrc.indexOf("#") >= 0) {
 		// lalang
-		friend.disabled = false;
+		uploadURL.disabled = false;
 	} else {
-		friend.disabled = true;
+		upload.style.color = "Grey";
+
+		uploadURL.disabled = true;
+		uploadURL.value = "";
+		uploadURL.placeholder = "";
 	}
 }
-
 
 // This function is necessary for IE11, because inputs and buttons are not allowed 
 // outside of the form, therefore, I implemented hidden inputs and buttons inside the form
@@ -91,8 +96,6 @@ function checker() {
 function reactButtonPoster() {
 	var reactButtonPost = document.querySelector("#reactButtonPost");
 	var hiddenSubmit = document.querySelector("#hiddenSubmit");
-
-	var uploadURL = document.querySelector("#uploadURL");
 	var hiddenURL = document.querySelector("#hiddenUploadURL");
 
 	reactButtonPost.addEventListener("click", function () {
