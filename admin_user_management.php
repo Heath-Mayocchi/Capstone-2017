@@ -11,8 +11,13 @@ Author: David Mackenzie
 -->
 
 <?php 
+	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
+
+	if (!isset($_SESSION['adminLoggedIn'])) {
+		header("Location: admin_home.php");
+	}
  ?>
 
 <!DOCTYPE html>
@@ -46,20 +51,23 @@ Author: David Mackenzie
 
 				<p>To add a new user, fill in the below fields and hit 'Save User'</p>
 
-				<form action="#" method="POST" enctype="multipart/form-data" name="registerUser">
+				<form action="#" method="POST" enctype="multipart/form-data" name="registerUser" onsubmit="return validate()">
 					<!--	First name label and form	-->
 					<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
 					<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
+					<span id="firstNameError"></span>
 
 					<!--	Last name label and form	-->
 					<br><br>
 					<label for="lastNameForm" id="lastNameFormPosition">Last name:</label>
 					<input id="lastNameForm" class="formSize" type="text" placeholder="Last name ... " name="lastName">
+					<span id="lastNameError"></span>
 
 					<!--	Date label and form	-->
 					<br><br>
 					<label for="dateForm" id="dateFormPosition">DOB:</label>
 					<input id="dateForm" class="formSize" type="text" placeholder="YYYY-MM-DD" name="dob">
+					<span id="dobError"></span>
 
 					<!--	Admin Checkbox label and form	-->
 					<br><br>
@@ -70,17 +78,20 @@ Author: David Mackenzie
 					<br><br>
 					<label for="password" id="passwordPosition">Password:</label>
 					<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
+					<span id="passwordError1"></span>
 
 					<!--	Confirm password label and form	-->
 					<br><br>
 					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
 					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
+					<span id="passwordError"></span>
 
 					<!--	This is the stuff on the side (Picture, label, file upload)	-->
 					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
 					<label id="labelForBrowse">Profile Image:</label>
 					<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
 					<input type="file" name="file" id="uploadPicture">
+					<span id="fileTypeError"></span>
 
 					<!--	This is the submit button, but it's hidden and it will be triggered when this is	-->
 					<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">

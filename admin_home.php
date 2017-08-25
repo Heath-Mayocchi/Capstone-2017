@@ -10,6 +10,7 @@ Author: Levinard Hugo
 Author: David Mackenzie	
 -->
 <?php 
+	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
 

@@ -151,7 +151,7 @@ header h2 {
 
 #lastNameFormPosition {
 	margin-left: 60px;
-	padding-right: 91px;
+	padding-right: 93px;
 }
 
 #dateFormPosition {
@@ -166,12 +166,12 @@ header h2 {
 
 #passwordPosition {
 	margin-left: 60px;
-	padding-right: 98px;
+	padding-right: 95px;
 }
 
 #confirmPasswordPosition {
 	margin-left: 60px;
-	padding-right: 25px;
+	padding-right: 26px;
 }
 
 /*********** FORM POSITIONS ********************/
@@ -179,6 +179,7 @@ header h2 {
 .formSize {
 	width: 260px;
 	height: 20px;
+	border: 2px solid #DCDCDC;
 	border-radius: 2px;
 	outline: none;
 }
@@ -189,6 +190,7 @@ header h2 {
 	height: 30px;
 	width: 125px;
 	font-size: 20px;
+	border: 1px solid black;
 	border-radius: 10px;
 	outline: none;
 }
@@ -245,6 +247,14 @@ header h2 {
 	color: #f4f9f6;
 }
 
+#fileTypeError {
+	position: absolute;
+	margin-top: -116px;
+	margin-left: -40px; 
+	font-size: 14px;
+	font-weight: 700;
+}
+
 .midBody #chooseAFile {
 	line-height: -50px;
 	font-size: 15px;
@@ -265,6 +275,10 @@ header h2 {
 	position: absolute;
 	margin-left: 826px;
 	margin-top: 270px;
+}
+
+#passwordError, #passwordError1, #dobError, #lastNameError, #firstNameError {
+	position: absolute;
 }
 /******************************* Picture image, Profile Image label, and Browse *******************************/
 
