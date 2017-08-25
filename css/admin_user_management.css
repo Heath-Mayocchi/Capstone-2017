@@ -256,4 +256,17 @@ header h2 {
 #uploadPicture {
 	visibility: hidden;
 }
+
+#registerHiddenSubmitButton {
+	visibility: hidden;
+}
+
+#saveUser {
+	position: absolute;
+	margin-left: 826px;
+	margin-top: 270px;
+}
 /******************************* Picture image, Profile Image label, and Browse *******************************/
+
+
+/**************************************************************************************************************/

@@ -37,7 +37,6 @@ Author: David Mackenzie
 
 	<section>
 		<div id="editingBody">
-			
 			<div class="midBody">
 				<p>To edit an existing user, search by first or last name, then hit 'Load User'</p>
 				<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
@@ -47,7 +46,7 @@ Author: David Mackenzie
 
 				<p>To add a new user, fill in the below fields and hit 'Save User'</p>
 
-				<form action="#">
+				<form action="#" method="POST" enctype="multipart/form-data" name="registerUser">
 					<!--	First name label and form	-->
 					<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
 					<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
@@ -77,13 +76,20 @@ Author: David Mackenzie
 					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
 					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
 
+					<!--	This is the stuff on the side (Picture, label, file upload)	-->
 					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
 					<label id="labelForBrowse">Profile Image:</label>
 					<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
-					<input type="file" name="" id="uploadPicture" placeholder="Browse..">
-				</form>
+					<input type="file" name="file" id="uploadPicture">
 
+					<!--	This is the submit button, but it's hidden and it will be triggered when this is	-->
+					<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
+				</form>
 			</div>
+
+			<!--	This is the button at the very bottom of the page, and it will be the one that triggers the button inside the register user	-->
+			<button id="saveUser" class="adminButtons">Save User</button>
+
 			<div id="friendList">
 				<button class="button" id="add_friend_btn">Add Friend</button>
 				<button class="button" id="remove_friend_btn">Remove Friend</button>

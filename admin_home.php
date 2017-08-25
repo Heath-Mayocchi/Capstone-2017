@@ -9,7 +9,6 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David Mackenzie	
 -->
-
 <?php 
 	session_start();
 	require 'php/pdoconnectOnline.inc';
