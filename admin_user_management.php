@@ -20,6 +20,7 @@ Author: David Mackenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_user_management.css">
 	<title>SNAP ADMIN HOME</title>
@@ -76,10 +77,10 @@ Author: David Mackenzie
 					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
 					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
 
-					<img src="img/profile-placeholder.png" id="pictureForUpload">
+					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
 					<label id="labelForBrowse">Profile Image:</label>
+					<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
 					<input type="file" name="" id="uploadPicture" placeholder="Browse..">
-
 				</form>
 
 			</div>
@@ -126,5 +127,6 @@ Author: David Mackenzie
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript" src="js/adminUserManagement.js"></script>
 </body>
 </html>

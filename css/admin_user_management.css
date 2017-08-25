@@ -193,6 +193,12 @@ header h2 {
 	outline: none;
 }
 
+.adminButtons:hover {
+	background-color: #27a34a;
+	transition: 0.3s;
+	color: #f4f9f6;
+}
+
 #searchButton {
 	position: absolute;
 	margin-left: 40px;
@@ -206,23 +212,48 @@ header h2 {
 /******************************* Picture image, Profile Image label, and Browse *******************************/
 #pictureForUpload {
 	position: absolute;
-	margin-top: -200px;
-	margin-left: 62px;
-	width: 100px;
-	height: 80px;
-}
-
-#uploadPicture {
-	position: absolute;
-	margin-top:  -144px;
-	margin-left: 204px;
-	width: 100px;
-	height: 20px;
+	margin-top: -220px;
+	margin-left: 40px;
+	width: 120px;
+	height: 100px;
 }
 
 #labelForBrowse {
+	font-size: 22px;
 	position: absolute;
-	margin-top:  -174px;
-	margin-left: 198px;
+	margin-top:  -194px;
+	margin-left: 204px;
+}
+
+#chooseAFile {
+	position: absolute;
+	margin-top:  -157px;
+	margin-left: 204px;
+    color: black;
+    background: #19D74F;
+	color: #000;
+	height: 30px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+}
+
+#chooseAFile:hover {
+	background-color: #27a34a;
+	transition: 0.3s;
+	color: #f4f9f6;
+}
+
+.midBody #chooseAFile {
+	line-height: -50px;
+	font-size: 15px;
+	font-weight: 700;
+	cursor: pointer;
+	padding-top: 5px;
+}
+
+#uploadPicture {
+	visibility: hidden;
 }
 /******************************* Picture image, Profile Image label, and Browse *******************************/
