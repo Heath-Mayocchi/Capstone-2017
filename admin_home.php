@@ -9,6 +9,20 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David Mackenzie	
 -->
+<?php 
+	session_start();
+	require 'php/pdoconnectOnline.inc';
+
+	$query = "SELECT * FROM users WHERE firstName='John' AND lastName='Doe'";
+	$queryStmt = $conn->prepare($query);
+	$queryStmt->execute();
+
+	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch data
+
+	$_SESSION['adminLoggedIn'] = $row['firstName'] . ' ' . $row['lastName'];
+	$_SESSION['adminPicture'] = $row['profilePicture'];
+
+ ?>
 
 <!DOCTYPE html>
 
@@ -24,8 +38,8 @@ Author: David Mackenzie
 	<header>
 	<button class="button" id="logout_btn" onkeyup="logout(event)">LOGOUT</button>
 	<div id="user_profile">
-		<img src="img/profile-placeholder.png" alt="User profile image"></img>
-		<p>Super Long User Name</p>
+		<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
+		<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
 	</div>
 	<h2>ADMIN HOME</h2>
 	</header>

@@ -9,6 +9,7 @@ Author: David MacKenzie
 -->
 
 <?php 
+	ob_start();
 	require 'php/pdoconnectOnline.inc';
 	// session_start();
 	include 'php/savePost.php';
@@ -82,7 +83,7 @@ Author: David MacKenzie
 		<div id="postButtons">
 			<button class="button" id="postCommentButton" onkeyup="postCommentButton(event)">Comment</button>
 			<button class="button" id="pictureBtn" onkeyup="postpictureButton(event)" autofocus>Picture</button>
-			<button class="button" id="reactButtonPost" type="submit" onkeyup="postSubmitButton(event)">Submit</button>
+			<button class="button" id="reactButtonPost" onkeyup="postSubmitButton(event)">Submit</button>
 		</div>
 	</footer>
 	<script type="text/javascript" src="js/postPreview.js"></script>

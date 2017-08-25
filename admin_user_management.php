@@ -10,88 +10,129 @@ Author: Levinard Hugo
 Author: David Mackenzie	
 -->
 
+<?php 
+	session_start();
+	require 'php/pdoconnectOnline.inc';
+ ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_user_management.css">
-	<script src="js/table_search.js" type="text/javascript"></script>
 	<title>SNAP ADMIN HOME</title>
 </head>
 <body class="wrapper">
 	<header>
-	<button class="button" id="back_btn" onkeyup="logout(event)">BACK</button>
-	<div id="user_profile">
-		<img src="img/profile-placeholder.png" alt="User profile image"></img>
-		<p>Super Long User Name</p>
-	</div>
-	<h2>ADMIN USER MANAGEMENT</h2>
+		<button class="button" id="back_btn" onkeyup="logout(event)">BACK</button>
+		<div id="user_profile">
+			<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
+			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
+		</div>
+		<h2>ADMIN USER MANAGEMENT</h2>
 	</header>
+
 	<section>
-	<div id="editingBody">
-		<p id="profileText">Profile Image</p>
-		<img src="img/profile-placeholder.png" id="profileImage">
-		<button class="button" id="browse_btn">Browse...</button>
-		<p class="smallText">To edit an existing user, search by first or last name, then hit 'Load User'</p>
-		<p>Edit User 
-		<textarea id="searchBar"></textarea> 
-		<button class="button" id="search_btn">Search</button>
-		<button class="button" id="load_user_btn">Load User</button>
-		</p>
-		<p class="smallText">To add a new user, fill in the below fields and hit 'Save User'</p>
-		<p>First Name <textarea id="firstName" name="firstName"></textarea></p>
-		<p>Last Name <textarea id="lastName" name="lastName"></textarea></p>
-		<p>D.O.B <textarea id="dateOfBirth" name=""></textarea></p>
-		<p>Admin <input type="checkbox" id="adminCheckbox" name="adminCheckbox"></p>
-		<p>Password <textarea id="password" name="password"></textarea></p>
-		<p>Confirm Password <textarea id="confirmPassword" name="confirmPassword"></textarea></p>
-		<br>
-		<p>Friend Management</p>
-		<div id="friendList">
-			<button class="button" id="add_friend_btn">Add Friend</button>
-			<button class="button" id="remove_friend_btn">Remove Friend</button>
-			<div id="friendListInnerDiv">
-			<table>
-				<tr>
-					<td>
-						<input type="checkbox">
-					</td>
-					<td>
-						<img src="img/profile-placeholder.png" class="friendProfilePicture">
-					</td>
-					<td>
-						John Doe
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox">
-					</td>
-					<td>
-						<img src="img/profile-placeholder.png" class="friendProfilePicture">
-					</td>
-					<td>
-						John Doe
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox">
-					</td>
-					<td>
-						<img src="img/profile-placeholder.png" class="friendProfilePicture">
-					</td>
-					<td>
-						John Doe
-					</td>
-				</tr
-			</table>
+		<div id="editingBody">
+			<div class="midBody">
+				<p>To edit an existing user, search by first or last name, then hit 'Load User'</p>
+				<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
+				<input id="editUserForm" class="formSize" type="text" placeholder="Search ... ">
+				<button class="adminButtons" id="searchButton">Search</button>
+				<button class="adminButtons" id="loadUserButton">Load User</button>
+
+				<p>To add a new user, fill in the below fields and hit 'Save User'</p>
+
+				<form action="#" method="POST" enctype="multipart/form-data" name="registerUser">
+					<!--	First name label and form	-->
+					<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
+					<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
+
+					<!--	Last name label and form	-->
+					<br><br>
+					<label for="lastNameForm" id="lastNameFormPosition">Last name:</label>
+					<input id="lastNameForm" class="formSize" type="text" placeholder="Last name ... " name="lastName">
+
+					<!--	Date label and form	-->
+					<br><br>
+					<label for="dateForm" id="dateFormPosition">DOB:</label>
+					<input id="dateForm" class="formSize" type="text" placeholder="YYYY-MM-DD" name="dob">
+
+					<!--	Admin Checkbox label and form	-->
+					<br><br>
+					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
+					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
+
+					<!--	Password label and form	-->
+					<br><br>
+					<label for="password" id="passwordPosition">Password:</label>
+					<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
+
+					<!--	Confirm password label and form	-->
+					<br><br>
+					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
+					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
+
+					<!--	This is the stuff on the side (Picture, label, file upload)	-->
+					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
+					<label id="labelForBrowse">Profile Image:</label>
+					<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
+					<input type="file" name="file" id="uploadPicture">
+
+					<!--	This is the submit button, but it's hidden and it will be triggered when this is	-->
+					<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
+				</form>
+			</div>
+
+			<!--	This is the button at the very bottom of the page, and it will be the one that triggers the button inside the register user	-->
+			<button id="saveUser" class="adminButtons">Save User</button>
+
+			<div id="friendList">
+				<button class="button" id="add_friend_btn">Add Friend</button>
+				<button class="button" id="remove_friend_btn">Remove Friend</button>
+				<div id="friendListInnerDiv">
+				<table>
+					<tr>
+						<td>
+							<input type="checkbox">
+						</td>
+						<td>
+							<img src="img/profile-placeholder.png" class="friendProfilePicture">
+						</td>
+						<td>
+							John Doe
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+						</td>
+						<td>
+							<img src="img/profile-placeholder.png" class="friendProfilePicture">
+						</td>
+						<td>
+							John Doe
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+						</td>
+						<td>
+							<img src="img/profile-placeholder.png" class="friendProfilePicture">
+						</td>
+						<td>
+							John Doe
+						</td>
+					</tr
+				</table>
+				</div>
 			</div>
 		</div>
-	</div>
 	</section>
-	</body>
+	<script type="text/javascript" src="js/adminUserManagement.js"></script>
+</body>
 </html>

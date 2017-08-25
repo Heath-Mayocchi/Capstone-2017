@@ -22,9 +22,5 @@
 		$pdoRes = $conn->prepare($query);
 
 		$pdoExec = $pdoRes->execute(array(":postContent"=>$postContent, ":postedBy"=>$postedBy, ":myDate"=>$myDate, ":pic"=>$pic));
-
-		header("Location: create_post.php");
-		exit;
 	}
-
  ?>
