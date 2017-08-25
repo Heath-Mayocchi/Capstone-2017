@@ -47,6 +47,8 @@ dob.addEventListener("blur", dobVerify, true);
 
 
 function validate() {
+	// check names for only letters
+	// use descriptive error messages
 	if (firstName.value == "") {
 		firstName.style.border = "2px solid red";
 		firstNameError.textContent = "*";
@@ -62,14 +64,34 @@ function validate() {
 		lastName.focus();
 		return false;
 
-	} else if (dob.value == "" || !dob.value.match((/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/))) {
+	} 
+	
+	// this should be in DD MM YYYY format
+	// below is what I wrote for a previous project
+	/*
+	Checks the DOB has format:
+		- day: number from 0 to 31
+		- either '/' or '-' or ' ' or '.'
+		- month: number from 1 to 12
+		- either '/' or '-' or ' ' or '.'
+		- year: number from 1900 to 2099 or 00 to 99
+	*/
+	/* 
+	regex:
+	
+	/^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[- /.]([0-9]|1[0-2]|0[1-9])[- /.]((19|20)\d\d|[0-9]{2,2})$/i
+	
+	*/
+	else if (dob.value == "" || !dob.value.match((/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/))) {
 		dob.style.border = "2px solid red";
 		dobError.textContent = "*";
 		dobError.style.color = "red";
 		dob.focus();
 		return false
 
-	} else if (pass.value == "") {
+	} 
+	// passwords should only be validated if the Admin checkbox is checked
+	else if (pass.value == "") {
 		pass.style.border = "2px solid red";
 		passwordError1.textContent = "*";
 		passwordError1.style.color = "red";
