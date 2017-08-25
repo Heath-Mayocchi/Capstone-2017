@@ -18,38 +18,16 @@ USER HOME PAGE
 	background-color: #E1A42E;
 	color: black;
 	text-align:left;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-
-h2 {
-	text-align: center;
-}
-
-textarea {
-	position: absolute;
-	left: 350px;
-	width: 300px;
-	height: 30px;
-	overflow: auto;
-}
-
 
 section { 
-margin-top: 50px;
+	margin-top: 50px;
 }
 
-#search_btn {
-	position: absolute;
-	background-color: #19D74F;
-	height: 30px;
-	left: 700px;
-}
-
-#load_user_btn {
-	position: absolute;
-	background-color: #19D74F;
-	height: 30px;
-	left: 850px;
-}
 
 #add_friend_btn {
 	position: absolute;
@@ -79,6 +57,7 @@ margin-top: 50px;
 	width: 60%;
 	height: 200px;
 	border: 7px solid black;
+	margin-top: 30px;
 	border-radius: 50px;
 }
 
@@ -131,3 +110,119 @@ td {
 	height: 60px;
 	width: 60px;
 }
+
+
+/*************************************************************************************************/
+
+header h2 {
+	text-align: center;
+}
+
+
+/****************************************************************/
+.midBody {
+	width: 80%;
+	margin: 0 auto 0 auto;
+	border: 0px none #b8b8b5;
+	border-radius: 10px;
+	height: 420px;
+	background-color: #E1A42E;
+	position: relative;
+	display: block;
+}
+
+.midBody p {
+	padding-top: 10px;
+	margin-left: 60px;
+	font-size: 16px;
+}
+
+
+/*********** FORM POSITIONS ********************/
+#editUserFormPosition {
+	margin-left: 60px;
+	padding-right: 98px;
+}
+
+#firstNameFormPosition {
+	margin-left: 60px;
+	padding-right: 89px;
+}
+
+#lastNameFormPosition {
+	margin-left: 60px;
+	padding-right: 91px;
+}
+
+#dateFormPosition {
+	margin-left: 60px;
+	padding-right: 132px;
+}
+
+#checkBoxPosition {
+	margin-left: 60px;
+	padding-right: 120px;
+}
+
+#passwordPosition {
+	margin-left: 60px;
+	padding-right: 98px;
+}
+
+#confirmPasswordPosition {
+	margin-left: 60px;
+	padding-right: 25px;
+}
+
+/*********** FORM POSITIONS ********************/
+
+.formSize {
+	width: 260px;
+	height: 20px;
+	border-radius: 2px;
+	outline: none;
+}
+
+.adminButtons {
+	background: #19D74F;
+	color: #000;
+	height: 30px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+}
+
+#searchButton {
+	position: absolute;
+	margin-left: 40px;
+}
+
+#loadUserButton {
+	margin-left: 205px;
+	position: absolute;
+}
+
+/******************************* Picture image, Profile Image label, and Browse *******************************/
+#pictureForUpload {
+	position: absolute;
+	margin-top: -200px;
+	margin-left: 62px;
+	width: 100px;
+	height: 80px;
+}
+
+#uploadPicture {
+	position: absolute;
+	margin-top:  -144px;
+	margin-left: 204px;
+	width: 100px;
+	height: 20px;
+}
+
+#labelForBrowse {
+	position: absolute;
+	margin-top:  -174px;
+	margin-left: 198px;
+}
+/******************************* Picture image, Profile Image label, and Browse *******************************/

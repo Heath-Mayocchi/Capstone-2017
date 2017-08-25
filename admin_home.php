@@ -18,7 +18,7 @@ Author: David Mackenzie
 	$queryStmt = $conn->prepare($query);
 	$queryStmt->execute();
 
-	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch results
+	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch data
 
 	$_SESSION['adminLoggedIn'] = $row['firstName'] . ' ' . $row['lastName'];
 	$_SESSION['adminPicture'] = $row['profilePicture'];
