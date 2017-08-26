@@ -146,17 +146,17 @@ header h2 {
 
 #firstNameFormPosition {
 	margin-left: 60px;
-	padding-right: 89px;
+	padding-right: 89.1px;
 }
 
 #lastNameFormPosition {
 	margin-left: 60px;
-	padding-right: 93px;
+	padding-right: 91.5px;
 }
 
 #dateFormPosition {
 	margin-left: 60px;
-	padding-right: 132px;
+	padding-right: 131.83px;
 }
 
 #checkBoxPosition {
@@ -166,12 +166,12 @@ header h2 {
 
 #passwordPosition {
 	margin-left: 60px;
-	padding-right: 95px;
+	padding-right: 98px;
 }
 
 #confirmPasswordPosition {
 	margin-left: 60px;
-	padding-right: 26px;
+	padding-right: 24.55px;
 }
 
 /*********** FORM POSITIONS ********************/
@@ -277,9 +277,22 @@ header h2 {
 	margin-top: 270px;
 }
 
-#passwordError, #passwordError1, #dobError, #lastNameError, #firstNameError {
+#editingBody .midBody #passwordError, #passwordError1, #dobError, #lastNameError, #firstNameError, #checkBoxError {
 	position: absolute;
+	font-size: 16px;
+	font-weight: bold;
 }
+
+#firstNameError, #lastNameError, #dobError, #passwordError1, #passwordError {
+	margin-left: 246.5px;
+}
+
+#checkBoxError {
+	margin-left: 280px;
+	margin-top: -20px;
+}
+
+
 /******************************* Picture image, Profile Image label, and Browse *******************************/
 
 

@@ -55,36 +55,37 @@ Author: David Mackenzie
 					<!--	First name label and form	-->
 					<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
 					<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
-					<span id="firstNameError"></span>
+					<div id="firstNameError"></div>
 
 					<!--	Last name label and form	-->
 					<br><br>
 					<label for="lastNameForm" id="lastNameFormPosition">Last name:</label>
 					<input id="lastNameForm" class="formSize" type="text" placeholder="Last name ... " name="lastName">
-					<span id="lastNameError"></span>
+					<div id="lastNameError"></div>
 
 					<!--	Date label and form	-->
 					<br><br>
 					<label for="dateForm" id="dateFormPosition">DOB:</label>
-					<input id="dateForm" class="formSize" type="text" placeholder="YYYY-MM-DD" name="dob">
-					<span id="dobError"></span>
+					<input id="dateForm" class="formSize" type="text" placeholder="DD-MM-YYYY" name="dob">
+					<div id="dobError"></div>
 
 					<!--	Admin Checkbox label and form	-->
 					<br><br>
 					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
 					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
+					<div id="checkBoxError"></div>
 
 					<!--	Password label and form	-->
 					<br><br>
 					<label for="password" id="passwordPosition">Password:</label>
 					<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
-					<span id="passwordError1"></span>
+					<div id="passwordError1"></div>
 
 					<!--	Confirm password label and form	-->
 					<br><br>
 					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
 					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
-					<span id="passwordError"></span>
+					<div id="passwordError"></div>
 
 					<!--	This is the stuff on the side (Picture, label, file upload)	-->
 					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
