@@ -277,7 +277,7 @@ header h2 {
 	margin-top: 270px;
 }
 
-#editingBody .midBody #passwordError, #passwordError1, #dobError, #lastNameError, #firstNameError, #checkBoxError {
+#editingBody .midBody #passwordError, #passwordError1, #dobError, #lastNameError, #firstNameError{
 	position: absolute;
 	font-size: 16px;
 	font-weight: bold;
@@ -287,11 +287,52 @@ header h2 {
 	margin-left: 246.5px;
 }
 
-#checkBoxError {
-	margin-left: 280px;
-	margin-top: -20px;
+/**********	Create a new user messages **********/
+#createUserReport {
+	position: absolute;
+	font-size: 18px;
+	font-weight: bold;
 }
 
+#createUserReport {
+	margin-top: -450px;
+	margin-left: 170px;
+	color: #66ff66;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 120px;
+	padding-right: 120px;
+	box-shadow: 1px 0px 6px black;
+	background-color: #006600;
+	visibility: hidden;
+}
+
+#createUserReportError {
+	z-index: 1;
+	position: absolute;
+	font-size: 18px;
+	font-weight: bold;
+	visibility: hidden;
+}
+
+#createUserReportError {
+	margin-top: -450px;
+	margin-left: 170px;
+	color: #ff4d4d;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 27px;
+	width: 450px;
+	box-shadow: 1px 0px 6px black;
+	background-color: #990000;
+}
+
+#errorMessage {
+	margin-left: 20px;
+	margin-top: 3px;
+}
 
 /******************************* Picture image, Profile Image label, and Browse *******************************/
 

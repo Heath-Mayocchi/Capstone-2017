@@ -87,8 +87,8 @@ function validate() {
 		dobError.style.color = "#e20b0b";
 		dob.focus();
 		return false
-
-	} else if (!dob.value.match((/^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[- /.]([0-9]|1[0-2]|0[1-9])[- /.]((19|20)\d\d|[0-9]{2,2})$/i))) {
+	// Heaths Regex /^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[- /.]([0-9]|1[0-2]|0[1-9])[- /.]((19|20)\d\d|[0-9]{2,2})$/i
+	} else if (!dob.value.match((/(\d{4})-(\d{2})-(\d{2})/))) {
 		dobError.textContent = "Correct format is DD-MM-YYYY";
 		dob.style.border = "2px solid red";
 		dobError.style.color = "#e20b0b";

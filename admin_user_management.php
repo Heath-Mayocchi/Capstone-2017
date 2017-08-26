@@ -14,10 +14,7 @@ Author: David Mackenzie
 	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
-
-	if (!isset($_SESSION['adminLoggedIn'])) {
-		header("Location: admin_home.php");
-	}
+	require 'php/adminUserManagement.php';
  ?>
 
 <!DOCTYPE html>
@@ -66,14 +63,13 @@ Author: David Mackenzie
 					<!--	Date label and form	-->
 					<br><br>
 					<label for="dateForm" id="dateFormPosition">DOB:</label>
-					<input id="dateForm" class="formSize" type="text" placeholder="DD-MM-YYYY" name="dob">
+					<input id="dateForm" class="formSize" type="text" placeholder="YYYY-MM-DD" name="dob">
 					<div id="dobError"></div>
 
 					<!--	Admin Checkbox label and form	-->
 					<br><br>
 					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
 					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
-					<div id="checkBoxError"></div>
 
 					<!--	Password label and form	-->
 					<br><br>
@@ -101,6 +97,52 @@ Author: David Mackenzie
 
 			<!--	This is the button at the very bottom of the page, and it will be the one that triggers the button inside the register user	-->
 			<button id="saveUser" class="adminButtons">Save User</button>
+			<div id="createUserReport"><?php 
+				if (in_array('Created a user successfully', $error)) {
+					echo "<style type='text/css'>
+							#createUserReport {
+								visibility: visible;
+							}
+						  </style>
+					";
+					echo 'Created a user successfully';
+				} 
+
+			 ?></div>
+			<div id="createUserReportError">
+				<div id="errorMessage"><?php 
+					if (in_array("User is already registered!", $error)) {
+						echo "User is already registered!";
+						echo "<style type='text/css'>
+								#createUserReportError {
+									visibility: visible;
+								}
+							   </style>";
+					} else if (in_array('You cannot upload files of this type', $error)) {
+						echo 'You cannot upload files of this type';
+						"<style type='text/css'>
+								#createUserReportError {
+									visibility: visible;
+								}
+							   </style>";
+
+					} else if (in_array('There was an error uploading your file!', $error)) {
+						echo 'There was an error uploading your file!';
+						echo "<style type='text/css'>
+								#createUserReportError {
+									visibility: visible;
+								}
+							   </style>";
+					} else if (in_array('File was too big!', $error)) {
+						echo 'File was too big!';
+						echo "<style type='text/css'>
+								#createUserReportError {
+									visibility: visible;
+								}
+							   </style>";
+					}
+				 ?></div>
+			</div>
 
 			<div id="friendList">
 				<button class="button" id="add_friend_btn">Add Friend</button>
