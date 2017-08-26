@@ -34,7 +34,7 @@ file.addEventListener("change", function() {
 		val.value = '';
 		img.src = 'img/profile-placeholder.png';
 		fileFormatError.textContent = "Incorrect file format";
-		fileFormatError.style.color = "red";
+		fileFormatError.style.color = "#e20b0b";
 	}
 });
 
