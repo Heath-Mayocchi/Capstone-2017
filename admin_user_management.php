@@ -14,7 +14,7 @@ Author: David Mackenzie
 	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
-	require 'php/adminUserManagement.php';
+	require 'php/adminUserManagement_backend.php';
  ?>
 
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ Author: David Mackenzie
 					<!--	Date label and form	-->
 					<br><br>
 					<label for="dateForm" id="dateFormPosition">DOB:</label>
-					<input id="dateForm" class="formSize" type="text" placeholder="YYYY-MM-DD" name="dob">
+					<input id="dateForm" class="formSize" type="text" placeholder="DD-MM-YYYY" name="dob">
 					<div id="dobError"></div>
 
 					<!--	Admin Checkbox label and form	-->
