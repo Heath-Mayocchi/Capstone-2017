@@ -14,9 +14,12 @@ Author: David Mackenzie
 	session_start();
 	require 'php/pdoconnectOnline.inc';
 
-	$query = "SELECT * FROM users WHERE firstName='John' AND lastName='Doe'";
+	$tempName = "John";
+	$tempLastName = "Doe";
+
+	$query = "SELECT * FROM users WHERE firstName=? AND lastName=?";
 	$queryStmt = $conn->prepare($query);
-	$queryStmt->execute();
+	$queryStmt->execute(array($tempName, $tempLastName));
 
 	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch data
 
