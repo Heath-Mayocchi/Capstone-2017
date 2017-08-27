@@ -62,11 +62,11 @@ var emojiSelectButtons = false;
 var commentButtons = false;
 
 // variables for key presses
-// var nextElement = 32; // spacebar
-// var selectElement = 13; // enter key
+var nextElement = 32; // spacebar
+var selectElement = 13; // enter key
 
-var nextElement = 39; // up
-var selectElement = 38; // right
+// var nextElement = 39; // up
+// var selectElement = 38; // right
 
 /*
 functions for post navigation

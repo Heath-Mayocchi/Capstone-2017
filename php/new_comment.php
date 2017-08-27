@@ -4,8 +4,8 @@
   session_start();
 	
 	if($_POST['content'] != "") {
-	//require_once 'pdoconnectOnline.inc';
-	require_once 'davelocal.inc';
+	require_once 'pdoconnectOnline.inc';
+	//require_once 'davelocal.inc';
 	
 	if(isset($_SESSION['user']))
 	{

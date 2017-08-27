@@ -8,8 +8,8 @@ function console_log( $data ){
   echo '</script>';
 }
 
-require_once 'php/davelocal.inc';
-//require_once 'php/pdoconnectOnline.inc';
+//require_once 'php/davelocal.inc';
+require_once 'php/pdoconnectOnline.inc';
 
 function view_feed()
 {
