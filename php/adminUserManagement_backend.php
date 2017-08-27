@@ -1,9 +1,9 @@
 <?php 
-
 	if (!isset($_SESSION['adminLoggedIn'])) {
 		header("Location: admin_home.php");
+	} 
 
-	} else if (isset($_POST['adminCreateNewUser'])) {
+	if (isset($_POST['adminCreateNewUser'])) {
 		$fName = "";
 		$lName = "";
 		$dob = "";
@@ -66,7 +66,7 @@
 				        		$insertResult = $conn->prepare($insertQuery);
 				        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
 				        		array_push($error, 'Created a user successfully');
-
+				        		
 				        	} else {
 
 				        		$fileName = $_FILES['file']['name'];

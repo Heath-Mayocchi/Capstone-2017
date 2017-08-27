@@ -1,3 +1,9 @@
+<?php 
+	ob_start();
+	session_start();
+	require 'php/pdoconnectOnline.inc';
+	require 'php/adminUserManagement_backend.php';
+ ?>
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School
@@ -9,14 +15,6 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David Mackenzie	
 -->
-
-<?php 
-	ob_start();
-	session_start();
-	require 'php/pdoconnectOnline.inc';
-	require 'php/adminUserManagement_backend.php';
- ?>
-
 <!DOCTYPE html>
 
 <html lang="en">

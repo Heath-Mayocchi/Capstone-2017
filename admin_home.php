@@ -1,14 +1,3 @@
-<!--
-QUT Capstone Project 2017
-Project Owner: Nursery Road State Special School
-
-SNAP - Social Networking Action Platform
-
-Author: Robert Piper
-Author: Heath Mayocchi
-Author: Levinard Hugo
-Author: David Mackenzie	
--->
 <?php 
 	ob_start();
 	session_start();
@@ -27,7 +16,17 @@ Author: David Mackenzie
 	$_SESSION['adminPicture'] = $row['profilePicture'];
 
  ?>
+<!--
+QUT Capstone Project 2017
+Project Owner: Nursery Road State Special School
 
+SNAP - Social Networking Action Platform
+
+Author: Robert Piper
+Author: Heath Mayocchi
+Author: Levinard Hugo
+Author: David Mackenzie	
+-->
 <!DOCTYPE html>
 
 <html lang="en">
