@@ -8,8 +8,8 @@ function console_log( $data ){
   echo '</script>';
 }
 
-//require_once 'php/davelocal.inc';
-require_once 'php/pdoconnectOnline.inc';
+require_once 'php/davelocal.inc';
+//require_once 'php/pdoconnectOnline.inc';
 
 function view_feed()
 {
@@ -48,6 +48,9 @@ function view_feed()
 			foreach ($result as $post)
 			{
 				echo '<div class="post">';
+					echo '<div class="post_id">';
+							echo $post->postID;
+					echo '</div>';
 					echo '<img src="';
 					echo $post->postPicture;
 					echo '">';

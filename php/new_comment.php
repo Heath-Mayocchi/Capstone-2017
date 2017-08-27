@@ -1,8 +1,11 @@
 <?php
-    session_start();
+
+
+  session_start();
 	
 	if($_POST['content'] != "") {
-	require_once 'pdoconnectOnline.inc';
+	//require_once 'pdoconnectOnline.inc';
+	require_once 'davelocal.inc';
 	
 	if(isset($_SESSION['user']))
 	{
@@ -17,7 +20,13 @@
 		$postID = $_SESSION['post'];
 	} else 
 	{
-		$postID = 1;
+		if($_POST['comment_post_id'] != "") 
+		{
+			$postID = $_POST['comment_post_id'];
+		}else
+		{
+			$postID = 1;
+		}
 	}
 
 	$content = $_POST["content"];
@@ -28,10 +37,10 @@
 	$statement->execute(array(
     "content" => $content,
     "user" => $user,
-	"postID" => $postID
+		"postID" => $postID
 	));
 	}
-	
+
 	header("Location: ../view_feed.php");
 	exit;
 ?>

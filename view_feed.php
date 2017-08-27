@@ -82,24 +82,27 @@ Author: David MacKenzie
 				</tr>
 			</table>
 		</div>
-		<div id="comment_form">
-			<table>
-				<tr>
-					<th>
-						<form action="php/new_comment.php" method="post">
-						<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
-					</th>
-					<th>
-						<button name="submitButton" type ="submit" form="comment_on_post" value="submit" class="button" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>
-					</form>	<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
-					</th>
-					<th>
-						<button class="button" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)">Cancel</button>
-						<!-- hide comment form, prev and next from comment form focus to changing post display  -->
-					</th>
-				</tr>
-			</table>
-		</div>
+		<form action="php/new_comment.php" method="post">
+			<div id="comment_form">
+				<textarea class="post_id" id="comment_post_id" name="comment_post_id">3</textarea>
+				<table>
+					<tr>
+						<th>
+							<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
+						</th>
+						<th>
+
+							<input class="button" type="submit" value="Submit" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)"/>
+						</th>
+						<th>
+
+							<input class="button" type="reset" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)"/>
+						</th>
+					</tr>
+				</table>
+			</div>
+		</form>	<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
+
 	</article>
 
 	<footer>

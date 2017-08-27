@@ -10,6 +10,13 @@ Author: Levinard Hugo
 Author: David Mackenzie
 */
 
+.article {
+	margin-left: auto;
+	margin-right: auto;
+}
+.post_id {
+	display: none;
+}
 /* latest comment */
 #latestCommentSection {
 	/*margin-left: 5.5%;*/
@@ -332,8 +339,8 @@ section
 }
 
 #comment_form {	
-	float: center;
-	margin-left: -110px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 48px;
 	display: none;
 }

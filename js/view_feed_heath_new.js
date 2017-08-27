@@ -208,6 +208,11 @@ function feedBtnCommentCancel(event){
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
 		document.getElementById("comment_space").style.display = "none";
+		document.getElementById("post_view").style.left = "20%"; 
+
+		//continue default operation to actually call the form action method.
+		document.getElementById("comment_cancel_button").click();
+
 		// set commentButtons to false & chooseButtons to true
 		commentButtons = false;
 		chooseButtons = true;
@@ -227,10 +232,17 @@ function feedBtnCommentsubmit(event){
 	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit comment to database
+		var currentPost = document.getElementsByClassName("post_id");
+		currentPostID = currentPost[slideIndex-1].innerText;
+
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
 		document.getElementById("comment_space").style.display = "none";
 		document.getElementById("post_view").style.left = "20%"; 
+
+		//continue default operation to actually call the form action method.
+		document.getElementById("comment_submit_button").click();
+
 		// set commentButtons to false & postNavButtons to true
 		commentButtons = false;
 		postNavButtons = true;

@@ -4,10 +4,8 @@ function init()
 }
 window.onload=init;
 
-var forward = document.querySelector("#next_btn");
-var backward = document.querySelector("#previous_btn");
-
 var slideIndex = 1;
+var currentPostID = null;
 
 function displayPost(n) {
     showPost(slideIndex += n);
@@ -25,8 +23,20 @@ function showPost(n) {
     }
     x[slideIndex-1].style.display = "block";
     z[slideIndex-1].style.display = "block";
+
+    var currentPost = document.getElementsByClassName("post_id");
+		currentPostID = currentPost[slideIndex-1].innerText;
+		document.getElementById("comment_post_id").innerText = currentPostID;
+
 }
 
+
+function getPostID()
+{
+	var currentPost = document.getElementsByClassName("post_id");
+	currentPostID = currentPost[slideIndex-1].innerText;
+	return currentPostID;
+}
 
 // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
 function feedBtnClickChoose(){  
@@ -52,11 +62,11 @@ var emojiSelectButtons = false;
 var commentButtons = false;
 
 // variables for key presses
-var nextElement = 32; // spacebar
-var selectElement = 13; // enter key
+// var nextElement = 32; // spacebar
+// var selectElement = 13; // enter key
 
-// var nextElement = 39; // up
-// var selectElement = 38; // right
+var nextElement = 39; // up
+var selectElement = 38; // right
 
 /*
 functions for post navigation
