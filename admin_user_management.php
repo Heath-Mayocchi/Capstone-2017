@@ -4,6 +4,7 @@
 	require 'php/pdoconnectOnline.inc';
 	require 'php/adminUserManagement_backend.php';
  ?>
+ 
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School
@@ -65,7 +66,8 @@ Author: David Mackenzie
 					<div id="dobError"></div>
 
 					<!--	Admin Checkbox label and form	-->
-					<br><br>
+					<br>
+					<p>Check admin and fill in password to create an Admin user</p>
 					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
 					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
 

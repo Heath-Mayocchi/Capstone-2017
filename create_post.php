@@ -39,12 +39,7 @@ Author: David MacKenzie
 		<div class="boxBackground">
 			<img src="#" id="selectedPicture" alt="Picture selected">
 			<div class="modal hideModal">
-				<img src="img/pig.jpg">
-				<img src="img/ears.jpg">
-				<img src="img/panda.jpg">
-				<img src="img/hat.jpg">
-				<img src="img/cat.jpg">
-				<img src="img/sloth.jpg">
+				<?php include "php/post_images.php" ?>
 				<button id="selectPicButton">Select</button>
 			</div>
 			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data">
