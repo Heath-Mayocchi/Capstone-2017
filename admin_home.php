@@ -49,7 +49,7 @@ Author: David Mackenzie
 	<section>
 	<button class="button btnsquare" id="manage_users_btn" onclick="location.href='admin_user_management.php';"><div id="view_feed_text">MANAGE<br>USERS</div></button>
 	<button class="button btnsquare" id="manage_pictures_btn" onclick="location.href='admin_picture_management.php';"><div id ="messages_text">MANAGE</div><div id ="messages_text">PICTURES</div></button>
-	<button class="button btnsquare" id="manage_emojis_btn" onclick="location.href='admin_emoji_management.php';"><div id ="friends_text">MANAGE</div><div id ="messages_text">EMOJIS</div></button>
+	<button class="button btnsquare" id="view_snap_btn" onclick="location.href='user_home.php';"><div id ="friends_text">VIEW</div><div id ="messages_text">SNAP</div></button>
 	</section>
 	</body>
 </html>
