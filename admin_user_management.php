@@ -41,7 +41,7 @@ Author: David Mackenzie
 			<div class="midBody">
 				<p>To edit an existing user, search by first or last name, then hit 'Load User'</p>
 				<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
-				<input id="editUserForm" class="formSize" type="text" placeholder="Search ... ">
+				<input id="editUserForm" class="formSize" type="text" placeholder="Search ... " name="search">
 				<button class="adminButtons" id="searchButton">Search</button>
 				<button class="adminButtons" id="loadUserButton">Load User</button>
 

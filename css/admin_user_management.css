@@ -295,7 +295,7 @@ header h2 {
 }
 
 #createUserReport {
-	margin-top: -450px;
+	margin-top: -500px;
 	margin-left: 170px;
 	color: #66ff66;
 	border: 1px solid black;
@@ -318,7 +318,7 @@ header h2 {
 }
 
 #createUserReportError {
-	margin-top: -450px;
+	margin-top: -500px;
 	margin-left: 170px;
 	color: #ff4d4d;
 	border: 1px solid black;
