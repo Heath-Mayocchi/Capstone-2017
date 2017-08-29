@@ -46,7 +46,7 @@
 
 	        // Checks if the user ented is already in the database
 	        if ($checkNum > 0) {
-	        			$checkQuery = "SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=?";
+	        			$checkQuery = "SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType='Student'";
 	        			$checkQueryRes = $conn->prepare($checkQuery);
         				$checkQueryRes->execute(array($fName, $lName, $dob));
         				$row = $checkQueryRes->fetch(PDO::FETCH_ASSOC);	
@@ -158,7 +158,7 @@
         		if ($pass == $confPass) {
         			// If both passwords are the same we check
         			// If the admin account is already in the database
-        			$tempQuery = "SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=?";
+        			$tempQuery = "SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType='Admin'";
         			$checkTempQuery = $conn->prepare($tempQuery);
         			$checkTempQuery->execute(array($fName, $lName, $dob));
         			$numBer = $checkTempQuery->fetchColumn();
