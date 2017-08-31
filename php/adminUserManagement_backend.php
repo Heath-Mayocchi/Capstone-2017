@@ -84,7 +84,8 @@
 				        				if ($fileSize < 10485760) {
 				        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 				        					$profilePic = "img/" . $fileNameNew;
-				        					move_uploaded_file($fileTempName, $profilePic);
+				        				//	move_uploaded_file($fileTempName, $profilePic);
+											fileTempName($fileTempName, $profilePic);
 											insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 						        			array_push($error, 'Created a user successfully');
 				        				} else {
@@ -129,8 +130,7 @@
 	        				if ($fileSize < 10485760) {
 	        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 	        					$profilePic = "img/" . $fileNameNew;
-	        					move_uploaded_file($fileTempName, $profilePic);
-
+								resize_image($fileTempName, $profilePic);
 								insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 			        			array_push($error, 'Created a user successfully');
 	        				} else {
@@ -202,8 +202,7 @@
 			        				if ($fileSize < 10485760) {
 			        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 			        					$profilePic = "img/" . $fileNameNew;
-			        					move_uploaded_file($fileTempName, $profilePic);
-
+										resize_image($fileTempName, $profilePic);
 										insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 					        			array_push($error, 'Created a user successfully');
 			        				} else {
@@ -234,5 +233,29 @@
 		"accType" => $accType,
 		"pass" => $pass
 		));
+	}
+	
+	//Resize image and moves it to the images folder
+	function resize_image($file_name, $profilePic){
+		$maxDim = 100;
+        list($width, $height, $type, $attr) = getimagesize($file_name);
+        if ($width > $maxDim || $height > $maxDim) {
+            $target_filename = $file_name;
+            $ratio = $width / $height;
+            if($ratio > 1) {
+                $new_width = $maxDim;
+                $new_height = $maxDim/$ratio;
+            } else {
+                $new_width = $maxDim*$ratio;
+                $new_height = $maxDim;
+            }
+            $src = imagecreatefromstring(file_get_contents($file_name));
+            $dst = imagecreatetruecolor($new_width, $new_height);
+            imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagedestroy($src);
+            imagepng($dst, $target_filename);
+            imagedestroy($dst);
+        }
+		move_uploaded_file($file_name, $profilePic);
 	}
  ?>

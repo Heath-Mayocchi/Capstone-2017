@@ -28,7 +28,7 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
-		<button class="button" id="back_btn" onkeyup="logout(event)">BACK</button>
+		<button class="button" id="back_btn" onclick="window.location='admin_home.php';">BACK</button>
 		<div id="user_profile">
 			<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
 			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
