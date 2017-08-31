@@ -36,15 +36,14 @@
 		$dob = $dobYear . "-" . $dobMonth . "-" . $dobDay;
 		/*****************************************************************************************/
 
-		// If checkbox is not checked, meaning it's not an admin user
-
+		// If checkbox is not checked, meaning it's not an admin account, but a student account
 		if (!isset($_POST['checkBox'])) {
 			$checkQuery = "SELECT * FROM users WHERE firstName=:fName AND lastName=:lName AND dob=:dob";
 	        $checkQueryRes = $conn->prepare($checkQuery);
 	        $checkQueryRes->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob));
 	        $checkNum = $checkQueryRes->fetchColumn();
 
-	        // Checks if the user ented is already in the database
+	        // Checks if the user entered is already in the database
 	        if ($checkNum > 0) {
 	        			$checkQuery = "SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType='Student'";
 	        			$checkQueryRes = $conn->prepare($checkQuery);
@@ -56,10 +55,11 @@
         					array_push($error, "User is already registered!");
 
         				} else {
-        					// If passwords are not the same execute below
-        					
+        					/********************************************************/
+        					/** If the firstname, lastname, dob, and account type are in the database, but the password is not the same, execute below to create the user**/
 			        		$pass = password_hash($pass, PASSWORD_DEFAULT);
-				        	// If the file uplaod is emtpy give it a default picture
+
+				        	// If the file upload is emtpy give it a default picture
 				        	if (empty($_FILES['file']['name'])) {
 				        		$profilePic = "img/profile-placeholder.png";
 				        		$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
@@ -103,9 +103,11 @@
 				        		}
 				        	}
         				}
+
+        	/*	This else statement means, if there are no users with the same credentials, then create the user below.													*/
        		} else {
       			$pass = password_hash($pass, PASSWORD_DEFAULT);
-	        	// If the file uplaod is emtpy give it a default picture
+	        	// If the file upload is empty, give it a default picture, and create the user
 	        	if (empty($_FILES['file']['name'])) {
 	        		$profilePic = "img/profile-placeholder.png";
 	        		$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
@@ -113,6 +115,8 @@
 	        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
 	        		array_push($error, 'Created a user successfully');
 
+
+	        	// this else means file upload is not empty, so inside it uploads the picture uploaded and uses that picture to create the user.
 	        	} else {
 
 	        		$fileName = $_FILES['file']['name'];
@@ -150,6 +154,9 @@
 	        	}
       		}
 
+
+      	// BELOW
+      	// This 'else if' creates the user if the admin checkbox is ticked
 		} else if (isset($_POST['checkBox'])) {
         		$accType = $_POST['checkBox'];
         		$pass = strip_tags($_POST['password']);
@@ -172,10 +179,12 @@
         			}
 
         			if (password_verify($pass, $dataPassword)) {
-        				array_push($error, "User is already registered!");		// if password is the same
+        				array_push($error, "User is already registered!");		// if password is the same, push the error message and don't create the user
 
+
+        			// Else meaning no errors, proceed below and create the user.
         			} else {
-			        	// If the file uplaod is emtpy give it a default picture
+			        	// If the file upload is empty give it a default picture, then create the user
 			        	$pass = password_hash($pass, PASSWORD_DEFAULT);
 			        	if (empty($_FILES['file']['name'])) {
 			        		$profilePic = "img/profile-placeholder.png";
@@ -184,6 +193,8 @@
 			        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
 			        		array_push($error, 'Created a user successfully');
 
+
+			        	// this else means file upload is not empty, so inside it uploads the picture uploaded and uses that picture to create the user.
 			        	} else {
 			        		$fileName = $_FILES['file']['name'];
 			        		$fileTempName = $_FILES['file']['tmp_name'];
@@ -208,14 +219,14 @@
 					        			$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
 					        			array_push($error, 'Created a user successfully');
 			        				} else {
-			        					array_push($error, 'File was too big!');	//
+			        					array_push($error, 'File was too big!');	
 			        				}
 
 			        			} else {
-			        				array_push($error, 'There was an error uploading your file!');	//
+			        				array_push($error, 'There was an error uploading your file!');	
 			        			}
 			        		} else {
-			        			array_push($error, 'You cannot upload files of this type');	//
+			        			array_push($error, 'You cannot upload files of this type');	
 			        		}
 			        	}
         			}
