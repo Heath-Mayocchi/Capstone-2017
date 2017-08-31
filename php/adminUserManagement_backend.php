@@ -62,9 +62,7 @@
 				        	// If the file upload is emtpy give it a default picture
 				        	if (empty($_FILES['file']['name'])) {
 				        		$profilePic = "img/profile-placeholder.png";
-				        		$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-				        		$insertResult = $conn->prepare($insertQuery);
-				        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+								insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 				        		array_push($error, 'Created a user successfully');
 				        	
 				        	// this else means file upload is not empty, so inside it uploads the picture uploaded and uses that picture to create the user.
@@ -87,10 +85,7 @@
 				        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 				        					$profilePic = "img/" . $fileNameNew;
 				        					move_uploaded_file($fileTempName, $profilePic);
-
-				        					$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-						        			$insertResult = $conn->prepare($insertQuery);
-						        			$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+											insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 						        			array_push($error, 'Created a user successfully');
 				        				} else {
 				        					array_push($error, 'File was too big!');	//
@@ -111,9 +106,7 @@
 	        	// If the file upload is empty, give it a default picture, and create the user
 	        	if (empty($_FILES['file']['name'])) {
 	        		$profilePic = "img/profile-placeholder.png";
-	        		$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-	        		$insertResult = $conn->prepare($insertQuery);
-	        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+					insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 	        		array_push($error, 'Created a user successfully');
 
 
@@ -138,9 +131,7 @@
 	        					$profilePic = "img/" . $fileNameNew;
 	        					move_uploaded_file($fileTempName, $profilePic);
 
-	        					$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-			        			$insertResult = $conn->prepare($insertQuery);
-			        			$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+								insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 			        			array_push($error, 'Created a user successfully');
 	        				} else {
 	        					array_push($error, 'File was too big!');	//
@@ -188,10 +179,8 @@
 			        	// If the file upload is empty give it a default picture, then create the user
 			        	$pass = password_hash($pass, PASSWORD_DEFAULT);
 			        	if (empty($_FILES['file']['name'])) {
-			        		$profilePic = "img/profile-placeholder.png";
-			        		$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-			        		$insertResult = $conn->prepare($insertQuery);
-			        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+			        		$profilePic = "img/profile-placeholder.png";						
+							insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 			        		array_push($error, 'Created a user successfully');
 
 
@@ -215,9 +204,7 @@
 			        					$profilePic = "img/" . $fileNameNew;
 			        					move_uploaded_file($fileTempName, $profilePic);
 
-			        					$insertQuery = "INSERT INTO users VALUES ('', :fName, :lName, '', :dob, :profilePic, :accType, :pass)";
-					        			$insertResult = $conn->prepare($insertQuery);
-					        			$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
+										insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 					        			array_push($error, 'Created a user successfully');
 			        				} else {
 			        					array_push($error, 'File was too big!');	
@@ -233,5 +220,19 @@
         			}
         		}
         	}
+	}
+	//Inserts users into the database
+	function insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass){
+		$statement = $conn->prepare("INSERT INTO users (firstName, lastName, DOB, profilePicture, accountType, password)
+								VALUES(:fname, :lname, :dob, :profilePicture, :accType, :pass);");
+		
+		$statement->execute(array(
+		"fname" => $fName,
+		"lname" => $lName,
+		"dob" => $dob,
+		"profilePicture" => $profilePic,
+		"accType" => $accType,
+		"pass" => $pass
+		));
 	}
  ?>
