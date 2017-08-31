@@ -66,7 +66,8 @@
 				        		$insertResult = $conn->prepare($insertQuery);
 				        		$insertExecute = $insertResult->execute(array(":fName"=>$fName, ":lName"=>$lName, ":dob"=>$dob, ":profilePic"=>$profilePic, ":accType"=>$accType, ":pass"=>$pass));
 				        		array_push($error, 'Created a user successfully');
-				        		
+				        	
+				        	// this else means file upload is not empty, so inside it uploads the picture uploaded and uses that picture to create the user.
 				        	} else {
 
 				        		$fileName = $_FILES['file']['name'];
