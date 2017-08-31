@@ -224,7 +224,7 @@ Author: David MacKenzie
 				<tr>
 					<th>
 						<form name="new_comment" action="php/new_comment.php" onsubmit="return validateComment()" method="post">
-						<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 64 characters)" name="content"></textarea>
+						<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
 					</th>
 					<th>
 						<button name="submitButton" type ="submit" value="submit" class="button" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>

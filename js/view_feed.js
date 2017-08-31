@@ -149,8 +149,8 @@ function validateComment() {
 	if (content == "") {
 		alert("Please enter a comment before submitting");
 		return false;
-	} else if (content.length > 64) {
-		alert("Please enter a comment with 64 characters or less");
+	} else if (content.length > 90) {
+		alert("Please enter a comment with 90 characters or less");
 		return false;
 	}
 }
