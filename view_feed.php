@@ -223,11 +223,11 @@ Author: David MacKenzie
 			<table>
 				<tr>
 					<th>
-						<form action="php/new_comment.php" method="post">
-						<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
+						<form name="new_comment" action="php/new_comment.php" onsubmit="return validateComment()" method="post">
+						<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 64 characters)" name="content"></textarea>
 					</th>
 					<th>
-						<button name="submitButton" type ="submit" form="comment_on_post" value="submit" class="button" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>
+						<button name="submitButton" type ="submit" value="submit" class="button" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>
 					</form>	<!-- hide comment form, update latest comment and comments list, prev and next from comment form focus to changing post display  -->
 					</th>
 					<th>

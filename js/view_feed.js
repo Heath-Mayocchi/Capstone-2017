@@ -144,5 +144,15 @@ function feedBtnChoose(event) {
 	}	
 }
 
+function validateComment() {
+	var content = document.forms["new_comment"]["content"].value;
+	if (content == "") {
+		alert("Please enter a comment before submitting");
+		return false;
+	} else if (content.length > 64) {
+		alert("Please enter a comment with 64 characters or less");
+		return false;
+	}
+}
 
 
