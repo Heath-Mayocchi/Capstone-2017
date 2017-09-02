@@ -214,23 +214,23 @@ header h2 {
 /******************************* Picture image, Profile Image label, and Browse *******************************/
 #pictureForUpload {
 	position: absolute;
-	margin-top: -220px;
-	margin-left: 40px;
-	width: 120px;
+	margin-top: -280px;
+	margin-left: 135px;
+	width: 100px;
 	height: 100px;
 }
 
 #labelForBrowse {
-	font-size: 22px;
+	font-size: 20px;
 	position: absolute;
-	margin-top:  -194px;
-	margin-left: 204px;
+	margin-top:  -320px;
+	margin-left: 130px;
 }
 
 #chooseAFile {
 	position: absolute;
 	margin-top:  -157px;
-	margin-left: 204px;
+	margin-left: 125px;
     color: black;
     background: #19D74F;
 	color: #000;

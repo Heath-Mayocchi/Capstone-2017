@@ -67,12 +67,13 @@ Author: David Mackenzie
 
 					<!--	Admin Checkbox label and form	-->
 					<br>
-					<p>Check admin and fill in password to create an Admin user</p>
+					<p>Check the below box to create an Admin user</p>
 					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
 					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
-
+					
 					<!--	Password label and form	-->
-					<br><br>
+					<br>
+					<p>A password is required for an Admin user</p>
 					<label for="password" id="passwordPosition">Password:</label>
 					<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
 					<div id="passwordError1"></div>
