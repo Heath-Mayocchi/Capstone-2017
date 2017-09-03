@@ -167,7 +167,7 @@ section
 
 /* post nav buttons */
 #postNavigationButtons {
-	margin-top: -110px;
+	margin-top: -10px;
     display: block;
 }
 #choose_btn {
@@ -193,7 +193,7 @@ section
 
 /* emoji and comment buttons */
 #choose_buttons {
-	margin-top: -110px;
+	margin-top: -10px;
     display: none;
 }
 #emoji_button {
@@ -369,4 +369,5 @@ section
 
 #comment_cancel_button {
 	margin-left: 33px;
+}
 }

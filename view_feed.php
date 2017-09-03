@@ -9,7 +9,7 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David MacKenzie	
 -->
-<?php require "./php/view_feed.inc"; ?>
+<?php require_once "./php/view_feed.inc"; ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -84,20 +84,22 @@ Author: David MacKenzie
 		</div>
 		<form action="php/new_comment.php" method="post">
 			<div id="comment_form">
-				<textarea class="post_id" id="comment_post_id" name="comment_post_id">3</textarea>
+				<textarea class="post_id" id="comment_post_id" name="comment_post_id"></textarea>
 				<table>
 					<tr>
+
 						<th>
 							<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
 						</th>
-						<th>
 
-							<input class="button" type="submit" value="Submit" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)"/>
-						</th>
 						<th>
-
-							<input class="button" type="reset" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)"/>
+							<button class="button" type="submit" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>
 						</th>
+
+						<th>
+							<button class="button" type="reset" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)">Cancel</button>
+						</th>
+
 					</tr>
 				</table>
 			</div>

@@ -1,6 +1,6 @@
 <?php
 
-$current_post_id = 0;
+// $current_post_id = 0;
 
 function console_log( $data ){
   echo '<script>';
@@ -32,7 +32,7 @@ function view_feed()
 			posts, users
 			where
 			users.userID = posts.postedBy
-			order by posts.postDate asc;";
+			order by posts.postDate desc;";
 
 
 		$stmt = $conn->prepare($query);
@@ -79,41 +79,47 @@ function view_feed()
 							if($post->emojiOne>0){
 								echo '<th>';
 								echo '<img class="emoji_img" id="emoji_like_reacted" src="img/emoji-like.png" alt="Like"></img>';
-								echo $post->emojiOne;
+								//echo $post->emojiOne;
 								echo '</th>';
 							}
 							if($post->emojiTwo>0){
 								echo '<th>';
 								echo '<img class="emoji_img" id="emoji_love_reacted" src="img/emoji-love.png" alt="Love"></img>';
-								echo $post->emojiTwo;
+								//echo $post->emojiTwo;
 								echo '</th>';
 							}
 							if($post->emojiThree>0){
 								echo '<th>';
 								echo '<img class="emoji_img" id="emoji_laugh_reacted" src="img/emoji-laugh.png" alt="Laugh"></img>';
-								echo $post->emojiThree;
+								//echo $post->emojiThree;
 								echo '</th>';
 							}
 							if($post->emojiFour>0){
 								echo '<th>';
 								echo '<img class="emoji_img" id="emoji_wow_reacted" src="img/emoji-wow.png" alt="Wow"></img>';
-								echo $post->emojiFour;
+								//echo $post->emojiFour;
 								echo '</th>';
 							}
 							if($post->emojiFive>0){
 								echo '<th>';
 								echo '<img class="emoji_img" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>';
-								echo $post->emojiFive;
+								//echo $post->emojiFive;
 								echo '</th>';
 							}
 						echo '<th>';
 							echo '<p id="reacted_emoji_txt">';
-							if($emojiCount < 2)
+							if($emojiCount < 1)
 							{
-								echo 'You\'re first to comment!';
+								echo 'Be the first to add an emoji!';
 							}else
 							{
-								echo 'You and '.$emojiCount.' others';
+								if( $emojiCount == 1)
+								{
+									echo '1 emoji on this post.';
+								}else
+								{
+									echo $emojiCount.' emojis on this post.';
+								}
 							}
 							echo '</p>
 						</th>

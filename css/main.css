@@ -23,7 +23,7 @@ Author: David Mackenzie
 .button { 
 	background: #ffff00;
 	color: #000;
-    cursor: pointer;
+  cursor: pointer;
 	height: 45px;
 	width: 125px;
 	font-size: 20px;
