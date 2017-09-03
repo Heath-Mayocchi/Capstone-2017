@@ -1,9 +1,3 @@
-<?php 
-	ob_start();
-	session_start();
-	require 'php/view_feed_postEmoji.php';
-
- ?>
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School

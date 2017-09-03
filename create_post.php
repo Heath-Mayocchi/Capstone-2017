@@ -43,7 +43,7 @@ Author: David MacKenzie
 				<button id="selectPicButton">Select</button>
 			</div>
 			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data">
-				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig" maxlength="90"></textarea>
+				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 
 				<!--This one is for sending pre-uploaded pictures *DON'T TOUCH*	-->
 				<input id="picM" type="hidden" name="pic">

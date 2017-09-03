@@ -2,7 +2,7 @@
 
 	if (isset($_POST['post'])) {
 
-		$postContent = strip_tags($_POST['userPostContent']);		// removes html tags i.e. <a>
+		$postContent = $_POST['userPostContent'];
 
 		if(isset($_SESSION['userID'])) {
 			$postedBy = $_SESSION['userID'];

@@ -110,9 +110,3 @@ function reactButtonPoster() {
 		hiddenSubmit.click();
 	});
 }
-
-
-
-
-/*		Client side validation for the comment	*/
-
