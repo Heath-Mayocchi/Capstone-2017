@@ -1,3 +1,9 @@
+<?php 
+	ob_start();
+	session_start();
+	require 'php/view_feed_postEmoji.php';
+
+ ?>
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School
@@ -100,8 +106,6 @@ Author: David MacKenzie
 			</div>
 		</div>
 	</section>
-	
-	
 
 		<table id="reacted_emojis">
 			<tr>
@@ -121,7 +125,57 @@ Author: David MacKenzie
 					<img class="emoji_img" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>
 				</th>
 				<th>
-					<p id="reacted_emoji_txt">You and 12 others</p>
+					<p id="reacted_emoji_txt"><?php 
+						$showQuery = $conn->prepare("SELECT likes, emojiOne, emojiTwo, emojiThree, emojiFour, emojiFive FROM posts WHERE postID=1");
+						$showQuery->execute();
+						$row = $showQuery->fetch(PDO::FETCH_ASSOC);
+						if ($row['likes'] > 0) {
+							echo "You and " . $row['likes'] . " others like this";
+
+							if ($row['emojiOne'] > 0) {
+								echo "<style type='text/css'>
+										#emoji_like_reacted {
+											display: block;
+										}
+									  </style>";
+							}
+
+							if ($row['emojiTwo'] > 0) {
+								echo "<style type='text/css'>
+										#emoji_love_reacted {
+											display: block;
+										}
+									  </style>";
+							}
+
+							if ($row['emojiThree'] > 0) {
+								echo "<style type='text/css'>
+										#emoji_laugh_reacted {
+											display: block;
+										}
+									  </style>";
+							}
+
+							if ($row['emojiFour'] > 0) {
+								echo "<style type='text/css'>
+										#emoji_wow_reacted {
+											display: block;
+										}
+									  </style>";
+							}
+
+							if ($row['emojiFive'] > 0) {
+								echo "<style type='text/css'>
+										#emoji_sad_reacted {
+											display: block;
+										}
+									  </style>";
+							}
+
+						} else {
+							echo "This post has 0 likes";
+						}
+					 ?></p>
 				</th>
 			</tr>
 		</table>
@@ -173,6 +227,14 @@ Author: David MacKenzie
 		</div>
 	</div>
 	
+
+	<!--	This is the form that sends the selected emoji into the database	-->
+	<form action="view_feed.php" method="POST">				
+			<input type="hidden" name="emojiHidden" id="emojiHidden">
+			<input type="submit" name="emojiSubmitButton" class="hideThis" id="emojiHiddenButton">
+	</form>
+
+
 	<article>
 		<div id="emoji_selection">
 			<table id="emoji_selection_table">
