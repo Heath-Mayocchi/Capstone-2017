@@ -52,12 +52,11 @@ function feedBtnChooseCancel(event){
 	if (key == selectElement){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
+		
 		// hide comments
-		document.getElementById("comment_view").classList.add('hidden'); 
-		document.getElementById("comment_view").classList.remove('visible'); 
+		document.getElementById("comment_space").style.display = "none";
 		document.getElementById("post_view").style.left = "20%"; 
-		document.getElementById("latestCommentSection").style.left = "18%";
-		document.getElementById("reacted_emojis").style.marginLeft = "260px";
+
 		// show nav buttons
 		document.getElementById("postNavigationButtons").style.display = "block";
 		// set postNavButtons to true & chooseButtons to false
@@ -272,8 +271,12 @@ function feedBtnCommentsubmit(event){
 	// if key pressed is the enter key
 	if (key == selectElement){
 		// TODO - submit comment to database
+		var currentPost = document.getElementsByClassName("post_id");
+		currentPostID = currentPost[slideIndex-1].innerText;
+
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
+
 		// set commentButtons to false & postNavButtons to true
 		commentButtons = false;
 		postNavButtons = true;

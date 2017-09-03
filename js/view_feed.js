@@ -1,78 +1,60 @@
 function init() 
 {
-	showPost(slideIndex);
-	showComment(commentSlider);
+	showPost(0);
 }
 window.onload=init;
 
-// display post
-
 var slideIndex = 1;
+var currentPostID = null;
+
 function displayPost(n) {
     showPost(slideIndex += n);
 }
+
 function showPost(n) {
     var x = document.getElementsByClassName("post");
+    var z = document.getElementsByClassName("comment_view");
+
     if (n > x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length} ;
     for (var i = 0; i < x.length; i++) {
         x[i].style.display = "none";
+         z[i].style.display = "none";
     }
     x[slideIndex-1].style.display = "block";
+    z[slideIndex-1].style.display = "block";
+
+    var currentPost = document.getElementsByClassName("post_id");
+		currentPostID = currentPost[slideIndex-1].innerText;
+		document.getElementById("comment_post_id").innerText = currentPostID;
+
 }
 
 
-// latest comment
-
-var forward = document.querySelector("#next_btn");
-var backward = document.querySelector("#previous_btn");
-var commentSlider = 1;
-
-forward.addEventListener("click", function() {
-	plusComment(1);
-});
-
-backward.addEventListener("click", function() {
-	plusComment(-1);
-});
-
-function plusComment(n) {
-	showComment(commentSlider += n);
-}
-
-function showComment(n) {
-	var items = document.getElementsByClassName("latestCommentBar");
-	var length = items.length;
-	if (n > length) { 
-		commentSlider = 1;
-	} else if (n < 1) {
-		commentSlider = length;
-	}
-
-	for (var i = 0; i < length; i++) {
-	items[i].style.display = "none";
-	}
-	items[commentSlider - 1].style.display = "block";
+function getPostID()
+{
+	var currentPost = document.getElementsByClassName("post_id");
+	currentPostID = currentPost[slideIndex-1].innerText;
+	return currentPostID;
 }
 
 // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
 function feedBtnClickChoose(){  
-	/* if (document.getElementById("comment_view").classList.contains('visible')) 
-	{ 
-		document.getElementById("comment_view").classList.add('hidden'); 
-		document.getElementById("comment_view").classList.remove('visible'); 
-		document.getElementById("post_view").style.left = "20%"; 
-		document.getElementById("latestCommentSection").style.left = "18%";
-		document.getElementById("reacted_emojis").style.marginLeft = "260px";
-	} else  
-	{ 
-		document.getElementById("comment_view").classList.add('visible'); 
-		document.getElementById("comment_view").classList.remove('hidden'); 
+		//alert('feedBtnClickChoose');
+ 		// hide nav buttons
+		document.getElementById("postNavigationButtons").style.display = "none";
+		// diplay emoji/ comment buttons
+		document.getElementById("choose_buttons").style.display = "block";
+
+		// display comments
+		document.getElementById("comment_space").style.display = "block";
 		document.getElementById("post_view").style.left = "0%"; 
-		document.getElementById("latestCommentSection").style.left = "0%"; 
-		document.getElementById("reacted_emojis").style.marginLeft = "60px";
-	} */
-}		
+
+		// auto focus emoji button
+		document.getElementById("emoji_button").focus();
+		postNavButtons = false;
+		chooseButtons = true;
+}	
 
 // variables to keep track of footer buttons
 var postNavButtons = true;
@@ -99,7 +81,7 @@ function feedBtnNext(event) {
 	if (key == selectElement){ 
 		key.stopPropagation();
 		displayPost(-1);
-		plusComment(-1);
+		//plusComment(-1);
 	}
 }
 function feedBtnPrevious(event) {
@@ -114,7 +96,7 @@ function feedBtnPrevious(event) {
 	if (key == selectElement){
 		key.stopPropagation();
 		displayPost(1);	
-		plusComment(1); //this is for the latest comment
+		//plusComment(1); //this is for the latest comment
 	}
 }
 function feedBtnChoose(event) {
@@ -127,20 +109,9 @@ function feedBtnChoose(event) {
 	}
 	// if key pressed is the enter key, display choose buttons and comments
 	if (key == selectElement){
-		// hide nav buttons
-		document.getElementById("postNavigationButtons").style.display = "none";
-		// diplay emoji/ comment buttons
-		document.getElementById("choose_buttons").style.display = "block";
-		// display comments
-		document.getElementById("comment_view").classList.add('visible'); 
-		document.getElementById("comment_view").classList.remove('hidden'); 
-		document.getElementById("post_view").style.left = "0%"; 
-		document.getElementById("latestCommentSection").style.left = "0%"; 
-		document.getElementById("reacted_emojis").style.marginLeft = "60px";
-		// auto focus emoji button
-		document.getElementById("emoji_button").focus();
-		postNavButtons = false;
-		chooseButtons = true;
+		//alert('feedBtnChoose');
+		feedBtnClickChoose();
+		key.stopPropagation();
 	}	
 }
 

@@ -10,17 +10,36 @@ Author: Levinard Hugo
 Author: David Mackenzie
 */
 
+.article {
+	margin-left: auto;
+	margin-right: auto;
+}
+.post_id {
+	display: none;
+}
+#comment_space
+{
+	display: none;
+	float: right;
+	width: 380px;
+	margin: 0px;
+	padding: 0px;
+}
+
 /* latest comment */
 #latestCommentSection {
-	margin-left: 5.5%;
+/*	margin-left: 5.5%;*/
 	color: #000;
 	position: relative;
-	left: 18%;
+/*	left: 18%;
 	margin-top: -40px;
+*/
+	margin-top: 60px;
+
 }
 .latestCommentBar {
 	border: 1px solid #7f8c8d;
-	width: 56%;
+	/*width: 56%;*/
 	height: 75px;
 	background-color: #ecf0f1;
 	position: relative;
@@ -92,8 +111,8 @@ figcaption {
 }
 
 table {
-	margin-left: 260px;
-	margin-top: -10px;
+/*	margin-left: 260px;
+	margin-top: -10px;*/
 }
 th {
 	padding: 0px;
@@ -131,16 +150,18 @@ section
 }
 #reacted_emojis {
 	position: absolute;
-	margin-top: -110px;
-	margin-left: 260px;
+/*	margin-top: -110px;
+	margin-left: 260px;*/
 }
 #reacted_emojis th {
 	padding-right: 20px;
+	min-width: 2.5em;
+	color: white;	
 }
 #latestCommentLabel {
 	position: absolute;	
 	margin-top: -20px;
-	margin-left: 5px;
+/*	margin-left: 5px;*/
 	color: #fff;
 }
 
@@ -266,23 +287,20 @@ section
 	right: 0;
 }
 
-#comment_view 
+.comment_view 
 {
-	float: right;
-	width: 39%;
-	margin: 0px;
-	padding: 0px;
 	border: 1px solid black;
 	height: 545px;
 	background-color: white;
 	color: black;
 	text-align: left;	
-	overflow-y: scroll;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	background-color: #b8b8b5;
 	border-radius: 10px;
 	margin-top: -10px;
 }
+
 .comment 
 {
 	background-color: white;
@@ -324,8 +342,12 @@ section
 }
 
 #comment_form {	
-	float: center;
+/*	float: center;
 	margin-left: -110px;
+*/
+	margin-left: auto;
+	margin-right: auto;
+	
 	margin-top: 48px;
 	display: none;
 }
