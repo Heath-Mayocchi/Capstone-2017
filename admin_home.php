@@ -35,6 +35,7 @@ Author: David Mackenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_home.css">
+	<script src="js/user_home.js" type="text/javascript"></script>
 	<title>SNAP ADMIN HOME</title>
 </head>
 <body class="wrapper">

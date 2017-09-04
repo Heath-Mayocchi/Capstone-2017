@@ -82,9 +82,9 @@ function logout(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
+		window.location.href = 'user_login.php';
 		key.preventDefault();
 		key.stopPropagation();
-		window.location.href = '#';
 	}	
 }
 

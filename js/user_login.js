@@ -19,3 +19,30 @@ function filter() {
     }       
   }
 }
+
+
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById('password_popup');
+
+function show_modal($name,$img)
+{
+  var ui = document.getElementById('avatar_image');
+  ui.src=$img;
+
+  var ud = document.getElementById('username_display');
+  ud.innerText='Please enter the password for ' + $name;
+
+  document.getElementById('password_popup').style.display='block';
+}
+
+function just_login($name)
+{
+  var x = "user_home.php?userID=" + $name;
+  window.location.assign(x);
+}
