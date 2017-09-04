@@ -14,20 +14,14 @@
 		$user = 1;
 	}
 	
-	if(isset($_SESSION['post']))
-	{
-		$postID = $_SESSION['post'];
-	} else 
-	{
-		if($_POST['comment_post_id'] != "") 
-		{
-			$postID = $_POST['comment_post_id'];
-		}else
-		{
-			$postID = 1;
-		}
-	}
-
+	// if(isset($_SESSION['post']))
+	// {
+	// 	$postID = $_SESSION['post'];
+	// } else 
+	// {
+		$postID = $_POST['comment_post_id'];
+	// }
+	
 	$content = $_POST["content"];
 	
 	$statement = $conn->prepare("INSERT INTO post_comments(commentContent, commentBy, commentDate, postID)

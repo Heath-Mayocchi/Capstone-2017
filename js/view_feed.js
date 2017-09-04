@@ -1,11 +1,22 @@
 function init() 
 {
-	showPost(0);
+	//alert('init');
+	var allPosts = document.getElementsByClassName("post_id");
+	for(var i = 0; i<allPosts.length-1; i++)
+	{
+		// if(allPosts[i].innerText == document.getElementById("comment_post_id").innerText)
+		// {
+			//alert(allPosts[i].innerText);
+
+		// }
+	}
+	showPost(slideIndex-1);
 }
+
 window.onload=init;
 
 var slideIndex = 1;
-var currentPostID = null;
+//var currentPostID = null;
 
 function displayPost(n) {
     showPost(slideIndex += n);
@@ -24,19 +35,11 @@ function showPost(n) {
     x[slideIndex-1].style.display = "block";
     z[slideIndex-1].style.display = "block";
 
-    var currentPost = document.getElementsByClassName("post_id");
-		currentPostID = currentPost[slideIndex-1].innerText;
-		document.getElementById("comment_post_id").innerText = currentPostID;
-
+   var currentPost = document.getElementsByClassName("post_id");
+	 currentPostID = currentPost[slideIndex-1].innerText;
+	 document.getElementById("comment_post_id").innerText = currentPostID;
 }
 
-
-function getPostID()
-{
-	var currentPost = document.getElementsByClassName("post_id");
-	currentPostID = currentPost[slideIndex-1].innerText;
-	return currentPostID;
-}
 
 // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
 function feedBtnClickChoose(){  

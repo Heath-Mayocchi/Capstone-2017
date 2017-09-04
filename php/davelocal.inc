@@ -1,5 +1,6 @@
 <?php
 
+// do not stage this file.
 
 $servername = "localhost";
 $username = "root";

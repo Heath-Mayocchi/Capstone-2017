@@ -242,7 +242,7 @@ function feedBtnEmojiCancel(event){
 functions for comment buttons
 */
 function feedBtnCommentCancel(event){
-    var key = event.which;
+	var key = event.which;
 	// if key pressed is the spacebar, change focus to back button
 	if (key == nextElement){
 		document.getElementById("comment_cancel_button").blur();
@@ -250,6 +250,7 @@ function feedBtnCommentCancel(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
+		//console.log('feedBtnCommentCancel');
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
 		// set commentButtons to false & chooseButtons to true
