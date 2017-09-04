@@ -6,7 +6,7 @@ $servername = "localhost";
 $username = "root";
 $password = "weedhorsedream";
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=2412123_snap", $username, $password);
+    $conn = new PDO("mysql:host=$severname;dbname=2412123_snap", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

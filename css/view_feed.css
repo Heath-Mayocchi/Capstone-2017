@@ -365,3 +365,33 @@ section
 #comment_cancel_button {
 	margin-left: 33px;
 }
+
+
+
+/******************************************/
+
+.hideThis {
+	visibility: hidden;
+}
+
+
+#emoji_like_reacted {
+	display: none;
+}
+
+#emoji_love_reacted {
+	display: none;
+}
+
+#emoji_laugh_reacted {
+	display: none;
+}
+
+#emoji_wow_reacted {
+	display: none;
+}
+
+#emoji_sad_reacted {
+	display: none;
+}
+

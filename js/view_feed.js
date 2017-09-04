@@ -130,3 +130,51 @@ function validateComment() {
 }
 
 
+
+
+/*************** JS for the emoji ****************/
+
+var emojiLike = document.querySelector("#emoji_like");
+var emojiLove = document.querySelector("#emoji_love");
+var emojiLaugh = document.querySelector("#emoji_laugh");
+var emojiWow = document.querySelector("#emoji_wow");
+var emojiSad = document.querySelector("#emoji_sad");
+
+var emojiHidden = document.querySelector("#emojiHidden");
+var emojiHiddenButton = document.querySelector("#emojiHiddenButton");
+
+emojiLike.addEventListener("keydown", function(e) {
+	if (e.keyCode == "13") {
+		emojiHidden.value = "like";
+		emojiHiddenButton.click();
+	}
+});
+
+emojiLove.addEventListener("keydown", function(e) {
+	if (e.keyCode == "13") {
+		emojiHidden.value = "love";
+		emojiHiddenButton.click();
+	}
+});
+
+emojiLaugh.addEventListener("keydown", function(e) {
+	if (e.keyCode == "13") {
+		emojiHidden.value = "laugh";
+		emojiHiddenButton.click();
+	}
+});
+
+emojiWow.addEventListener("keydown", function(e) {
+	if (e.keyCode == "13") {
+		emojiHidden.value = "wow";
+		emojiHiddenButton.click();
+	}
+});
+
+emojiSad.addEventListener("keydown", function(e) {
+	if (e.keyCode == "13") {
+		emojiHidden.value = "sad";
+		emojiHiddenButton.click();
+	}
+});
+
