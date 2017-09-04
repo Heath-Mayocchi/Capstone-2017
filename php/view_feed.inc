@@ -64,10 +64,11 @@ function view_feed()
 							echo $post->postContent;
 						echo '</div>';
 
+
 						echo '<div class="userPostDate">';
 							echo $post->firstName.' '.$post->lastName;
 							echo '&nbsp;';
-							echo $post->postDate;
+							echo date( 'd/m/Y', strtotime( $post->postDate ) );
 							echo '&nbsp;';
 						echo '</div>';
 					
@@ -183,7 +184,7 @@ function view_comments($postID)
 				 echo '<span class="comment_date">';
 				 echo $comment->firstName;
 				 echo ' Posted at ';
-				 echo $comment->commentDate;
+				 echo date( 'd/m/Y', strtotime( $comment->commentDate ) );
 				 echo '</p>';
 				echo '</div>';
 			}
@@ -249,7 +250,7 @@ function view_latest_comment($postID)
 					 <div class="latestCommentDate">';
 						echo $comment->firstName; echo ' ';
 						echo $comment->lastName; echo ' ';
-						echo $comment->commentDate;			
+						echo date( 'd/m/Y', strtotime( $comment->commentDate ) );
 				echo
 					'</div>
 					</div>

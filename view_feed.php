@@ -97,7 +97,7 @@ Author: David MacKenzie
 						</th>
 
 						<th>
-							<button class="button" type="reset" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)">Cancel</button>
+							<button class="button" type="cancel" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)">Cancel</button>
 						</th>
 
 					</tr>
