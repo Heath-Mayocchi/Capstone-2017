@@ -11,10 +11,28 @@
 	while ($row = $stmt->fetch())
 	{
 		$name = $row['firstName'] . " " . $row['lastName'];
-		echo "<tr onclick=\"choose_user('$name')\">";
+		$img = $row['profilePicture'];
+
+		if($row['accountType'] == 'Student')
+		{
+		 echo "<tr onclick=\"just_login('$name')\">";
+		}else
+		{
+		 echo "<tr onclick=\"show_modal('$name','$img')\">";
+		}
+
+		
 		echo "<td>";
 		echo $name;
 		echo "</td>";
+
+		echo "<td>";
+		echo '<img src="';
+		echo $row['profilePicture'];
+		echo '" class="userPic">';
+		echo "</td>";
+
+
 		echo "</tr>";
 	}
 	
