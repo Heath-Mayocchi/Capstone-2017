@@ -28,7 +28,7 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
-		<button class="button" id="back_btn" onclick="window.location='admin_home.php';">BACK</button>
+		<button id="back_btn2" onclick="window.location='admin_home.php';">BACK</button>
 		<div id="user_profile">
 			<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
 			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
@@ -146,8 +146,8 @@ Author: David Mackenzie
 			</div>
 
 			<div id="friendList">
-				<button class="button" id="add_friend_btn">Add Friend</button>
-				<button class="button" id="remove_friend_btn">Remove Friend</button>
+				<button  id="add_friend_btn">Add Friend</button>
+				<button  id="remove_friend_btn">Remove Friend</button>
 				<div id="friendListInnerDiv">
 				<table>
 					<tr>
