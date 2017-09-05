@@ -41,7 +41,12 @@ function pictureButtonFunc() {
 
 function selectButtonFunc() {
 	// Function for the select button, which is the button that opens along with the modal
-	displayPic.src = theSource;
+	if (document.getElementById("uploadURL").value != ""){
+		displayPic.src = document.getElementById("uploadURL").value;
+	} else {
+		displayPic.src = theSource;
+	}
+//	displayPic.src = document.getElementById("uploadURL").value;
 	modal.classList.add("hideModal");
 	displayPic.style.display = "block";
 	isTrue = true;
@@ -87,7 +92,6 @@ function checker() {
 	} else {
 		upload.style.color = "Grey";
 		uploadURL.disabled = true;
-		uploadURL.value = "";
 		uploadURL.placeholder = "";
 
 		localURL.disabled = true;

@@ -191,3 +191,13 @@ function cbVerify() {
 		return true;
 	}
 }
+
+
+/************* BELOW IS FOR THE SEARCH FORM *******************/
+
+var body = document.querySelector(".wrapper");
+var searchResults = document.querySelector("#searchResults");
+
+body.addEventListener("click", function() {
+	searchResults.style.display = "none";
+});

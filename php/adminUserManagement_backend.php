@@ -3,6 +3,8 @@
 		header("Location: admin_home.php");
 	} 
 
+	/**********************		BELOW IS FOR CREATING A user 	 *********************************************/
+	/*********************************************************************************************************/
 	if (isset($_POST['adminCreateNewUser'])) {
 		$fName = "";
 		$lName = "";
@@ -258,4 +260,5 @@
         }
 		move_uploaded_file($file_name, $profilePic);
 	}
+
  ?>

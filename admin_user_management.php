@@ -40,10 +40,39 @@ Author: David Mackenzie
 		<div id="editingBody">
 			<div class="midBody">
 				<p>To edit an existing user, search by first or last name, then hit 'Load User'</p>
-				<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
-				<input id="editUserForm" class="formSize" type="text" placeholder="Search ... " name="search">
-				<button class="adminButtons" id="searchButton">Search</button>
-				<button class="adminButtons" id="loadUserButton">Load User</button>
+				<form action="#" method="POST">
+					<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
+					<input id="editUserForm" class="formSize" type="text" placeholder="Search ... " name="search">
+					<button class="adminButtons" id="searchButton" name="searchButton">Search</button>
+					<button class="adminButtons" id="loadUserButton">Load User</button>
+				</form>
+
+				<div id="searchResults">
+					<?php 
+						if (isset($_POST['searchButton'])) {
+							$searchq = $_POST['search'];
+							$searchq = preg_replace("#[^0-9a-z]#i", "", $searchq);
+
+							$query = $conn->prepare("SELECT * FROM users WHERE firstName LIKE concat('%', :name, '%') OR lastName LIKE concat('%', :name, '%') OR DOB LIKE concat('%', :name, '%') OR accountType LIKE concat('%', :name, '%') LIMIT 5");
+							$query->execute(array(':name'=>$searchq));
+
+							while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+								$name = $row['firstName'];
+								$lastName = $row['lastName'];
+								$accT = $row['accountType'];
+								$picture = $row['profilePicture'];
+								$dob = $row['DOB'];
+								echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
+								echo $name . " " . $lastName . " ". $dob . ", " . $accT . "<br><br>";	
+							}
+							echo "<style type='text/css'>
+									#searchResults {
+										display: block;
+									}
+								  </style>";
+						}
+					 ?>
+				</div>
 
 				<p>To add a new user, fill in the below fields and hit 'Save User'</p>
 
