@@ -3,22 +3,6 @@
 		header("Location: admin_home.php");
 	} 
 
-	if (isset($_POST['searchButton'])) {
-		$searchq = $_POST['search'];
-		$searchq = preg_replace("#[^0-9a-z]#i", "", $searchq);
-
-		$query = $conn->prepare("SELECT * FROM users WHERE firstName LIKE concat('%', :name, '%')");
-		$query->execute(array(':name'=>$searchq));
-
-		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-			$name = $row['firstName'];
-			$lastName = $row['lastName'];
-			echo "<div id='searchResults'>
-					$name $lastName
-				</div>";
-		}
-	}
-
 	/**********************		BELOW IS FOR CREATING A user 	 *********************************************/
 	/*********************************************************************************************************/
 	if (isset($_POST['adminCreateNewUser'])) {
