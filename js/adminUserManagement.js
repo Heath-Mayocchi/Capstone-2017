@@ -194,10 +194,29 @@ function cbVerify() {
 
 
 /************* BELOW IS FOR THE SEARCH FORM *******************/
+var mate = document.querySelectorAll(".userResults");
+var editUserForm = document.querySelector("#editUserForm");
+var body = document.querySelector("body");
+var editingUserPicture = document.querySelector("#editUserPicture");
 
-var body = document.querySelector(".wrapper");
-var searchResults = document.querySelector("#searchResults");
 
 body.addEventListener("click", function() {
-	searchResults.style.display = "none";
+	var results = document.querySelector("#searchResults");
+	results.style.display = "none";
 });
+
+for (var i = 0; i < mate.length; i++) {
+	mate[i].addEventListener("click", function () {
+			var text = this.innerHTML;
+			/*******************************************/
+			var firstTag = text.indexOf("<");
+			var secondTag = text.indexOf(">", firstTag);
+			var imgTag = text.substring(firstTag, secondTag + 1);
+			/*******************************************/
+			editingUserPicture.innerHTML = imgTag;
+				text = text.replace(/(<([^>]+)>)/ig, "");		// removes the <img>
+				text = text.trim();
+				text = text.split(" ");
+			editUserForm.value = text;
+	});
+}

@@ -40,37 +40,59 @@ Author: David Mackenzie
 		<div id="editingBody">
 			<div class="midBody">
 				<p>To edit an existing user, search by first or last name, then hit 'Load User'</p>
+
+				<!--	This is the picture on the side of the left side of the search form when a user is selected from the search	-->
+					<div id="editUserPicture"></div>
+				<!--	This is the picture on the side of the left side of the search form when a user is selected from the search	-->
+
 				<form action="#" method="POST">
 					<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
-					<input id="editUserForm" class="formSize" type="text" placeholder="Search ... " name="search">
+					<input id="editUserForm" class="onlyForEditUser" type="text" placeholder="Search ... " name="search">
 					<button class="adminButtons" id="searchButton" name="searchButton">Search</button>
 					<button class="adminButtons" id="loadUserButton">Load User</button>
 				</form>
 
+				<!--	DIV that shows search results	-->
 				<div id="searchResults">
 					<?php 
 						if (isset($_POST['searchButton'])) {
 							$searchq = $_POST['search'];
-							$searchq = preg_replace("#[^0-9a-z]#i", "", $searchq);
 
-							$query = $conn->prepare("SELECT * FROM users WHERE firstName LIKE concat('%', :name, '%') OR lastName LIKE concat('%', :name, '%') OR DOB LIKE concat('%', :name, '%') OR accountType LIKE concat('%', :name, '%') LIMIT 5");
+							$query = $conn->prepare("SELECT * FROM users WHERE concat(firstName, ' ', lastName) LIKE concat('%', :name, '%') OR lastName LIKE concat('%', :name, '%') LIMIT 20");
 							$query->execute(array(':name'=>$searchq));
+							$queryNum= $query->fetchColumn();
 
-							while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-								$name = $row['firstName'];
-								$lastName = $row['lastName'];
-								$accT = $row['accountType'];
-								$picture = $row['profilePicture'];
-								$dob = $row['DOB'];
-								echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
-								echo $name . " " . $lastName . " ". $dob . ", " . $accT . "<br><br>";	
+							if ($queryNum <= 0) {
+								echo "No Results Found";
+								echo "<style type='text/css'>
+										#searchResults {
+											display: block;
+											height: 20px;
+											color: red;
+										}
+									  </style>";	
+							} else {
+								$query = $conn->prepare("SELECT * FROM users WHERE concat(firstName, ' ', lastName) LIKE concat('%', :name, '%') OR lastName LIKE concat('%', :name, '%') LIMIT 20");
+								$query->execute(array(':name'=>$searchq));
+
+								while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+									$name = $row['firstName'];
+									$lastName = $row['lastName'];
+									$accT = $row['accountType'];
+									$picture = $row['profilePicture'];
+									$dob = $row['DOB'];
+									echo "<div class='userResults'>";
+									echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
+									echo $name . " " . $lastName . " ". $dob . " " . $accT . "<br><br>";
+									echo "</div>";	
+								}
+								echo "<style type='text/css'>
+										#searchResults {
+											display: block;
+										}
+									  </style>";	
+								}
 							}
-							echo "<style type='text/css'>
-									#searchResults {
-										display: block;
-									}
-								  </style>";
-						}
 					 ?>
 				</div>
 
