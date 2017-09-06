@@ -32,13 +32,14 @@ section {
 #add_friend_btn {
 	position: absolute;
 	background-color: #19D74F;
-	height: 60px;
-	right: 70px;
-	top: 20px;
+	height: 40px;
+	right: 120px;
+	top: 30px;
 	color: #000;
 	cursor: pointer;
 	width: 125px;
-	font-size: 20px;
+	font-size: 16px;
+	font-weight: bold;
 	border-radius: 10px;
 	outline: none;
 	border: 2px solid black;
@@ -55,13 +56,14 @@ section {
 #remove_friend_btn {
 	position: absolute;
 	background-color: red;
-	height: 60px;
-	right: 70px;
-	top: 110px;
+	height: 40px;
+	right: 120px;
+	top: 90px;
 	color: #000;
 	cursor: pointer;
 	width: 125px;
-	font-size: 20px;
+	font-size: 16px;
+	font-weight: bold;
 	border-radius: 10px;
 	outline: none;
 	border: 2px solid black;
@@ -82,9 +84,9 @@ section {
 #friendList {
 	position: absolute;
 	background-color: white;
-	margin-left: 170px;	
-	width: 770px;
-	height: 200px;
+	margin-left: 190px;	
+	width: 700px;
+	height: 160px;
 	border: 7px solid black;
 	margin-top: 30px;
 	border-radius: 50px;
@@ -93,10 +95,12 @@ section {
 #friendListInnerDiv {
 	position: absolute;
 	background-color: white;
-	left: 40px;
-	width: 402px;
-	height: 200px;
+	left: 10px;
+	width: 300px;
+	height: 160px;
 	overflow: auto;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
 }
 
 input[type=checkbox] {
@@ -213,6 +217,14 @@ header h2 {
 	outline: none;
 }
 
+.onlyForEditUser {
+	width: 230px;
+	height: 20px;
+	border: 2px solid #DCDCDC;
+	border-radius: 2px;
+	outline: none;
+}
+
 .adminButtons {
 	background: #19D74F;
 	color: #000;
@@ -305,8 +317,8 @@ header h2 {
 
 #saveUser {
 	position: absolute;
-	margin-left: 753px;
-	margin-top: 260px;
+	margin-left: 653px;
+	margin-top: 230px;
 }
 
 #saveUser:hover{
@@ -371,11 +383,9 @@ header h2 {
 	margin-top: 3px;
 }
 
-/******************************* Picture image, Profile Image label, and Browse *******************************/
-
 
 /*************************************		Everything below are new id's and classes created beyond September 5, 2017			*****************************************************/
-
+/*************************************		Everything below are new id's and classes created beyond September 5, 2017			*****************************************************/
 #back_btn2 {
 	background: #ffff00;
 	color: #000;
@@ -405,6 +415,7 @@ header h2 {
 	margin-left: 244px;
 	background-color: white;
 	overflow: auto;
+	border-radius: 4px;
 }
 
 #searchResults {
@@ -414,4 +425,25 @@ header h2 {
 .smallPic {
 	width: 20px;
 	height: 20px;
+}
+
+.userResults {
+	width: 263px;
+	height: 24px;
+	border: 1px none black;
+}
+
+.userResults:hover {
+	background: #1E8449;
+	transition: 0.2s;
+}
+
+#editUserForm {
+	padding-left: 30px;
+}
+
+#editUserPicture {
+	position: absolute;
+	margin-left: 252px;
+	margin-top: 3.8px;
 }
