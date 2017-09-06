@@ -58,7 +58,7 @@ Author: David Mackenzie
 	border-radius: 5px;
 }
 .latestCommentContent {
-	margin-left: 95px;
+	margin-left: 85px;
 	margin-top: 4px;
 	border: 0.2px hidden black;
 	width: 480px;
@@ -70,7 +70,7 @@ Author: David Mackenzie
 	position: absolute;
 }
 .userComment {
-	margin-left: 95px;
+	margin-left: 85px;
 	margin-top: 4px;
 	border: 0.2px hidden black;
 	width: 480px;
@@ -86,6 +86,11 @@ Author: David Mackenzie
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	margin-right: 5px;
+}
+
+#firstEmojiText {
+	font-weight: normal;
 }
 
 /* emoji selection captions */
@@ -161,7 +166,7 @@ section
 #latestCommentLabel {
 	position: absolute;	
 	margin-top: -20px;
-/*	margin-left: 5px;*/
+	margin-left: 5px;
 	color: #fff;
 }
 

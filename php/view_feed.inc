@@ -108,17 +108,19 @@ function view_feed()
 								echo '</th>';
 							}
 						echo '<th>';
-							echo '<p id="reacted_emoji_txt">';
 							if($emojiCount < 1)
 							{
-								echo 'Be the first to add an emoji!';
+								echo '<p id="reacted_emoji_txt" style="font-weight:normal;margin-left:3px;">';
+								echo 'Be the first to add an emoji';
 							}else
 							{
 								if( $emojiCount == 1)
 								{
+									echo '<p id="reacted_emoji_txt">';
 									echo '1 emoji on this post.';
 								}else
 								{
+									echo '<p id="reacted_emoji_txt">';
 									echo $emojiCount.' emojis on this post.';
 								}
 							}
@@ -260,7 +262,24 @@ function view_latest_comment($postID)
 		}
 		else
 		{
-			console_log("no latest comment");	
+			echo 
+			'<div id="latestCommentSection">
+				<p id="latestCommentLabel">Latest Comment</p>
+				<div class="latestCommentBar">
+					<div class="latestCommentProfileImage">
+						<img src="img/profile-placeholder.png"></img>
+					</div>';
+
+			echo
+					'<div class="latestCommentContent" style="font-weight:normal">';
+			echo 'Be the first to comment on this post...';
+			echo
+				'</div>
+				 <div class="latestCommentDate">';
+			echo
+				'</div>
+				</div>
+			</div>';	
 		}
 	} catch (PDOException $e)
 	{
