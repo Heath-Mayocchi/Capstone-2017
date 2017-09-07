@@ -1,7 +1,18 @@
 <?php
 
-
-  session_start();
+session_start();
+  
+/*
+ * To avoid cross-site scripting:
+ * Trim any extra characters
+ * Remove any slashes 
+ * Remove special HTML characters  
+ */
+function PrepData($data){
+	$data = trim($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 	
 	if($_POST['content'] != "") {
 	require_once 'pdoconnectOnline.inc';
@@ -22,8 +33,8 @@
 		$postID = $_POST['comment_post_id'];
 	// }
 	
-	$content = $_POST["content"];
-	
+	$content = PrepData($_POST["content"]);
+		
 	$statement = $conn->prepare("INSERT INTO post_comments(commentContent, commentBy, commentDate, postID)
     VALUES(:content, :user, NOW(), :postID);");
 	
