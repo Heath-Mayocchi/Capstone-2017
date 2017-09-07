@@ -119,7 +119,7 @@ function feedBtnChoose(event) {
 }
 
 function validateComment() {
-	var content = document.forms["new_comment"]["content"].value;
+	var content = document.forms["newCommentForm"]["content"].value;
 	if (content == "") {
 		alert("Please enter a comment before submitting");
 		return false;

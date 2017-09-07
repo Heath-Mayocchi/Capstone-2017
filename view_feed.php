@@ -82,14 +82,14 @@ Author: David MacKenzie
 				</tr>
 			</table>
 		</div>
-		<form action="php/new_comment.php" method="post">
+		<form name="newCommentForm" action="php/new_comment.php" onsubmit="validateComment()" method="post">
 			<div id="comment_form">
 				<textarea class="post_id" id="comment_post_id" name="comment_post_id"></textarea>
 				<table>
 					<tr>
 
 						<th>
-							<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" name="content"></textarea>
+							<textarea rows="2" id="comment_text_box" placeholder="Enter comment... (max 90 characters)" maxlength="90" name="content"></textarea>
 						</th>
 
 						<th>
