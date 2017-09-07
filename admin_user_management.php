@@ -49,7 +49,7 @@ Author: David Mackenzie
 					<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
 					<input id="editUserForm" class="onlyForEditUser" type="text" placeholder="Search ... " name="search">
 					<button class="adminButtons" id="searchButton" name="searchButton">Search</button>
-					<button class="adminButtons" id="loadUserButton">Load User</button>
+					<button class="adminButtons" id="loadUserButton" name="loadUser">Load User</button>
 				</form>
 
 				<!--	DIV that shows search results	-->
@@ -142,7 +142,7 @@ Author: David Mackenzie
 					<input type="file" name="file" id="uploadPicture">
 					<span id="fileTypeError"></span>
 
-					<!--	This is the submit button, but it's hidden and it will be triggered when this is	-->
+					<!--	This is the submit button, but it's hidden and it will be triggered when this is submitted	-->
 					<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
 				</form>
 			</div>
@@ -201,39 +201,67 @@ Author: David Mackenzie
 				<button  id="remove_friend_btn">Remove Friend</button>
 				<div id="friendListInnerDiv">
 				<table>
-					<tr>
-						<td>
-							<input type="checkbox">
-						</td>
-						<td>
-							<img src="img/profile-placeholder.png" class="friendProfilePicture">
-						</td>
-						<td>
-							John Doe
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox">
-						</td>
-						<td>
-							<img src="img/profile-placeholder.png" class="friendProfilePicture">
-						</td>
-						<td>
-							John Doe
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="checkbox">
-						</td>
-						<td>
-							<img src="img/profile-placeholder.png" class="friendProfilePicture">
-						</td>
-						<td>
-							John Doe
-						</td>
-					</tr
+					<?php 
+
+						if (isset($_POST['loadUser'])) {
+							$fName = "";
+							$lName = "";
+							$dob = "";
+							$accType= "";
+							$usrID = "";
+
+							$f = explode(',', $_POST['search'], 4);
+							$accType = strtolower(end($f));				// Account Type;
+							$fName = $f[0];								// first name 
+							$lName = $f[1];								// last name
+							$dob = $f[2];								// 
+
+
+							$query = $conn->prepare("SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType=?");
+							$query->execute(array($fName, $lName, $dob, $accType));
+							$checkNum = $query->fetchColumn();
+
+							if ($checkNum <= 0) {
+								echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;Found 0. Try Again!";
+							} else {
+								$query = $conn->prepare("SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType=?");
+								$query->execute(array($fName, $lName, $dob, $accType));
+								$row = $query->fetch(PDO::FETCH_ASSOC);		// fetch data
+								$usrID = $row['userID'];
+
+
+								/**************************************************************************************************************/
+								/********	Need to do show friends list associated with the searched up dude *********************************/
+								$query = $conn->prepare("SELECT * FROM users WHERE users.userID in (SELECT userTwoID FROM relationships WHERE userOneID=?)");
+								$query->execute(array($usrID));
+								$checkNum = $query->fetchColumn();
+
+								if ($checkNum <= 0) {
+									echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;This user currently has 0 friends";
+									echo "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Try Again!";
+								} else {
+									while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+									$picture = $row['profilePicture'];
+									$fName = $row['firstName'];
+									$lName = $row['lastName'];
+									
+									echo "<tr>
+											<td>
+												<input type='checkbox'>
+											</td>
+											<td>
+												<img src='$picture' class='friendProfilePicture'>
+											</td>
+											<td>
+												$fName $lName
+											</td>
+										</tr>";
+									}
+								}
+							}
+						}
+					 ?>
+
 				</table>
 				</div>
 			</div>

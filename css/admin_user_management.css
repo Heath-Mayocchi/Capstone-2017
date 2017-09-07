@@ -42,7 +42,6 @@ section {
 	font-weight: bold;
 	border-radius: 10px;
 	outline: none;
-	border: 2px solid black;
 }
 
 #add_friend_btn:hover {
@@ -66,7 +65,6 @@ section {
 	font-weight: bold;
 	border-radius: 10px;
 	outline: none;
-	border: 2px solid black;
 }
 
 #remove_friend_btn:hover {
@@ -231,7 +229,6 @@ header h2 {
 	height: 30px;
 	width: 125px;
 	font-size: 20px;
-	border: 2px solid black;
 	border-radius: 10px;
 	outline: none;
 }
@@ -280,7 +277,6 @@ header h2 {
 	width: 125px;
 	font-size: 20px;
 	border-radius: 10px;
-	border: 2px solid black;
 	outline: none;
 }
 
