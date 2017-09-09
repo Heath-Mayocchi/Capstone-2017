@@ -13,40 +13,72 @@ Author: David Mackenzie
 /* 
 USER HOME PAGE
 */
-footer {
-	margin-top: 800px;
-}
 .btnsquare {
-	width:250px;
-	height:250px;
+	width:200px;
+	height:200px;
 	border-radius: 25px;
 	font-size: 30px;
-	margin: 32px;
+	margin-top: 100px;
 }
-.btncircle{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
-	font-size: 20px;
+.btnsquare:focus {
+	width:240px;
+	height:240px;
+	font-size: 40px;	
+}
+#logout_btn {
 	float: left;
-	margin: 10px;
-	margin-right: -100px;
+	margin-right: -122px;
 }
+#logout_btn:focus {  
+	float: left;
+	margin-right: -142px;
+	margin-bottom: -20px;
+}
+
 #view_feed_btn {
-	position: absolute;
-	margin-left: -350px;
+	position: relative;
+	left: 225px;
+	top: -20px;
 }
+#view_feed_btn:focus {
+	left: 205px;
+	top: -10px;
+	margin-right: -40px;
+	margin-top: -30px;
+}
+
 #create_post_btn {
-	position: absolute;	
-	margin-left: 100px;
+	position: relative;	
+	left: 440px;
+	top: -20px;
 }
+#create_post_btn:focus {
+	left: 460px;
+	top: -10px;
+	margin-left: -40px;
+	margin-top: -20px;
+}
+
 #friends_btn {
-	position: absolute;
-	margin-left: -350px;
-	margin-top: 420px;	
+	position: relative;
+	left: 235px;
+	top: 325px;
 }
+#friends_btn:focus {
+	left: 215px;
+	top: 325px;
+	margin-right: -40px;
+	margin-top: -30px;	
+}
+
 #messages_btn {
-	position: absolute;
-	margin-left: 100px;	
-	margin-top: 420px;
+	position: relative;
+	left: -390px;
+	top: 325px;
+}
+#messages_btn:focus {
+	left: -410px;
+	top: 325px;
+	margin-right: -40px;
+	margin-top: -30px;	
 }

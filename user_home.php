@@ -23,31 +23,18 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
-	<button class="button btncircle" id="logout_btn" onclick="location.href='#'">LOGOUT</button>
+	<button class="button" id="logout_btn" onkeyup="logout(event)">LOGOUT</button>
 	<div id="user_profile">
-	<img src="img/profile-placeholder.png" alt="User profile image"></img>
-	<p>User Name</p>
+		<img src="img/profile-placeholder.png" alt="User profile image"></img>
+		<p>Super Long User Name</p>
 	</div>
-	<h1>SNAP</h1>
-	<h2>HOME</h2>
+	<h2>SNAP HOME</h2>
 	</header>
 	<section>
-	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';"><div id="view_feed_text">VIEW<br>FEED</div></button>
-	<button class="button btnsquare" id="create_post_btn" onclick="location.href='create_post.php';"><div id ="make_post_text">CREATE<br>POST</div></button>
-	<button class="button btnsquare" id="messages_btn" onclick="location.href='#';"><div id ="messages_text">MESSAGES</div></button>
-	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';"><div id ="friends_text">FRIENDS</div></button>
+	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';" onkeyup="view_feed(event)" autofocus>VIEW<br>FEED</button>
+	<button class="button btnsquare" id="create_post_btn" onclick="location.href='create_post.php';" onkeyup="create_post(event)">CREATE<br>POST</button>
+	<button class="button btnsquare" id="friends_btn" onclick="location.href='#';" onkeyup="friends(event)">FRIENDS</button>
+	<button class="button btnsquare" id="messages_btn" onclick="location.href='#';" onkeyup="messages(event)">MESSAGES</button>
 	</section>
-	<footer>
-	<button class="imageButton" id="previous_btn" onkeydown="userHomeBtnPrevious(event)"><img id="prev_img" src="img/previous.png" alt="Previous"></img></button>
-	<button class="imageButton" id="next_btn" autofocus onkeydown="userHomeBtnNext(event)"><img id="next_img" src="img/next_selected.png" alt="Next"></img></button>
-	<button class="button" id="select_btn" onkeydown="userHomeBtnSelect(event)">Select</button>
-	</footer>
-	<!--
-	Preload images for previous and next footer navigation buttons
-	-->
-	<div id="preloaded-images">
-	   <img src="img/previous_selected.png" width="1" height="1" alt="Previous" />
-	   <img src="img/next.png" width="1" height="1" alt="Next" />
-	</div>
 	</body>
 </html>

@@ -2,9 +2,9 @@
 
 // do not stage this file.
 
-$servername = "fdb17.runhosting.com:3306"; 
-$username = "2412123_snap"; 
-$password = "8h*G66hdkO5&"; 
+$servername = "localhost";
+$username = "root";
+$password = "weedhorsedream";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=2412123_snap", $username, $password);
     // set the PDO error mode to exception

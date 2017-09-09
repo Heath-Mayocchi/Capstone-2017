@@ -1,0 +1,50 @@
+<?php
+
+session_start();
+  
+/*
+ * To avoid cross-site scripting:
+ * Trim any extra characters
+ * Remove any slashes 
+ * Remove special HTML characters  
+ */
+function PrepData($data){
+	$data = trim($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+	
+	if($_POST['content'] != "") {
+	require_once 'pdoconnectOnline.inc';
+	
+	if(isset($_SESSION['user']))
+	{
+		$user = $_SESSION['user'];
+	} else 
+	{
+		$user = 1;
+	}
+	
+	// if(isset($_SESSION['post']))
+	// {
+	// 	$postID = $_SESSION['post'];
+	// } else 
+	// {
+		$postID = $_POST['comment_post_id'];
+	// }
+	
+	$content = PrepData($_POST["content"]);
+		
+	$statement = $conn->prepare("INSERT INTO post_comments(commentContent, commentBy, commentDate, postID)
+    VALUES(:content, :user, NOW(), :postID);");
+	
+	$statement->execute(array(
+    "content" => $content,
+    "user" => $user,
+		"postID" => $postID
+	));
+	}
+
+	header("Location: ../view_feed.php");
+	exit;
+?>
