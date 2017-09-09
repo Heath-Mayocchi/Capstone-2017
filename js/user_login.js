@@ -9,7 +9,7 @@ function filter() {
   table = document.getElementById("userNameTable");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -22,27 +22,216 @@ function filter() {
 
 
 
-
-
-
-
-
-// Get the modal
-var modal = document.getElementById('password_popup');
-
-function show_modal($name,$img)
+function student_popup($name,$img)
 {
-  var ui = document.getElementById('avatar_image');
+  // Get the modal
+var modal = document.getElementById('student_popup');
+
+  var ui = document.getElementById('student_avatar');
   ui.src=$img;
 
-  var ud = document.getElementById('username_display');
-  ud.innerText='Please enter the password for ' + $name;
+  var ud = document.getElementById('student_username');
+  ud.innerText='Log in as ' + $name;
 
-  document.getElementById('password_popup').style.display='block';
+  document.getElementById('student_popup').style.display='block';
+
+  document.getElementById("select_btn").blur();
+  document.getElementById('student_login').focus();
 }
 
-function just_login($name)
+
+function admin_popup($name,$img)
 {
-  var x = "user_home.php?userID=" + $name;
-  window.location.assign(x);
+  // Get the modal
+var modal = document.getElementById('admin_popup');
+
+  var ui = document.getElementById('admin_avatar');
+  ui.src=$img;
+
+  var ud = document.getElementById('admin_username');
+  ud.innerText='Please enter the password for ' + $name;
+
+  document.getElementById('admin_popup').style.display='block';
+
+  document.getElementById("select_btn").blur();
+  document.getElementById('admin_password').focus();
+
+}
+
+
+
+// variables for key presses
+var nextElement = 32; // spacebar
+var selectElement = 13; // enter key
+
+var rowHighlight = 0;
+
+
+function init() 
+{
+	rowHighlight = 0;
+	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+  theTable[rowHighlight].style.background = "green";	
+}
+
+window.onload=init;
+
+/*
+functions for post navigation
+*/
+function loginBtnNext(event) { 
+  event.preventDefault();
+    var key = event.which;
+  // if key pressed is the spacebar, change focus to choose button
+  if (key == nextElement){
+    document.getElementById("next_btn").blur();
+    document.getElementById("select_btn").focus();
+  }
+  // if key pressed is the enter key, view next post
+  if (key == selectElement){ 
+
+    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    theTable[rowHighlight].style.background = "white";
+
+    if( rowHighlight<theTable.length-1 )
+    {
+
+      rowHighlight++;
+      while(theTable[rowHighlight].style.display != "")
+      {
+      	rowHighlight++;
+      }
+
+    }else
+    {
+      rowHighlight=0;
+      while(theTable[rowHighlight].style.display != "")
+      {
+      	rowHighlight++;
+      }      
+    }
+    theTable[rowHighlight].style.background = "green";
+
+    key.stopPropagation();
+    //plusComment(-1);
+
+  }
+}
+function loginBtnPrevious(event) {
+  event.preventDefault();
+    var key = event.which;
+  // if key pressed is the spacebar, change focus to next button
+  if (key == nextElement){  
+    document.getElementById("previous_btn").blur();
+    document.getElementById("next_btn").focus();
+  }
+  // if key pressed is the enter key, view previous post
+  if (key == selectElement){
+
+    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.borderColor = "white";
+
+    if( rowHighlight>0 )
+    {
+      rowHighlight--;
+      while(theTable[rowHighlight].style.display != "")
+      {
+      	rowHighlight--;
+      }
+    }else
+    {
+      rowHighlight=theTable.length-1;
+      while(theTable[rowHighlight].style.display != "")
+      {
+      	rowHighlight--;
+      }      
+    }
+
+    theTable[rowHighlight].style.background = "green";
+    theTable[rowHighlight].style.borderColor = "green";
+
+    key.stopPropagation();
+    //plusComment(1); //this is for the latest comment
+  }
+}
+
+function loginBtnSelect(event) {
+  event.preventDefault();
+  var key = event.which;
+  // if key pressed is the spacebar, change focus to the back button
+  if (key == nextElement){ 
+      document.getElementById("select_btn").blur();
+      document.getElementById("back_btn").focus();    
+  }
+  // if key pressed is the enter key, display choose buttons and comments
+  if (key == selectElement){
+    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    theTable[rowHighlight].onclick();
+    key.stopPropagation();
+  } 
+}
+
+/* 
+function for back key presses
+*/
+function loginBtnBack(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      document.getElementById("back_btn").blur();
+      document.getElementById("previous_btn").focus();      
+  }
+  if (key == selectElement){
+    window.history.back();
+  } 
+}
+
+function loginBtnStudentLogin(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      document.getElementById("student_login").blur();
+      document.getElementById("student_cancel").focus();      
+  }
+  if (key == selectElement){
+    document.getElementById("student_form").submit();
+  } 
+}
+
+function loginBtnStudentCancel(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      document.getElementById("student_cancel").blur();
+      document.getElementById("student_login").focus();      
+  }else{
+  	if( key == selectElement){
+  		cancel_login(event);
+  	}
+  }
+}
+
+function cancel_login(event)
+{
+	document.getElementById('student_popup').style.display='none';
+	document.getElementById("student_cancel").blur();
+	document.getElementById("next_btn").focus();    	
+}
+
+function admin_search(event)
+{
+	if(document.getElementById('searchBar').style.display!='block')
+	{
+		document.getElementById('searchBar').style.display='block';
+		document.getElementById('search_btn').innerText='Cancel';
+		document.getElementById('searchBar').focus();		
+	}else
+	{
+		document.getElementById('searchBar').innerText='';
+		document.getElementById('search_btn').innerText='Search';
+		document.getElementById('next_btn').focus();				
+		filter();
+		document.getElementById('searchBar').style.display='none';
+	}
 }

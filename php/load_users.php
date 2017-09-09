@@ -2,7 +2,6 @@
 	// Connect to the database
 	include 'pdoconnectOnline.inc';
 	
-	// Execute SQL SELECT statement to select all posts inner joined to the user table of the person who posted it
 	$sql = "SELECT * FROM users ORDER BY firstName, lastName";
     $stmt = $conn->prepare($sql); 
     $stmt->execute();
@@ -15,22 +14,25 @@
 
 		if($row['accountType'] == 'Student')
 		{
-		 echo "<tr onclick=\"just_login('$name')\">";
-		}else
+		 echo "<tr onclick=\"student_popup('$name','$img')\">";
+		}
+		else
 		{
-		 echo "<tr onclick=\"show_modal('$name','$img')\">";
+		 echo "<tr onclick=\"admin_popup('$name','$img')\">";
 		}
 
 		
-		echo "<td>";
-		echo $name;
-		echo "</td>";
-
-		echo "<td>";
+		echo "<td width=65px>";
 		echo '<img src="';
 		echo $row['profilePicture'];
 		echo '" class="userPic">';
 		echo "</td>";
+
+
+		echo "<td>  ";
+		echo $name;
+		echo "</td>";
+
 
 
 		echo "</tr>";

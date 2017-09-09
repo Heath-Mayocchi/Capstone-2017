@@ -36,17 +36,22 @@ Author: David Mackenzie
 	<link rel="stylesheet" type="text/css" href="css/user_home.css">	
 	<link rel="stylesheet" type="text/css" href="css/user_login.css">
 	<script src="js/user_login.js" type="text/javascript"></script>
-	<title>SNAP ADMIN HOME</title>
+	<title>SNAP USER LOGIN</title>
 </head>
 <body class="wrapper">
 	<header>
-	<h2>USER LOGIN</h2>
+	<button class="button" id="back_btn" onclick="window.history.back()" onkeydown="loginBtnBack(event)">Back</button>
+
+	<h2>SNAP LOGIN</h2>
 	</header>
 	<section>
 
-	<input type="text" id="searchBar" onkeyup="filter()" placeholder="Search for names..">
+
 	<div id="tableDiv">
-	<table id="userNameTable">
+	<div id="searchDiv">
+	<button id="search_btn" onclick="admin_search(event)">Search</button>
+		<input type="text" id="searchBar" onkeyup="filter()" placeholder="Search for names..">
+	</div>	<table id="userNameTable">
 		<?php require "php/load_users.php";?>
 	</table>
 	</div>
@@ -57,34 +62,63 @@ Author: David Mackenzie
 
 
 		<!-- The Password Entry Modal for Admin Users -->
-		<div id="password_popup" class="modal">
-		  <span onclick="document.getElementById('password_popup').style.display='none'" 
+		<div id="admin_popup" class="modal">
+		  <span onclick="document.getElementById('admin_popup').style.display='none'" 
 		class="close" title="Close Modal">&times;</span>
 
 		  <!-- Modal Content -->
 		  <form class="modal-content animate" action="admin_home.php" method="post">
 		    <div class="imgcontainer">
-		      <img src="img/profile-placeholder.png" id="avatar_image" alt="Avatar" class="avatar">
-		    </div>
+		      <img src="img/profile-placeholder.png" id="admin_avatar" alt="Avatar" class="avatar">
+		    
+ 				</div>
 
 		    <div class="container">
 
-		      <label><b id="username_display">Please enter the password for </b></label>
-		      <input type="password" placeholder="Enter Password" name="psw" required>
+		      <label><b id="admin_username">Please enter the password for </b></label>
+		      <input type="password" id="admin_password" placeholder="Enter Password" name="psw" required>
 
-		      <button type="submit">Login</button>
 		    </div>
 
 		    <div class="container" style="background-color:#f1f1f1">
-		      <button type="button" onclick="document.getElementById('password_popup').style.display='none'" class="cancelbtn">Cancel</button>
+		      <button  class="button" id="admin_login" type="submit">Login</button>
+		      <button  class="button" type="button" id="admin_cancel" onclick="document.getElementById('admin_popup').style.display='none'" >Cancel</button>
 		    </div>
 		  </form>
 		</div>
 
 
 
+		<!-- The Regular Login Modal for Regular Users -->
+		<div id="student_popup" class="modal">
+		  <span onclick="document.getElementById('student_popup').style.display='none'" 
+		class="close" title="Close Modal">&times;</span>
 
+		  <!-- Modal Content -->
+		  <form class="modal-content animate" id="student_form" action="user_home.php" method="post">
+		    <div class="imgcontainer">
+		      <img src="img/profile-placeholder.png" id="student_avatar" alt="Avatar" class="avatar">
+		    
+ 				</div>
+
+		    <div class="container">
+		      <label><b id="student_username">Log in as </b></label>
+		    </div>
+
+		    <div class="container" style="background-color:#f1f1f1">
+		      <button class="button" id="student_login" onkeydown="loginBtnStudentLogin(event)" type="submit">Login</button>
+		      <button class="button" id="student_cancel" onkeydown="loginBtnStudentCancel(event)" type="reset">Cancel</button>
+		    </div>
+		  </form>
+		</div>
 
 	</section>
 	</body>
+
+		<div id="loginNavigationButtons">
+			<button class="button" id="previous_btn" onkeydown="loginBtnPrevious(event)" onclick="">Previous</button>
+			<button class="button" id="next_btn" autofocus onkeydown="loginBtnNext(event)" onclick="">Next</button>
+			<button class="button" id="select_btn" onkeydown="loginBtnSelect(event)">Select</button>
+		</div>	
+
 </html>
