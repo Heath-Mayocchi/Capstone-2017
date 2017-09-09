@@ -20,18 +20,26 @@ function console_log( $data ){
         $q = intval($_GET['q']);
     }
 
-   // $q = intval($_GET['q']);
-
-    $query = "select * from posts where postID = (select max(postID) from posts where postID < $q);";
-    $stmt = $conn->prepare($query); 
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-    $result = $stmt->fetchAll();
-    foreach ($result as $post) {
-        $previous = $post->postID;
+    if ($q == 1) {
+        $query = "select postID from posts ORDER BY postID DESC LIMIT 1";
+        $stmt = $conn->prepare($query); 
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $result = $stmt->fetchAll();
+        foreach ($result as $post) {
+            $previous = $post->postID;
+        }
+    } else {
+        $query = "select * from posts where postID = (select max(postID) from posts where postID < $q);";
+        $stmt = $conn->prepare($query); 
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $result = $stmt->fetchAll();
+        foreach ($result as $post) {
+            $previous = $post->postID;
+        }
     }
 
-    //$sql = "SELECT * FROM posts WHERE postID = $q";
     $query = 
     "select 
     posts.postID,
