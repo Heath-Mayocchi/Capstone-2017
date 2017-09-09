@@ -42,6 +42,10 @@
 		$sql = "SELECT * FROM users 
 		WHERE LEFT(lastName,1) IN ('W','X','Y','Z') ORDER BY firstName, lastName";
 	}
+	if($_GET['letter_group'] == '')
+	{
+		$sql = "SELECT * FROM users ORDER BY firstName, lastName";
+	}
 	    $stmt = $conn->prepare($sql); 
     $stmt->execute();
 	
