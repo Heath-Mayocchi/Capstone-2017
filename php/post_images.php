@@ -7,6 +7,6 @@
 	while ($row = $stmt->fetch())
 	{
 		$image = $row['imageLocation'];
-		echo "<img src=\"$image\">";
+		echo "<img src=\"$image\" class=\"pictureClass\">";
 	}
  ?>

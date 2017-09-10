@@ -27,7 +27,7 @@ Author: David MacKenzie
 </head>
 <body class="wrapper">
 	<header>
-		<button class="button" id="post_back_btn" onclick="backBtn()" onkeyup="postBtnBack(event)">Back</button>
+		<button class="button" id="post_back_btn" onclick="backBtn()" onkeydown="postBtnBack(event)">Back</button>
 		<div id="user_profile">
 			<img src="img/profile-placeholder.png" alt="User profile image"></img>
 			<p>Super Long User Name</p>
@@ -35,11 +35,12 @@ Author: David MacKenzie
 		<h2>SNAP FEED</h2>
 	</header>
 
-	<div class="mainBox">
-		<div class="boxBackground">
-			<img src="#" id="selectedPicture" alt="Picture selected">
+	<div id="mainBox">
+		<div id="boxBackground">
+			<img src="#" id="selectedPicture" alt="No picture selected">
 			<div class="modal hideModal">
 				<?php include "php/post_images.php" ?>
+				<button id="cancelPicButton">Cancel</button>
 				<button id="selectPicButton">Select</button>
 			</div>
 			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data">
@@ -76,13 +77,12 @@ Author: David MacKenzie
 
 	<footer>
 		<div id="postButtons">
-			<button class="button" id="postCommentButton" onkeyup="postCommentButton(event)">Comment</button>
-			<button class="button" id="pictureBtn" onkeyup="postpictureButton(event)" autofocus>Picture</button>
-			<button class="button" id="reactButtonPost" onkeyup="postSubmitButton(event)">Submit</button>
+			<button class="button" id="postCommentButton" onkeydown="postCommentButton(event)">Comment</button>
+			<button class="button" id="pictureBtn" onkeydown="postpictureButton(event)" autofocus>Picture</button>
+			<button class="button" id="reactButtonPost" onkeydown="postSubmitButton(event)">Submit</button>
 		</div>
 	</footer>
 	<script type="text/javascript" src="js/postPreview.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/post_heath.js"></script>
 </body>
 </html>

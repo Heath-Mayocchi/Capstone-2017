@@ -13,7 +13,7 @@
 	color: white;
 }
 
-.mainBox {
+#mainBox {
 	width: 590px;
 	margin: 35px auto 0 auto;
 	border: 0px solid #b8b8b5;
@@ -24,7 +24,7 @@
 	display: block;
 }
 
-.boxBackground{
+#boxBackground{
 	border: 0.1px hidden black;
 	width: 98%;
 	height: 100%;
@@ -88,7 +88,7 @@
 	resize: none;
 }
 
-.boxBackground textarea::placeholder {
+#boxBackground textarea::placeholder {
 	color: grey;
 }
 
@@ -136,7 +136,17 @@
 	opacity: 0;
 }
 
+/*
 .modal img {
+	float: left;
+	margin-top: 0px;
+	margin-left: 4%;
+	width: 26%;
+	height: 120px;
+	border: 8px solid transparent;
+}		*/
+
+.pictureClass {
 	float: left;
 	margin-top: 0px;
 	margin-left: 4%;
@@ -145,8 +155,19 @@
 	border: 8px solid transparent;
 }
 
-.modal img:hover {
+.pictureClass:hover {
 	border: 8px dashed #ff6b6b;
+	transition: 0.3s;
+}
+
+
+.imageHover {
+	border: 8px dashed #ff6b6b;
+	transition: 0.3s;
+}
+
+.fuck {
+	border: 8px dashed green;
 	transition: 0.3s;
 }
 
@@ -155,6 +176,21 @@
 #imageSelected {
 	border: 8px solid #ff6b6b;
 	transition: 0.3s;
+}
+
+.vrum {
+	border: 8px solid white;
+	transition: 0.3s;
+}
+
+#cancelPicButton {
+	float: right;
+	margin-right: 17px;
+	background-color: #ffff00;
+	height: 36px;
+	width: 125px;
+	border-radius: 10px;
+	font-size: 20px;
 }
 
 #selectPicButton {
@@ -167,12 +203,12 @@
 	font-size: 20px;
 	
 }
-#selectPicButton:hover {
+#selectPicButton:hover, #cancelPicButton:hover {
 	background-color: #ff6b6b;
 	font-weight: bold;
 	transition: 0.1s;
 }
-#selectPicButton:focus {
+#selectPicButton:focus, #cancelPicButton:focus {
 	background-color: #ff6b6b;
 	font-weight: bold;
 	transition: 0.1s;
@@ -239,7 +275,7 @@
 	outline: none;
 }
 
-.mainBox .boxBackground #postSubmit #uploadLocal {
+#mainBox #boxBackground #postSubmit #uploadLocal {
 	position: absolute;
 	bottom: -120px;
 	left: 64px;
@@ -251,11 +287,11 @@
 	z-index: 1;
 }
 
-.mainBox .boxBackground #postSubmit #hiddenSubmit {
+#mainBox #boxBackground #postSubmit #hiddenSubmit {
 	visibility: hidden;
 }
 
-.mainBox .boxBackground #postSubmit #hiddenUploadURL {
+#mainBox #boxBackground #postSubmit #hiddenUploadURL {
 	visibility: hidden;
 }
 
