@@ -192,7 +192,13 @@ function cbVerify() {
 	}
 }
 
+function load_user() 
+{
 
+	var id = document.getElementById("editUserForm").value[0];
+	//alert(id);
+
+}
 /************* BELOW IS FOR THE SEARCH FORM *******************/
 var mate = document.querySelectorAll(".userResults");
 var editUserForm = document.querySelector("#editUserForm");
@@ -220,3 +226,28 @@ for (var i = 0; i < mate.length; i++) {
 			editUserForm.value = text;
 	});
 }
+
+$(document).ready
+(
+	function()
+	{
+	  $("#loadUserButton").click
+	  (
+	  	function()
+	 		{    
+	 			var tmpTxt = document.getElementById("editUserForm").value;
+	 			var id = tmpTxt.substring(0,tmpTxt.indexOf(","));
+
+		    $.post("php/show_user.php",
+		    {
+		        userID: id,
+		    },
+		    function(data, status){
+		    		$("#showUserForm").appendTo( $("#showUser") );
+		    		$("#showUser").html(data);
+		    });
+	 		}
+	 	);
+	}
+);
+
