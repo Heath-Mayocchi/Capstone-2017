@@ -255,8 +255,8 @@ header h2 {
 	position: absolute;
 	margin-top: -280px;
 	margin-left: 135px;
-	width: 100px;
-	height: 100px;
+	max-width: 100px;
+	max-height: 100px;
 }
 
 #labelForBrowse {
