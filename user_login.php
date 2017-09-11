@@ -49,11 +49,15 @@ Author: David Mackenzie
 
 	<div id="tableDiv">
 	<div id="searchDiv">
-	<button id="search_btn" onclick="admin_search(event)">Search</button>
-		<input type="text" id="searchBar" onkeyup="filter()" placeholder="Search for names..">
-	</div>	<table id="userNameTable">
-		<?php require "php/load_users.php";?>
-	</table>
+	<button id="search_btn" class="button" onclick="admin_search(event)">Search</button>
+	<input type="text" id="searchBar" onkeyup="filter()" placeholder="Search for names..">
+	</div>	
+
+		<div id="scollDiv">
+			<table id="userNameTable">
+				<?php require "php/load_users.php";?>
+			</table>
+		</div>	
 	</div>
 
 

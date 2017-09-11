@@ -90,6 +90,14 @@ function loginBtnNext(event) {
   // if key pressed is the enter key, view next post
   if (key == selectElement){ 
 
+
+    // var w = $('#scollDiv');
+    // var row = $('#userNameTable').find('tr').eq( line );
+
+    // if (row.length){
+    //     $('html,body').animate({scrollTop: row.offset().top - (w.height()/2)}, 1000 );
+    // }
+
     var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     theTable[rowHighlight].style.background = "white";
 
@@ -111,6 +119,8 @@ function loginBtnNext(event) {
       }      
     }
     theTable[rowHighlight].style.background = "green";
+
+    theTable[rowHighlight].scrollIntoView(false);
 
     key.stopPropagation();
     //plusComment(-1);
@@ -150,6 +160,7 @@ function loginBtnPrevious(event) {
 
     theTable[rowHighlight].style.background = "green";
     theTable[rowHighlight].style.borderColor = "green";
+    theTable[rowHighlight].scrollIntoView(false);    
 
     key.stopPropagation();
     //plusComment(1); //this is for the latest comment
