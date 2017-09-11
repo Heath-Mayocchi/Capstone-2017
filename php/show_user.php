@@ -1,6 +1,3 @@
-
-<form action="#" id="showUserForm" method="POST" enctype="multipart/form-data" name="registerUser" onsubmit="return validate()">
-
 <?php 
 	// Connect to the database
 	include 'pdoconnectOnline.inc';
@@ -27,7 +24,8 @@
 			<br><br>
 			<label for="dateForm" id="dateFormPosition">DOB:</label>
 			<input id="dateForm" class="formSize" type="text" value="';
-		echo $row['dob'];
+		echo $row['DOB'];
+		
 
 
 	}else
@@ -52,9 +50,23 @@
 	<div id="dobError"></div>
 	<br>
 	<p>Check the below box to create an Admin user</p>
-	<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
-	<input id="aCheckBox" type="checkbox" value="blumble" name="checkBox">
-	<br>
+	<label for="aCheckBox" id="checkBoxPosition">Admin:</label>';
+
+	if($row['accountType']=='Admin')
+	{
+		echo '<input id="aCheckBox" type="checkbox" checked="checked" value="';
+		echo $row['accountType'];
+		echo '" name="checkBox" >';
+	}
+	else
+	{
+		echo '<input id="aCheckBox" type="checkbox" value="';
+		echo $row['accountType'];
+		echo '" name="checkBox" >';
+	}
+	
+
+	echo '<br>
 	<p>A password is required for an Admin user</p>
 	<label for="password" id="passwordPosition">Password:</label>
 	<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
@@ -67,6 +79,11 @@
 
 	if(isset($_POST['userID']))
 	{
+		// this needs to be changed to a blob.
+		// $fileName = $_FILES['file']['name'];
+
+		// $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+	 //  $profilePic = "img/" . $fileNameNew;		
 		echo $row['profilePicture'];
 
 	}else
@@ -84,8 +101,4 @@
 	
 ?>
 
-
-
-
-</form>
 

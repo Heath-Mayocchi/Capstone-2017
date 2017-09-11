@@ -62,13 +62,17 @@
 			        		$pass = password_hash($pass, PASSWORD_DEFAULT);
 
 				        	// If the file upload is emtpy give it a default picture
-				        	if (empty($_FILES['file']['name'])) {
+				        	if (empty($_FILES['file']['name'])) 
+				        	{
 				        		$profilePic = "img/profile-placeholder.png";
-								insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
+										insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 				        		array_push($error, 'Created a user successfully');
-				        	
+
+
 				        	// this else means file upload is not empty, so inside it uploads the picture uploaded and uses that picture to create the user.
-				        	} else {
+				        	} 
+				        	else 
+				        	{
 
 				        		$fileName = $_FILES['file']['name'];
 				        		$fileTempName = $_FILES['file']['tmp_name'];
@@ -86,6 +90,12 @@
 				        				if ($fileSize < 10485760) {
 				        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 				        					$profilePic = "img/" . $fileNameNew;
+
+				        		  echo '<script>';
+										  echo 'console.log('. json_encode( $profilePic ) .');';
+				        		  echo '</script>';
+
+
 				        				//	move_uploaded_file($fileTempName, $profilePic);
 											fileTempName($fileTempName, $profilePic);
 											insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
@@ -227,6 +237,14 @@
 		$statement = $conn->prepare("INSERT INTO users (firstName, lastName, DOB, profilePicture, accountType, password)
 								VALUES(:fname, :lname, :dob, :profilePicture, :accType, :pass);");
 		
+	  echo '<script>';
+	  echo 'console.log('. json_encode( $fName ) .');';
+	  echo 'console.log('. json_encode( $dob ) .');';
+	  echo 'console.log('. json_encode( $profilePic ) .');';
+	  echo 'console.log('. json_encode( $accType ) .');';
+	  echo 'console.log('. json_encode( $pass ) .');';
+	  echo '</script>';		
+
 		$statement->execute(array(
 		"fname" => $fName,
 		"lname" => $lName,
@@ -262,3 +280,4 @@
 	}
 
  ?>
+

@@ -145,7 +145,6 @@ Author: David Mackenzie
 						<input type="file" name="file" id="uploadPicture">
 						<span id="fileTypeError"></span>
 
-						<!--	This is the submit button, but it's hidden and it will be triggered when this is submitted	-->
 						<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
 					</form>
 				</div>
