@@ -69,6 +69,7 @@ function selectButtonFunc() {
 	checker();
 	decider = true;
 	counter = 0;
+	igs = 0;
 }
 
 function cancelButtonFunc() {
@@ -78,6 +79,7 @@ function cancelButtonFunc() {
 	document.getElementById("pictureBtn").focus();
 	decider = true;
 	counter = 0;
+	igs = 0;
 	displayPic.src = "#";
 	picM.value = "";
 	displayPic.style.display = "none";
@@ -137,7 +139,7 @@ images[0].id = "imageHover";
 images.push(selectButton);
 images.push(cancelButton);
 var counter = 0;
-
+var igs = 0;
 // If spacebar is pressed and decider is false (meaning the modal is showing)
 window.addEventListener("keydown", function (e) {
 	if (e.keyCode == "32" && decider == false) {
@@ -145,7 +147,10 @@ window.addEventListener("keydown", function (e) {
 			resetColor();
 			counter++;
 			images[counter].classList.add("imageHover");
-			images[0].removeAttribute("id");
+			if (igs == 0) {
+				images[0].removeAttribute("id");
+				igs++;
+			}
 
 		} else if (counter === 5) {
 			resetColor();

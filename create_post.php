@@ -19,7 +19,7 @@ Author: David MacKenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>SNAP POST</title>
+	<title>SNAP || Create a Post</title>
 	<!--	CSS	-->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -32,7 +32,7 @@ Author: David MacKenzie
 			<img src="img/profile-placeholder.png" alt="User profile image"></img>
 			<p>Super Long User Name</p>
 		</div>
-		<h2>SNAP FEED</h2>
+		<h2>Create a Post</h2>
 	</header>
 
 	<div id="mainBox">
