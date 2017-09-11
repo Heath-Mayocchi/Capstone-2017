@@ -64,6 +64,7 @@
 				        	// If the file upload is emtpy give it a default picture
 				        	if (empty($_FILES['file']['name'])) 
 				        	{
+
 				        		$profilePic = "img/profile-placeholder.png";
 										insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 				        		array_push($error, 'Created a user successfully');
@@ -91,14 +92,9 @@
 				        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 				        					$profilePic = "img/" . $fileNameNew;
 
-				        		  echo '<script>';
-										  echo 'console.log('. json_encode( $profilePic ) .');';
-				        		  echo '</script>';
-
-
 				        				//	move_uploaded_file($fileTempName, $profilePic);
-											fileTempName($fileTempName, $profilePic);
-											insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
+											 resize_image($fileTempName, $profilePic);
+											 insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 						        			array_push($error, 'Created a user successfully');
 				        				} else {
 				        					array_push($error, 'File was too big!');	//
@@ -142,6 +138,7 @@
 	        				if ($fileSize < 10485760) {
 	        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 	        					$profilePic = "img/" . $fileNameNew;
+
 								resize_image($fileTempName, $profilePic);
 								insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 			        			array_push($error, 'Created a user successfully');
@@ -214,6 +211,12 @@
 			        				if ($fileSize < 10485760) {
 			        					$fileNameNew = uniqid('', true) . "." . $fileActualExt;
 			        					$profilePic = "img/" . $fileNameNew;
+
+				        		  echo '<script>';
+										  echo 'console.log('. json_encode( $profilePic ) .');';
+				        		  echo '</script>';
+
+
 										resize_image($fileTempName, $profilePic);
 										insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass);
 					        			array_push($error, 'Created a user successfully');
@@ -233,7 +236,9 @@
         	}
 	}
 	//Inserts users into the database
-	function insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass){
+	function insert_user($conn, $fName, $lName, $dob, $profilePic, $accType, $pass)
+	{
+
 		$statement = $conn->prepare("INSERT INTO users (firstName, lastName, DOB, profilePicture, accountType, password)
 								VALUES(:fname, :lname, :dob, :profilePicture, :accType, :pass);");
 		
@@ -245,19 +250,32 @@
 	  echo 'console.log('. json_encode( $pass ) .');';
 	  echo '</script>';		
 
-		$statement->execute(array(
-		"fname" => $fName,
-		"lname" => $lName,
-		"dob" => $dob,
-		"profilePicture" => $profilePic,
-		"accType" => $accType,
-		"pass" => $pass
-		));
+		if($statement->execute(array(
+			"fname" => $fName,
+			"lname" => $lName,
+			"dob" => $dob,
+			"profilePicture" => $profilePic,
+			"accType" => $accType,
+			"pass" => $pass))	== true	)
+		{
+			  echo '<script>';
+			  echo 'console.log("successfully inserted user");';
+			  echo '</script>';		
+		}
+		else
+		{
+			  echo '<script>';
+			  echo 'console.log("failure to insert");';
+			  echo '</script>';		
+		}
+
+
+
 	}
 	
 	//Resize image and moves it to the images folder
 	function resize_image($file_name, $profilePic){
-		$maxDim = 100;
+			$maxDim = 100;
         list($width, $height, $type, $attr) = getimagesize($file_name);
         if ($width > $maxDim || $height > $maxDim) {
             $target_filename = $file_name;
@@ -276,7 +294,12 @@
             imagepng($dst, $target_filename);
             imagedestroy($dst);
         }
+
 		move_uploaded_file($file_name, $profilePic);
+
+    // this is to get around local apache server file upload restrictions
+    //$profilePic = "img/profile-placeholder.png";
+
 	}
 
  ?>

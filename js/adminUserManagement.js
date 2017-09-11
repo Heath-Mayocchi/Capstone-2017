@@ -20,14 +20,21 @@ var passwordError = document.querySelector("#passwordError");
 var cbError = document.querySelector("#checkBoxError");
 
 
+function getImage() 
+{
+	var img = document.querySelector("#pictureForUpload");
+	return img.src;
+}
+
 
 file.addEventListener("change", function() {
-	var img = document.querySelector("#pictureForUpload");;
+	var img = document.querySelector("#pictureForUpload");
 	var val = this.value;
 	val = val.substring(val.lastIndexOf('.') + 1).toLowerCase();
 
 	if (val == "png" || val == "jpg" || val == "jpeg" || val == "gif" || val == "tiff") {
  		img.src = window.URL.createObjectURL(this.files[0]);
+ 		console.log(img.src);
  		fileFormatError.textContent = "";
 		fileFormatError.style.color = "";
 	} else {
