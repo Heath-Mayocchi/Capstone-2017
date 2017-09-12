@@ -2,21 +2,41 @@ function choose_user($name) {
 	alert($name);
 }
 
-function filter() {
+function filter(event) {
+
   var input, filter, table, tr, td, i;
   input = document.getElementById("searchBar");
   filter = input.value.toUpperCase();
   table = document.getElementById("userNameTable");
   tr = table.getElementsByTagName("tr");
+  rowHighlight = 0;
+  visibleRowCount = 0;
+  visibleRows = [];
   for (i = 0; i < tr.length; i++) {
+    tr[i].style.background = "white";        
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
+        visibleRows[visibleRowCount] = tr[i];
+        visibleRowCount++;
       } else {
         tr[i].style.display = "none";
       }
     }       
+  }
+
+  visibleRows[rowHighlight].style.background = "green";
+  visibleRows[rowHighlight].scrollIntoView(false);
+  //alert(event);
+  if(event)
+  {
+    var key = event.which;
+    if (key == selectElement) 
+    { // user presses enter in search box
+      input.blur();
+      document.getElementById("next_btn").focus();    
+    }
   }
 }
 
@@ -65,13 +85,17 @@ var nextElement = 32; // spacebar
 var selectElement = 13; // enter key
 
 var rowHighlight = 0;
+var visibleRowCount = 0;
+var visibleRows = [];
+
 
 
 function init() 
 {
 	rowHighlight = 0;
 	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "green";	
+  theTable[rowHighlight].style.background = "green";
+  filter(event);	
 }
 
 window.onload=init;
@@ -90,40 +114,26 @@ function loginBtnNext(event) {
   // if key pressed is the enter key, view next post
   if (key == selectElement){ 
 
-
-    // var w = $('#scollDiv');
-    // var row = $('#userNameTable').find('tr').eq( line );
-
-    // if (row.length){
-    //     $('html,body').animate({scrollTop: row.offset().top - (w.height()/2)}, 1000 );
-    // }
-
-    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
 
-    if( rowHighlight<theTable.length-1 )
+    if( rowHighlight<visibleRowCount-1 )
     {
 
       rowHighlight++;
-      while(theTable[rowHighlight].style.display != "")
-      {
-      	rowHighlight++;
-      }
 
     }else
     {
       rowHighlight=0;
-      while(theTable[rowHighlight].style.display != "")
-      {
-      	rowHighlight++;
-      }      
+    
     }
     theTable[rowHighlight].style.background = "green";
 
     theTable[rowHighlight].scrollIntoView(false);
 
-    key.stopPropagation();
-    //plusComment(-1);
+    console.log(rowHighlight);
+    console.log(theTable.length);
 
   }
 }
@@ -138,31 +148,26 @@ function loginBtnPrevious(event) {
   // if key pressed is the enter key, view previous post
   if (key == selectElement){
 
-    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
     theTable[rowHighlight].style.borderColor = "white";
 
     if( rowHighlight>0 )
     {
       rowHighlight--;
-      while(theTable[rowHighlight].style.display != "")
-      {
-      	rowHighlight--;
-      }
     }else
     {
-      rowHighlight=theTable.length-1;
-      while(theTable[rowHighlight].style.display != "")
-      {
-      	rowHighlight--;
-      }      
+      rowHighlight=visibleRowCount-1;
     }
 
     theTable[rowHighlight].style.background = "green";
     theTable[rowHighlight].style.borderColor = "green";
     theTable[rowHighlight].scrollIntoView(false);    
+    console.log(rowHighlight);
+    console.log(theTable.length);
 
-    key.stopPropagation();
+    //key.stopPropagation();
     //plusComment(1); //this is for the latest comment
   }
 }
@@ -177,7 +182,8 @@ function loginBtnSelect(event) {
   }
   // if key pressed is the enter key, display choose buttons and comments
   if (key == selectElement){
-    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    var theTable = visibleRows;    
     theTable[rowHighlight].onclick();
     key.stopPropagation();
   } 
@@ -235,14 +241,16 @@ function admin_search(event)
 	if(document.getElementById('searchBar').style.display!='block')
 	{
 		document.getElementById('searchBar').style.display='block';
-		document.getElementById('search_btn').innerText='Cancel';
+		document.getElementById('search_btn').innerText='Clear';
 		document.getElementById('searchBar').focus();		
 	}else
 	{
 		document.getElementById('searchBar').innerText='';
-		document.getElementById('search_btn').innerText='Search';
+//    alert(document.getElementById('searchBar').innerText);
+//		document.getElementById('search_btn').innerText='Search';
+    document.getElementById('searchBar').blur();
+    document.getElementById('searchBar').style.display='none';
 		document.getElementById('next_btn').focus();				
-		filter();
-		document.getElementById('searchBar').style.display='none';
 	}
+  filter(event);
 }

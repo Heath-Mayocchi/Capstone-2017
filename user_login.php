@@ -50,7 +50,7 @@ Author: David Mackenzie
 	<div id="tableDiv">
 	<div id="searchDiv">
 	<button id="search_btn" class="button" onclick="admin_search(event)">Search</button>
-	<input type="text" id="searchBar" onkeyup="filter()" placeholder="Search for names..">
+	<input type="text" id="searchBar" onkeyup="filter(event)" placeholder="Search for names..">
 	</div>	
 
 		<div id="scollDiv">
