@@ -24,14 +24,8 @@ function PrepData($data){
 	{
 		$user = 1;
 	}
-	
-	// if(isset($_SESSION['post']))
-	// {
-	// 	$postID = $_SESSION['post'];
-	// } else 
-	// {
-		$postID = $_POST['comment_post_id'];
-	// }
+
+	$postID = $_POST['comment_post_id'];
 	
 	$content = PrepData($_POST["content"]);
 		
@@ -41,7 +35,7 @@ function PrepData($data){
 	$statement->execute(array(
     "content" => $content,
     "user" => $user,
-		"postID" => $postID
+	"postID" => $postID
 	));
 	}
 

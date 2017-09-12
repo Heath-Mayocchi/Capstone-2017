@@ -72,7 +72,7 @@ var selectElement = 13; // enter key
 /*
 functions for post navigation
 */
-function feedBtnNext(event) {	
+function feedBtnNext(event, str) {	
 	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to choose button
@@ -82,9 +82,10 @@ function feedBtnNext(event) {
 	}
 	// if key pressed is the enter key, view next post
 	if (key == selectElement){ 
-		key.stopPropagation();
-		displayPost(-1);
-		//plusComment(-1);
+		loadFeed(str);
+	//	key.stopPropagation();
+	//	displayPost(-1);
+	//plusComment(-1);
 	}
 }
 function feedBtnPrevious(event) {

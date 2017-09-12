@@ -247,23 +247,11 @@ function emojiBtnSelect(event){
 			document.getElementById("previous_btn").focus();
 	}
 	if (key == 38){
-		if (emojiFocus == 0){// emoji like
-			alert(document.getElementById("emoji_like_img").src);
-		}
-		if (emojiFocus == 1){// emoji love
-			alert(document.getElementById("emoji_love_img").src);
-		}
-		if (emojiFocus == 2){// emoji laugh
-			alert(document.getElementById("emoji_laugh_img").src);
-		}
-		if (emojiFocus == 3){// emoji wow
-			alert(document.getElementById("emoji_wow_img").src);
-		}
-		if (emojiFocus == 4){// emoji sad
-			alert(document.getElementById("emoji_sad_img").src);
-		}
-		if (emojiFocus == 5){// emoji cancel
+		if (emojiFocus == 5){// break if cancel button
 			emojiSelectCancel(event);
+		} else {
+			document.getElementById("emoji_form_information").innerHTML = emojiFocus;
+			document.getElementsByName("emoji_form").submit();
 		}
 	}	
 }

@@ -102,6 +102,7 @@ function feedBtnBack(event){
 /* 
 functions for emoji selection
 */
+
 function feedBtnLike(event){
     var key = event.which;
 	// if key pressed is the spacebar, change focus to love emoji button
@@ -111,18 +112,8 @@ function feedBtnLike(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - submit emoji 1 to db
-		alert("send emoji 1 to db");
-		// hide emoji selection
-		document.getElementById("emoji_selection").style.display = "none";
-		// set emojiSelectButtons to false & postNavButtons to true
-		emojiSelectButtons = false;
-		postNavButtons = true;
-		// display post navigation buttons
-		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - update reacted emojis and highlight like emoji
-		// focus next button
-		document.getElementById("next_btn").focus();
+		document.getElementById("emoji_form_information").innerHTML = 1;
+		document.getElementById("emoji_form").submit();
 	}	
 }
 function feedBtnLove(event){
@@ -134,18 +125,8 @@ function feedBtnLove(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - submit emoji 2 to db
-		alert("send emoji 2 to db");
-		// hide emoji selection
-		document.getElementById("emoji_selection").style.display = "none";
-		// set emojiSelectButtons to false & postNavButtons to true
-		emojiSelectButtons = false;
-		postNavButtons = true;
-		// display post navigation buttons
-		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - update reacted emojis and highlight love emoji
-		// focus next button
-		document.getElementById("next_btn").focus();
+		document.getElementById("emoji_form_information").innerHTML = 2;
+		document.getElementById("emoji_form").submit();
 	}	
 }
 function feedBtnLaugh(event){
@@ -157,18 +138,8 @@ function feedBtnLaugh(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - submit emoji 3 to db
-		alert("send emoji 3 to db");
-		// hide emoji selection
-		document.getElementById("emoji_selection").style.display = "none";
-		// set emojiSelectButtons to false & postNavButtons to true
-		emojiSelectButtons = false;
-		postNavButtons = true;
-		// display post navigation buttons
-		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - update reacted emojis and highlight laugh emoji
-		// focus next button
-		document.getElementById("next_btn").focus();
+		document.getElementById("emoji_form_information").innerHTML = 3;
+		document.getElementById("emoji_form").submit();
 	}	
 }
 function feedBtnWow(event){
@@ -180,19 +151,9 @@ function feedBtnWow(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - submit emoji 4 to db
-		alert("send emoji 4 to db");
-		// hide emoji selection
-		document.getElementById("emoji_selection").style.display = "none";
-		// set emojiSelectButtons to false & postNavButtons to true
-		emojiSelectButtons = false;
-		postNavButtons = true;
-		// display post navigation buttons
-		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - update reacted emojis and highlight wow emoji
-		// focus next button
-		document.getElementById("next_btn").focus();
-	}	
+		document.getElementById("emoji_form_information").innerHTML = 4;
+		document.getElementById("emoji_form").submit();
+	}		
 }
 function feedBtnSad(event){
     var key = event.which;
@@ -203,18 +164,8 @@ function feedBtnSad(event){
 	}
 	// if key pressed is the enter key
 	if (key == selectElement){
-		// TODO - submit emoji 5 to db
-		alert("send emoji 5 to db");
-		// hide emoji selection
-		document.getElementById("emoji_selection").style.display = "none";
-		// set emojiSelectButtons to false & postNavButtons to true
-		emojiSelectButtons = false;
-		postNavButtons = true;
-		// display post navigation buttons
-		document.getElementById("postNavigationButtons").style.display = "block";
-		// TODO - update reacted emojis and highlight sad emoji
-		// focus next button
-		document.getElementById("next_btn").focus();
+		document.getElementById("emoji_form_information").innerHTML = 5;
+		document.getElementById("emoji_form").submit();
 	}	
 }
 function feedBtnEmojiCancel(event){
