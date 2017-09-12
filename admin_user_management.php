@@ -214,7 +214,7 @@ Author: David Mackenzie
 							$accType = strtolower(end($f));				// Account Type;
 							$fName = $f[0];								// first name 
 							$lName = $f[1];								// last name
-							$dob = $f[2];								// 
+							$dob = $f[2];								// dob
 
 
 							$query = $conn->prepare("SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType=?");
@@ -240,6 +240,8 @@ Author: David Mackenzie
 									echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;This user currently has 0 friends";
 									echo "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Try Again!";
 								} else {
+									$query = $conn->prepare("SELECT * FROM users WHERE users.userID in (SELECT userTwoID FROM relationships WHERE userOneID=?)");
+								$query->execute(array($usrID));
 									while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 									$picture = $row['profilePicture'];
 									$fName = $row['firstName'];
@@ -267,6 +269,8 @@ Author: David Mackenzie
 			</div>
 		</div>
 	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>	<!--	jQuery	-->
 	<script type="text/javascript" src="js/adminUserManagement.js"></script>
+	
 </body>
 </html>

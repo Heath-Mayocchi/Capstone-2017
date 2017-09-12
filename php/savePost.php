@@ -10,8 +10,9 @@
 		}
 		$myDate = date('Y-m-d h:i:s');
 
+		/*	If URL upload is not empty execute below					*/
 		if ("" != trim($_POST['uploadURL'])) {
-			
+
 			$pic = $_POST['uploadURL'];
 			$allowed = array('jpg', 'jpeg', 'png', 'tiff', 'gif');
 
@@ -38,8 +39,10 @@
 			} else {
 				$file = "";
 			}
+
 		} else if ("" == trim($_POST['pic']) && "" == trim($_POST['uploadURL']) && "" != trim($_POST['uploadLocal'])) {
 			$file = $_POST['uploadLocal'];
+
 		} else if ("" == trim($_POST['uploadURL'])) {
 			$file = $_POST['pic'];
 		}

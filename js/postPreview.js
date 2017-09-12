@@ -68,8 +68,8 @@ function selectButtonFunc() {
 	localURL.classList.toggle("uploadVisibility");
 	checker();
 	decider = true;
-	counter = 0;
-	igs = 0;
+	counter = 10;
+
 }
 
 function cancelButtonFunc() {
@@ -78,8 +78,8 @@ function cancelButtonFunc() {
 	localURL.classList.toggle("uploadVisibility");
 	document.getElementById("pictureBtn").focus();
 	decider = true;
-	counter = 0;
-	igs = 0;
+	counter = 10;
+
 	displayPic.src = "#";
 	picM.value = "";
 	displayPic.style.display = "none";
@@ -138,8 +138,8 @@ function reactButtonPoster() {
 images[0].id = "imageHover";
 images.push(selectButton);
 images.push(cancelButton);
-var counter = 0;
-var igs = 0;
+var counter = 10;
+
 // If spacebar is pressed and decider is false (meaning the modal is showing)
 window.addEventListener("keydown", function (e) {
 	if (e.keyCode == "32" && decider == false) {
@@ -147,10 +147,7 @@ window.addEventListener("keydown", function (e) {
 			resetColor();
 			counter++;
 			images[counter].classList.add("imageHover");
-			if (igs == 0) {
-				images[0].removeAttribute("id");
-				igs++;
-			}
+			
 
 		} else if (counter === 5) {
 			resetColor();
@@ -174,8 +171,11 @@ window.addEventListener("keydown", function (e) {
 		}
 	}
 
-
-	if ((e.keyCode == "13" && decider == false) && counter == 0) {
+	if (e.keyCode == "13" && counter == 10 ) {
+		counter = 0;
+		images[0].classList.add("imageHover");
+		
+	} else  if ((e.keyCode == "13" && decider == false) && counter == 0) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
@@ -289,6 +289,7 @@ function postpictureButton(event){
 	// if key pressed is the enter key, toggle picture selection
 	if (key == selectElement && decider){ 
 		pictureButtonFunc(); 
+		document.getElementById("pictureBtn").blur();
 	}	
 }
 function postSubmitButton(event){
@@ -301,9 +302,29 @@ function postSubmitButton(event){
 	}
 	// if key pressed is the enter key, submit post to database
 	if (key == selectElement && decider){
-		// TODO - client side validation for comment
 		// TODO - submit post to database
 		var hiddenSubmit = document.querySelector("#hiddenSubmit");
+		textArea.value.trim();		// trims spaces
 		hiddenSubmit.click();
 	}	
 }
+
+
+function validate() {
+	var errorMSG = document.querySelector("#errorMSG");
+	if (textArea.value == "") {
+		errorMSG.style.visibility = "visible";
+		textArea.focus();
+		return false;
+	}
+}
+
+textArea.addEventListener("blur", bro, true);
+
+function bro() {
+	if (textArea.value != "") {
+		errorMSG.style.visibility = "hidden";
+		return true;
+	}
+}
+

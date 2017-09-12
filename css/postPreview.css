@@ -1,3 +1,14 @@
+/*	Delete this after user testing		*/
+#hideFile {
+	position: absolute;
+	background: black;
+	height: 152px;
+	width: 600px;
+	margin-left: 250px;
+	margin-top: 490px;
+	z-index: 2;
+}
+
 .wrapper {
    -moz-user-select: none;
    -webkit-user-select: none;
@@ -296,4 +307,17 @@
 }
 
 
+#errorMSG {
+	position: absolute;
+	width: 580px;
+	height: 30px;
+	background-color: red;
+	margin-left: 260px;
+	padding-top: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 0px 6px #7c0909;
+	background-color: #990000;
+	visibility: hidden;
+}
 

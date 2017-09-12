@@ -26,6 +26,17 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/postPreview.css">
 </head>
 <body class="wrapper">
+	<!--	This div is used to hide the file for user testing
+			Delete this div when user testing is finished
+	-->
+	<div id="hideFile">
+		
+	</div>
+
+	<div id="errorMSG">
+		Please Enter a comment.
+	</div>
+
 	<header>
 		<button class="button" id="post_back_btn" onclick="backBtn()" onkeydown="postBtnBack(event)">Back</button>
 		<div id="user_profile">
@@ -43,7 +54,7 @@ Author: David MacKenzie
 				<button id="cancelPicButton">Cancel</button>
 				<button id="selectPicButton">Select</button>
 			</div>
-			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data">
+			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 
 				<!--This one is for sending pre-uploaded pictures *DON'T TOUCH*	-->
