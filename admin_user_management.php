@@ -24,6 +24,7 @@ Author: David Mackenzie
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_user_management.css">
+	<script src="js/jquery-3.2.1.js"></script>
 	<title>SNAP ADMIN HOME</title>
 </head>
 <body class="wrapper">
@@ -49,7 +50,7 @@ Author: David Mackenzie
 					<label for="editUserForm" id="editUserFormPosition">Edit User:</label>
 					<input id="editUserForm" class="onlyForEditUser" type="text" placeholder="Search ... " name="search">
 					<button class="adminButtons" id="searchButton" name="searchButton">Search</button>
-					<button class="adminButtons" id="loadUserButton" name="loadUser">Load User</button>
+					<button class="adminButtons" id="loadUserButton" type="button" name="loadUser" >Load User</button>
 				</form>
 
 				<!--	DIV that shows search results	-->
@@ -81,7 +82,9 @@ Author: David Mackenzie
 									$accT = $row['accountType'];
 									$picture = $row['profilePicture'];
 									$dob = $row['DOB'];
+									$usrID = $row['userID'];
 									echo "<div class='userResults'>";
+									echo $usrID . " ";
 									echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
 									echo $name . " " . $lastName . " ". $dob . " " . $accT . "<br><br>";
 									echo "</div>";	
@@ -97,54 +100,54 @@ Author: David Mackenzie
 				</div>
 
 				<p>To add a new user, fill in the below fields and hit 'Save User'</p>
+				<div id="showUser">
+					<form action="#" id="showUserForm" method="POST" enctype="multipart/form-data" name="registerUser" onsubmit="return validate()">
+						<!--	First name label and form	-->
+						<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
+						<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
+						<div id="firstNameError"></div>
 
-				<form action="#" method="POST" enctype="multipart/form-data" name="registerUser" onsubmit="return validate()">
-					<!--	First name label and form	-->
-					<label for="firstNameForm" id="firstNameFormPosition">First name:</label>
-					<input id="firstNameForm" class="formSize" type="text" placeholder="First name ... " name="firstName">
-					<div id="firstNameError"></div>
+						<!--	Last name label and form	-->
+						<br><br>
+						<label for="lastNameForm" id="lastNameFormPosition">Last name:</label>
+						<input id="lastNameForm" class="formSize" type="text" placeholder="Last name ... " name="lastName">
+						<div id="lastNameError"></div>
 
-					<!--	Last name label and form	-->
-					<br><br>
-					<label for="lastNameForm" id="lastNameFormPosition">Last name:</label>
-					<input id="lastNameForm" class="formSize" type="text" placeholder="Last name ... " name="lastName">
-					<div id="lastNameError"></div>
+						<!--	Date label and form	-->
+						<br><br>
+						<label for="dateForm" id="dateFormPosition">DOB:</label>
+						<input id="dateForm" class="formSize" type="text" placeholder="DD-MM-YYYY" name="dob">
+						<div id="dobError"></div>
 
-					<!--	Date label and form	-->
-					<br><br>
-					<label for="dateForm" id="dateFormPosition">DOB:</label>
-					<input id="dateForm" class="formSize" type="text" placeholder="DD-MM-YYYY" name="dob">
-					<div id="dobError"></div>
+						<!--	Admin Checkbox label and form	-->
+						<br>
+						<p>Check the below box to create an Admin user</p>
+						<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
+						<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
+						
+						<!--	Password label and form	-->
+						<br>
+						<p>A password is required for an Admin user</p>
+						<label for="password" id="passwordPosition">Password:</label>
+						<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
+						<div id="passwordError1"></div>
 
-					<!--	Admin Checkbox label and form	-->
-					<br>
-					<p>Check the below box to create an Admin user</p>
-					<label for="aCheckBox" id="checkBoxPosition">Admin:</label>
-					<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
-					
-					<!--	Password label and form	-->
-					<br>
-					<p>A password is required for an Admin user</p>
-					<label for="password" id="passwordPosition">Password:</label>
-					<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
-					<div id="passwordError1"></div>
+						<!--	Confirm password label and form	-->
+						<br><br>
+						<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
+						<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
+						<div id="passwordError"></div>
 
-					<!--	Confirm password label and form	-->
-					<br><br>
-					<label for="password" id="confirmPasswordPosition">Confirm Password:</label>
-					<input id="confirmPassword" class="formSize" type="password" placeholder="Confirm Password ..." name="confirmPassword">
-					<div id="passwordError"></div>
+						<!--	This is the stuff on the side (Picture, label, file upload)	-->
+						<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
+						<label id="labelForBrowse">Profile Image:</label>
+						<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
+						<input type="file" name="file" id="uploadPicture">
+						<span id="fileTypeError"></span>
 
-					<!--	This is the stuff on the side (Picture, label, file upload)	-->
-					<img src="img/profile-placeholder.png" id="pictureForUpload" alt="Profile Pic">
-					<label id="labelForBrowse">Profile Image:</label>
-					<label for="uploadPicture" id="chooseAFile">&nbsp;<i class="fa fa-upload" aria-hidden="true"></i> &nbsp;Choose a file...</label>
-					<input type="file" name="file" id="uploadPicture">
-					<span id="fileTypeError"></span>
-
-					<!--	This is the submit button, but it's hidden and it will be triggered when this is submitted	-->
-					<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
-				</form>
+						<input type="submit" name="adminCreateNewUser" id="registerHiddenSubmitButton">
+					</form>
+				</div>
 			</div>
 
 			<!--	This is the button at the very bottom of the page, and it will be the one that triggers the button inside the register user	-->

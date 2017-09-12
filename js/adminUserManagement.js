@@ -20,14 +20,21 @@ var passwordError = document.querySelector("#passwordError");
 var cbError = document.querySelector("#checkBoxError");
 
 
+function getImage() 
+{
+	var img = document.querySelector("#pictureForUpload");
+	return img.src;
+}
+
 
 file.addEventListener("change", function() {
-	var img = document.querySelector("#pictureForUpload");;
+	var img = document.querySelector("#pictureForUpload");
 	var val = this.value;
 	val = val.substring(val.lastIndexOf('.') + 1).toLowerCase();
 
 	if (val == "png" || val == "jpg" || val == "jpeg" || val == "gif" || val == "tiff") {
  		img.src = window.URL.createObjectURL(this.files[0]);
+ 		console.log(img.src);
  		fileFormatError.textContent = "";
 		fileFormatError.style.color = "";
 	} else {
@@ -192,7 +199,13 @@ function cbVerify() {
 	}
 }
 
+function load_user() 
+{
 
+	var id = document.getElementById("editUserForm").value[0];
+	//alert(id);
+
+}
 /************* BELOW IS FOR THE SEARCH FORM *******************/
 var mate = document.querySelectorAll(".userResults");
 var editUserForm = document.querySelector("#editUserForm");
@@ -220,3 +233,28 @@ for (var i = 0; i < mate.length; i++) {
 			editUserForm.value = text;
 	});
 }
+
+$(document).ready
+(
+	function()
+	{
+	  $("#loadUserButton").click
+	  (
+	  	function()
+	 		{    
+	 			var tmpTxt = document.getElementById("editUserForm").value;
+	 			var id = tmpTxt.substring(0,tmpTxt.indexOf(","));
+
+		    $.post("php/show_user.php",
+		    {
+		        userID: id,
+		    },
+		    function(data, status){
+		    		$("#showUserForm").appendTo( $("#showUser") );
+		    		$("#showUser").html(data);
+		    });
+	 		}
+	 	);
+	}
+);
+
