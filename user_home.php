@@ -28,7 +28,7 @@ Author: David Mackenzie
 		<img src="img/profile-placeholder.png" alt="User profile image"></img>
 		<p>Super Long User Name</p>
 	</div>
-	<h2>SNAP HOME</h2>
+	<h2>HOME</h2>
 	</header>
 	<section>
 	<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';" onkeyup="view_feed(event)" autofocus>VIEW<br>FEED</button>

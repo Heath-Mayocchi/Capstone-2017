@@ -36,13 +36,13 @@ Author: David Mackenzie
 	<link rel="stylesheet" type="text/css" href="css/user_home.css">	
 	<link rel="stylesheet" type="text/css" href="css/user_login.css">
 	<script src="js/user_login.js" type="text/javascript"></script>
-	<title>SNAP USER LOGIN</title>
+	<title>SNAP SELECT USER</title>
 </head>
 <body class="wrapper">
 	<header>
 	<button class="button" id="back_btn" onclick="window.history.back()" onkeydown="loginBtnBack(event)">Back</button>
 
-	<h2>SNAP LOGIN</h2>
+	<h2>SELECT USER</h2>
 	</header>
 	<section>
 

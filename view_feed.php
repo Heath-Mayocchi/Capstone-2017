@@ -34,7 +34,7 @@ Author: David Mackenzie
 				<img src="img/profile-placeholder.png" alt="User profile image"></img>
 				<p>Super Long User Name</p>
 			</div>
-			<h2>SNAP FEED</h2>
+			<h2>FEED</h2>
 		</header>
 	<section>
 		<div id="post_view"><b>Person info will be listed here...</b></div>
