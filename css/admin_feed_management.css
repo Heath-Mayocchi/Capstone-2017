@@ -158,9 +158,23 @@ tr.selected {
   	cursor: pointer;
 	margin-top: 20px;
 }
+.load_button {
+	background: #19D74F;
+	color: #000;
+	height: 65px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+  	cursor: pointer;
+	margin-top: 20px;
+}
+#load_post {
+	margin-left: 160px;	
+}
 #delete_post {
-	margin-left: 280px;
+	margin-left: 100px;
 }
 #delete_comment {
-	margin-left: 300px;
+	margin-left: 200px;
 }

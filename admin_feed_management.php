@@ -124,7 +124,7 @@ Author: David MacKenzie
 			</table>
 		</div>
 		<div id="post_preview">
-			<p id="preview_title">Picture Preview</p>
+			<p id="preview_title">Picture</p>
 			<div id="post_image_preview">
 				<img src="img/panda.jpg" alt="#">
 			</div>			
@@ -164,6 +164,7 @@ Author: David MacKenzie
 	</aside>
 	
 	<footer>
+		<button class="load_button" id="load_post" name="load_post" type="button">Load<br>Post</button>
 		<button class="delete_button" id="delete_post" name="delete_post" type="button">Delete<br>Post</button>
 		<button class="delete_button" id="delete_comment" name="delete_comment" type="button">Delete<br>Comment</button>	
 	</footer>
