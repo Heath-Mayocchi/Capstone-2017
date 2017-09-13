@@ -25,7 +25,7 @@ Author: David Mackenzie
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_user_management.css">
 	<script src="js/jquery-3.2.1.js"></script>
-	<title>SNAP ADMIN HOME</title>
+	<title>SNAP USER MANAGEMENT</title>
 </head>
 <body class="wrapper">
 	<header>
@@ -34,7 +34,7 @@ Author: David Mackenzie
 			<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
 			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
 		</div>
-		<h2>ADMIN USER MANAGEMENT</h2>
+		<h2>USER MANAGEMENT</h2>
 	</header>
 
 	<section>
@@ -80,12 +80,12 @@ Author: David Mackenzie
 									$name = $row['firstName'];
 									$lastName = $row['lastName'];
 									$accT = $row['accountType'];
-									$picture = $row['profilePicture'];
+									//$picture = $row['profilePicture'];
 									$dob = $row['DOB'];
 									$usrID = $row['userID'];
 									echo "<div class='userResults'>";
 									echo $usrID . " ";
-									echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
+									//echo "<img src='" . $picture . "' class='smallPic'>" . "  ";
 									echo $name . " " . $lastName . " ". $dob . " " . $accT . "<br><br>";
 									echo "</div>";	
 								}
@@ -126,8 +126,7 @@ Author: David Mackenzie
 						<input id="aCheckBox" type="checkbox" value="Admin" name="checkBox">
 						
 						<!--	Password label and form	-->
-						<br>
-						<p>A password is required for an Admin user</p>
+						<p id="password_text">A password is required for an Admin user</p>
 						<label for="password" id="passwordPosition">Password:</label>
 						<input id="password" class="formSize" type="password" placeholder="Password ..." name="password">
 						<div id="passwordError1"></div>
