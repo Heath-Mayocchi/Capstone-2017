@@ -25,8 +25,10 @@ Author: David MacKenzie
 	<header>
 		<button class="admin_button" id="back_btn2" onclick="window.location='admin_home.php';">BACK</button>
 		<div id="user_profile">
-			<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
-			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
+			<!-- <img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
+			<p><?php echo $_SESSION['adminLoggedIn']; ?></p> -->
+			<img src="img/profile-placeholder.png" alt="User profile image"></img>
+			<p>Super Long User Name</p>
 		</div>
 		<h2>FEED MANAGEMENT</h2>
 	</header>
@@ -35,15 +37,15 @@ Author: David MacKenzie
 	<!-- Filter box -->
 		<div id="filter_post">
 			<form action="#" method="#">
-				<p id="filter_post_title">Filter by:<br><br>Username or<br>Keyword</p>
+				<p id="filter_post_title">Search by:<br><br>Username or<br>Keyword</p>
 				<input id="user_keyword" type="text" placeholder="Username or Keyword ... " name="user_keyword">
 				<p>Date From:</p>
 				<!-- type="date" is not supported in Firefox, Internet Explorer 11 and earlier versions -->
-				<input id="from_date" type="date" placeholder="dd-mm-yyyy" name="from_date">
+				<input id="from_date" type="date" placeholder="DD-MM-YYYY" name="from_date">
 				<p>Date To:</p>
-				<input id="to_date" type="date" placeholder="dd-mm-yyyy" name="to_date">
+				<input id="to_date" type="date" placeholder="DD-MM-YYYY" name="to_date">
 				<br><br>
-				<button id="filter_post_btn" class="admin_button" name="filter_post_btn">Filter</button>
+				<button id="filter_post_btn" class="admin_button" name="filter_post_btn">Search</button>
 			</form>
 		</div>
 	</section>
@@ -160,5 +162,10 @@ Author: David MacKenzie
 			</div>
 		</div>
 	</aside>
+	
+	<footer>
+		<button class="delete_button" id="delete_post" name="delete_post" type="button">Delete<br>Post</button>
+		<button class="delete_button" id="delete_comment" name="delete_comment" type="button">Delete<br>Comment</button>	
+	</footer>
 	
 </body>

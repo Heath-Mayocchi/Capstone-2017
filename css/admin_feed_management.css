@@ -147,3 +147,20 @@ h2 {
 tr.selected {
     background-color: #19D74F;
 }
+.delete_button {
+	background: #ff6b6b;
+	color: #000;
+	height: 65px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+  	cursor: pointer;
+	margin-top: 20px;
+}
+#delete_post {
+	margin-left: 280px;
+}
+#delete_comment {
+	margin-left: 300px;
+}
