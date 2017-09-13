@@ -32,13 +32,12 @@ Author: David Mackenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_home.css">
 	<script src="js/user_home.js" type="text/javascript"></script>
 	<title>SNAP ADMIN HOME</title>
 </head>
-<body class="wrapper">
+<body class="adminwrapper">
 	<header>
 	<button class="button" id="logout_btn" onkeyup="logout(event)">LOGOUT</button>
 	<div id="user_profile">
