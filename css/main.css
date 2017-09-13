@@ -23,7 +23,7 @@ Author: David Mackenzie
 .button { 
 	background: #ffff00;
 	color: #000;
-  cursor: pointer;
+	cursor: pointer;
 	height: 45px;
 	width: 125px;
 	font-size: 20px;
@@ -67,15 +67,4 @@ Author: David Mackenzie
 	float: right;
 	margin-top: -50px;
 	clear: left;
-}
-/*
-preload images for previous and next footer navigation buttons
-*/
-#preloaded-images {
-   position: absolute;
-   overflow: hidden;
-   left: -9999px; 
-   top: -9999px;
-   height: 1px;
-   width: 1px;
 }

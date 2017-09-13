@@ -11,15 +11,23 @@ Author: David Mackenzie
 */
 
 /* 
-USER HOME PAGE
+Admin HOME PAGE
 */
 
 .wrapper {
-	background-color: #E1A42E;
+	background-color: #84c1ff;
 	color: black;
 	text-align:left;
 }
-
+.button { 
+	background: #19D74F;
+	color: #000;
+	cursor: pointer;
+	height: 45px;
+	width: 125px;
+	font-size: 20px;
+	border-radius: 10px;
+}
 .btnsquare {
 	width:250px;
 	height:250px;
@@ -28,7 +36,9 @@ USER HOME PAGE
 	margin: 32px;
 	position: absolute;
 }
-
+#logout_btn {
+	background-color: #19D74F;
+}
 #manage_pictures_btn {
 	margin-left: 425px;
 }
@@ -39,4 +49,22 @@ USER HOME PAGE
 
 h2 {
 	text-align: center;
+}
+#user_profile {
+	margin-right: 10px;
+}
+
+#user_profile p {
+	float: right;
+	margin-top: -10px;
+	margin-right: 5px;
+	clear: left;
+}
+#user_profile img {
+	width: 65px;
+	height: 65px;
+	border-radius: 5px;
+	float: right;
+	margin-top: -50px;
+	clear: left;
 }
