@@ -178,14 +178,26 @@ td {
 /*borrowed this bit from view_feed.css*/
 
 .userPic {
-	width: 65px;
-	height: 65px;
-	border: 1px solid #021a40;
-	border-radius: 5px;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #021a40;
+    border-radius: 5px;
     margin: 10px;
     vertical-align: middle;    
 }
 
+.lockPick {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #021a40;
+    border-radius: 5px;
+    margin: 10px;
+    align-self: right;
+}
+
+.rowName {
+    width: 350px;
+}
 
 /* post nav buttons */
 #loginNavigationButtons {

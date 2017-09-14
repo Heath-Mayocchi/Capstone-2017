@@ -26,7 +26,7 @@ function filter(event) {
     }       
   }
 
-  visibleRows[rowHighlight].style.background = "green";
+  visibleRows[rowHighlight].style.background = "#19D74F";
   visibleRows[rowHighlight].scrollIntoView(false);
   //alert(event);
   if(event)
@@ -47,8 +47,8 @@ function student_popup($name,$img)
   // Get the modal
 var modal = document.getElementById('student_popup');
 
-  var ui = document.getElementById('student_avatar');
-  ui.src=$img;
+  // var ui = document.getElementById('student_avatar');
+  // ui.src=$img;
 
   var ud = document.getElementById('student_username');
   ud.innerText='Log in as ' + $name;
@@ -65,8 +65,8 @@ function admin_popup($name,$img)
   // Get the modal
 var modal = document.getElementById('admin_popup');
 
-  var ui = document.getElementById('admin_avatar');
-  ui.src=$img;
+  // var ui = document.getElementById('admin_avatar');
+  // ui.src=$img;
 
   var ud = document.getElementById('admin_username');
   ud.innerText='Please enter the password for ' + $name;
@@ -74,7 +74,7 @@ var modal = document.getElementById('admin_popup');
   document.getElementById('admin_popup').style.display='block';
 
   document.getElementById("select_btn").blur();
-  document.getElementById('admin_password').focus();
+  document.getElementById('admin_cancel').focus();
 
 }
 
@@ -94,7 +94,7 @@ function init()
 {
 	rowHighlight = 0;
 	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "green";
+  theTable[rowHighlight].style.background = "#19D74F";
   filter(event);	
 }
 
@@ -128,7 +128,7 @@ function loginBtnNext(event) {
       rowHighlight=0;
     
     }
-    theTable[rowHighlight].style.background = "green";
+    theTable[rowHighlight].style.background = "#19D74F";
 
     theTable[rowHighlight].scrollIntoView(false);
 
@@ -161,8 +161,8 @@ function loginBtnPrevious(event) {
       rowHighlight=visibleRowCount-1;
     }
 
-    theTable[rowHighlight].style.background = "green";
-    theTable[rowHighlight].style.borderColor = "green";
+    theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.borderColor = "#19D74F";
     theTable[rowHighlight].scrollIntoView(false);    
     console.log(rowHighlight);
     console.log(theTable.length);
@@ -223,14 +223,43 @@ function loginBtnStudentCancel(event){
       document.getElementById("student_cancel").blur();
       document.getElementById("student_login").focus();      
   }else{
-  	if( key == selectElement){
-  		cancel_login(event);
-  	}
+    if( key == selectElement){
+      cancel_login(event);
+    }
+  }
+}
+
+function loginBtnAdminLogin(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      document.getElementById("admin_login").blur();
+      document.getElementById("admin_cancel").focus();      
+  }
+  if (key == selectElement){
+    document.getElementById("admin_form").submit();
+  } 
+}
+
+
+function loginBtnAdminCancel(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      // the admin login button shouldn't be accessible via keyboard.
+      // document.getElementById("admin_cancel").blur();
+      // document.getElementById("admin_login").focus();      
+  }else{
+    if( key == selectElement){
+      cancel_login(event);
+    }
   }
 }
 
 function cancel_login(event)
 {
+  //alert('cancel_login');
+  document.getElementById('admin_popup').style.display='none'  
 	document.getElementById('student_popup').style.display='none';
 	document.getElementById("student_cancel").blur();
 	document.getElementById("next_btn").focus();    	
