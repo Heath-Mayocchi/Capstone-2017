@@ -1,0 +1,41 @@
+.wrapper {
+	background-color: #84c1ff;
+	color: black;
+    font-family: "Arial", Arial, sans-serif;    
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+#mainBox {
+	position: relative;
+	width: 800px;
+	height: 360px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+
+/*	letters postion	*/
+.letters {
+	float: left;
+	margin-left: 42px;
+	margin-top: 35px;
+	outline: none;
+}
+
+/*	letters style	*/
+.letters {
+	background-color: white;
+	width: 150px;
+	height: 80px;
+	font-size: 28px;
+	font-weight: bold;
+	border-style: none;
+	border-radius: 16px;
+}
+
+/*	letters focus and hover effects	*/
+.letters:hover, .letters:focus {
+	background-color: #5EE57F;
+	transition: 0.3s;
+}
