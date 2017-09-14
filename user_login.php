@@ -65,34 +65,6 @@ Author: David Mackenzie
 
 
 
-		<!-- The Password Entry Modal for Admin Users -->
-		<div id="admin_popup" class="modal">
-		  <span onclick="document.getElementById('admin_popup').style.display='none'" 
-		class="close" title="Close Modal">&times;</span>
-
-		  <!-- Modal Content -->
-		  <form class="modal-content animate" action="admin_home.php" method="post">
-		    <div class="imgcontainer">
-		      <img src="img/profile-placeholder.png" id="admin_avatar" alt="Avatar" class="avatar">
-		    
- 				</div>
-
-		    <div class="container">
-
-		      <label><b id="admin_username">Please enter the password for </b></label>
-		      <input type="password" id="admin_password" placeholder="Enter Password" name="psw" required>
-
-		    </div>
-
-		    <div class="container" style="background-color:#f1f1f1">
-		      <button  class="button" id="admin_login" type="submit">Login</button>
-		      <button  class="button" type="button" id="admin_cancel" onclick="document.getElementById('admin_popup').style.display='none'" >Cancel</button>
-		    </div>
-		  </form>
-		</div>
-
-
-
 		<!-- The Regular Login Modal for Regular Users -->
 		<div id="student_popup" class="modal">
 		  <span onclick="document.getElementById('student_popup').style.display='none'" 
@@ -100,10 +72,10 @@ Author: David Mackenzie
 
 		  <!-- Modal Content -->
 		  <form class="modal-content animate" id="student_form" action="user_home.php" method="post">
-		    <div class="imgcontainer">
+<!-- 		    <div class="imgcontainer">
 		      <img src="img/profile-placeholder.png" id="student_avatar" alt="Avatar" class="avatar">
 		    
- 				</div>
+ 				</div> -->
 
 		    <div class="container">
 		      <label><b id="student_username">Log in as </b></label>
@@ -115,6 +87,34 @@ Author: David Mackenzie
 		    </div>
 		  </form>
 		</div>
+
+		<!-- The Password Entry Modal for Admin Users -->
+		<div id="admin_popup" class="modal">
+		  <span onclick="document.getElementById('admin_popup').style.display='none'" 
+		class="close" title="Close Modal">&times;</span>
+
+		  <!-- Modal Content -->
+		  <form class="modal-content animate" id="admin_form" action="admin_home.php" method="post">
+<!-- 		    <div class="imgcontainer">
+		      <img src="img/profile-placeholder.png" id="admin_avatar" alt="Avatar" class="avatar">
+		    
+ 				</div> -->
+
+		    <div class="container">
+
+		      <label><b id="admin_username">Please enter the password for </b></label>
+		      <input type="password" id="admin_password" placeholder="Enter Password" name="psw" required>
+
+		    </div>
+
+		    <div class="container" style="background-color:#f1f1f1">
+		      <button class="button" id="admin_login" onkeydown="loginBtnAdminLogin(event)" type="submit">Login</button>
+		      <button class="button" id="admin_cancel" onkeydown="loginBtnAdminCancel(event)" type="reset">Cancel</button>
+		    </div>
+		  </form>
+		</div>
+
+
 
 	</section>
 	</body>

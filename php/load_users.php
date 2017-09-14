@@ -72,10 +72,17 @@
 		echo "</td>";
 
 
-		echo "<td>  ";
+		echo '<td class="rowName">  ';
 		echo $name;
 		echo "</td>";
 
+		echo "<td width=65px>";
+		if($row['accountType'] == 'Admin')
+		{
+			echo '<img src="img\lock.png';
+			echo '" class="lockPick">';
+		}
+		echo "</td>";
 
 
 		echo "</tr>";
