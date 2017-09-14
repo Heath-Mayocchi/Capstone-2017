@@ -1,6 +1,8 @@
 <?php 
 	ob_start();
 	session_start();
+	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 	require 'php/pdoconnectOnline.inc';
  ?>
 <!--
@@ -22,7 +24,6 @@ Author: David Mackenzie
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
-	<script src="js/view_feed_heat.js" type="text/javascript"</script>
 	<script src="js/main.js" type="text/javascript"></script>
 	<script src="js/load.js" type="text/javascript"></script>
 	<title>SNAP FEED</title>
