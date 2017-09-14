@@ -42,6 +42,10 @@ Admin HOME PAGE
 	position: absolute;
 	margin-top: 75px;
 }
+#logout_btn {
+	float: left;
+	margin-right: -122px;
+}
 #user_profile {
 	margin-right: 10px;
 }

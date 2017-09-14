@@ -32,7 +32,6 @@ Author: David Mackenzie
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/user_home.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_home.css">
 	<script src="js/user_home.js" type="text/javascript"></script>
 	<title>SNAP ADMIN HOME</title>
@@ -48,7 +47,8 @@ Author: David Mackenzie
 	</header>
 	<section>
 	<button class="button btnsquare" id="manage_users_btn" onclick="location.href='admin_user_management.php';"><div id="view_feed_text">MANAGE<br>USERS</div></button>
-	<button class="button btnsquare" id="manage_pictures_btn" onclick="location.href='admin_picture_management.php';"><div id ="messages_text">MANAGE</div><div id ="messages_text">PICTURES</div></button>
+	<button class="button btnsquare" id="manage_pictures_btn" onclick="location.href='admin_feed_management.php';"><div id ="messages_text">MANAGE</div><div id ="messages_text">FEED</div></button>
+	<!-- <button class="button btnsquare" id="manage_pictures_btn" onclick="location.href='admin_picture_management.php';"><div id ="messages_text">MANAGE</div><div id ="messages_text">PICTURES</div></button> -->
 	<button class="button btnsquare" id="view_snap_btn" onclick="location.href='user_home.php';"><div id ="friends_text">VIEW</div><div id ="messages_text">SNAP</div></button>
 	</section>
 	</body>
