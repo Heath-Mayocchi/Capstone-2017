@@ -1,3 +1,6 @@
+<?php 
+	require 'php/pdoconnectOnline.inc';
+ ?>
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School
@@ -17,8 +20,6 @@ Author: David MacKenzie
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_feed_management.css">
-	<script src="js/main.js" type="text/javascript"></script>
-	<script src="js/feed_management.js" type="text/javascript"></script>
 	<title>SNAP FEED MANAGEMENT</title>
 </head>
 <body class="wrapper">
@@ -60,106 +61,29 @@ Author: David MacKenzie
 			</table>
 		</div>
 		<div id="post_list_box">
-			<table id="post_list">			
-				<tr id="post_row1">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row1')"/></td><td width=150px>Dan Theman</td><td width=250px>My Best Friend</td><td width=100px>13-09-2017</td>
-				</tr>			
-				<tr id="post_row2">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row2')"/></td><td>Joe Blog</td><td>Another Post</td><td class="table_date">12-09-2017</td>
-				</tr>			
-				<tr id="post_row3">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row3')"/></td><td>John Doe</td><td>I love me some tanks yo!</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row4">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row4')"/></td><td>Dan Theman</td><td>My cat</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row5">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row5')"/></td><td>TestingA SuperLongName</td><td>Is 64 characters enough to say what I want this could hold 100 but might cause some issues</td><td class="table_date">10-09-2017</td>
-				</tr>			
-				<tr id="post_row6">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row6')"/></td><td width=150px>Dan Theman</td><td width=250px>My Best Friend</td><td width=100px>13-09-2017</td>
-				</tr>			
-				<tr id="post_row7">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row7')"/></td><td>Joe Blog</td><td>Another Post</td><td class="table_date">12-09-2017</td>
-				</tr>			
-				<tr id="post_row8">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row8')"/></td><td>John Doe</td><td>I love me some tanks yo!</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row9">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row9')"/></td><td>Dan Theman</td><td>My cat</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row10">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row10')"/></td><td>Some Girl</td><td>Something girly</td><td class="table_date">10-09-2017</td>
-				</tr>		
-				<tr id="post_row11">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row11')"/></td><td width=150px>Dan Theman</td><td width=250px>My Best Friend</td><td width=100px>13-09-2017</td>
-				</tr>			
-				<tr id="post_row12">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row12')"/></td><td>Joe Blog</td><td>Another Post</td><td class="table_date">12-09-2017</td>
-				</tr>			
-				<tr id="post_row13">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row13')"/></td><td>John Doe</td><td>I love me some tanks yo!</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row14">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row14')"/></td><td>Dan Theman</td><td>My cat</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row15">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row15')"/></td><td>Some Girl</td><td>Something girly</td><td class="table_date">10-09-2017</td>
-				</tr>		
-				<tr id="post_row16">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row16')"/></td><td width=150px>Dan Theman</td><td width=250px>My Best Friend</td><td width=100px>13-09-2017</td>
-				</tr>			
-				<tr id="post_row17">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row17')"/></td><td>Joe Blog</td><td>Another Post</td><td class="table_date">12-09-2017</td>
-				</tr>			
-				<tr id="post_row18">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row18')"/></td><td>John Doe</td><td>I love me some tanks yo!</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row19">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row19')"/></td><td>Dan Theman</td><td>My cat</td><td class="table_date">11-09-2017</td>
-				</tr>			
-				<tr id="post_row20">
-					<td><input id="checkbox" type="checkbox" onclick="selected('post_row20')"/></td><td>Some Girl</td><td>Something girly</td><td class="table_date">10-09-2017</td>
-				</tr>
+			<table id="post_list">	
+				<?php 
+					$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, posts.postDate, users.userID, users.firstName, users.lastName FROM users, posts WHERE posts.postedBy=users.userID");
+					$query->execute();
+					$rowCount = 1;
+
+					while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+						$postID = $row['postID'];
+						$name = $row['firstName'] . " " . $row['lastName'];
+						$content = $row['postContent'];
+						$date = date('d/m/Y', strtotime($row['postDate']));
+
+						echo "<tr id='" . "post_row" . $rowCount . "'>";
+						echo "<td><input id='checkbox' type='checkbox' name='box' value='". $postID . "' onclick=\"selected('post_row" . $rowCount . "')\"/></td><td width=150px>". $name . "</td><td width=250px>";
+						echo $content . "</td><td width=100px>" . $date . "</td>";
+						echo "</tr>";
+						$rowCount++;
+					}
+				 ?>
 			</table>
 		</div>
 		<div id="post_preview">
-			<p id="preview_title">Picture</p>
-			<div id="post_image_preview">
-				<img src="img/panda.jpg" alt="#">
-			</div>			
-			<p id="comments_title">Comments</p>
-			<div id="post_comments_table_box">
-				<table id="post_comments">						
-					<tr id="comment_row1">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row1')"/></td><td width=200px>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row2">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row2')"/></td><td>Is 64 characters enough to say what I want this could hold 100 but might cause some issues</td>
-					</tr>				
-					<tr id="comment_row3">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row3')"/></td><td>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row4">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row4')"/></td><td>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row5">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row5')"/></td><td>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row6">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row6')"/></td><td>Insert an extra long comment in here</td>
-					</tr>				
-					<tr id="comment_row7">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row7')"/></td><td>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row8">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row8')"/></td><td>Insert comment here</td>
-					</tr>				
-					<tr id="comment_row9">
-						<td id="checkbox"><input type="checkbox" onclick="selected('comment_row9')"/></td><td>Insert comment here</td>
-					</tr>
-				</table>
-			</div>
+			<!--	Contents only show when the load button is clicked	-->
 		</div>
 	</aside>
 	
@@ -169,4 +93,8 @@ Author: David MacKenzie
 		<button class="delete_button" id="delete_comment" name="delete_comment" type="button">Delete<br>Comment</button>	
 	</footer>
 	
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/feed_management.js" type="text/javascript"></script>
 </body>
+</html>
