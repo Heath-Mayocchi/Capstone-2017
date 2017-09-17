@@ -14,7 +14,7 @@ function filter(event) {
   visibleRows = [];
   for (i = 0; i < tr.length; i++) {
     tr[i].style.background = "white";        
-    td = tr[i].getElementsByTagName("td")[1];
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -156,7 +156,6 @@ function friendBtnSelect(event) {
     var end = str.indexOf("')",start+7); 
     var chunk = str.substring(start+7,end+1);
 
-
     if (str.indexOf('remove') > -1) 
     {
       theTable[rowHighlight].setAttribute('onclick',"addFriend("+chunk+");");
@@ -168,7 +167,8 @@ function friendBtnSelect(event) {
       theTable[rowHighlight].setAttribute('onclick',"removeFriend("+chunk+");");
       td.innerHTML='<img src="img/cbchecked.png" class="checkBoxImage">';
     }
-    
+    document.getElementById("next_btn").focus();
+        
     key.stopPropagation();
   } 
 }
