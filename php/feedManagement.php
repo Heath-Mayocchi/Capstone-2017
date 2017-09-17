@@ -5,7 +5,7 @@
 	if (isset($_POST['value']) && $_POST['condition'] == "load") {
 		$s = $_POST['value'];
 		$counter = 1;
-		
+
 		$query = $conn->prepare("SELECT postPicture FROM posts WHERE postID=?");
 		$query->execute(array($s));
 		$row = $query->fetch(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@
 		$query =$conn->prepare("DELETE FROM posts WHERE postID=?");
 		$query->execute(array($s));
 
-		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, posts.postDate, users.userID, users.firstName, users.lastName FROM users, posts WHERE posts.postedBy=users.userID");
+		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, posts.postDate, users.userID, users.firstName, users.lastName FROM users, posts WHERE posts.postedBy=users.userID ORDER BY posts.postID DESC");
 		$query->execute();
 		$rowCount = 1;
 
@@ -60,11 +60,29 @@
 
 	} else if (isset($_POST['delete'])) {
 		$id = $_POST['delete'];
+		$counter = 1;
 
+		// Need to get the postID
+		$query = $conn->prepare("SELECT postID FROM post_comments WHERE commentID=:id");
+		$query->execute(array(":id"=>$id));
+		$mate = $query->fetch(PDO::FETCH_ASSOC);
+		$postID = $mate['postID'];
+
+		// Delete the row
 		$query = $conn->prepare("DELETE FROM post_comments WHERE commentID=?");
 		$query->execute(array($id));
 
-		
+
+		$query = $conn->prepare("SELECT commentID, commentContent FROM post_comments WHERE post_comments.postID=?");
+		$query->execute(array($postID));
+
+		while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+				$commentID = $row['commentID'];
+				echo "<tr id='comment_row". $counter . "'>";
+				echo "<td id='checkbox'><input type='checkbox' class='commentBoxes' value='" . $commentID . "' onclick=\"selected('comment_row" . $counter . "')\"/></td><td width=200px>" . $row['commentContent'] . "</td>";
+				echo "</tr>";
+				$counter++;
+		}
 	}
 	
  ?>

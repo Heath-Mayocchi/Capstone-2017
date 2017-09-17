@@ -63,7 +63,7 @@ Author: David MacKenzie
 		<div id="post_list_box">
 			<table id="post_list">	
 				<?php 
-					$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, posts.postDate, users.userID, users.firstName, users.lastName FROM users, posts WHERE posts.postedBy=users.userID");
+					$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, posts.postDate, users.userID, users.firstName, users.lastName FROM users, posts WHERE posts.postedBy=users.userID ORDER BY posts.postID DESC");
 					$query->execute();
 					$rowCount = 1;
 
