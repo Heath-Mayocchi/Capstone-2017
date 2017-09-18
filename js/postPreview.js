@@ -314,7 +314,7 @@ function validate() {
 	var errorMSG = document.querySelector("#errorMSG");
 	if (textArea.value == "") {
 		errorMSG.style.visibility = "visible";
-		textArea.focus();
+		//textArea.focus();
 		return false;
 	}
 }

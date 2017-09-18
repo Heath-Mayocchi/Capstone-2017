@@ -1,7 +1,7 @@
 <?php 
 	require 'pdoconnectOnline.inc';
 
-	/*	For LOADING posts					*/
+	/*	For LOADING post					*/
 	if (isset($_POST['value']) && $_POST['condition'] == "load") {
 		$s = $_POST['value'];
 		$counter = 1;
@@ -31,7 +31,7 @@
 			echo "</table>";
 		echo "</div>";	
 
-	/*	For REMOVING posts					*/
+	/*	For DELETING post					*/
 	} else if (isset($_POST['value']) && $_POST['condition'] == "delete") {
 		$s = $_POST['value'];
 
@@ -58,6 +58,7 @@
 
 		}
 
+	/*	For DELETING post comment	*/	
 	} else if (isset($_POST['delete'])) {
 		$id = $_POST['delete'];
 		$counter = 1;
@@ -82,6 +83,95 @@
 				echo "<td id='checkbox'><input type='checkbox' class='commentBoxes' value='" . $commentID . "' onclick=\"selected('comment_row" . $counter . "')\"/></td><td width=200px>" . $row['commentContent'] . "</td>";
 				echo "</tr>";
 				$counter++;
+		}
+
+	/*	For SEARCHING post	*/
+	} else if (isset($_POST['keyword'])) {
+		$s = strip_tags($_POST['keyword']);				// need to remove tags to be safe
+		$rowCount = 1;
+
+		// Check if there are results
+		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, posts.postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') OR posts.postContent LIKE concat('%', :search2, '%') ORDER BY posts.postDate DESC");
+		$query->execute(array(":search"=>$s, ":search2"=>$s));
+		$numRow = $query->rowCount();		// counts how many rows the query returns
+
+		// If there are results
+		if ($numRow > 0) {
+				while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+					$postID = $row['postID'];
+					$name = $row['firstName'] . " " . $row['lastName'];
+					$content = $row['postContent'];
+					$date = date('d/m/Y', strtotime($row['postDate']));
+
+					echo "<tr id='" . "post_row" . $rowCount . "'>";
+					echo "<td><input id='checkbox' type='checkbox' name='box' value='". $postID . "' onclick=\"selected('post_row" . $rowCount . "')\"/></td><td width=150px>". $name . "</td><td width=250px>";
+					echo $content . "</td><td width=100px>" . $date . "</td>";
+					echo "</tr>";
+					$rowCount++;
+				}
+
+		// If there's no results echo "No results"
+		} else {
+			echo "There are 0 results. Try Again.";
+		}
+
+	// If from date and to dates are set
+	} else if (isset($_POST['fDate']) && isset($_POST['tDate'])) {
+		$a = $_POST['fDate'];
+		$b = $_POST['tDate'];
+		$rowCount = 1;
+
+		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, cast(posts.postDate as date) as postDate, users.userID, users.firstName, users.lastName FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE postDate between :fromDate AND :toDate ORDER BY postDate DESC");
+		$query->execute(array(":fromDate"=>$a, ":toDate"=>$b));
+		$numOfRows = $query->rowCount();
+
+		// If there are more than one results
+		if ($numOfRows > 0) {
+			while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+				$postID = $row['postID'];
+				$name = $row['firstName'] . " " . $row['lastName'];
+				$content = $row['postContent'];
+				$date = date('d/m/Y', strtotime($row['postDate']));
+
+				echo "<tr id='" . "post_row" . $rowCount . "'>";
+				echo "<td><input id='checkbox' type='checkbox' name='box' value='". $postID . "' onclick=\"selected('post_row" . $rowCount . "')\"/></td><td width=150px>". $name . "</td><td width=250px>";
+				echo $content . "</td><td width=100px>" . $date . "</td>";
+				echo "</tr>";
+				$rowCount++;				
+			}
+
+		// If there are zero results
+		} else {
+			echo "There are 0 results. Try Again.";
+		}
+
+	// If user is using both the search form and the dates to search posts
+	} else if ((isset($_POST['sKeyword'])) && (isset($_POST['sfDate']) && isset($_POST['stDate']))) {
+		$a = strip_tags($_POST['sKeyword']);
+		$b = $_POST['sfDate'];
+		$c = $_POST['stDate'];
+		$rowCount = 1;
+
+		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, cast(posts.postDate as date) as postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') OR posts.postContent LIKE concat('%', :search2, '%') AND postDate between :fromDate AND :toDate ORDER BY postDate DESC");
+		$query->execute(array(":search"=>$a, ":search2"=>$a, ":fromDate"=>$b, ":toDate"=>$c));
+		$numOfRows = $query->rowCount();
+
+		if ($numOfRows > 0) {
+			while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+				$postID = $row['postID'];
+				$name = $row['firstName'] . " " . $row['lastName'];
+				$content = $row['postContent'];
+				$date = date('d/m/Y', strtotime($row['postDate']));
+
+				echo "<tr id='" . "post_row" . $rowCount . "'>";
+				echo "<td><input id='checkbox' type='checkbox' name='box' value='". $postID . "' onclick=\"selected('post_row" . $rowCount . "')\"/></td><td width=150px>". $name . "</td><td width=250px>";
+				echo $content . "</td><td width=100px>" . $date . "</td>";
+				echo "</tr>";
+				$rowCount++;
+			}
+
+		} else {
+			echo "There are 0 results. Try Again.";
 		}
 	}
 	

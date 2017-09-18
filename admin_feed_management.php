@@ -37,7 +37,6 @@ Author: David MacKenzie
 	<section>
 	<!-- Filter box -->
 		<div id="filter_post">
-			<form action="#" method="#">
 				<p id="filter_post_title">Search by:<br><br>Username or<br>Keyword</p>
 				<input id="user_keyword" type="text" placeholder="Username or Keyword ... " name="user_keyword">
 				<p>Date From:</p>
@@ -47,7 +46,6 @@ Author: David MacKenzie
 				<input id="to_date" type="date" placeholder="DD-MM-YYYY" name="to_date">
 				<br><br>
 				<button id="filter_post_btn" class="admin_button" name="filter_post_btn">Search</button>
-			</form>
 		</div>
 	</section>
 	

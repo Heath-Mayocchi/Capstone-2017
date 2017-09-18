@@ -3,9 +3,9 @@ function selected(row){
 	d.classList.toggle("selected");
 }
 
+
 $("input[type='checkbox']").on("change", function() {
 	$('input[type="checkbox"]').not(this).prop("checked", false);
-	removeColors();
 });
 
 /*	for LOADING POSTS	*/
@@ -99,8 +99,56 @@ $("#delete_comment").on("click", function() {
 	}
 });
 
-function removeColors() {
-	$("td tr").each(function() {
-		tr.removeClass("selected");
-	});
-}
+
+/**********************************************/
+/*	Searching post */
+$("#filter_post_btn").on("click", function() {
+	var inputVal = $("#user_keyword").val();			// search value
+	var fDate = $("#from_date").val();					// from date
+	var tDate = $("#to_date").val();					// to date
+
+	// If user is only searching and not using the dates
+	if ((inputVal.length > 0) && (fDate.length <= 0 && tDate.length <= 0)) {
+		$.ajax({
+			url: "php/feedManagement.php",
+			method: "POST",
+			data: {keyword: inputVal},
+			success: function(data) {
+				$("#post_preview").html("");
+				$("#post_list").html(data);		
+			}
+		});
+
+	// If user is filtering posts based on dates and NOT using the search form 
+	} else if ((fDate.length > 0 && tDate.length > 0) && (inputVal.length <= 0)) {
+		$.ajax({
+			url: "php/feedManagement.php",
+			method: "POST",
+			data: {
+				fDate: fDate,
+				tDate: tDate
+			},
+			success: function(data) {
+				$("#post_preview").html("");
+				$("#post_list").html(data);			
+			}
+		});
+
+	// If user is using both the search form and the dates to search posts
+	} else if ((inputVal.length > 0) && (fDate.length > 0 && tDate.length > 0)) {
+		$.ajax({
+			url: "php/feedManagement.php",
+			method: "POST",
+			data: {
+				sKeyword: inputVal,
+				sfDate: fDate,
+				stDate: tDate
+			},
+			success: function(data) {
+				$("#post_preview").html("");
+				$("#post_list").html(data);		
+			}
+		});
+	}
+});
+
