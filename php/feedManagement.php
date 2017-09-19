@@ -1,7 +1,7 @@
 <?php 
 	require 'pdoconnectOnline.inc';
 
-	/*	For LOADING post					*/
+	/*	For LOADING post comments	*/
 	if (isset($_POST['value']) && $_POST['condition'] == "load") {
 		$s = $_POST['value'];
 		$counter = 1;
@@ -16,7 +16,7 @@
 			echo "</div>";
 		echo "<p id='comments_title'>Comments</p>";
 
-		$query = $conn->prepare("SELECT commentID, commentContent FROM post_comments WHERE post_comments.postID=?");
+		$query = $conn->prepare("SELECT commentID, commentContent FROM post_comments WHERE post_comments.postID=? ORDER BY commentID DESC");
 		$query->execute(array($s));
 
 		echo "<div id='post_comments_table_box'>";
@@ -74,7 +74,7 @@
 		$query->execute(array($id));
 
 
-		$query = $conn->prepare("SELECT commentID, commentContent FROM post_comments WHERE post_comments.postID=?");
+		$query = $conn->prepare("SELECT commentID, commentContent FROM post_comments WHERE post_comments.postID=? ORDER BY commentID DESC");
 		$query->execute(array($postID));
 
 		while($row = $query->fetch(PDO::FETCH_ASSOC)) {

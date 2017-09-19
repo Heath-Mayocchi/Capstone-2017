@@ -4,8 +4,14 @@ function selected(row){
 }
 
 
-$("input[type='checkbox']").on("change", function() {
+$("#post_list").on("change", "input[type='checkbox']" , function() {
 	$('input[type="checkbox"]').not(this).prop("checked", false);
+	removeColor();
+});
+
+$("#post_preview").on("change", "input[type='checkbox']", function() {
+	$('#post_preview input[type="checkbox"]').not(this).prop("checked", false);
+	removeColor2();
 });
 
 /*	for LOADING POSTS	*/
@@ -121,34 +127,76 @@ $("#filter_post_btn").on("click", function() {
 
 	// If user is filtering posts based on dates and NOT using the search form 
 	} else if ((fDate.length > 0 && tDate.length > 0) && (inputVal.length <= 0)) {
-		$.ajax({
-			url: "php/feedManagement.php",
-			method: "POST",
-			data: {
-				fDate: fDate,
-				tDate: tDate
-			},
-			success: function(data) {
-				$("#post_preview").html("");
-				$("#post_list").html(data);			
-			}
-		});
+		// Checks if from date is less than to date or if both dates are the same
+		// If true execute the search
+		if (fDate < tDate || fDate == tDate) {
+			$.ajax({
+				url: "php/feedManagement.php",
+				method: "POST",
+				data: {
+					fDate: fDate,
+					tDate: tDate
+				},
+				success: function(data) {
+					$("#post_preview").html("");
+					$("#post_list").html(data);			
+				}
+			});	
+
+		} else if (fDate > tDate) {
+			$("#post_list").html("From date needs to be BEFORE To date. Try Again.");	
+		}
+
 
 	// If user is using both the search form and the dates to search posts
 	} else if ((inputVal.length > 0) && (fDate.length > 0 && tDate.length > 0)) {
-		$.ajax({
-			url: "php/feedManagement.php",
-			method: "POST",
-			data: {
-				sKeyword: inputVal,
-				sfDate: fDate,
-				stDate: tDate
-			},
-			success: function(data) {
-				$("#post_preview").html("");
-				$("#post_list").html(data);		
-			}
-		});
+
+		if (fDate < tDate || fDate == tDate) {
+			$.ajax({
+				url: "php/feedManagement.php",
+				method: "POST",
+				data: {
+					sKeyword: inputVal,
+					sfDate: fDate,
+					stDate: tDate
+				},
+				success: function(data) {
+					$("#post_preview").html("");
+					$("#post_list").html(data);		
+				}
+			});
+
+		} else if (fDate > tDate) {
+			$("#post_list").html("From date needs to be BEFORE To date. Try Again.");
+		}
 	}
 });
 
+
+// Removes the color of other clicked text boxes
+function removeColor() {
+	var arr = document.querySelectorAll("#post_list tr");
+
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i].hasAttribute("class")) {
+			var remove = arr[i].querySelector("td input");
+			if (!remove.checked) {
+				arr[i].removeAttribute("class");
+			}
+		}
+	}
+}	
+
+function removeColor2() {
+	var arr = document.querySelectorAll("#post_comments tr");
+
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i].hasAttribute("class")) {
+			var remove = arr[i].querySelector("td input");
+
+			if (!remove.checked) {
+				arr[i].removeAttribute("class");
+			}
+		}
+	}
+}
