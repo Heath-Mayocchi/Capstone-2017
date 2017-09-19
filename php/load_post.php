@@ -1,4 +1,6 @@
 <?php
+	ob_start();
+	session_start();
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
@@ -94,37 +96,74 @@
                 echo '</div>';
             
             echo '</div><!-- userPost -->';
+            
+            $previouslyReacted = "test";
+            if(isset($_SESSION['user']))
+            {
+                $user = $_SESSION['user'];
+                console_log($user);
+                $statement = "SELECT * from post_emojis WHERE userID = $user AND postID = 110";
+                
+                $result = $conn->query($statement);
+                
+                $row = $result->fetch();
+                if ($row) {
+                    $previouslyReacted = $row[2];
+                }
+            } else {
+            }
 
             $emojiCount = ($post->emojiOne + $post->emojiTwo + $post->emojiThree + $post->emojiFour + $post->emojiFive);
             echo '<table id="reacted_emojis">
             <tr>';
                     if($post->emojiOne>0){
                         echo '<th>';
-                        echo '<img class="emoji_img" id="emoji_like_reacted" src="img/emoji-like.png" alt="Like"></img>';
+                        if ($previouslyReacted == 1){
+                            echo '<img class="emoji_img border" id="emoji_like_reacted" src="img/emoji-like.png" alt="Like"></img>';
+                        } else {
+                            echo '<img class="emoji_img" id="emoji_like_reacted" src="img/emoji-like.png" alt="Like"></img>';
+                        }
+
                         //echo $post->emojiOne;
                         echo '</th>';
                     }
                     if($post->emojiTwo>0){
                         echo '<th>';
-                        echo '<img class="emoji_img" id="emoji_love_reacted" src="img/emoji-love.png" alt="Love"></img>';
+                        if ($previouslyReacted == 2){
+                            echo '<img class="emoji_img border" id="emoji_love_reacted" src="img/emoji-love.png" alt="Love"></img>';
+                        } else {
+                            echo '<img class="emoji_img" id="emoji_love_reacted" src="img/emoji-love.png" alt="Love"></img>';
+                        }
                         //echo $post->emojiTwo;
                         echo '</th>';
                     }
                     if($post->emojiThree>0){
                         echo '<th>';
-                        echo '<img class="emoji_img" id="emoji_laugh_reacted" src="img/emoji-laugh.png" alt="Laugh"></img>';
+                        if ($previouslyReacted == 3){
+                            echo '<img class="emoji_img border" id="emoji_laugh_reacted" src="img/emoji-laugh.png" alt="Laugh"></img>';
+                        } else {
+                            echo '<img class="emoji_img" id="emoji_laugh_reacted" src="img/emoji-laugh.png" alt="Laugh"></img>';
+                        }
                         //echo $post->emojiThree;
                         echo '</th>';
                     }
                     if($post->emojiFour>0){
                         echo '<th>';
-                        echo '<img class="emoji_img" id="emoji_wow_reacted" src="img/emoji-wow.png" alt="Wow"></img>';
+                        if ($previouslyReacted == 2){
+                            echo '<img class="emoji_img border" id="emoji_wow_reacted" src="img/emoji-wow.png" alt="Wow"></img>';
+                        } else {
+                            echo '<img class="emoji_img" id="emoji_wow_reacted" src="img/emoji-wow.png" alt="Wow"></img>';
+                        }
                         //echo $post->emojiFour;
                         echo '</th>';
                     }
                     if($post->emojiFive>0){
                         echo '<th>';
-                        echo '<img class="emoji_img" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>';
+                        if ($previouslyReacted == 2){
+                            echo '<img class="emoji_img border" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>';
+                        } else {
+                            echo '<img class="emoji_img" id="emoji_sad_reacted" src="img/emoji-sad.png" alt="Sad"></img>';
+                        }
                         //echo $post->emojiFive;
                         echo '</th>';
                     }

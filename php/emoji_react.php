@@ -5,7 +5,6 @@ function console_log( $data ){
     echo '</script>';
   }
 	session_start();
-
 	require_once 'pdoconnectOnline.inc';
 	
 	if(isset($_SESSION['user']))
@@ -17,22 +16,55 @@ function console_log( $data ){
 	}
 	
 	global $react;
+	global $emojiName;
+	global $previouslyReacted;
+	$react = FALSE;
 
 	$postID = $_POST['emoji_form_postID'];
 	
-	$emoji = $_POST["emoji_form_information"];
+	$emoji = intval($_POST["emoji_form_information"]);
+	if ($emoji == 1) {
+		$emojiName = "emojiOne";
+	} else if ($emoji == 2){
+		$emojiName = "emojiTwo";
+	} else if ($emoji == 3){
+		$emojiName = "emojiThree";
+	} else if ($emoji == 4){
+		$emojiName = "emojiFour";
+	} else if ($emoji == 5){
+		$emojiName = "emojiFive";
+	}
 
 	$statement = "SELECT * from post_emojis WHERE userID = $user AND postID = $postID";
-	foreach ($conn->query($statement) as $row){
+	$result = $conn->query($statement);
+	
+	$row = $result->fetch();
+	if ($row) {
+		$previouslyReacted = $row[2];
 		$react = TRUE;
 	}
 
-	function post_emoji_update($react, $postID, $user, $emoji, $conn){
+	if ($previouslyReacted == 1) {
+		$previouslyReacted = "emojiOne";
+	} else if ($previouslyReacted == 2){
+		$previouslyReacted = "emojiTwo";
+	} else if ($previouslyReacted == 3){
+		$previouslyReacted = "emojiThree";
+	} else if ($previouslyReacted == 4){
+		$previouslyReacted = "emojiFour";
+	} else if ($previouslyReacted == 5){
+		$previouslyReacted = "emojiFive";
+	}
+
+	function post_emoji_update($react, $postID, $user, $emoji, $conn, $emojiName, $previouslyReacted){
 		console_log($react);
 		console_log($postID);
 		console_log($user);		
 		if ($react != TRUE){
-			$statement = $conn->prepare("UPDATE posts SET emojiOne = emojiOne + 1 WHERE postID = $postID");
+			$statement = $conn->prepare("UPDATE posts SET $emojiName = $emojiName + 1 WHERE postID = $postID");
+			$statement->execute();
+
+			$statement = $conn->prepare("UPDATE posts SET likes = likes + 1 WHERE postID = $postID");
 			$statement->execute();
 
 			$statement = $conn->prepare("INSERT INTO post_emojis(postID, userID, emojiID) VALUES(:postID, :userID, :emojiID)");
@@ -42,12 +74,21 @@ function console_log( $data ){
 				"emojiID" => $emoji
 				));
 		} else {
-			$statement = $conn->prepare("UPDATE post_emojis SET emojiID = $emoji WHERE postID = $postID AND userID = $user");
-			$statement->execute();
+			if ($emojiName != $previouslyReacted){
+				$statement = $conn->prepare("UPDATE posts SET $emojiName = $emojiName + 1 WHERE postID = $postID");
+				$statement->execute();
+
+				$statement = $conn->prepare("UPDATE posts SET $previouslyReacted = $previouslyReacted - 1 WHERE postID = $postID");
+				$statement->execute();
+	
+				$statement = $conn->prepare("UPDATE post_emojis SET emojiID = $emoji WHERE postID = $postID AND userID = $user");
+				$statement->execute();
+			}
 		}
 	}
 
-	post_emoji_update($react, $postID, $user, $emoji, $conn);
+	console_log("this works");
+	post_emoji_update($react, $postID, $user, $emoji, $conn, $emojiName, $previouslyReacted);
 
 	header("Location: ../view_feed.php");
 	exit;
