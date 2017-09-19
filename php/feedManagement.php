@@ -121,7 +121,7 @@
 		$b = $_POST['tDate'];
 		$rowCount = 1;
 
-		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, cast(posts.postDate as date) as postDate, users.userID, users.firstName, users.lastName FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE postDate between :fromDate AND :toDate ORDER BY postDate DESC");
+		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, cast(posts.postDate as date) as postDate, users.userID, users.firstName, users.lastName FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE postDate >= :fromDate AND postDate <= concat(:toDate, ' ', '23:59:59.999') ORDER BY postID DESC");
 		$query->execute(array(":fromDate"=>$a, ":toDate"=>$b));
 		$numOfRows = $query->rowCount();
 
@@ -152,7 +152,7 @@
 		$c = $_POST['stDate'];
 		$rowCount = 1;
 
-		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, cast(posts.postDate as date) as postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') OR posts.postContent LIKE concat('%', :search2, '%') AND postDate between :fromDate AND :toDate ORDER BY postDate DESC");
+		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, cast(posts.postDate as date) as postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') OR posts.postContent LIKE concat('%', :search2, '%') AND postDate >= :fromDate AND postDate <= concat(:toDate, ' ', '23:59:59.999') ORDER BY postDate DESC");
 		$query->execute(array(":search"=>$a, ":search2"=>$a, ":fromDate"=>$b, ":toDate"=>$c));
 		$numOfRows = $query->rowCount();
 
