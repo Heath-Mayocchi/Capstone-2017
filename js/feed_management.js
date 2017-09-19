@@ -6,12 +6,12 @@ function selected(row){
 
 $("#post_list").on("change", "input[type='checkbox']" , function() {
 	$('input[type="checkbox"]').not(this).prop("checked", false);
-	removeColor();
+	removeColor(document.querySelectorAll("#post_list tr"));
 });
 
 $("#post_preview").on("change", "input[type='checkbox']", function() {
 	$('#post_preview input[type="checkbox"]').not(this).prop("checked", false);
-	removeColor2();
+	removeColor(document.querySelectorAll("#post_comments tr"));
 });
 
 /*	for LOADING POSTS	*/
@@ -174,26 +174,11 @@ $("#filter_post_btn").on("click", function() {
 
 
 // Removes the color of other clicked text boxes
-function removeColor() {
-	var arr = document.querySelectorAll("#post_list tr");
-
+function removeColor(thisArr) {
+	var arr = thisArr;
 	for (var i = 0; i < arr.length; i++) {
 		if (arr[i].hasAttribute("class")) {
 			var remove = arr[i].querySelector("td input");
-			if (!remove.checked) {
-				arr[i].removeAttribute("class");
-			}
-		}
-	}
-}	
-
-function removeColor2() {
-	var arr = document.querySelectorAll("#post_comments tr");
-
-	for (var i = 0; i < arr.length; i++) {
-		if (arr[i].hasAttribute("class")) {
-			var remove = arr[i].querySelector("td input");
-
 			if (!remove.checked) {
 				arr[i].removeAttribute("class");
 			}
