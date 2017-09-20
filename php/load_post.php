@@ -67,6 +67,15 @@
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $result = $stmt->fetchAll();
+    echo '<div id="comment_space">';
+
+    foreach ($result as $post)
+    {
+
+        view_comments($post->postID);
+    }
+    echo '</div>';    
+
     foreach ($result as $post)
     {
         echo '<div class="post">';
@@ -110,7 +119,6 @@
                 if ($row) {
                     $previouslyReacted = $row[2];
                 }
-            } else {
             }
 
             $emojiCount = ($post->emojiOne + $post->emojiTwo + $post->emojiThree + $post->emojiFour + $post->emojiFive);
@@ -277,13 +285,6 @@
         echo '</tr>';
         echo '</table>';
         echo '</div>';
-        
-        echo '<div id="comment_space">';
-        foreach ($result as $post)
-        {
-            view_comments($post->postID);
-        }
-        echo '</div>';    
     }
 
     function view_comments($postID)
