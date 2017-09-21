@@ -2,19 +2,7 @@
 	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
-
-	$tempName = "John";
-	$tempLastName = "Doe";
-
-	$query = "SELECT * FROM users WHERE firstName=? AND lastName=?";
-	$queryStmt = $conn->prepare($query);
-	$queryStmt->execute(array($tempName, $tempLastName));
-
-	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch data
-
-	$_SESSION['adminLoggedIn'] = $row['firstName'] . ' ' . $row['lastName'];
-	$_SESSION['adminPicture'] = $row['profilePicture'];
-
+	require 'php/login_handler.php';
  ?>
 <!--
 QUT Capstone Project 2017
@@ -71,7 +59,7 @@ Author: David Mackenzie
 		class="close" title="Close Modal">&times;</span>
 
 		  <!-- Modal Content -->
-		  <form class="modal-content animate" id="student_form" action="user_home.php" method="post">
+		  <form class="modal-content animate" id="student_form" action="user_login.php" method="post">
 <!-- 		    <div class="imgcontainer">
 		      <img src="img/profile-placeholder.png" id="student_avatar" alt="Avatar" class="avatar">
 		    
@@ -82,7 +70,7 @@ Author: David Mackenzie
 		    </div>
 
 		    <div class="container" style="background-color:#f1f1f1">
-		      <button class="button" id="student_login" onkeydown="loginBtnStudentLogin(event)" type="submit">Login</button>
+		      <button class="button" id="student_login" onkeydown="loginBtnStudentLogin(event)" type="submit" name="studentLoginBtn">Login</button>
 		      <button class="button" id="student_cancel" onkeydown="loginBtnStudentCancel(event)" type="reset">Cancel</button>
 		    </div>
 		  </form>
@@ -94,7 +82,7 @@ Author: David Mackenzie
 		class="close" title="Close Modal">&times;</span>
 
 		  <!-- Modal Content -->
-		  <form class="modal-content animate" id="admin_form" action="admin_home.php" method="post">
+		  <form class="modal-content animate" id="admin_form" action="user_login.php" method="post">
 <!-- 		    <div class="imgcontainer">
 		      <img src="img/profile-placeholder.png" id="admin_avatar" alt="Avatar" class="avatar">
 		    
@@ -108,7 +96,7 @@ Author: David Mackenzie
 		    </div>
 
 		    <div class="container" style="background-color:#f1f1f1">
-		      <button class="button" id="admin_login" onkeydown="loginBtnAdminLogin(event)" type="submit">Login</button>
+		      <button class="button" id="admin_login" onkeydown="loginBtnAdminLogin(event)" type="submit" name="adminLoginBtn">Login</button>
 		      <button class="button" id="admin_cancel" onkeydown="loginBtnAdminCancel(event)" type="reset">Cancel</button>
 		    </div>
 		  </form>

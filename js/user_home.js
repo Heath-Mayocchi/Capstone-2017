@@ -82,7 +82,8 @@ function logout(event){
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
-		window.location.href = 'user_login.php';
+		//window.location.href = 'user_login.php';
+		document.getElementById("logout_btn").click();
 		key.preventDefault();
 		key.stopPropagation();
 	}	

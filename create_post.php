@@ -1,3 +1,15 @@
+
+<?php 
+	ob_start();
+	session_start();
+	require 'php/pdoconnectOnline.inc';
+	require'php/savePost.php';
+
+	if (!isset($_SESSION['userID'])) {
+		header("location: index.php");
+		exit();
+	}
+ ?>
 <!--
 QUT Capstone Project 2017
 Project Owner: Nursery Road State Special School
@@ -7,14 +19,6 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David MacKenzie	
 -->
-
-<?php 
-	ob_start();
-	require 'php/pdoconnectOnline.inc';
-	// session_start();
-	include 'php/savePost.php';
-
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +44,8 @@ Author: David MacKenzie
 	<header>
 		<button class="button" id="post_back_btn" onclick="backBtn()" onkeydown="postBtnBack(event)">Back</button>
 		<div id="user_profile">
-			<img src="img/profile-placeholder.png" alt="User profile image"></img>
-			<p>Super Long User Name</p>
+			<img src="<?php echo $_SESSION['userPic'] ?>" alt="User profile image"></img>
+			<p><?php echo $_SESSION['userFullName']; ?></p>
 		</div>
 		<h2>CREATE A POST</h2>
 	</header>
@@ -71,9 +75,9 @@ Author: David MacKenzie
 			</form>
 
 			<div class="boxUserPost">
-				<img src="img/profile1.jpg" id="boxUserImage">
+				<img src="<?php echo $_SESSION['userPic']; ?>" id="boxUserImage">
 				<div id="boxDate">
-					John Doe 8:45 am
+					<?php echo $_SESSION['userFullName'] . "  " . date("Y-m-d"); ?>
 				</div>
 			</div>
 

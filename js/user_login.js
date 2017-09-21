@@ -42,7 +42,7 @@ function filter(event) {
 
 
 
-function student_popup($name,$img)
+function student_popup($name,$img,$id)
 {
   // Get the modal
 var modal = document.getElementById('student_popup');
@@ -51,7 +51,8 @@ var modal = document.getElementById('student_popup');
   // ui.src=$img;
 
   var ud = document.getElementById('student_username');
-  ud.innerText='Log in as ' + $name;
+ // ud.innerText='Log in as ' + $name;
+  ud.innerHTML = "<input type='hidden' name='thisUser' value='" + $id + "'>" + 'Log in as ' + $name;
 
   document.getElementById('student_popup').style.display='block';
 
@@ -60,7 +61,7 @@ var modal = document.getElementById('student_popup');
 }
 
 
-function admin_popup($name,$img)
+function admin_popup($name,$img,$id)
 {
   // Get the modal
 var modal = document.getElementById('admin_popup');
@@ -69,7 +70,8 @@ var modal = document.getElementById('admin_popup');
   // ui.src=$img;
 
   var ud = document.getElementById('admin_username');
-  ud.innerText='Please enter the password for ' + $name;
+ // ud.innerText='Please enter the password for ' + $name;
+  ud.innerHTML = "<input type='hidden' name='adminUser' value='" +  $id + "'>" + 'Please enter the password for ' + $name;
 
   document.getElementById('admin_popup').style.display='block';
 

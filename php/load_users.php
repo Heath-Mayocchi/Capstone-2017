@@ -54,14 +54,15 @@
 	{
 		$name = $row['firstName'] . " " . $row['lastName'];
 		$img = $row['profilePicture'];
+		$id = $row['userID'];
 
 		if($row['accountType'] == 'Student')
 		{
-		 echo "<tr onclick=\"student_popup('$name','$img')\">";
+		 echo "<tr onclick=\"student_popup('$name','$img', '$id')\">";
 		}
 		else
 		{
-		 echo "<tr onclick=\"admin_popup('$name','$img')\">";
+		 echo "<tr onclick=\"admin_popup('$name','$img', '$id')\">";
 		}
 
 		

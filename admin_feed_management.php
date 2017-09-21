@@ -1,5 +1,13 @@
 <?php 
+	ob_start();
+	session_start();
 	require 'php/pdoconnectOnline.inc';
+
+	// If adminLoggedIn is not set, go to index.php to log in
+	if (!isset($_SESSION['adminLoggedIn'])) {
+		header("location: index.php");
+		exit();
+	}
  ?>
 <!--
 QUT Capstone Project 2017
@@ -28,8 +36,8 @@ Author: David MacKenzie
 		<div id="user_profile">
 			<!-- <img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
 			<p><?php echo $_SESSION['adminLoggedIn']; ?></p> -->
-			<img src="img/profile-placeholder.png" alt="User profile image"></img>
-			<p>Super Long User Name</p>
+			<img src="<?php echo $_SESSION['adminPicture'] ?>" alt="User profile image"></img>
+			<p><?php echo $_SESSION['adminLoggedIn']; ?></p>
 		</div>
 		<h2>FEED MANAGEMENT</h2>
 	</header>

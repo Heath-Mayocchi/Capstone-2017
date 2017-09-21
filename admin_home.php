@@ -2,18 +2,15 @@
 	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
+	require 'php/logout.php';
 
-	$tempName = "John";
-	$tempLastName = "Doe";
+	if (!isset($_SESSION['adminFullName'])) {
+		header("location: index.php");
+		exit();
+	}
 
-	$query = "SELECT * FROM users WHERE firstName=? AND lastName=?";
-	$queryStmt = $conn->prepare($query);
-	$queryStmt->execute(array($tempName, $tempLastName));
-
-	$row = $queryStmt->fetch(PDO::FETCH_ASSOC);		// fetch data
-
-	$_SESSION['adminLoggedIn'] = $row['firstName'] . ' ' . $row['lastName'];
-	$_SESSION['adminPicture'] = $row['profilePicture'];
+	$_SESSION['adminLoggedIn'] = $_SESSION['adminFullName'];
+	$_SESSION['adminPicture'] = $_SESSION['adminPic'];
 
  ?>
 <!--
@@ -38,7 +35,10 @@ Author: David Mackenzie
 </head>
 <body class="adminwrapper">
 	<header>
-	<button class="button" id="logout_btn" onkeyup="logout(event)">LOGOUT</button>
+	<form method="POST" action="admin_home.php">
+		<button class="button" id="logout_btn" onkeyup="logout(event)" type="submit" name="adminLogout">LOGOUT</button>
+	</form>
+	
 	<div id="user_profile">
 		<img src="<?php echo $_SESSION['adminPicture']; ?>" alt="User profile image"></img>
 		<p><?php echo $_SESSION['adminLoggedIn']; ?></p>

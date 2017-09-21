@@ -3,11 +3,8 @@
 
 		$postContent = $_POST['userPostContent'];
 
-		if(isset($_SESSION['userID'])) {
-			$postedBy = $_SESSION['userID'];
-		} else {
-			$postedBy = 1;
-		}
+		$postedBy = $_SESSION['userID'];
+		
 		$myDate = date('Y-m-d h:i:s');
 
 		/*	If URL upload is not empty execute below					*/

@@ -1,7 +1,13 @@
 <?php 
 	ob_start();
 	session_start();
-	$_SESSION["user"] = 1;
+
+	if (!isset($_SESSION['userID'])) {
+		header("location: index.php");
+		exit();
+	}
+
+	$_SESSION["user"] = $_SESSION['userID'];
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 	require 'php/pdoconnectOnline.inc';
@@ -33,8 +39,8 @@ Author: David Mackenzie
 		<header>
 			<button class="button" id="back_btn" onclick="backBtn()" onkeyup="feedBtnBack(event)">Back</button>
 			<div id="user_profile">
-				<img src="img/profile-placeholder.png" alt="User profile image"></img>
-				<p>Super Long User Name</p>
+				<img src="<?php echo $_SESSION['userPic'] ?>" alt="User profile image"></img>
+				<p><?php echo $_SESSION['userFullName']; ?></p>
 			</div>
 			<h2>FEED</h2>
 		</header>
