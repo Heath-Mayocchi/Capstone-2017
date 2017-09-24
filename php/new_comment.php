@@ -17,9 +17,9 @@ function PrepData($data){
 	if($_POST['content'] != "") {
 	require_once 'pdoconnectOnline.inc';
 	
-	if(isset($_SESSION['user']))
+	if(isset($_SESSION['userID']))
 	{
-		$user = $_SESSION['user'];
+		$user = $_SESSION['userID'];
 	} else 
 	{
 		$user = 1;
