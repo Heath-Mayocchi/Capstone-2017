@@ -107,11 +107,11 @@
             echo '</div><!-- userPost -->';
             
             $previouslyReacted = "test";
-            if(isset($_SESSION['user']))
+            if(isset($_SESSION['userID']))
             {
-                $user = $_SESSION['user'];
+                $user = $_SESSION['userID'];
                 console_log($user);
-                $statement = "SELECT * from post_emojis WHERE userID = $user AND postID = 110";
+                $statement = "SELECT * from post_emojis WHERE userID = $user AND postID = $post->postID";
                 
                 $result = $conn->query($statement);
                 
