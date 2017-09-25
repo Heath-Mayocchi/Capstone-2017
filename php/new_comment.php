@@ -26,7 +26,8 @@ function PrepData($data){
 	}
 
 	$postID = $_POST['comment_post_id'];
-	
+	$_SESSION['postID'] = $postID;
+
 	$content = PrepData($_POST["content"]);
 		
 	$statement = $conn->prepare("INSERT INTO post_comments(commentContent, commentBy, commentDate, postID)

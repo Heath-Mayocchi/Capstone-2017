@@ -1,5 +1,3 @@
-var str = "initialize";
-loadFeed(str);
 function loadFeed(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "";

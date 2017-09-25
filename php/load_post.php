@@ -71,7 +71,6 @@
 
     foreach ($result as $post)
     {
-
         view_comments($post->postID);
     }
     echo '</div>';    
@@ -182,14 +181,22 @@
                         echo 'Be the first to add an emoji';
                     }else
                     {
-                        if( $emojiCount == 1)
+                        if($previouslyReacted != "test")
                         {
                             echo '<p id="reacted_emoji_txt">';
-                            echo '1 emoji on this post.';
+                            if ($emojiCount - 1 == 1) {
+                                echo 'You and '. ($emojiCount - 1).' other have reacted to this post.';
+                            } else {
+                                echo 'You and '. ($emojiCount - 1).' others have reacted to this post.';
+                            }
                         }else
                         {
                             echo '<p id="reacted_emoji_txt">';
-                            echo $emojiCount.' emojis on this post.';
+                            if ($emojiCount == 1){
+                                echo $emojiCount.' other has reacted to this post.';
+                            } else {
+                                echo $emojiCount.' others have reacted to this post.';
+                            }
                         }
                     }
                     echo '</p>
