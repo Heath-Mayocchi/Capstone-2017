@@ -69,7 +69,7 @@ Author: David Mackenzie
 		<div id="friendNavigationButtons">
 			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="">Previous</button>
 			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="">Next</button>
-			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Select</button>
+			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Add</button>
 		</div>	
 
 </html>

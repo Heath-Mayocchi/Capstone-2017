@@ -42,7 +42,7 @@ Author: David Mackenzie
 <body class="wrapper">
 	<header>
 	<button class="button" id="back_btn" onclick="window.history.back()" onkeydown="friendBtnBack(event)">Back</button>
-	<button class="button" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">New Friends</button>
+	<button class="button" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">Add Friends</button>
 
 	<h2>MY FRIENDS</h2>
 	</header>
@@ -69,7 +69,7 @@ Author: David Mackenzie
 		<div id="friendNavigationButtons">
 			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="">Previous</button>
 			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="">Next</button>
-			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Select</button>
+			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Remove</button>
 		</div>	
 
 </html>

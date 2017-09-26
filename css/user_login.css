@@ -20,9 +20,7 @@ USER HOME PAGE
 	display: inline-block;
 	clear: both;
 	border-radius: 20px;
-	background-color: #000;
-	border-width: 1px;
-	border-color: black;  
+    border: 0px solid #ffff00;
 	padding: 10px;
 	margin-bottom: 20px;
 }
@@ -39,7 +37,6 @@ USER HOME PAGE
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
-
 }
 
 tbody {
@@ -47,13 +44,14 @@ tbody {
 }
 
 tr:hover {
-	background-color: grey;
-
+	background-color: #19D74F;
+    border: 2px solid #ffff00;
 }
 
 tr {
 	min-height: 70px;
     display: block;
+    border: 2px solid black;
     border-radius: 10px;
     vertical-align: middle;
     margin: 20px;
@@ -178,6 +176,14 @@ td {
     vertical-align: middle;    
 }
 
+.checkBoxImage {
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
+    margin: 10px;
+    vertical-align: middle;    
+}
+
 .lockPick {
     width: 65px;
     height: 65px;
@@ -223,4 +229,14 @@ td {
     top: -10px;
 	right: -10px;
 	margin-left: -20px;
+}
+
+#add_btn {
+    float: right;
+    margin-right: -122px;
+}
+#add_btn:focus {
+    float: right;
+    margin-right: -142px;
+    margin-bottom: -20px;
 }

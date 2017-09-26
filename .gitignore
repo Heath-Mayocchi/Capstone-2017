@@ -2,3 +2,5 @@
 php/davelocal\.inc
 
 new_feed\.php
+
+php/pdoconnectOnline\.inc

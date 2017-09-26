@@ -28,7 +28,20 @@ function filter(event) {
 
   visibleRows[rowHighlight].style.background = "#19D74F";
   visibleRows[rowHighlight].scrollIntoView(false);
-  //alert(event);
+  visibleRows[rowHighlight].style.margin = "0px";
+  visibleRows[rowHighlight].style.border = "2px solid #ffff00";
+
+  var str = theTable[rowHighlight].outerHTML.toString();
+  alert(str);
+  if (str.indexOf('remove') > -1) 
+  {
+    document.getElementById("select_btn").innerText="Add";
+  }
+  else
+  {
+    document.getElementById("select_btn").innerText="Remove";
+  }
+
   if(event)
   {
     var key = event.which;
@@ -57,6 +70,7 @@ function init()
 	rowHighlight = 0;
 	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
   theTable[rowHighlight].style.background = "#19D74F";
+  theTable[rowHighlight].style.border = "2px solid #ffff00";  
   filter(event);	
 }
 
@@ -79,6 +93,8 @@ function friendBtnNext(event) {
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
 
     if( rowHighlight<visibleRowCount-1 )
     {
@@ -91,9 +107,19 @@ function friendBtnNext(event) {
     
     }
     theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
 
     theTable[rowHighlight].scrollIntoView(false);
-
+  var str = theTable[rowHighlight].outerHTML.toString();
+  if (str.indexOf('remove') > -1) 
+  {
+    document.getElementById("select_btn").innerText="Remove";
+  }
+  else
+  {
+    document.getElementById("select_btn").innerText="Add";
+  }
     console.log(rowHighlight);
     console.log(theTable.length);
 
@@ -113,7 +139,8 @@ function friendBtnPrevious(event) {
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
-    theTable[rowHighlight].style.borderColor = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
 
     if( rowHighlight>0 )
     {
@@ -124,11 +151,20 @@ function friendBtnPrevious(event) {
     }
 
     theTable[rowHighlight].style.background = "#19D74F";
-    theTable[rowHighlight].style.borderColor = "#19D74F";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);    
     console.log(rowHighlight);
     console.log(theTable.length-1);
-
+  var str = theTable[rowHighlight].outerHTML.toString();
+  if (str.indexOf('remove') > -1) 
+  {
+    document.getElementById("select_btn").innerText="Remove";
+  }
+  else
+  {
+    document.getElementById("select_btn").innerText="Add";
+  }
     //key.stopPropagation();
     //plusComment(1); //this is for the latest comment
   }
@@ -160,13 +196,15 @@ function friendBtnSelect(event) {
     {
       theTable[rowHighlight].setAttribute('onclick',"addFriend("+chunk+");");
       td.innerHTML='<img src="img/cbclear.png" class="checkBoxImage">';
+      document.getElementById("select_btn").innerText="Add";
 
     }
     else
     {
       theTable[rowHighlight].setAttribute('onclick',"removeFriend("+chunk+");");
       td.innerHTML='<img src="img/cbchecked.png" class="checkBoxImage">';
-    }
+       document.getElementById("select_btn").innerText="Remove";
+   }
     document.getElementById("next_btn").focus();
         
     key.stopPropagation();
@@ -184,7 +222,7 @@ function friendBtnAdd(event,usrID) {
   // if key pressed is the enter key, display choose buttons and comments
   if (key == selectElement){
     $btn = document.getElementById("add_btn");
-    if($btn.innerHTML=="New Friends")
+    if($btn.innerHTML=="Add Friends")
     {
       window.location.href = "new_friends.php?userID="+usrID;    
     }
@@ -220,9 +258,8 @@ function admin_search(event)
 		document.getElementById('searchBar').focus();		
 	}else
 	{
-		document.getElementById('searchBar').innerText='';
-//    alert(document.getElementById('searchBar').innerText);
-//		document.getElementById('search_btn').innerText='Search';
+    document.getElementById('searchBar').value='';
+    document.getElementById('search_btn').innerText='Search';
     document.getElementById('searchBar').blur();
     document.getElementById('searchBar').style.display='none';
 		document.getElementById('next_btn').focus();				

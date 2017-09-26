@@ -5,44 +5,44 @@
 	if($_GET['letter_group'] == 'ABC')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('A','B','C') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('A','B','C') OR LEFT(firstName,1) IN ('A','B','C') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'DEF')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('D','E','F') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('D','E','F') OR LEFT(firstName,1) IN ('D','E','F') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'GHI')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('G','H','I') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('G','H','I') OR LEFT(firstName,1) IN ('G','H','I') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'JKL')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('J','K','L') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('J','K','L') OR LEFT(firstName,1) IN ('J','K','L') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'MNO')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('M','N','O') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('M','N','O') OR LEFT(firstName,1) IN ('M','N','O') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'PQRS')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('P','Q','R','S') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('P','Q','R','S') OR LEFT(firstName,1) IN ('P','Q','R','S') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'TUV')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('T','U','V') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('T','U','V') OR LEFT(firstName,1) IN ('T','U','V') ORDER BY firstName, lastName";
 	}
 	if($_GET['letter_group'] == 'WXYZ')
 	{
 		$sql = "SELECT * FROM users 
-		WHERE LEFT(lastName,1) IN ('W','X','Y','Z') ORDER BY firstName, lastName";
+		WHERE LEFT(lastName,1) IN ('W','X','Y','Z') OR LEFT(firstName,1) IN ('W','X','Y','Z') ORDER BY firstName, lastName";
 	}
-	if($_GET['letter_group'] == '')
+	if($_GET['letter_group'] == '' || $_GET['letter_group'] == 'all')
 	{
 		$sql = "SELECT * FROM users ORDER BY firstName, lastName";
 	}

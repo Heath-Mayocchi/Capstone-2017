@@ -27,6 +27,8 @@ function filter(event) {
   }
 
   visibleRows[rowHighlight].style.background = "#19D74F";
+  visibleRows[rowHighlight].style.margin = "0px";
+  visibleRows[rowHighlight].style.border = "2px solid #ffff00";
   visibleRows[rowHighlight].scrollIntoView(false);
   //alert(event);
   if(event)
@@ -119,6 +121,8 @@ function loginBtnNext(event) {
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
 
     if( rowHighlight<visibleRowCount-1 )
     {
@@ -131,7 +135,8 @@ function loginBtnNext(event) {
     
     }
     theTable[rowHighlight].style.background = "#19D74F";
-
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);
 
     console.log(rowHighlight);
@@ -153,7 +158,8 @@ function loginBtnPrevious(event) {
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
     theTable[rowHighlight].style.background = "white";
-    theTable[rowHighlight].style.borderColor = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
 
     if( rowHighlight>0 )
     {
@@ -164,7 +170,8 @@ function loginBtnPrevious(event) {
     }
 
     theTable[rowHighlight].style.background = "#19D74F";
-    theTable[rowHighlight].style.borderColor = "#19D74F";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);    
     console.log(rowHighlight);
     console.log(theTable.length);
@@ -276,9 +283,9 @@ function admin_search(event)
 		document.getElementById('searchBar').focus();		
 	}else
 	{
-		document.getElementById('searchBar').innerText='';
+		document.getElementById('searchBar').value='';
 //    alert(document.getElementById('searchBar').innerText);
-//		document.getElementById('search_btn').innerText='Search';
+		document.getElementById('search_btn').innerText='Search';
     document.getElementById('searchBar').blur();
     document.getElementById('searchBar').style.display='none';
 		document.getElementById('next_btn').focus();				
