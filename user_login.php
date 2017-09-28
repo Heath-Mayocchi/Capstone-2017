@@ -59,7 +59,7 @@ Author: David Mackenzie
 		class="close" title="Close Modal">&times;</span>
 
 		  <!-- Modal Content -->
-		  <form class="modal-content animate" id="student_form" action="user_login.php" method="post">
+		  <form class="modal-content animate" id="student_form" action="#" method="post">
 <!-- 		    <div class="imgcontainer">
 		      <img src="img/profile-placeholder.png" id="student_avatar" alt="Avatar" class="avatar">
 		    
@@ -82,7 +82,7 @@ Author: David Mackenzie
 		class="close" title="Close Modal">&times;</span>
 
 		  <!-- Modal Content -->
-		  <form class="modal-content animate" id="admin_form" action="user_login.php" method="post">
+		  <form class="modal-content animate" id="admin_form" action="#" method="post">
 <!-- 		    <div class="imgcontainer">
 		      <img src="img/profile-placeholder.png" id="admin_avatar" alt="Avatar" class="avatar">
 		    

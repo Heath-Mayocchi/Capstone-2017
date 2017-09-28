@@ -1,9 +1,7 @@
-
 <?php 
 	ob_start();
 	session_start();
 	require 'php/pdoconnectOnline.inc';
-	require'php/savePost.php';
 
 	if (!isset($_SESSION['userID'])) {
 		header("location: index.php");
@@ -58,7 +56,7 @@ Author: David MacKenzie
 				<button id="cancelPicButton">Cancel</button>
 				<button id="selectPicButton">Select</button>
 			</div>
-			<form action="create_post.php" id="postSubmit" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+			<form action="php/savePost.php" id="postSubmit" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 
 				<!--This one is for sending pre-uploaded pictures *DON'T TOUCH*	-->

@@ -214,6 +214,52 @@ window.addEventListener("keydown", function (e) {
 });
 
 
+/***	Below is for clicking the pictures, I made much better version early on the sem,
+		But now I have to work with the navigating using 'space' made this whole thing 
+		a bit complicated. At the moment, it works properly, but it doesn't look good.
+		I might fix if I have more time. But leave leave this be for now, since it works.	***/	
+		images[0].addEventListener("click", function() {
+				counter = 0;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});
+		images[1].addEventListener("click", function() {
+				counter = 1;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});
+		images[2].addEventListener("click", function() {
+				counter = 2;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});
+		images[3].addEventListener("click", function() {
+				counter = 3;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});
+		images[4].addEventListener("click", function() {
+				counter = 4;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});
+		images[5].addEventListener("click", function() {
+				counter = 5;
+				theSource = this.src;
+				resetColor();
+				resetColor2();
+				this.id = "imageSelected";
+		});	
 /*********************************************************************************/
 /*********************************************************************************/
 /*********************************************************************************/
@@ -310,6 +356,9 @@ function postSubmitButton(event){
 }
 
 
+/****************************************************************************/
+/******************* TEXT AREA VALIDATION ***********************************/
+
 function validate() {
 	var errorMSG = document.querySelector("#errorMSG");
 	if (textArea.value == "") {
@@ -319,12 +368,12 @@ function validate() {
 	}
 }
 
-textArea.addEventListener("blur", bro, true);
+textArea.addEventListener("blur", hideError, true);
 
-function bro() {
+function hideError() {
 	if (textArea.value != "") {
 		errorMSG.style.visibility = "hidden";
-		return true;
+		return false;
 	}
 }
-
+/****************************************************************************/

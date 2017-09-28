@@ -3,12 +3,6 @@
 	session_start();
 	require 'php/pdoconnectOnline.inc';
 	require 'php/adminUserManagement_backend.php';
-
-	// If adminLoggedIn is not set, go to index.php to log in
-	if (!isset($_SESSION['adminLoggedIn'])) {
-		header("location: index.php");
-		exit();
-	}
  ?>
  
 <!--

@@ -117,8 +117,34 @@
 
 	// If from date and to dates are set
 	} else if (isset($_POST['fDate']) && isset($_POST['tDate'])) {
-		$a = $_POST['fDate'];
+	//	$a = $_POST['fDate'];		
+	//  $b = $_POST['tDate'];		
+
+		/*********************************************************/
+		$a = strip_tags($_POST['fDate']);
+		$a = str_replace(' ', '', $a);		
+		$a = explode('-', $a, 2);
+		$dobDay = $a[0];
+		$a = strtolower(end($a));			
+		$a = explode('-', $a);
+		$dobMonth = $a[0];
+		$dobYear = strtolower(end($a));
+		
+		$a = $dobYear . "-" . $dobMonth . "-" . $dobDay;
+		/*********************************************************/
 		$b = $_POST['tDate'];
+		$b = strip_tags($_POST['tDate']);
+		$b = str_replace(' ', '', $b);		
+		$b = explode('-', $b, 2);
+		$dobDay = $b[0];
+		$b = strtolower(end($b));			
+		$b = explode('-', $b);
+		$dobMonth = $b[0];
+		$dobYear = strtolower(end($b));
+		
+		$b= $dobYear . "-" . $dobMonth . "-" . $dobDay;
+		/*********************************************************/
+
 		$rowCount = 1;
 
 		$query = $conn->prepare("SELECT posts.postID,posts.postContent, posts.postedBy, cast(posts.postDate as date) as postDate, users.userID, users.firstName, users.lastName FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE postDate >= :fromDate AND postDate <= concat(:toDate, ' ', '23:59:59.999') ORDER BY postID DESC");
@@ -148,12 +174,35 @@
 	// If user is using both the search form and the dates to search posts
 	} else if ((isset($_POST['sKeyword'])) && (isset($_POST['sfDate']) && isset($_POST['stDate']))) {
 		$a = strip_tags($_POST['sKeyword']);
-		$b = $_POST['sfDate'];
-		$c = $_POST['stDate'];
+		
+		/*********************************************************/
+		$b = strip_tags($_POST['sfDate']);
+		$b = str_replace(' ', '', $b);		
+		$b = explode('-', $b, 2);
+		$dobDay = $b[0];
+		$b = strtolower(end($b));			
+		$b = explode('-', $b);
+		$dobMonth = $b[0];
+		$dobYear = strtolower(end($b));
+		
+		$b = $dobYear . "-" . $dobMonth . "-" . $dobDay;
+		/*********************************************************/
+		$c = strip_tags($_POST['stDate']);
+		$c = str_replace(' ', '', $c);		
+		$c = explode('-', $c, 2);
+		$dobDay = $c[0];
+		$c = strtolower(end($c));			
+		$c = explode('-', $c);
+		$dobMonth = $c[0];
+		$dobYear = strtolower(end($c));
+		
+		$c = $dobYear . "-" . $dobMonth . "-" . $dobDay;
+		/*********************************************************/
+
 		$rowCount = 1;
 
-		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, cast(posts.postDate as date) as postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') OR posts.postContent LIKE concat('%', :search2, '%') AND postDate >= :fromDate AND postDate <= concat(:toDate, ' ', '23:59:59.999') ORDER BY postID DESC");
-		$query->execute(array(":search"=>$a, ":search2"=>$a, ":fromDate"=>$b, ":toDate"=>$c));
+		$query = $conn->prepare("SELECT users.firstName, users.lastName, posts.postContent, posts.postContent, cast(posts.postDate as date) as postDate, posts.postID FROM users INNER JOIN posts ON posts.postedBy=users.userID WHERE concat(users.firstName, ' ', users.lastName) LIKE concat('%', :search, '%') AND postDate >= :fromDate AND postDate <= concat(:toDate, ' ', '23:59:59.999') ORDER BY postID DESC");
+		$query->execute(array(":search"=>$a, ":fromDate"=>$b, ":toDate"=>$c));
 		$numOfRows = $query->rowCount();
 
 		if ($numOfRows > 0) {
