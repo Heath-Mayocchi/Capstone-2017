@@ -17,16 +17,17 @@ function PrepData($data){
 	if($_POST['content'] != "") {
 	require_once 'pdoconnectOnline.inc';
 	
-	if(isset($_SESSION['user']))
+	if(isset($_SESSION['userID']))
 	{
-		$user = $_SESSION['user'];
+		$user = $_SESSION['userID'];
 	} else 
 	{
 		$user = 1;
 	}
 
 	$postID = $_POST['comment_post_id'];
-	
+	$_SESSION['postID'] = $postID;
+
 	$content = PrepData($_POST["content"]);
 		
 	$statement = $conn->prepare("INSERT INTO post_comments(commentContent, commentBy, commentDate, postID)

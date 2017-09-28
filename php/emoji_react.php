@@ -90,6 +90,7 @@ function console_log( $data ){
 	console_log("this works");
 	post_emoji_update($react, $postID, $user, $emoji, $conn, $emojiName, $previouslyReacted);
 
+	$_SESSION['postID'] = $postID;
 	header("Location: ../view_feed.php");
 	exit;
 ?>

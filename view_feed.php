@@ -33,6 +33,18 @@ Author: David Mackenzie
 	<link rel="stylesheet" type="text/css" href="css/view_feed.css">
 	<script src="js/main.js" type="text/javascript"></script>
 	<script src="js/load.js" type="text/javascript"></script>
+	<?php if(isset($_SESSION['postID'])) {
+		$postID = $_SESSION['postID'];
+		unset($_SESSION['postID']);
+		echo "<script type=\"text/javascript\">";
+		echo "loadFeed($postID);";
+		echo "</script>";
+	} else {
+		echo "<script type=\"text/javascript\">";
+		echo "var str = \"initialize\";";
+		echo "loadFeed(str);";
+		echo "</script>";
+	} ?>
 	<title>SNAP FEED</title>
 	</head>
 	<body class="wrapper">
