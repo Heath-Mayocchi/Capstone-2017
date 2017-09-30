@@ -10,6 +10,7 @@ var picM = document.querySelector("#picM");	// This is the one used to send the 
 var upload = document.querySelector(".upload");
 var uploadURL = document.querySelector("#uploadURL");
 var localURL = document.querySelector("#uploadLocal");
+var up = document.querySelector("#up");
 
 var theSource;
 var isTrue = false;
@@ -45,8 +46,6 @@ function pictureButtonFunc() {
 		textArea.classList.toggle("textSmall");
 	}
 	modal.classList.toggle("hideModal");
-	upload.classList.toggle("uploadVisibility");
-	localURL.classList.toggle("uploadVisibility");
 	checker();
 }
 
@@ -98,7 +97,14 @@ function mainFunc() {
 	pictureButton.addEventListener("click", pictureButtonFunc);			//	Button for the picture to show the 6 pictures	
 	selectButton.addEventListener("click", selectButtonFunc);			//	Select button for the pictures 
 	cancelButton.addEventListener("click", cancelButtonFunc);
+	up.addEventListener("click", upFunc);
 	reactButtonPoster();
+}
+
+function upFunc() {
+	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
+	up.classList.toggle("bts");
 }
 
 // If a user decides to select a pre-uploaded picture,

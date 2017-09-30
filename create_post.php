@@ -28,13 +28,7 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/postPreview.css">
 </head>
 <body class="wrapper">
-	<!--	This div is used to hide the file for user testing
-			Delete this div when user testing is finished
-	-->
-	<div id="hideFile">
-		
-	</div>
-
+	
 	<div id="errorMSG">
 		Please Enter a comment.
 	</div>
@@ -81,6 +75,8 @@ Author: David MacKenzie
 
 		</div>
 	</div>
+
+	<button id="up" class="upC">Upload</button>
 
 	<div class="upload uploadVisibility">
 		Insert URL to Upload Pictures or Videos<br>

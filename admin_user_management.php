@@ -203,69 +203,7 @@ Author: David Mackenzie
 				<button  id="remove_friend_btn">Remove Friend</button>
 				<div id="friendListInnerDiv">
 				<table>
-					<?php 
-
-						if (isset($_POST['loadUser'])) {
-							$fName = "";
-							$lName = "";
-							$dob = "";
-							$accType= "";
-							$usrID = "";
-
-							$f = explode(',', $_POST['search'], 4);
-							$accType = strtolower(end($f));				// Account Type;
-							$fName = $f[0];								// first name 
-							$lName = $f[1];								// last name
-							$dob = $f[2];								// dob
-
-
-							$query = $conn->prepare("SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType=?");
-							$query->execute(array($fName, $lName, $dob, $accType));
-							$checkNum = $query->fetchColumn();
-
-							if ($checkNum <= 0) {
-								echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;Found 0. Try Again!";
-							} else {
-								$query = $conn->prepare("SELECT * FROM users WHERE firstName=? AND lastName=? AND dob=? AND accountType=?");
-								$query->execute(array($fName, $lName, $dob, $accType));
-								$row = $query->fetch(PDO::FETCH_ASSOC);		// fetch data
-								$usrID = $row['userID'];
-
-
-								/**************************************************************************************************************/
-								/********	Need to do show friends list associated with the searched up dude *********************************/
-								$query = $conn->prepare("SELECT * FROM users WHERE users.userID in (SELECT userTwoID FROM relationships WHERE userOneID=?)");
-								$query->execute(array($usrID));
-								$checkNum = $query->fetchColumn();
-
-								if ($checkNum <= 0) {
-									echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;This user currently has 0 friends";
-									echo "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Try Again!";
-								} else {
-									$query = $conn->prepare("SELECT * FROM users WHERE users.userID in (SELECT userTwoID FROM relationships WHERE userOneID=?)");
-								$query->execute(array($usrID));
-									while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-									$picture = $row['profilePicture'];
-									$fName = $row['firstName'];
-									$lName = $row['lastName'];
-									
-									echo "<tr>
-											<td>
-												<input type='checkbox'>
-											</td>
-											<td>
-												<img src='$picture' class='friendProfilePicture'>
-											</td>
-											<td>
-												$fName $lName
-											</td>
-										</tr>";
-									}
-								}
-							}
-						}
-					 ?>
-
+					<!--	This is done using ajax	-->
 				</table>
 				</div>
 			</div>

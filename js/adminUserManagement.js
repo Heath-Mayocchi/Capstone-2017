@@ -258,3 +258,51 @@ $(document).ready
 	}
 );
 
+
+
+
+/*		This is for showing the friends list when the load user is clicked	*/
+$("#loadUserButton").on("click", function() {
+	var val = $("#editUserForm").val();
+
+	$.ajax({
+		url: "php/admin_user_friends.php",
+		method: "POST",
+		data: {
+			value : val
+		},
+		success: function(data) {
+			$("table").html(data);
+		}
+	});
+});
+
+
+$("#remove_friend_btn").on("click", function() {
+	var val = $("#editUserForm").val();
+	var checkbox = "";
+
+	$(".cbs").each(function() {
+		var isChecked = $(this).is(":checked");
+
+		if (isChecked) {
+			checkbox = $(this).val();
+		}
+	});
+
+	$.ajax({
+		url: "php/admin_user_friends.php",
+		method: "POST",
+		data: {
+			val : val,
+			cb : checkbox
+		},
+		success: function(data) {
+			$("table").html(data);
+		}
+	});
+});
+
+$("table").on("change", "input[type='checkbox']" , function() {
+	$('input[type="checkbox"]').not(this).prop("checked", false);
+});

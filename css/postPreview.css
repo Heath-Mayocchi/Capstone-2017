@@ -1,12 +1,24 @@
-/*	Delete this after user testing		*/
-#hideFile {
+#up {
 	position: absolute;
-	background: black;
-	height: 152px;
-	width: 600px;
-	margin-left: 250px;
-	margin-top: 490px;
-	z-index: 2;
+	margin-top: 8px;
+	margin-left: -280px;
+}
+
+.upC {
+	background: #ffff00;
+	color: #000;
+	cursor: pointer;
+	height: 34px;
+	width: 115px;
+	font-size: 20px;
+	border-radius: 10px;
+	outline: none;
+}
+
+.bts {
+	background-color: #ff6b6b;
+	font-weight: bold;
+	transition: 0.3s;
 }
 
 .wrapper {
@@ -236,7 +248,7 @@
 }
 
 #postButtons {
-	margin-top: 30px;
+	margin-top: -10px;
     display: block;
 }
 #postCommentButton {
@@ -264,7 +276,7 @@
 	position: relative;
 	height: 140px;
 	width: 590px;
-	margin: 5px auto 0 auto;
+	margin: 45px auto 0 auto;
 	border: 1px hidden white;
 }
 
@@ -275,11 +287,11 @@
 }
 
 #uploadLocalTitle {
-	margin-top: 12px;
+	margin-top: 4px;
 }
 
 .uploadURL {
-	width: 440px;
+	width: 380px;
 	height: 24px;
 	font-size: 20px;
 	font-weight: bold;
@@ -288,9 +300,9 @@
 
 #mainBox #boxBackground #postSubmit #uploadLocal {
 	position: absolute;
-	bottom: -120px;
-	left: 64px;
-	width: 444px;
+	bottom: -152px;
+	left: 100px;
+	width: 380px;
 	height: 26px;
 	font-size: 20px;
 	outline: none;
