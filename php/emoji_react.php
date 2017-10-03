@@ -1,9 +1,4 @@
 <?php
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-  }
 	session_start();
 	require_once 'pdoconnectOnline.inc';
 	
@@ -57,9 +52,6 @@ function console_log( $data ){
 	}
 
 	function post_emoji_update($react, $postID, $user, $emoji, $conn, $emojiName, $previouslyReacted){
-		console_log($react);
-		console_log($postID);
-		console_log($user);		
 		if ($react != TRUE){
 			$statement = $conn->prepare("UPDATE posts SET $emojiName = $emojiName + 1 WHERE postID = $postID");
 			$statement->execute();
@@ -87,7 +79,6 @@ function console_log( $data ){
 		}
 	}
 
-	console_log("this works");
 	post_emoji_update($react, $postID, $user, $emoji, $conn, $emojiName, $previouslyReacted);
 
 	$_SESSION['postID'] = $postID;
