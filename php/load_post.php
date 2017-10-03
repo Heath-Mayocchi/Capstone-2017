@@ -178,24 +178,24 @@
                     if($emojiCount < 1)
                     {
                         echo '<p id="reacted_emoji_txt" style="font-weight:normal;margin-left:3px;">';
-                        echo 'Be the first to add an emoji';
+                        echo 'Be the first to react to this post';
                     }else
                     {
                         if($previouslyReacted != "test")
                         {
                             echo '<p id="reacted_emoji_txt">';
                             if ($emojiCount - 1 == 1) {
-                                echo 'You and '. ($emojiCount - 1).' other have reacted to this post.';
+                                echo 'You and '. ($emojiCount - 1).' other.';
                             } else {
-                                echo 'You and '. ($emojiCount - 1).' others have reacted to this post.';
+                                echo 'You and '. ($emojiCount - 1).' others.';
                             }
                         }else
                         {
                             echo '<p id="reacted_emoji_txt">';
                             if ($emojiCount == 1){
-                                echo $emojiCount.' other has reacted to this post.';
+                                echo $emojiCount.' other.';
                             } else {
-                                echo $emojiCount.' others have reacted to this post.';
+                                echo $emojiCount.' others.';
                             }
                         }
                     }
