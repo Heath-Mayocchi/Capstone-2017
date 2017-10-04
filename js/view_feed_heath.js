@@ -94,7 +94,7 @@ function feedBtnEmoji(event){
 		document.getElementById("prev_img").src = "img/previous_selected.png";
 		document.getElementById("previous_btn").focus();
 	}
-	if (key == 38){
+	if (key == 38 || key == 1){
 		document.getElementById("react_buttons").style.visibility = "hidden";
 		document.getElementById("emoji_selection").style.visibility = "visible";
 		document.getElementById("next_btn").setAttribute('onkeydown', 'emojiNextFocus(event)');
