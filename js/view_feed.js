@@ -1,46 +1,3 @@
-function init() 
-{
-	//alert('init');
-	var allPosts = document.getElementsByClassName("post_id");
-	for(var i = 0; i<allPosts.length-1; i++)
-	{
-		// if(allPosts[i].innerText == document.getElementById("comment_post_id").innerText)
-		// {
-			//alert(allPosts[i].innerText);
-
-		// }
-	}
-	showPost(slideIndex-1);
-}
-
-window.onload=init;
-
-var slideIndex = 1;
-//var currentPostID = null;
-
-function displayPost(n) {
-    showPost(slideIndex += n);
-}
-
-function showPost(n) {
-    var x = document.getElementsByClassName("post");
-    var z = document.getElementsByClassName("comment_view");
-
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length} ;
-    for (var i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-         z[i].style.display = "none";
-    }
-    x[slideIndex-1].style.display = "block";
-    z[slideIndex-1].style.display = "block";
-
-   var currentPost = document.getElementsByClassName("post_id");
-	 currentPostID = currentPost[slideIndex-1].innerText;
-	 document.getElementById("comment_post_id").innerText = currentPostID;
-}
-
-
 // toggles the comment section from hidden to visible and shifts the post left when the comments are viewable
 function feedBtnClickChoose(){  
 		//alert('feedBtnClickChoose');
@@ -74,7 +31,11 @@ functions for post navigation
 */
 function feedBtnNext(event, str) {	
 	event.preventDefault();
-    var key = event.which;
+	var key = event.which;
+	// if mouse is clicked, view next post
+	//if (event.button == 1) {
+	//	loadFeed(str);
+	//}
 	// if key pressed is the spacebar, change focus to choose button
 	if (key == nextElement){
 		document.getElementById("next_btn").blur();
@@ -83,12 +44,9 @@ function feedBtnNext(event, str) {
 	// if key pressed is the enter key, view next post
 	if (key == selectElement){ 
 		loadFeed(str);
-	//	key.stopPropagation();
-	//	displayPost(-1);
-	//plusComment(-1);
 	}
 }
-function feedBtnPrevious(event) {
+function feedBtnPrevious(event, str) {
 	event.preventDefault();
     var key = event.which;
 	// if key pressed is the spacebar, change focus to next button
@@ -97,10 +55,8 @@ function feedBtnPrevious(event) {
 		document.getElementById("next_btn").focus();
 	}
 	// if key pressed is the enter key, view previous post
-	if (key == selectElement){
-		key.stopPropagation();
-		displayPost(1);	
-		//plusComment(1); //this is for the latest comment
+	if (key == selectElement){ 
+		loadFeed(str);
 	}
 }
 function feedBtnChoose(event) {
@@ -111,11 +67,10 @@ function feedBtnChoose(event) {
 			document.getElementById("choose_btn").blur();
 			document.getElementById("back_btn").focus();		
 	}
-	// if key pressed is the enter key, display choose buttons and comments
-	if (key == selectElement){
+	// if key pressed is the enter key or the mouse, display choose buttons and comments
+	if (key == selectElement || key == 1){
 		//alert('feedBtnChoose');
 		feedBtnClickChoose();
-		key.stopPropagation();
 	}	
 }
 

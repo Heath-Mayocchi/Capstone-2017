@@ -24,6 +24,34 @@
         $q = intval($_GET['q']);
     }
 
+    $query = "select * from posts where postID = (select min(postID) from posts where postID > $q);";
+    $stmt = $conn->prepare($query); 
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $result = $stmt->fetchAll();
+    foreach ($result as $post) {
+        $previous = $post->postID;
+    }
+    if (!isset($previous)){
+        $query = "select postID from posts ORDER BY postID DESC LIMIT 1";
+        $stmt = $conn->prepare($query); 
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $result = $stmt->fetchAll();
+        foreach ($result as $post) {
+            $q = $post->postID;
+        }
+        
+        $query = "select * from posts where postID = (select min(postID) from posts where postID < $q);";
+        $stmt = $conn->prepare($query); 
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $result = $stmt->fetchAll();
+        foreach ($result as $post) {
+            $previous = $post->postID;
+        }
+    }
+
     if ($q == 1) {
         $query = "select postID from posts ORDER BY postID DESC LIMIT 1";
         $stmt = $conn->prepare($query); 
@@ -178,24 +206,24 @@
                     if($emojiCount < 1)
                     {
                         echo '<p id="reacted_emoji_txt" style="font-weight:normal;margin-left:3px;">';
-                        echo 'Be the first to add an emoji';
+                        echo 'Be the first to react to this post';
                     }else
                     {
                         if($previouslyReacted != "test")
                         {
                             echo '<p id="reacted_emoji_txt">';
                             if ($emojiCount - 1 == 1) {
-                                echo 'You and '. ($emojiCount - 1).' other have reacted to this post.';
+                                echo 'You and '. ($emojiCount - 1).' other.';
                             } else {
-                                echo 'You and '. ($emojiCount - 1).' others have reacted to this post.';
+                                echo 'You and '. ($emojiCount - 1).' others.';
                             }
                         }else
                         {
                             echo '<p id="reacted_emoji_txt">';
                             if ($emojiCount == 1){
-                                echo $emojiCount.' other has reacted to this post.';
+                                echo $emojiCount.' other.';
                             } else {
-                                echo $emojiCount.' others have reacted to this post.';
+                                echo $emojiCount.' others.';
                             }
                         }
                     }
@@ -209,14 +237,15 @@
         
         // Echo the navigation buttons
         echo '<div id="choose_buttons">';
-        echo '<button class="button" id="emoji_button" onkeyup="feedBtnEmoji(event)">Emoji</button>';
-        echo '<button class="button" id="comment_button" onkeyup="feedBtnComment(event)">Comment</button>';
-        echo '<button class="button" id="choose_cancel_button" onkeyup="feedBtnChooseCancel(event)">Cancel</button>l';
+        echo '<button class="button" id="emoji_button" onkeyup="feedBtnEmoji(event)" onmouseup="feedBtnEmoji(event)">Emoji</button>';
+        echo '<button class="button" id="comment_button" onkeyup="feedBtnComment(event)" onmouseup="feedBtnComment(event)">Comment</button>';
+        echo '<button class="button" id="choose_cancel_button" onkeyup="feedBtnChooseCancel(event)" onmouseup="feedBtnChooseCancel(event)">Cancel</button>l';
         echo '</div>';
         echo '<div id="postNavigationButtons">';
-        echo '<button class="button" id="previous_btn" onkeyup="feedBtnPrevious(event)" onclick="displayPost(-1)">Previous</button>';
-        echo "<button class=\"button\" id=\"next_btn\" autofocus onkeyup=\"feedBtnNext(event, $next)\" onclick=\"feedBtnNext(event, $next)\">Next</button>";  
-        echo '<button class="button" id="choose_btn" onkeyup="feedBtnChoose(event)" >Choose</button>';
+        //echo '<button class="button" id="previous_btn" onkeyup="feedBtnPrevious(event)" onclick="displayPost(-1)">Previous</button>';
+        echo "<button class=\"button\" id=\"previous_btn\" onkeyup=\"feedBtnPrevious(event, $previous)\" onmouseup=\"feedBtnPrevious(loadFeed($previous))\">Previous</button>";  
+        echo "<button class=\"button\" id=\"next_btn\" autofocus onkeyup=\"feedBtnNext(event, $next)\" onmouseup=\"feedBtnNext(loadFeed($next))\">Next</button>";  
+        echo '<button class="button" id="choose_btn" onkeyup="feedBtnChoose(event)" onmouseup="feedBtnChoose(event)" >Choose</button>';
         echo '</div>';
         
         // Echo the new comment form 
@@ -232,7 +261,7 @@
         echo '<button class="button" type="submit" id="comment_submit_button" onkeyup="feedBtnCommentsubmit(event)">Submit</button>';
         echo '</th>';
         echo '<th>';
-        echo '<button class="button" type="button" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)">Cancel</button>';
+        echo '<button class="button" type="button" value="Cancel" id="comment_cancel_button" onkeyup="feedBtnCommentCancel(event)" onmouseup="feedBtnCommentCancel(event)">Cancel</button>';
         echo '</th>';
         echo '</tr>';
         echo '</table>';
@@ -252,41 +281,41 @@
         echo '<tr>';
         echo '<th>';
         echo '<figure>';
-        echo '<button class="button emojiBtn" id="emoji_like" onkeyup="feedBtnLike(event)"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>';
+        echo '<button class="button emojiBtn" id="emoji_like" onkeyup="feedBtnLike(event)" onmouseup="feedBtnLike(event)"><img class="emoji_img" id="emoji_like_img" src="img/emoji-like.png" alt="Like"></img></button>';
         echo '<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->';
         echo '<figcaption id="like">Like</figcaption>';
         echo '</figure>';
         echo '</th>';
         echo '<th>';
         echo '<figure>';
-        echo '<button class="button emojiBtn" id="emoji_love" onkeyup="feedBtnLove(event)"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>';
+        echo '<button class="button emojiBtn" id="emoji_love" onkeyup="feedBtnLove(event)" onmouseup="feedBtnLove(event)"><img class="emoji_img" id="emoji_love_img" src="img/emoji-love.png" alt="Love"></img></button>';
         echo '<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->';
         echo '<figcaption id="love">Love</figcaption>';
         echo '</figure>';
         echo '</th>';
         echo '<th>';
         echo '<figure>';
-        echo '<button class="button emojiBtn" id="emoji_laugh" onkeyup="feedBtnLaugh(event)"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>';
+        echo '<button class="button emojiBtn" id="emoji_laugh" onkeyup="feedBtnLaugh(event)" onmouseup="feedBtnLaugh(event)"><img class="emoji_img" id="emoji_laugh_img" src="img/emoji-laugh.png" alt="Laugh"></img></button>';
         echo '<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->';
         echo '<figcaption id="laugh">Laugh</figcaption>';
         echo '</figure>';
         echo '</th>';
         echo '<th>';
         echo '<figure>';
-        echo '<button class="button emojiBtn" id="emoji_wow" onkeyup="feedBtnWow(event)"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>';
+        echo '<button class="button emojiBtn" id="emoji_wow" onkeyup="feedBtnWow(event)" onmouseup="feedBtnWow(event)"><img class="emoji_img" id="emoji_wow_img" src="img/emoji-wow.png" alt="Wow"></img></button>';
         echo '<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->';
         echo '<figcaption id="wow">Wow</figcaption>';
         echo '</figure>';
         echo '</th>';
         echo '<th>';
         echo '<figure>';
-        echo '<button class="button emojiBtn" id="emoji_sad" onkeyup="feedBtnSad(event)"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>';
+        echo '<button class="button emojiBtn" id="emoji_sad" onkeyup="feedBtnSad(event)" onmouseup="feedBtnSad(event)"><img class="emoji_img" id="emoji_sad_img" src="img/emoji-sad.png" alt="Sad"></img></button>';
         echo '<!-- hide emoji selection, update reacted emojis, prev and next from emoji selection focus to changing post display  -->';
         echo '<figcaption id="sad">Sad</figcaption>';
         echo '</figure>';
         echo '</th>';
         echo '<th>';
-        echo '<button class="button" id="emoji_cancel_btn" onkeyup="feedBtnEmojiCancel(event)">Cancel</button>';
+        echo '<button class="button" id="emoji_cancel_btn" onkeyup="feedBtnEmojiCancel(event)" onmouseup="feedBtnEmojiCancel(event)">Cancel</button>';
         echo '<!-- hide emoji selection, prev and next from emoji selection focus to changing post display  -->';
         echo '</th>';
         echo '</tr>';

@@ -9,7 +9,7 @@ function feedBtnEmoji(event){
 		document.getElementById("comment_button").focus();
 	}
 	// if key pressed is the enter key, display emoji selection
-	if (key == selectElement){
+	if (key == selectElement || key == 1){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
 		// set emojiSelectButtons to true & chooseButtons to false
@@ -29,7 +29,7 @@ function feedBtnComment(event){
 		document.getElementById("choose_cancel_button").focus();
 	}
 	// if key pressed is the enter key, display comments form
-	if (key == selectElement){
+	if (key == selectElement || key == 1){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
 		// show comment form
@@ -49,7 +49,7 @@ function feedBtnChooseCancel(event){
 		document.getElementById("back_btn").focus();
 	}
 	// if key pressed is the enter key, display post navigation buttons
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		// hide choose buttons
 		document.getElementById("choose_buttons").style.display = "none";
 		
@@ -111,7 +111,7 @@ function feedBtnLike(event){
 		document.getElementById("emoji_love").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		document.getElementById("emoji_form_information").innerHTML = 1;
 		document.getElementById("emoji_form").submit();
 	}	
@@ -124,7 +124,7 @@ function feedBtnLove(event){
 		document.getElementById("emoji_laugh").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		document.getElementById("emoji_form_information").innerHTML = 2;
 		document.getElementById("emoji_form").submit();
 	}	
@@ -137,7 +137,7 @@ function feedBtnLaugh(event){
 		document.getElementById("emoji_wow").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		document.getElementById("emoji_form_information").innerHTML = 3;
 		document.getElementById("emoji_form").submit();
 	}	
@@ -150,7 +150,7 @@ function feedBtnWow(event){
 		document.getElementById("emoji_sad").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		document.getElementById("emoji_form_information").innerHTML = 4;
 		document.getElementById("emoji_form").submit();
 	}		
@@ -163,7 +163,7 @@ function feedBtnSad(event){
 		document.getElementById("emoji_cancel_btn").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		document.getElementById("emoji_form_information").innerHTML = 5;
 		document.getElementById("emoji_form").submit();
 	}	
@@ -176,7 +176,7 @@ function feedBtnEmojiCancel(event){
 		document.getElementById("back_btn").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		// hide emoji selection
 		document.getElementById("emoji_selection").style.display = "none";
 		// set emojiSelectButtons to false & chooseButtons to true
@@ -200,7 +200,7 @@ function feedBtnCommentCancel(event){
 		document.getElementById("back_btn").focus();
 	}
 	// if key pressed is the enter key
-	if (key == selectElement){
+	if (key == selectElement || 1){
 		//console.log('feedBtnCommentCancel');
 		// hide comment form
 		document.getElementById("comment_form").style.display = "none";
