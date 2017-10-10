@@ -3,6 +3,7 @@
 <head>
 	<title>SNAP LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="css/user_login_letter.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body class="wrapper">
 	<header>
@@ -11,6 +12,7 @@
 
 	<section>
 		<p id="label">Select the button with the letter of your first or last name</p>
+		<p>Or click here to search all users:  <button id="search_btn" class="button" onclick="window.location.href='user_login.php?letter_group=all'">Search</button></p>
 		<div id="mainBox">
 			<button onclick="window.location.href='user_login.php?letter_group=ABC'" class="letters row1" id="abc" autofocus>A B C</button>
 			<button onclick="window.location.href='user_login.php?letter_group=DEF'" class="letters row1" id="def">D E F</button>

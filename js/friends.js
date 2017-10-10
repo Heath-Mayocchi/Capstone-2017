@@ -26,20 +26,20 @@ function filter(event) {
     }       
   }
 
-  visibleRows[rowHighlight].style.background = "#19D74F";
+  visibleRows[rowHighlight].style.background = "#ff6b6b";
   visibleRows[rowHighlight].scrollIntoView(false);
   visibleRows[rowHighlight].style.margin = "0px";
   visibleRows[rowHighlight].style.border = "2px solid #ffff00";
 
-  var str = theTable[rowHighlight].outerHTML.toString();
-  alert(str);
+  var str = visibleRows[rowHighlight].outerHTML.toString();
+  //alert(str);
   if (str.indexOf('remove') > -1) 
   {
-    document.getElementById("select_btn").innerText="Add";
+    document.getElementById("select_btn").innerText="Add Friend";
   }
   else
   {
-    document.getElementById("select_btn").innerText="Remove";
+    document.getElementById("select_btn").innerText="Remove Friend";
   }
 
   if(event)
@@ -58,6 +58,7 @@ function filter(event) {
 // variables for key presses
 var nextElement = 32; // spacebar
 var selectElement = 13; // enter key
+var leftclick = 1;
 
 var rowHighlight = 0;
 var visibleRowCount = 0;
@@ -69,7 +70,7 @@ function init()
 {
 	rowHighlight = 0;
 	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "#19D74F";
+  theTable[rowHighlight].style.background = "#ff6b6b";
   theTable[rowHighlight].style.border = "2px solid #ffff00";  
   filter(event);	
 }
@@ -80,7 +81,7 @@ window.onload=init;
 functions for post navigation
 */
 function friendBtnNext(event) { 
-  event.preventDefault();
+    event.preventDefault();
     var key = event.which;
   // if key pressed is the spacebar, change focus to choose button
   if (key == nextElement){
@@ -88,7 +89,7 @@ function friendBtnNext(event) {
     document.getElementById("select_btn").focus();
   }
   // if key pressed is the enter key, view next post
-  if (key == selectElement){ 
+  if ((key == selectElement)||(key == leftclick)){ 
 
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
@@ -106,7 +107,7 @@ function friendBtnNext(event) {
       rowHighlight=0;
     
     }
-    theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.background = "#ff6b6b";
     theTable[rowHighlight].style.margin = "0px";
     theTable[rowHighlight].style.border = "2px solid #ffff00";
 
@@ -114,11 +115,11 @@ function friendBtnNext(event) {
   var str = theTable[rowHighlight].outerHTML.toString();
   if (str.indexOf('remove') > -1) 
   {
-    document.getElementById("select_btn").innerText="Remove";
+    document.getElementById("select_btn").innerText="Remove Friend";
   }
   else
   {
-    document.getElementById("select_btn").innerText="Add";
+    document.getElementById("select_btn").innerText="Add Friend";
   }
     console.log(rowHighlight);
     console.log(theTable.length);
@@ -134,7 +135,7 @@ function friendBtnPrevious(event) {
     document.getElementById("next_btn").focus();
   }
   // if key pressed is the enter key, view previous post
-  if (key == selectElement){
+  if ((key == selectElement)||(key == leftclick)){ 
 
     //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
     var theTable = visibleRows;
@@ -150,7 +151,7 @@ function friendBtnPrevious(event) {
       rowHighlight=visibleRowCount-1;
     }
 
-    theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.background = "#ff6b6b";
     theTable[rowHighlight].style.margin = "0px";
     theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);    
@@ -159,11 +160,11 @@ function friendBtnPrevious(event) {
   var str = theTable[rowHighlight].outerHTML.toString();
   if (str.indexOf('remove') > -1) 
   {
-    document.getElementById("select_btn").innerText="Remove";
+    document.getElementById("select_btn").innerText="Remove Friend";
   }
   else
   {
-    document.getElementById("select_btn").innerText="Add";
+    document.getElementById("select_btn").innerText="Add Friend";
   }
     //key.stopPropagation();
     //plusComment(1); //this is for the latest comment
@@ -179,15 +180,14 @@ function friendBtnSelect(event) {
       document.getElementById("add_btn").focus();    
   }
   // if key pressed is the enter key, display choose buttons and comments
-  if (key == selectElement){
-    //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-    var theTable = visibleRows;    
-    theTable[rowHighlight].onclick();
+  if ((key == selectElement)||(key == leftclick)){ 
+      //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
 
+    visibleRows[rowHighlight].onclick();
 
-    td = theTable[rowHighlight].getElementsByTagName("td")[0];
+    td = visibleRows[rowHighlight].getElementsByTagName("td")[0];
 
-    var str = theTable[rowHighlight].outerHTML.toString();
+    var str = visibleRows[rowHighlight].outerHTML.toString();
     var start = str.indexOf("Friend(");
     var end = str.indexOf("')",start+7); 
     var chunk = str.substring(start+7,end+1);
@@ -195,15 +195,15 @@ function friendBtnSelect(event) {
     if (str.indexOf('remove') > -1) 
     {
       theTable[rowHighlight].setAttribute('onclick',"addFriend("+chunk+");");
-      td.innerHTML='<img src="img/cbclear.png" class="checkBoxImage">';
-      document.getElementById("select_btn").innerText="Add";
+      td.innerHTML='<img src="img/blankpixel.png" class="checkBoxImage">';
+      document.getElementById("select_btn").innerText="Add Friend";
 
     }
     else
     {
       theTable[rowHighlight].setAttribute('onclick',"removeFriend("+chunk+");");
-      td.innerHTML='<img src="img/cbchecked.png" class="checkBoxImage">';
-       document.getElementById("select_btn").innerText="Remove";
+      td.innerHTML='<img src="img/star.png" class="checkBoxImage">';
+       document.getElementById("select_btn").innerText="Remove Friend";
    }
     document.getElementById("next_btn").focus();
         
@@ -220,7 +220,8 @@ function friendBtnAdd(event,usrID) {
       document.getElementById("back_btn").focus();    
   }
   // if key pressed is the enter key, display choose buttons and comments
-  if (key == selectElement){
+  if ((key == selectElement)||(key == leftclick)){ 
+
     $btn = document.getElementById("add_btn");
     if($btn.innerHTML=="Add Friends")
     {
@@ -244,7 +245,7 @@ function friendBtnBack(event){
       document.getElementById("back_btn").blur();
       document.getElementById("previous_btn").focus();      
   }
-  if (key == selectElement){
+  if ((key == selectElement)||(key == leftclick)){ 
     window.history.back();
   } 
 }
@@ -301,3 +302,45 @@ function admin_search(event)
      });
  }
 
+
+// function remove_popup(idOne,idTwo,$name,$img)
+// {
+
+//    var ui = document.getElementById('student_avatar');
+//    ui.src=$img;
+
+//   var ud = document.getElementById('remove_username');
+//   ud.innerHTML = "<input type='hidden' name='thisUser' value='" + idOne + "'>" + 'Are you sure you want to remove ' + name;
+
+//   document.getElementById('remove_popup').style.display='block';
+
+//   document.getElementById("select_btn").blur();
+//   document.getElementById('remove_confirm').focus();
+// }
+
+function removeFriendConfirm(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+  document.getElementById("remove_confirm").blur();
+  document.getElementById('remove_cancel').focus();
+  }
+  if ((key == selectElement)||(key == leftclick)){ 
+      document.getElementById('remove_popup').style.display='none'  
+      document.getElementById("next_btn").focus();            
+  } 
+}
+
+function removeFriendCancel(event){
+  event.preventDefault();
+    var key = event.which;
+  if (key == nextElement){
+      document.getElementById("remove_cancel").blur();
+      document.getElementById("remove_confirm").focus();      
+  }else{
+  if ((key == selectElement)||(key == leftclick)){ 
+      document.getElementById('remove_popup').style.display='none'  
+      document.getElementById("next_btn").focus();            
+    }
+  }
+}

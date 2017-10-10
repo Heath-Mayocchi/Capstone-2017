@@ -44,6 +44,7 @@ tbody {
 }
 
 tr:hover {
+
 	background-color: #19D74F;
     border: 2px solid #ffff00;
 }

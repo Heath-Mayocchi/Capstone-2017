@@ -41,11 +41,20 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
+		<div id="topleft">
 	<button class="button" id="back_btn" onclick="window.history.back()" onkeydown="friendBtnBack(event)">Back</button>
-	<button class="button" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">Add Friends</button>
-
-	<h2>MY FRIENDS</h2>
-	</header>
+	</div>
+	
+		<div id="user_profile">
+		<h2>MY FRIENDS</h2>
+		<img src="<?php echo $_SESSION['userPic']; ?>" alt="User profile image"></img>
+		<p><?php echo $_SESSION['userFullName']; ?>&nbsp;&nbsp;</p>
+		</div>	
+		<div id="topright">
+		<button class="bigbutton" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)" onclick="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">Add Friends</button>
+	
+		</div>
+		</header>
 	<section>
 
 
@@ -62,14 +71,36 @@ Author: David Mackenzie
 		</div>	
 	</div>
 
+		<!-- The Regular Login Modal for Regular Users -->
+		<div id="remove_popup" class="modal">
+		  <span onclick="document.getElementById('remove_popup').style.display='none'" 
+		class="close" title="Close Modal">&times;</span>
+
+		  <!-- Modal Content -->
+		  <form class="modal-content animate" id="remove_form" action="#" method="post">
+ 		    <div class="imgcontainer">
+		      <img src="img/profile-placeholder.png" id="student_avatar" alt="Avatar" class="avatar">
+		    
+ 				</div> 
+
+		    <div class="container">
+		      <label><b id="remove_username">Are you sure you want to remove ... </b></label>
+		    </div>
+
+		    <div class="container" style="background-color:#f1f1f1">
+		      <button class="button" id="remove_confirm" onkeydown="removeFriendConfirm(event)" type="reset" name="studentLoginBtn">Remove</button>
+		      <button class="button" id="remove_cancel" onkeydown="removeFriendCancel(event)" type="reset">Cancel</button>
+		    </div>
+		  </form>
+		</div>
 
 	</section>
 	</body>
 
 		<div id="friendNavigationButtons">
-			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="">Previous</button>
-			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="">Next</button>
-			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Remove</button>
+			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="friendBtnPrevious(event)">Previous</button>
+			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="friendBtnNext(event)">Next</button>
+			<button class="bigbutton" id="select_btn" onkeydown="friendBtnSelect(event)" onclick="friendBtnSelect(event)">Remove Friend</button>
 		</div>	
 
 </html>

@@ -25,7 +25,7 @@
 
 		
 		echo "<td width=65px>";
-			echo '<img src="img\cbclear.png';
+			echo '<img src="img/blankpixel.png';
 			echo '" class="checkBoxImage">';
 		echo "</td>";
 

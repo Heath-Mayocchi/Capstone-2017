@@ -20,12 +20,12 @@
 		//$userOne = 1;
 		//$userTwo = 3;
 
-	 echo "<tr onclick=\"removeFriend('".$userOne."','".$userTwo."')\">";
+	 echo "<tr onclick=\"remove_popup('".$userOne."','".$userTwo."','".$name."','".$img."')\">";
 //	echo "<tr>";
 
 		
 		echo "<td width=65px>";
-			echo '<img src="img\cbchecked.png';
+			echo '<img src="img\star.png';
 			echo '" class="checkBoxImage">';
 		echo "</td>";
 

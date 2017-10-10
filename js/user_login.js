@@ -26,7 +26,7 @@ function filter(event) {
     }       
   }
 
-  visibleRows[rowHighlight].style.background = "#19D74F";
+  visibleRows[rowHighlight].style.background = "#ff6b6b";
   visibleRows[rowHighlight].style.margin = "0px";
   visibleRows[rowHighlight].style.border = "2px solid #ffff00";
   visibleRows[rowHighlight].scrollIntoView(false);
@@ -98,8 +98,15 @@ function init()
 {
 	rowHighlight = 0;
 	var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "#19D74F";
-  filter(event);	
+  theTable[rowHighlight].style.background = "#ff6b6b";
+
+  var admin = getUrlParameter('letter_group');  //If the user has clicked the 'search' button on index.php....
+  if (admin == 'all') {
+    admin_search(event);
+  }else
+  {
+    filter(event);  
+  }
 }
 
 window.onload=init;
@@ -134,7 +141,7 @@ function loginBtnNext(event) {
       rowHighlight=0;
     
     }
-    theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.background = "#ff6b6b";
     theTable[rowHighlight].style.margin = "0px";
     theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);
@@ -169,7 +176,7 @@ function loginBtnPrevious(event) {
       rowHighlight=visibleRowCount-1;
     }
 
-    theTable[rowHighlight].style.background = "#19D74F";
+    theTable[rowHighlight].style.background = "#ff6b6b";
     theTable[rowHighlight].style.margin = "0px";
     theTable[rowHighlight].style.border = "2px solid #ffff00";
     theTable[rowHighlight].scrollIntoView(false);    
@@ -292,3 +299,20 @@ function admin_search(event)
 	}
   filter(event);
 }
+
+
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};

@@ -41,11 +41,23 @@ Author: David Mackenzie
 </head>
 <body class="wrapper">
 	<header>
+		<div id="topleft">
 	<button class="button" id="back_btn" onclick="window.history.back()" onkeydown="friendBtnBack(event)">Back</button>
-	<button class="button" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">My Friends</button>
+	</div>
+	
+		<div id="user_profile">
+		<h2>ADD NEW FRIENDS</h2>
+		<img src="<?php echo $_SESSION['userPic']; ?>" alt="User profile image"></img>
+		<p><?php echo $_SESSION['userFullName']; ?>&nbsp;&nbsp;</p>
+		</div>	
+		<div id="topright">
+		<button class="bigbutton" id="add_btn" onkeydown="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)" onclick="friendBtnAdd(event,<?php echo $_GET['userID']; ?>)">My Friends</button>
+	
+		</div>
 
-	<h2>ADD NEW FRIENDS</h2>
+	
 	</header>
+
 	<section>
 
 
@@ -67,9 +79,9 @@ Author: David Mackenzie
 	</body>
 
 		<div id="friendNavigationButtons">
-			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="">Previous</button>
-			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="">Next</button>
-			<button class="button" id="select_btn" onkeydown="friendBtnSelect(event)">Add</button>
+			<button class="button" id="previous_btn" onkeydown="friendBtnPrevious(event)" onclick="friendBtnPrevious(event)">Previous</button>
+			<button class="button" id="next_btn" autofocus onkeydown="friendBtnNext(event)" onclick="friendBtnNext(event)">Next</button>
+			<button class="bigbutton" id="select_btn" onkeydown="friendBtnSelect(event)" onclick="friendBtnSelect(event)">Add Friend</button>
 		</div>	
 
 </html>
