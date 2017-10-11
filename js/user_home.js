@@ -48,7 +48,7 @@ function friends(event){
 	// if key pressed is the spacebar, change focus to messages button
 	if (key == 32){
 		document.getElementById("friends_btn").blur();
-		document.getElementById("messages_btn").focus();
+		document.getElementById("logout_btn").focus();
 	}
 	// if key pressed is the enter key, goto href view feed
 	if (key == 13){
