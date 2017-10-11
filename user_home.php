@@ -52,7 +52,7 @@ Author: David Mackenzie
 	<section>
 		<button class="button btnsquare" id="view_feed_btn" onclick="location.href='view_feed.php';" onkeyup="view_feed(event)" autofocus>VIEW<br>FEED</button>
 		<button class="button btnsquare" id="create_post_btn" onclick="location.href='create_post.php';" onkeyup="create_post(event)">CREATE<br>POST</button>
-		<button class="button btnsquare" id="friends_btn" onclick="location.href='#';" onkeyup="friends(event)">FRIENDS</button>
+		<button class="button btnsquare" id="friends_btn" onclick="location.href='friends.php';" onkeyup="friends(event)">FRIENDS</button>
 		<button class="button btnsquare" id="messages_btn" onclick="location.href='#';" onkeyup="messages(event)">MESSAGES</button>
 	</section>
 		<script src="js/user_home.js" type="text/javascript"></script>

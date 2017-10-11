@@ -10,10 +10,13 @@ Author: Levinard Hugo
 Author: David Mackenzie
 */
 
-/* 
-USER HOME PAGE
-*/
 
+.friendButton {
+    height: 55px;    
+}
+.friendButton:focus {
+    height: 75px;  
+}
 #topleft{
     float: left; 
     width: 25%;
@@ -58,7 +61,6 @@ USER HOME PAGE
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
-
 }
 
 tbody {

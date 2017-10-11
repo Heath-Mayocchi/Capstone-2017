@@ -54,7 +54,7 @@ function friends(event){
 	if (key == 13){
 		key.preventDefault();
 		key.stopPropagation();
-		window.location.href = '#';
+		window.location.href = 'friends.php';
 	}	
 }
 function messages(event){
