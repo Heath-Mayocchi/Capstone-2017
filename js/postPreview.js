@@ -63,8 +63,8 @@ function selectButtonFunc() {
 	//pictureFocus = false;
 	document.getElementById("pictureBtn").focus();
 	picM.value = displayPic.src;
-	upload.classList.toggle("uploadVisibility");
-	localURL.classList.toggle("uploadVisibility");
+	//upload.classList.toggle("uploadVisibility");
+	//localURL.classList.toggle("uploadVisibility");
 	checker();
 	decider = true;
 	counter = 10;
@@ -73,8 +73,8 @@ function selectButtonFunc() {
 
 function cancelButtonFunc() {
 	modal.classList.toggle("hideModal");
-	upload.classList.toggle("uploadVisibility");
-	localURL.classList.toggle("uploadVisibility");
+	//upload.classList.toggle("uploadVisibility");
+	//localURL.classList.toggle("uploadVisibility");
 	document.getElementById("pictureBtn").focus();
 	decider = true;
 	counter = 10;
@@ -102,8 +102,8 @@ function mainFunc() {
 }
 
 function upFunc() {
-	upload.classList.toggle("uploadVisibility");
-	localURL.classList.toggle("uploadVisibility");
+	//upload.classList.toggle("uploadVisibility");
+	//localURL.classList.toggle("uploadVisibility");
 	up.classList.toggle("bts");
 }
 

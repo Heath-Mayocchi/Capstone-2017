@@ -1,7 +1,7 @@
 #up {
 	position: absolute;
-	margin-top: 8px;
-	margin-left: -280px;
+	margin-top: -9999px;
+	margin-left: -9999px;
 }
 
 .upC {
@@ -263,13 +263,22 @@
 	margin-right: 200px;
 }
 #postCommentButton:focus {
-	margin-top: -10px;
+	position: relative;
+    top: -10px;
+	left: -10px;
+	margin-right: -20px;
 }
 #pictureBtn:focus {
-	margin-top: -10px;
+	position: relative;
+    top: -10px;
+	margin-right: -20px;
+	margin-left: -20px;
 }
 #reactButtonPost:focus {
-	margin-top: -10px;
+	position: relative;
+    top: -10px;
+	right: -10px;
+	margin-left: -20px;
 }
 
 .upload {
