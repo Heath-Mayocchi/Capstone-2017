@@ -50,13 +50,12 @@ Author: David Mackenzie
 		<div id="searchDiv">
 		<button id="search_btn" class="button" onclick="admin_search(event)">Search</button>
 		<input type="text" id="searchBar" onkeyup="filter(event)" placeholder="Search for names..">
+		</div>
+		<div id="scollDiv">
+			<table id="userNameTable">
+				<?php require "php/view_my_friends.php";?>
+			</table>
 		</div>	
-
-			<div id="scollDiv">
-				<table id="userNameTable">
-					<?php require "php/view_my_friends.php";?>
-				</table>
-			</div>	
 		</div>
 	</section>
 
@@ -70,6 +69,7 @@ Author: David Mackenzie
 			<button class="button friendButton" id="view_friend_choose" onkeyup="viewFriendBtnChoose(event)">Choose<br>Friend</button>
 		</div>
 	</footer>
+
 	<script src="js/viewFriends.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </body>

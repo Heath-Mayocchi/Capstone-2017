@@ -23,12 +23,15 @@ Author: David Mackenzie
     margin-top: 20px;
 }
 
-#user_profile {
+/*#user_profile {
     display: inline-block; 
     width: 50%;
     margin-right: 0px;
+}*/
+section {
+    margin-left: 200px;
+    margin-top: -10px;
 }
-
 
 #topright{
     float: right;
@@ -277,5 +280,36 @@ td {
 
 }
 #add_btn:focus {
+}
+
+footer {
+    margin-top: -20px;
+}
+/* post nav buttons */
+#postNavigationButtons {
+    margin-top: 35px;
+    display: block;
+}
+#view_friend_all {
+    float: left;
+    margin-left: 200px;
+}
+#view_friend_next {
+    text-align: center;
+}
+#view_friend_choose {
+    float: right;
+    margin-right: 200px;
+}
+#view_friend_all:focus {
+    margin-top: -10px;
+    margin-right: -20px;
+}
+#view_friend_next:focus {
+    margin-top: -10px;
+}
+#view_friend_choose:focus {
+    margin-top: -10px;
+    margin-left: -20px;
 }
 

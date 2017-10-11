@@ -11,7 +11,7 @@ function init()
 {
     rowHighlight = 0;
     var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "#19D74F";
+  theTable[rowHighlight].style.background = "#FF6B6B";
   theTable[rowHighlight].style.border = "2px solid #ffff00";  
   filter(event);    
 }
@@ -46,7 +46,7 @@ function filter(event) {
     }       
   }
 
-  visibleRows[rowHighlight].style.background = "#19D74F";
+  visibleRows[rowHighlight].style.background = "#FF6B6B";
   visibleRows[rowHighlight].scrollIntoView(false);
   visibleRows[rowHighlight].style.margin = "0px";
   visibleRows[rowHighlight].style.border = "2px solid #ffff00";
@@ -105,7 +105,7 @@ function viewFriendBtnNext(event){
           rowHighlight = 0;        
         }
 
-        theTable[rowHighlight].style.background = "#19D74F";
+        theTable[rowHighlight].style.background = "#FF6B6B";
         theTable[rowHighlight].style.margin = "0px";
         theTable[rowHighlight].style.border = "2px solid #ffff00";
 
