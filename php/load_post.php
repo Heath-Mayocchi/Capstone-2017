@@ -32,6 +32,7 @@
     foreach ($result as $post) {
         $previous = $post->postID;
     }
+
     if (!isset($previous)){
         $query = "select postID from posts ORDER BY postID DESC LIMIT 1";
         $stmt = $conn->prepare($query); 
@@ -40,7 +41,7 @@
         $result = $stmt->fetchAll();
         foreach ($result as $post) {
             $q = $post->postID;
-        }
+    }
         
         $query = "select * from posts where postID = (select min(postID) from posts where postID < $q);";
         $stmt = $conn->prepare($query); 
@@ -52,17 +53,17 @@
         }
     }
 
-    if ($q == 1) {
-        $query = "select postID from posts ORDER BY postID DESC LIMIT 1";
-        $stmt = $conn->prepare($query); 
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $result = $stmt->fetchAll();
-        foreach ($result as $post) {
-            $next = $post->postID;
-        }
-    } else {
-        $query = "select * from posts where postID = (select max(postID) from posts where postID < $q);";
+    $query = "select * from posts where postID = (select max(postID) from posts where postID < $q);";
+    $stmt = $conn->prepare($query); 
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $result = $stmt->fetchAll();
+    foreach ($result as $post) {
+        $next = $post->postID;
+    }
+
+    if (!isset($next)){
+        $query = "select postID from posts ORDER BY postID DESC LIMIT 1;";
         $stmt = $conn->prepare($query); 
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_OBJ);
