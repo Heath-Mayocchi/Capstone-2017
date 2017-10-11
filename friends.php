@@ -64,13 +64,14 @@ Author: David Mackenzie
 			<p>View posts from All Friends, or Choose a Friend to view only their posts</p>
 		</div>		
 		<div id="viewFriendNavigationButtons">
-			<button class="button friendButton" id="view_friend_all" onkeyup="viewFriendBtnAll(event)" autofocus>All<br>Friends</button>
-			<button class="button friendButton" id="view_friend_next" onkeyup="viewFriendBtnNext(event)">Next<br>Friend</button>
-			<button class="button friendButton" id="view_friend_choose" onkeyup="viewFriendBtnChoose(event)">Choose<br>Friend</button>
+			<button class="button friendButton" id="view_friend_all" onkeyup="viewFriendBtnAll(event)" onclick="viewFriendClickAll()" autofocus>All<br>Friends</button>
+			<button class="button friendButton" id="view_friend_next" onkeyup="viewFriendBtnNext(event)" onclick="viewFriendClickNext()">Next<br>Friend</button>
+			<button class="button friendButton" id="view_friend_choose" onkeyup="viewFriendBtnChoose(event)" onclick="viewFriendClickChoose()">Choose<br>Friend</button>
 		</div>
 	</footer>
 
 	<script src="js/viewFriends.js" type="text/javascript"></script>
+	<script src="js/user_login.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 </body>
 

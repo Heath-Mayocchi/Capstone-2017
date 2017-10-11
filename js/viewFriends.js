@@ -7,14 +7,6 @@ var rowHighlight = 0;
 var visibleRowCount = 0;
 var visibleRows = [];
 
-function init() 
-{
-    rowHighlight = 0;
-    var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
-  theTable[rowHighlight].style.background = "#FF6B6B";
-  theTable[rowHighlight].style.border = "2px solid #ffff00";  
-  filter(event);    
-}
 
 window.onload=init;
 
@@ -82,7 +74,11 @@ function viewFriendBtnAll(event){
     }
     // if key pressed is the enter key
     if (key == selectElement){
+      // TODO
     }   
+}
+function viewFriendClickAll(){
+  // TODO
 }
 
 function viewFriendBtnNext(event){
@@ -121,6 +117,33 @@ function viewFriendBtnNext(event){
         console.log(theTable.length);
     }   
 }
+function viewFriendClickNext(){
+        var theTable = visibleRows;
+        theTable[rowHighlight].style.background = "white";
+        theTable[rowHighlight].style.margin = "20px";
+        theTable[rowHighlight].style.border = "0px";
+
+        if(rowHighlight < visibleRowCount - 1) {
+          rowHighlight++;
+        }else {
+          rowHighlight = 0;        
+        }
+
+        theTable[rowHighlight].style.background = "#FF6B6B";
+        theTable[rowHighlight].style.margin = "0px";
+        theTable[rowHighlight].style.border = "2px solid #ffff00";
+
+        theTable[rowHighlight].scrollIntoView(false);
+        var str = theTable[rowHighlight].outerHTML.toString();
+        if (str.indexOf('remove') > -1) {
+            document.getElementById("select_btn").innerText="Remove";
+        }
+        else {
+            document.getElementById("select_btn").innerText="Add";
+        }
+        console.log(rowHighlight);
+        console.log(theTable.length);  
+}
 
 function viewFriendBtnChoose(event){
     var key = event.which;
@@ -131,7 +154,11 @@ function viewFriendBtnChoose(event){
     }
     // if key pressed is the enter key
     if (key == selectElement){
+      // TODO
     }   
+}
+function viewFriendClickChoose(){
+  // TODO
 }
 
 /* 

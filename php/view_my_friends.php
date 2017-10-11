@@ -31,5 +31,18 @@
 		
 		echo "</tr>";
 	}	
+	echo "<tr>";
+
+	echo "<td width=65px>";
+	echo '<img src="';
+	echo "img/profile-placeholder.png";
+	echo '" class="userPic">';
+	echo "</td>";
+
+	echo '<td class="rowName">  ';
+	echo "Add some friends...";
+	echo "</td>";
+	
+	echo "</tr>";
 	$conn = null;
 ?>
