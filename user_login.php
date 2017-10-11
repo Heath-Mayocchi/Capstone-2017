@@ -71,7 +71,7 @@ Author: David Mackenzie
 
 		    <div class="container" style="background-color:#f1f1f1">
 		      <button class="button" id="student_login" onkeydown="loginBtnStudentLogin(event)" type="submit" name="studentLoginBtn">Login</button>
-		      <button class="button" id="student_cancel" onkeydown="loginBtnStudentCancel(event)" type="reset">Cancel</button>
+		      <button class="button" id="student_cancel" onkeydown="loginBtnStudentCancel(event)" onclick="loginClickStudentCancel()">Cancel</button>
 		    </div>
 		  </form>
 		</div>
@@ -97,7 +97,7 @@ Author: David Mackenzie
 
 		    <div class="container" style="background-color:#f1f1f1">
 		      <button class="button" id="admin_login" onkeydown="loginBtnAdminLogin(event)" type="submit" name="adminLoginBtn">Login</button>
-		      <button class="button" id="admin_cancel" onkeydown="loginBtnAdminCancel(event)" type="reset">Cancel</button>
+		      <button class="button" id="admin_cancel" onkeydown="loginBtnAdminCancel(event)" onclick="loginClickStudentCancel()">Cancel</button>
 		    </div>
 		  </form>
 		</div>
@@ -108,9 +108,9 @@ Author: David Mackenzie
 	</body>
 
 		<div id="loginNavigationButtons">
-			<button class="button" id="previous_btn" onkeydown="loginBtnPrevious(event)" onclick="">Previous</button>
-			<button class="button" id="next_btn" autofocus onkeydown="loginBtnNext(event)" onclick="">Next</button>
-			<button class="button" id="select_btn" onkeydown="loginBtnSelect(event)">Select</button>
+			<button class="button" id="previous_btn" onkeydown="loginBtnPrevious(event)" onclick="loginClickPrevious()">Previous</button>
+			<button class="button" id="next_btn" autofocus onkeydown="loginBtnNext(event)" onclick="loginClickNext()">Next</button>
+			<button class="button" id="select_btn" onkeydown="loginBtnSelect(event)" onclick="loginClickSelect()">Choose</button>
 		</div>	
 
 </html>

@@ -151,6 +151,31 @@ function loginBtnNext(event) {
 
   }
 }
+function loginClickNext(){
+    var theTable = visibleRows;
+    theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
+
+    if( rowHighlight<visibleRowCount-1 )
+    {
+
+      rowHighlight++;
+
+    }else
+    {
+      rowHighlight=0;
+    
+    }
+    theTable[rowHighlight].style.background = "#ff6b6b";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
+    theTable[rowHighlight].scrollIntoView(false);
+
+    console.log(rowHighlight);
+    console.log(theTable.length);  
+}
+
 function loginBtnPrevious(event) {
   event.preventDefault();
     var key = event.which;
@@ -187,6 +212,27 @@ function loginBtnPrevious(event) {
     //plusComment(1); //this is for the latest comment
   }
 }
+function loginClickPrevious(){
+    var theTable = visibleRows;
+    theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
+
+    if( rowHighlight>0 )
+    {
+      rowHighlight--;
+    }else
+    {
+      rowHighlight=visibleRowCount-1;
+    }
+
+    theTable[rowHighlight].style.background = "#ff6b6b";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
+    theTable[rowHighlight].scrollIntoView(false);    
+    console.log(rowHighlight);
+    console.log(theTable.length);  
+}
 
 function loginBtnSelect(event) {
   event.preventDefault();
@@ -203,6 +249,11 @@ function loginBtnSelect(event) {
     theTable[rowHighlight].onclick();
     key.stopPropagation();
   } 
+}
+function loginClickSelect(){  
+    var theTable = visibleRows;    
+    theTable[rowHighlight].onclick();
+    key.stopPropagation();
 }
 
 /* 
@@ -228,7 +279,7 @@ function loginBtnStudentLogin(event){
       document.getElementById("student_cancel").focus();      
   }
   if (key == selectElement){
-    document.getElementById("student_form").submit();
+    document.getElementById("student_login").submit();
   } 
 }
 
@@ -243,6 +294,9 @@ function loginBtnStudentCancel(event){
       cancel_login(event);
     }
   }
+}
+function loginClickStudentCancel(){
+  cancel_login(event);  
 }
 
 function loginBtnAdminLogin(event){
