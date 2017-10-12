@@ -57,6 +57,7 @@
 	"postPicture" => $file
 	));
 	
-	header("location: ../create_post.php?Posted_Successfully");
+	$_SESSION['postID'] = $conn->lastInsertId();
+	header("location: ../view_feed.php");
 	exit();
  ?>
