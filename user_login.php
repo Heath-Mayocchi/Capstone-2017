@@ -70,7 +70,7 @@ Author: David Mackenzie
 		    </div>
 
 		    <div class="container" style="background-color:#f1f1f1">
-		      <button class="button" id="student_login" onkeydown="loginBtnStudentLogin(event)" type="submit" name="studentLoginBtn">Login</button>
+		      <button class="button" id="student_login" onkeyup="loginBtnStudentLogin(event)" type="submit" name="studentLoginBtn">Login</button>
 		      <button class="button" id="student_cancel" onkeydown="loginBtnStudentCancel(event)" onclick="loginClickStudentCancel()">Cancel</button>
 		    </div>
 		  </form>
