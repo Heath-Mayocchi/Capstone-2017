@@ -40,7 +40,7 @@
 	echo "</td>";
 
 	echo '<td class="rowName">  ';
-	echo "Add some friends...";
+	echo '<a href="new_friends.php?userID='; echo $userOne; echo '">Add some friends...</a>';
 	echo "</td>";
 	
 	echo "</tr>";

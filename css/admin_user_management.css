@@ -78,7 +78,7 @@ section {
 	background-color: white;
 	margin-left: 190px;	
 	width: 700px;
-	height: 160px;
+	height: 320px;
 	border: 2px solid black;
 	margin-top: 30px;
 	border-radius: 50px;
@@ -89,7 +89,7 @@ section {
 	background-color: white;
 	left: 10px;
 	width: 500px;
-	height: 160px;
+	height: 320px;
 	overflow: auto;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;

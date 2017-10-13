@@ -9,7 +9,9 @@ Author: Heath Mayocchi
 Author: Levinard Hugo
 Author: David Mackenzie
 */
-
+td a { 
+   display: block; 
+}
 
 .friendButton {
     height: 55px;    

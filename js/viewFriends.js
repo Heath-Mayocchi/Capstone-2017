@@ -1,7 +1,9 @@
 
+
 // variables for key presses
 var nextElement = 32; // spacebar
 var selectElement = 13; // enter key
+var leftclick = 1;
 
 var rowHighlight = 0;
 var visibleRowCount = 0;
@@ -82,41 +84,51 @@ function viewFriendClickAll(){
 }
 
 function viewFriendBtnNext(event){
-    var key = event.which;
-    // if key pressed is the spacebar
-    if (key == nextElement){    
-        document.getElementById("view_friend_next").blur();
-        document.getElementById("view_friend_choose").focus();
+  event.preventDefault();
+  var key = event.which;
+  // if key pressed is the spacebar
+  if (key == nextElement){    
+      document.getElementById("view_friend_next").blur();
+      document.getElementById("view_friend_choose").focus();
+  }
+  // if key pressed is the enter key, view next post
+  if ((key == selectElement)||(key == leftclick)){ 
+
+    //var theTable = document.getElementById("userNameTable").getElementsByTagName("tr");
+    var theTable = visibleRows;
+    theTable[rowHighlight].style.background = "white";
+    theTable[rowHighlight].style.margin = "20px";
+    theTable[rowHighlight].style.border = "0px";
+
+    if( rowHighlight<visibleRowCount-1 )
+    {
+
+      rowHighlight++;
+
+    }else
+    {
+      rowHighlight=0;
+    
     }
-    // if key pressed is the enter key
-    if (key == selectElement) {
-        var theTable = visibleRows;
-        theTable[rowHighlight].style.background = "white";
-        theTable[rowHighlight].style.margin = "20px";
-        theTable[rowHighlight].style.border = "0px";
+    theTable[rowHighlight].style.background = "#ff6b6b";
+    theTable[rowHighlight].style.margin = "0px";
+    theTable[rowHighlight].style.border = "2px solid #ffff00";
 
-        if(rowHighlight < visibleRowCount - 1) {
-          rowHighlight++;
-        }else {
-          rowHighlight = 0;        
-        }
+    theTable[rowHighlight].scrollIntoView(false);
+  var str = theTable[rowHighlight].outerHTML.toString();
+  if (str.indexOf('remove') > -1) 
+  {
+    document.getElementById("select_btn").innerText="Remove Friend";
+  }
+  else
+  {
+    document.getElementById("select_btn").innerText="Add Friend";
+  }
+    console.log(rowHighlight);
+    console.log(theTable.length);
 
-        theTable[rowHighlight].style.background = "#FF6B6B";
-        theTable[rowHighlight].style.margin = "0px";
-        theTable[rowHighlight].style.border = "2px solid #ffff00";
-
-        theTable[rowHighlight].scrollIntoView(false);
-        var str = theTable[rowHighlight].outerHTML.toString();
-        if (str.indexOf('remove') > -1) {
-            document.getElementById("select_btn").innerText="Remove";
-        }
-        else {
-            document.getElementById("select_btn").innerText="Add";
-        }
-        console.log(rowHighlight);
-        console.log(theTable.length);
-    }   
-}
+  }
+}  
 function viewFriendClickNext(){
         var theTable = visibleRows;
         theTable[rowHighlight].style.background = "white";

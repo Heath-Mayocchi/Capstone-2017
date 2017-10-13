@@ -65,7 +65,7 @@ Author: David Mackenzie
 		</div>		
 		<div id="viewFriendNavigationButtons">
 			<button class="button friendButton" id="view_friend_all" onkeyup="viewFriendBtnAll(event)" onclick="viewFriendClickAll()" autofocus>All<br>Friends</button>
-			<button class="button friendButton" id="view_friend_next" onkeyup="viewFriendBtnNext(event)" onclick="viewFriendClickNext()">Next<br>Friend</button>
+			<button class="button friendButton" id="view_friend_next" onkeydown="viewFriendBtnNext(event)" onclick="viewFriendClickNext()">Next<br>Friend</button>
 			<button class="button friendButton" id="view_friend_choose" onkeyup="viewFriendBtnChoose(event)" onclick="viewFriendClickChoose()">Choose<br>Friend</button>
 		</div>
 	</footer>
