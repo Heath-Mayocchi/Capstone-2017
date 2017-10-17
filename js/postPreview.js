@@ -10,7 +10,6 @@ var picM = document.querySelector("#picM");	// This is the one used to send the 
 var upload = document.querySelector(".upload");
 var uploadURL = document.querySelector("#uploadURL");
 var localURL = document.querySelector("#uploadLocal");
-var up = document.querySelector("#up");
 
 var theSource;
 var isTrue = false;
@@ -45,10 +44,53 @@ function pictureButtonFunc() {
 		textArea.classList.toggle("textBig");
 		textArea.classList.toggle("textSmall");
 	}
+	document.getElementById("pictureBtn").blur();
 	modal.classList.toggle("hideModal");
+	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
 	checker();
 }
 
+function selectPicture() {
+	if (document.getElementById("uploadURL").value != ""){
+		displayPic.src = document.getElementById("uploadURL").value;
+	} else {
+		displayPic.src = theSource;
+	}
+
+	modal.classList.add("hideModal");
+	displayPic.style.display = "block";
+	isTrue = true;
+	document.getElementById("pictureBtn").focus();
+	picM.value = displayPic.src;
+	checker();
+	decider = true;
+	counter = 10;
+	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
+}
+
+function selectPicture2(e) {
+		if (document.getElementById("uploadURL").value != ""){
+			displayPic.src = document.getElementById("uploadURL").value;
+		} else {
+			displayPic.src = theSource;
+		}
+		modal.classList.add("hideModal");
+		displayPic.style.display = "block";
+		isTrue = true;
+		picM.value = displayPic.src;
+		checker();
+		decider = true;
+		counter = 10;
+		upload.classList.toggle("uploadVisibility");
+		localURL.classList.toggle("uploadVisibility");
+		e.preventDefault();
+		e.stopPropagation();
+		document.getElementById("pictureBtn").focus();
+}
+
+/*
 function selectButtonFunc() {
 	// Function for the select button, which is the button that opens along with the modal
 	if (document.getElementById("uploadURL").value != ""){
@@ -69,16 +111,15 @@ function selectButtonFunc() {
 	decider = true;
 	counter = 10;
 
-}
+}		*/
 
 function cancelButtonFunc() {
 	modal.classList.toggle("hideModal");
-	//upload.classList.toggle("uploadVisibility");
-	//localURL.classList.toggle("uploadVisibility");
+	upload.classList.toggle("uploadVisibility");
+	localURL.classList.toggle("uploadVisibility");
 	document.getElementById("pictureBtn").focus();
 	decider = true;
 	counter = 10;
-
 	displayPic.src = "#";
 	picM.value = "";
 	displayPic.style.display = "none";
@@ -88,6 +129,7 @@ function cancelButtonFunc() {
 		textArea.classList.toggle("textBig");
 		textArea.classList.toggle("textSmall");
 	}
+	checker();
 }
 
 /* This is the main function, which runs everything on the page.
@@ -95,16 +137,9 @@ function cancelButtonFunc() {
 function mainFunc() {
 	// Event listeners
 	pictureButton.addEventListener("click", pictureButtonFunc);			//	Button for the picture to show the 6 pictures	
-	selectButton.addEventListener("click", selectButtonFunc);			//	Select button for the pictures 
+	//selectButton.addEventListener("click", selectButtonFunc);			//	Select button for the pictures 
 	cancelButton.addEventListener("click", cancelButtonFunc);
-	up.addEventListener("click", upFunc);
 	reactButtonPoster();
-}
-
-function upFunc() {
-	//upload.classList.toggle("uploadVisibility");
-	//localURL.classList.toggle("uploadVisibility");
-	up.classList.toggle("bts");
 }
 
 // If a user decides to select a pre-uploaded picture,
@@ -146,6 +181,8 @@ images.push(selectButton);
 images.push(cancelButton);
 var counter = 10;
 
+var zFocused = (document.activeElement === pictureButton);
+
 // If spacebar is pressed and decider is false (meaning the modal is showing)
 window.addEventListener("keydown", function (e) {
 	if (e.keyCode == "32" && decider == false) {
@@ -157,27 +194,20 @@ window.addEventListener("keydown", function (e) {
 
 		} else if (counter === 5) {
 			resetColor();
-			counter++;
+			counter += 2;
 			images[counter].focus();
 			e.preventDefault();
-			counter++;
 
-		} else if (counter === images.length - 1) {
+		} else if (counter === 7) {
 			resetColor();
-			images[counter].focus();
-			e.preventDefault();
-			counter++;
-
-		} else if (counter > images.length - 1) {
-			resetColor();
-			images[counter - 1].blur();
 			counter = 0;
-			images[counter].classList.add("imageHover");
 			e.preventDefault();
-		}
+			images[7].blur();
+			images[counter].classList.add("imageHover");
+		} 
 	}
 
-	if (e.keyCode == "13" && counter == 10 ) {
+	if (e.keyCode == "13" && counter == 10) {
 		counter = 0;
 		images[0].classList.add("imageHover");
 		
@@ -185,51 +215,56 @@ window.addEventListener("keydown", function (e) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
-		
+
+
+		selectPicture2(e);
 
 	} else if ((e.keyCode == "13" && decider == false) && counter == 1) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
 		
+		selectPicture2(e);
 
 	} else if ((e.keyCode == "13" && decider == false) && counter == 2) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
 		
+		selectPicture2(e);
 
 	} else if ((e.keyCode == "13" && decider == false) && counter == 3) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
 		
+		selectPicture2(e);
 
 	} else if ((e.keyCode == "13" && decider == false) && counter == 4) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
 		
+		selectPicture2(e);
 
 	} else if ((e.keyCode == "13" && decider == false) && counter == 5) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
-		
+
+		selectPicture2(e);
 	}
 });
 
 
-/***	Below is for clicking the pictures, I made much better version early on the sem,
-		But now I have to work with the navigating using 'space' made this whole thing 
-		a bit complicated. At the moment, it works properly, but it doesn't look good.
-		I might fix if I have more time. But leave leave this be for now, since it works.	***/	
+/***	Below is for clicking the pictures, **/
 		images[0].addEventListener("click", function() {
 				counter = 0;
 				theSource = this.src;
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});
 		images[1].addEventListener("click", function() {
 				counter = 1;
@@ -237,6 +272,7 @@ window.addEventListener("keydown", function (e) {
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});
 		images[2].addEventListener("click", function() {
 				counter = 2;
@@ -244,6 +280,7 @@ window.addEventListener("keydown", function (e) {
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});
 		images[3].addEventListener("click", function() {
 				counter = 3;
@@ -251,6 +288,7 @@ window.addEventListener("keydown", function (e) {
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});
 		images[4].addEventListener("click", function() {
 				counter = 4;
@@ -258,6 +296,7 @@ window.addEventListener("keydown", function (e) {
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});
 		images[5].addEventListener("click", function() {
 				counter = 5;
@@ -265,6 +304,7 @@ window.addEventListener("keydown", function (e) {
 				resetColor();
 				resetColor2();
 				this.id = "imageSelected";
+				selectPicture();
 		});	
 /*********************************************************************************/
 /*********************************************************************************/
@@ -364,12 +404,12 @@ function postSubmitButton(event){
 
 /****************************************************************************/
 /******************* TEXT AREA VALIDATION ***********************************/
+/*
 
 function validate() {
 	var errorMSG = document.querySelector("#errorMSG");
 	if (textArea.value == "") {
 		errorMSG.style.visibility = "visible";
-		//textArea.focus();
 		return false;
 	}
 }
@@ -381,5 +421,5 @@ function hideError() {
 		errorMSG.style.visibility = "hidden";
 		return false;
 	}
-}
+}	*/
 /****************************************************************************/

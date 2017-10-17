@@ -28,10 +28,10 @@ Author: David MacKenzie
 	<link rel="stylesheet" type="text/css" href="css/postPreview.css">
 </head>
 <body class="wrapper">
-	
+	<!--
 	<div id="errorMSG">
 		Please Enter a comment.
-	</div>
+	</div>	-->
 
 	<header>
 		<button class="button" id="post_back_btn" onclick="backBtn()" onkeydown="postBtnBack(event)">Back</button>
@@ -50,7 +50,7 @@ Author: David MacKenzie
 				<button id="cancelPicButton">Cancel</button>
 				<button id="selectPicButton">Select</button>
 			</div>
-			<form action="php/savePost.php" id="postSubmit" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+			<form action="php/savePost.php" id="postSubmit" method="POST" enctype="multipart/form-data">
 				<textarea id="postComment" name="userPostContent" placeholder="Enter comment... (max 90 characters)" class="textBig"></textarea>
 
 				<!--This one is for sending pre-uploaded pictures *DON'T TOUCH*	-->
@@ -75,8 +75,6 @@ Author: David MacKenzie
 
 		</div>
 	</div>
-
-	<button id="up" class="upC">Upload</button>
 
 	<div class="upload uploadVisibility">
 		Insert URL to Upload Pictures or Videos<br>
