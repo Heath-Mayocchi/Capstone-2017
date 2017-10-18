@@ -26,7 +26,8 @@
 
 		/************** Inside is the process of turning DD-MM-YYYY into YYYY-MM-DD ***************/
 		$dob = strip_tags($_POST['dob']);
-		$dob = str_replace(' ', '', $dob);		
+		$dob = str_replace(' ', '', $dob);
+		$dob = str_replace('/', '-', $dob);		
 
 		$dob = explode('-', $dob, 2);
 		$dobDay = $dob[0];

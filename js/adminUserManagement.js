@@ -66,8 +66,8 @@ function validate() {
 		firstName.focus();
 		return false;
 
-	} else if (!firstName.value.match(/^[a-zA-Z]*$/)) {
-		firstNameError.textContent = "First name can only contain letters";
+	} else if (!firstName.value.match(/^[a-z-A-Z]*$/)) {
+		firstNameError.textContent = "First name can only contain letters and hyphens";
 		firstName.style.border = "2px solid red";
 		firstNameError.style.color = "#e20b0b";
 		firstName.focus();
@@ -81,8 +81,8 @@ function validate() {
 		lastName.focus();
 		return false;
 
-	} else if (!lastName.value.match(/^[a-zA-Z]*$/)) {
-		lastNameError.textContent = "Last name can only contain letters";
+	} else if (!lastName.value.match(/^[a-z-A-Z]*$/)) {
+		lastNameError.textContent = "Last name can only contain letters and hyphens";
 		lastName.style.border = "2px solid red";
 		lastNameError.style.color = "#e20b0b";
 		lastName.focus();
@@ -97,8 +97,8 @@ function validate() {
 	// Heaths Regex 			/^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[- /.]([0-9]|1[0-2]|0[1-9])[- /.]((19|20)\d\d|[0-9]{2,2})$/i
 	// Regex for YYYY-MM-DD 	/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/
 
-	} else if (!dob.value.match((/^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[-]([0-9]|1[0-2]|0[1-9])[-]((19|20)\d\d|[0-9]{2,2})$/i))) {
-		dobError.textContent = "Correct format is DD-MM-YYYY";
+	} else if (!dob.value.match((/^([1-9]|0[1-9]|[1-2][0-9]|3[0-1])[[\/-]([0-9]|1[0-2]|0[1-9])[\/-]((19|20)\d\d|[0-9]{2,2})$/i))) {
+		dobError.textContent = "Correct format is DD-MM-YYYY or DD/MM/YYYY";
 		dob.style.border = "2px solid red";
 		dobError.style.color = "#e20b0b";
 		dob.focus();
@@ -153,7 +153,7 @@ function validate() {
 }
 
 function firstNameVerify() {
-	if (firstName.value.match(/^[a-zA-Z]*$/)) {
+	if (firstName.value.match(/^[a-z-A-Z]*$/)) {
 		firstName.style.border = "";
 		firstNameError.textContent = "";
 		return true;
@@ -161,7 +161,7 @@ function firstNameVerify() {
 }
 
 function lastNameVerify() {
-	if (lastName.value.match(/^[a-zA-Z]*$/)) {
+	if (lastName.value.match(/^[a-z-A-Z]*$/)) {
 		lastName.style.border = "";
 		lastNameError.textContent = "";
 		return true;
