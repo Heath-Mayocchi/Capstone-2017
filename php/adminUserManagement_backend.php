@@ -17,11 +17,11 @@
 		$error = array();	// error array
 
 		$fName = strip_tags($_POST['firstName']);	// removes html tags i.e. <a>
-		$fName = str_replace(' ', '', $fName);		// removes spaces
+		//$fName = str_replace(' ', '', $fName);		// removes spaces
 		$fName = ucfirst(strtolower($fName));		// turns first letter into capital
 
 		$lName = strip_tags($_POST['lastName']);
-		$lName = str_replace(' ', '', $lName);
+		//$lName = str_replace(' ', '', $lName);
 		$lName = ucfirst(strtolower(($lName)));
 
 		/************** Inside is the process of turning DD-MM-YYYY into YYYY-MM-DD ***************/

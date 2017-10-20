@@ -66,7 +66,7 @@ function validate() {
 		firstName.focus();
 		return false;
 
-	} else if (!firstName.value.match(/^[a-z-A-Z]*$/)) {
+	} else if (!firstName.value.match(/^[a-z-A-Z ]*$/)) {
 		firstNameError.textContent = "First name can only contain letters and hyphens";
 		firstName.style.border = "2px solid red";
 		firstNameError.style.color = "#e20b0b";
@@ -81,7 +81,7 @@ function validate() {
 		lastName.focus();
 		return false;
 
-	} else if (!lastName.value.match(/^[a-z-A-Z]*$/)) {
+	} else if (!lastName.value.match(/^[a-z-A-Z ]*$/)) {
 		lastNameError.textContent = "Last name can only contain letters and hyphens";
 		lastName.style.border = "2px solid red";
 		lastNameError.style.color = "#e20b0b";
