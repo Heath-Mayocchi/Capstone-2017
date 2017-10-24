@@ -11,9 +11,13 @@ var upload = document.querySelector(".upload");
 var uploadURL = document.querySelector("#uploadURL");
 var localURL = document.querySelector("#uploadLocal");
 
+
 var theSource;
 var isTrue = false;
+var disable = false;
 var number = 0;
+
+var isUpload = false;	// If upload local is true, don't disable the upload 
 
 mainFunc();	// Calls main function
 
@@ -37,7 +41,35 @@ function resetColor2() {
 }
 
 
+
+/***	For previewing the picture from local upload	***/
+$("#uploadLocal").change(function() {
+		displayPic.src = window.URL.createObjectURL(this.files[0]);
+
+		modal.classList.add("hideModal");
+		displayPic.style.display = "block";
+		isTrue = true;
+		document.getElementById("pictureBtn").focus();
+		picM.value = displayPic.src;
+		//checker();
+		decider = true;
+		counter = 10;
+		disable = false;
+		upload.classList.toggle("uploadVisibility");
+		localURL.classList.toggle("uploadVisibility");
+
+		isUpload = true;		// Set isUpload to true, so the upload form won't be disabled
+
+		/*		Disable uploadURL 	*/
+		upload.style.color = "Grey";
+		uploadURL.disabled = true;
+		uploadURL.placeholder = "";
+});
+
+/***	For previewing the picture from local upload	***/
+
 function pictureButtonFunc() {
+	disable = true;
 	decider = false;
 	// Used for toggling the textarea to be small or big depending if the user wants to use a picture
 	if (isTrue == false) {
@@ -48,7 +80,11 @@ function pictureButtonFunc() {
 	modal.classList.toggle("hideModal");
 	upload.classList.toggle("uploadVisibility");
 	localURL.classList.toggle("uploadVisibility");
-	checker();
+
+	/*	This means, if the user is trying to upload a picture locally, then don't disable the form for uploading locally	*/
+	if (isUpload == false) {
+		checker();
+	}
 }
 
 function selectPicture() {
@@ -66,6 +102,7 @@ function selectPicture() {
 	checker();
 	decider = true;
 	counter = 10;
+	disable = false;
 	upload.classList.toggle("uploadVisibility");
 	localURL.classList.toggle("uploadVisibility");
 }
@@ -83,35 +120,13 @@ function selectPicture2(e) {
 		checker();
 		decider = true;
 		counter = 10;
+		disable = false;
 		upload.classList.toggle("uploadVisibility");
 		localURL.classList.toggle("uploadVisibility");
 		e.preventDefault();
 		e.stopPropagation();
 		document.getElementById("pictureBtn").focus();
 }
-
-/*
-function selectButtonFunc() {
-	// Function for the select button, which is the button that opens along with the modal
-	if (document.getElementById("uploadURL").value != ""){
-		displayPic.src = document.getElementById("uploadURL").value;
-	} else {
-		displayPic.src = theSource;
-	}
-//	displayPic.src = document.getElementById("uploadURL").value;
-	modal.classList.add("hideModal");
-	displayPic.style.display = "block";
-	isTrue = true;
-	//pictureFocus = false;
-	document.getElementById("pictureBtn").focus();
-	picM.value = displayPic.src;
-	//upload.classList.toggle("uploadVisibility");
-	//localURL.classList.toggle("uploadVisibility");
-	checker();
-	decider = true;
-	counter = 10;
-
-}		*/
 
 function cancelButtonFunc() {
 	modal.classList.toggle("hideModal");
@@ -120,6 +135,7 @@ function cancelButtonFunc() {
 	document.getElementById("pictureBtn").focus();
 	decider = true;
 	counter = 10;
+	disable = false;
 	displayPic.src = "#";
 	picM.value = "";
 	displayPic.style.display = "none";
@@ -129,6 +145,7 @@ function cancelButtonFunc() {
 		textArea.classList.toggle("textBig");
 		textArea.classList.toggle("textSmall");
 	}
+	isUpload = false;
 	checker();
 }
 
@@ -207,7 +224,7 @@ window.addEventListener("keydown", function (e) {
 		} 
 	}
 
-	if (e.keyCode == "13" && counter == 10) {
+	if ((e.keyCode == "13" && counter == 10) && (disable === true)) {
 		counter = 0;
 		images[0].classList.add("imageHover");
 		
@@ -215,7 +232,6 @@ window.addEventListener("keydown", function (e) {
 		resetColor2();
 		theSource = images[counter].src;
 		images[counter].id = "imageSelected";
-
 
 		selectPicture2(e);
 
@@ -255,7 +271,6 @@ window.addEventListener("keydown", function (e) {
 		selectPicture2(e);
 	}
 });
-
 
 /***	Below is for clicking the pictures, **/
 		images[0].addEventListener("click", function() {
@@ -400,26 +415,3 @@ function postSubmitButton(event){
 		hiddenSubmit.click();
 	}	
 }
-
-
-/****************************************************************************/
-/******************* TEXT AREA VALIDATION ***********************************/
-/*
-
-function validate() {
-	var errorMSG = document.querySelector("#errorMSG");
-	if (textArea.value == "") {
-		errorMSG.style.visibility = "visible";
-		return false;
-	}
-}
-
-textArea.addEventListener("blur", hideError, true);
-
-function hideError() {
-	if (textArea.value != "") {
-		errorMSG.style.visibility = "hidden";
-		return false;
-	}
-}	*/
-/****************************************************************************/
